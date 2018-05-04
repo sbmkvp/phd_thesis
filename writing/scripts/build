@@ -4,10 +4,10 @@ cd $BASEDIR
 cd ..
 
 # Build the dissertation.
-xelatex dissertation
-bibtex dissertation
-xelatex dissertation
-xelatex dissertation
+xelatex -interaction=nonstopmode dissertation
+bibtex -interaction=nonstopmode dissertation
+xelatex-interaction=nonstopmode  dissertation
+xelatex -interaction=nonstopmode dissertation
 
 # Hide the log.
 mv "dissertation.log" ".logged"

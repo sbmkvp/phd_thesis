@@ -11,10 +11,10 @@
 
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{Dissertate}[2014/03/25 v2.0 Dissertate Class]
-\LoadClass[12pt, twoside, a4paper]{book}
-%
+\LoadClass[12pt, oneside, a4paper]{book}
+
 % Options
-%
+
 \RequirePackage{etoolbox}
 
 % Line spacing: dsingle/ddouble
@@ -61,12 +61,13 @@
     {\endoldenumerate\end{spacing}}
 
 % Text layout.
-\RequirePackage[width=5.75in,height=9.5in]{geometry}
+\RequirePackage[width=5.75in,height=9.25in,right=1.2in]{geometry}
 \usepackage{ragged2e}
 % \RaggedRight
 \RequirePackage{graphicx}
 \RequirePackage{fltpage}
 \usepackage{fixltx2e}
+\usepackage{lipsum}
 \parindent 12pt
 \RequirePackage{lettrine}
 \RequirePackage{setspace}
@@ -180,7 +181,7 @@
 \def\pdTwoSchool#1{\gdef\@pdTwoSchool{#1}}
 \def\pdTwoYear#1{\gdef\@pdTwoYear{#1}}
 % School name and location
-\university{UCL}
+\university{University College London}
 \universitycity{London}
 \universitystate{United Kingdom}
 
@@ -251,7 +252,7 @@
 		been derived from other sources, I confirm \\
 		that this has been indicated in the thesis.\\
 	\vspace{20pt}
-	\makebox[0.5\columnwidth]{\dotfill}\\
+	\makebox[0.25\columnwidth]{\dotfill}\\
 	\vspace{70pt}
 	\@degreemonth, \@degreeyear\\
 	\@department \\
@@ -299,7 +300,7 @@
 	\addcontentsline{toc}{chapter}{Acknowledgments}
 	\chapter*{Acknowledgments}
 	\noindent
-	\input{frontmatter/thanks}
+	\input{frontmatter/acknowledgement}
 	\vspace*{\fill} \newpage
 }
 
@@ -307,16 +308,15 @@
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Preface}
 	\chapter*{Abstract}
-	\input{frontmatter/preface}
+	\input{frontmatter/abstract}
 }
 
 \newcommand{\abstractpage}{
 	\phantomsection
 	\addcontentsline{toc}{chapter}{Abstract}
 	\chapter*{Impact Statement}
-	\input{frontmatter/abstract}
+	\input{frontmatter/impactstatement}
 }
-
 
 \renewcommand{\backmatter}{
     \begin{appendices}
@@ -328,5 +328,3 @@
     \addcontentsline{toc}{chapter}{References}
     \bibliographystyle{apalike2}
 }
-
-
