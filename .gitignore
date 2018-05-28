@@ -1,0 +1,6 @@
+*.lot
+*.aux
+*.out
+*.lof
+*.toc
+.logged
