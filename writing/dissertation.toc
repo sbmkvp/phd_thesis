@@ -10,4 +10,3 @@
 \contentsline {chapter}{\numberline {4}Introduction}{51}{chapter.4}
 \contentsline {chapter}{\numberline {5}Conclusion}{54}{chapter.5}
 \contentsline {chapter}{Appendix \numberline {A}Some extra stuff}{57}{Appendix.1.A}
-\contentsline {chapter}{References}{60}{chapter*.17}

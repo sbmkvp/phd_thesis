@@ -1,0 +1,19 @@
+ My choice of distro is Arch Linux. I have experimented with few distros (Debian, Ubuntu, Elementary, RHEL and CentOS) but I haven't moved to anything else since the day I started using Arch Linux. It is the lightest, simplest and most straight forward operating system I have ever seen. Just getting the OS installed taught me so much about how individual components of Linux work. To begin with, the arch philosophy is to give the user as less as possible from which he can build the system to his needs. Of course the "OG" way to do this would be to compile the OS yourself and compile programs you need from source, but seriously? Is there anyone who is willing to maintain his workstation this way?Arch Linux provides one step ahead of this. You get a Linux kernel and really basic set of tools to start (the base group doesn't even has vim - just vi). This works out excellent for me. After doing things the other way around - installing ubuntu or some distro and removing things which I don't want, I finally found something where I can just get the things I need.
+
+ Installation:
+
+ The installation consists of three things - 1) Setting up environment for live media 2) set up the disk 2) Install and configure base system
+
+1) Setting up environment - The arch installation media is just a live linux system with a zsh shell. To be able to do the rest of the process we need to set up the keyboard, language, timezone etc, connect to internet using dhcpd (this is tricky if you have no ethernet).
+
+2) Set up the disks - This is where we modify the hard disk to our requirement, There are different ways of partition the system but the simplest way is to boot with legacy mode from bios and use a DOS partition table. Make two partitions one for the system (Linux) and one for swap (Linux/Solaris swap). There are lot of best practices here such as keeping the home drive in a different partition, encrypting volumes etc etc. but for a simple installation on my office desk, none of this is needed. If you have a lot of memory and don't want hibernation, the swap partition is not needed as well.
+
+3) Install and configure - Lastly we mount the disk(s) and install base group of packages on it. Then we chroot into the installed system and set up keyboard, language, encoding, bootloader (grub) so that the system can boot by itself. Finally write the disks /boot folder with genfstab so that it gets mounted automatically on boot. When we remove the installation media and boot, we get a Linux system which has nothing but very basic things.
+
+From here we can add every little thing we need one by one as we go along to make a system which is tailored to the exact needs of the user.
+
+Advantages of Arch:
+
+1) Minimalism - Literally every thing I have been saying until now.
+
+2) Package management - Package management through pacman and yaourt is amazingly good. There is nothing I have found not available to my use. 

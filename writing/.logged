@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Arch Linux) (preloaded format=xelatex 2018.5.1)  3 MAY 2018 17:52
+This is XeTeX, Version 3.14159265-2.6-0.99998 (TeX Live 2017/Arch Linux) (preloaded format=xelatex 2018.3.4)  17 MAY 2018 16:04
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1225,12 +1225,18 @@ File: mt-ppl.cfg 2005/11/16 v1.6 microtype config. file: Palatino (RS)
 (./frontmatter/acknowledgement.tex
 LaTeX Font Info:    Font shape `TU/EBGaramond(2)/m/sc' will be
 (Font)              scaled to size 12.0pt on input line 4.
-) [2
+)
+Overfull \hbox (4.36679pt too wide) in paragraph at lines 4--9
+\TU/EBGaramond(2)/m/sc/12 People who need to be acknowledged\TU/EBGaramond(2)/m
+/n/12 , Supervisors, CDRC members (Roberto, Sarah).
+ []
+
+[2
 
 ] (./frontmatter/abstract.tex) [3
 
-]
-(./frontmatter/impactstatement.tex) [4
+] (./frontmatter/impactstatement.tex)
+[4
 
 ] (./dissertation.toc
 
@@ -1413,15 +1419,10 @@ nc ullamcorper orci, fermentum biben-
 
 
 
-]) [58] [59] (./endmatter/personalize.tex) (./dissertation.bbl)
+]) [58] [59] (./endmatter/personalize.tex)
+No file dissertation.bbl.
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 20.
- [60
-
-
-
-]
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 20.
-
 (./dissertation.aux (./chapters/chapter1.aux) (./chapters/chapter2.aux)
 (./chapters/chapter3.aux) (./chapters/chapter4.aux) (./chapters/chapter5.aux)
 (./chapters/appendixA.aux))
@@ -1433,12 +1434,12 @@ LaTeX Font Warning: Some font shapes were not available, defaults substituted.
 
  ) 
 Here is how much of TeX's memory you used:
- 24652 strings out of 493007
- 457743 string characters out of 6140076
- 694877 words of memory out of 5000000
- 28255 multiletter control sequences out of 15000+600000
+ 24643 strings out of 493007
+ 457574 string characters out of 6140076
+ 694761 words of memory out of 5000000
+ 28248 multiletter control sequences out of 15000+600000
  537309 words of font info for 87 fonts, out of 8000000 for 9000
  1348 hyphenation exceptions out of 8191
  60i,6n,118p,10529b,395s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on dissertation.pdf (60 pages).
+Output written on dissertation.pdf (59 pages).
