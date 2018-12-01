@@ -2,8 +2,8 @@
 
 | Date       | Day          | Plan| Comments | 
 |:----------:|:-------------|:----|:---------|
-| 2018-12-01 | Saturday     | finalise writing plan and Schedule |  |
-| 2018-12-02 | Sunday       |  |  |
+| 2018-12-01 | Saturday     | finalise writing plan and Schedule | Done |
+| 2018-12-02 | Sunday       | Finish the paper and submit |  |
 | 2018-12-03 | Monday       |  |  |
 | 2018-12-04 | Tuesday      |  |  |
 | 2018-12-05 | Wednesday    | Submission |  |
