@@ -1,9 +1,0 @@
-cd ~/Thesis/writing
-screen -dm -S thesis -t vim
-sleep 1
-screen -S thesis -X screen -t pdf
-screen -S thesis -X screen -t refresh
-screen -S thesis -p pdf -X stuff "mupdf dissertation.pdf\n"
-screen -S thesis -p refresh -X stuff 'find . -regex ".*\.\(cls\|tex\)" | entr /bin/sh -c "scripts/build && pkill -HUP mupdf"\n'
-screen -S thesis -p vim -X stuff "vim $1\n"
-screen -R thesis -p vim
