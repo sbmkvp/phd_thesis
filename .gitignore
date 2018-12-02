@@ -3,6 +3,7 @@
 *.out
 *.lof
 *.toc
+*.logged
 .logged
 *.swp
 .swp
