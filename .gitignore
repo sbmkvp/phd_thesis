@@ -3,4 +3,11 @@
 *.out
 *.lof
 *.toc
+*.logged
 .logged
+*.swp
+.swp
+*.log
+*.sh
+*.stderr
+*.stdout
