@@ -12,4 +12,12 @@ scenarios and evaluate performance of our toolkit.
 
 ## Literature on Big data
 
-What is big data. The arguments critique. 
+Big data definition. Big data definition based on 
+
+## 5Vs of footfall data
+
+## Requirements from a toolkit
+
+## Comparison of tools
+
+## Conclusions
