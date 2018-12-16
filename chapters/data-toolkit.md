@@ -1,5 +1,5 @@
 ## Introduction
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Data has been collected at a national level for a long period of time. The size
 of the data is unique in terms of size and complexity. It is neither small
@@ -12,7 +12,7 @@ together a complete took kit that suits our needs finally we do some test case
 scenarios and evaluate performance of our toolkit.
 
 ## Literature on Big data
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 Big data is defined as data which cannot be handled with traditional methods.
 but there are also other definitions/ dimensions of this. The famous one is the
@@ -31,7 +31,7 @@ all these aspects
 
 
 ## footfall data - Big data?
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 ### volume
 volume of the data in different perspectives. number of records, size on disk vs
@@ -70,7 +70,7 @@ the veracity of the data which in turn makes visualisation harder. The temporal
 dimension needs more of a dynamic or interactive visualisation techniques.
 
 ## Requirements from a toolkit
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 ### Data collection & retrieval
 
@@ -83,7 +83,7 @@ dimension needs more of a dynamic or interactive visualisation techniques.
 ### Visualisation
 
 ## Comparison of tools
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
 
 ## Conclusions
--------------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
