@@ -72,6 +72,13 @@ dimension needs more of a dynamic or interactive visualisation techniques.
 ## Requirements from a toolkit
 --------------------------------------------------------------------------------
 
+Things we look to do with the data
+
+1) standardise the dataset.
+2) aggregate and count the dataset.
+3) retrieve the data over certain sections.
+4) 
+
 ### Data collection & retrieval
 
 ### Data storage - raw data
