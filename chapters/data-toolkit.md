@@ -26,6 +26,8 @@ additional vs are proposed as well. For my research I follow the 5V approach.
  - veracity and
  - visualisation
 
+Need for parallelised tools for data processing. 
+
 We need to think about the development of a tool kit which suits our data set in
 all these aspects
 
@@ -74,16 +76,27 @@ dimension needs more of a dynamic or interactive visualisation techniques.
 
 Things we look to do with the data
 
-1) standardise the dataset.
-2) aggregate and count the dataset.
-3) retrieve the data over certain sections.
-4) 
+Acquisition and recording
+extraction, cleaning and annotation
+integration Aggregation and representation
+Modeling and analysis
+Interpretation
 
-### Data collection & retrieval
 
-### Data storage - raw data
+### Acquisition and recording
 
-### Data processing
+This is the sensor level stuff. We need hardware and software.
+hardware - portable - flexible - wifi - 3G - repurposable - some kind of storage
+software - on the fly customisation, software to control the hardware (kernel/OS)
+- software to connect to the server - software to collect wifi - software to pre 
+process - obfuscate personal data. Need to quickly transfer the data back to server.
+
+### Data extraction, Cleaning and Annotation
+
+Get the data from sensor - Asynchronous, scalable way. Parallelised way to get bulk data from data store. Store data in large containers. transforming data between format - obfuscation in a large scale, encryption for security.
+
+### Integration Aggregation and Representation
+
 
 ### Data Storage
 
