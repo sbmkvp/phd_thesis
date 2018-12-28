@@ -128,8 +128,6 @@ interactive.
 ## Comparison of tools
 --------------------------------------------------------------------------------
 
-### Acquisition and recording
-
 Base machine - Raspberry pi, custom module, audrino etc
 Operating system - Windows integrated machine, Linux (debian, gentoo etc) ARM
 based.
@@ -138,18 +136,50 @@ Platform - Nodejs, pm2, forever, screen etc
 3G module - Huawei hardware, 3g modem software.
 hashing MAC address - Nodejs, R etc.
 
-### Data extraction, Cleaning and Annotation
-
 data receiving - Azure platform with Blob storage, Postgres with node server
-data download - Azure, Custom software to periodically download stuff.
-data 
+data download - Azure, Custom software to periodically download stuff. Scala,
+Spark.
+Transforming data - Reading data with R and convert to csv. Using python or
+other languages. compiled simple unix tool - jq. Parallelising using gnu
+parallel.
 
-### Integration Aggregation and Representation
+On one end we have dekstop tools like R
+other end high speed processing like scala and spark.
+in the middle we can combine R and Parallel to achieve parallel stuff 
 
+Spatial data could not be handled with either ArcGIS but with base gdal, proj
+and geos libraries alogn with PostgreSQL we can solve this too.
 
-### Modeling and Analysis
+The unix philosophy of
+ 1. Write programs that do one thing and do it well.
+ 2. Write programs to work together.
+ 3. Write programs to handle text streams, because that is a universal interface.
 
-### Visualisation and Interpretation
+Our toolkit shall have programs that do one thing well
+R for statistical analysis
+azcopy for downloading data
+gnupg for advanced encryption
+openssl for basic cryptography
+jq for filtering and transforming json data
+AWK for filtering and transforming tabular data
+gdal for spatial data transformation
+PostgreSQL for data storage, indexing and retrieval
+Shell for combining these programs into pipeline
+gnu-parallel for parallelising the computing.
+ggplot for static visualisation
+python for modelling and prediction
+d3 for dynamic interactive visualisation
+
+This is similar to the desktop computing but scales quite well due to the
+inherent parallelisability.
+
 
 ## Conclusions
 --------------------------------------------------------------------------------
+
+We see what big data is and the challanges in dealing with big data as opposed
+to the traditional data. We then define the parameters with which we evaluate
+our data set. We evaluate our data set to see that it fits the big data
+definition partially. We rationalise that we need to define it as "medium data"
+and pick particular aspects of big data tools to get our job done with least
+complexity. We design our philosophy for a data toolkit along the lines of go
