@@ -125,6 +125,24 @@ element, some of the comparision element. Indcies. some form of flow and change
 visualisation. Needs to be easily exportable to various formats. Reading,
 interactive.
 
+
+## Management Challanges
+--------------------------------------------------------------------------------
+
+ - Privacy
+ - Security
+ - Data Governance
+ - Data and Information Sharing
+ - Cost
+ - Ownership
+
+## Types of Analysis
+
+ - Descriptive
+ - Predictive
+ - Prescriptive
+
+
 ## Comparison of tools
 --------------------------------------------------------------------------------
 
