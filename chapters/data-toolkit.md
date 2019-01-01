@@ -1,5 +1,6 @@
+
+
 ## Introduction
---------------------------------------------------------------------------------
 
 Data has been collected at a national level for a long period of time. The size
 of the data is unique in terms of size and complexity. It is neither small
@@ -12,7 +13,6 @@ together a complete took kit that suits our needs finally we do some test case
 scenarios and evaluate performance of our toolkit.
 
 ## Literature on Big data
---------------------------------------------------------------------------------
 
 Big data is defined as data which cannot be handled with traditional methods.
 but there are also other definitions/ dimensions of this. The famous one is the
@@ -33,7 +33,6 @@ all these aspects
 
 
 ## footfall data - Big data?
---------------------------------------------------------------------------------
 
 ### volume 
 
@@ -77,7 +76,6 @@ the veracity of the data which in turn makes visualisation harder. The temporal
 dimension needs more of a dynamic or interactive visualisation techniques.
 
 ## Requirements from a toolkit
---------------------------------------------------------------------------------
 
 Things we look to do with the data
 
@@ -127,7 +125,6 @@ interactive.
 
 
 ## Management Challanges
---------------------------------------------------------------------------------
 
  - Privacy
  - Security
@@ -144,7 +141,6 @@ interactive.
 
 
 ## Comparison of tools
---------------------------------------------------------------------------------
 
 Base machine - Raspberry pi, custom module, audrino etc
 Operating system - Windows integrated machine, Linux (debian, gentoo etc) ARM
@@ -193,7 +189,6 @@ inherent parallelisability.
 
 
 ## Conclusions
---------------------------------------------------------------------------------
 
 We see what big data is and the challanges in dealing with big data as opposed
 to the traditional data. We then define the parameters with which we evaluate
