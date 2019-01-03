@@ -134,4 +134,113 @@ choose the methods which are the most efficient in dealing with such dataset.
 
 In this section we take a detailed look at the WiFi datasets collected in the
 research using the 5Vs big data framework. Out aim is to understand the nature of
-the data thus the challenges we will face processing and managing it.0
+the data thus the challenges we will face processing and managing it. We want to
+answer the following questions,
+
+ - Can the WiFi data be defined as Big data?
+ - What are the aspects where Wi-Fi data shows 'Big data' properties?
+
+This gives us good information when evaluating a viable and efficient toolkit to
+process and manage the data. First we look at the WiFi data in each dimension
+and then arrive at a general categorisation of the data.
+
+### Volume
+
+We saw earlier that every location is bombarded with probe requests from phone
+in the area. Quantifying how much data is generated / arriving at each location
+is the first step of looking at the volume. We look at the absolute scale of the
+data rather than the rate at which it is being generated. For the sake of
+comparison we have used the measure of size on disk for a year's worth of data
+encoded in text format. We have to note that this can vary quite a lot between
+fields and tools. This can act as a quantification of volume of the data.
+
+|---------------------+---------+---------+---------|
+| Study               | Maximum | Minimum | Average |
+|---------------------+---------+---------+---------|
+| Pilot Study         |         |         |         |
+| Main Study          |         |         |         |
+| Smart Street Sensor |         |         |         |
+|---------------------+---------+---------+---------|
+
+We can see that on average __ of data is generates at a place and project of the
+size of smart street sensor is estimated to generate around __ of data. This is
+not a trivial volume of data.. Desktop normal analysis of such volume is next to
+impossible. At the same time this is not truly what is meant by Big data as
+well. True big data sources in terms of volume can be of __ sizes. They cannot
+be even stored at a central single location. Within this interdisciplinary
+context, we can say that a national level sampled collection of Wi-Fi data is
+medium at best. A comparison of data sizes in various fields after being
+standardised is shown in the figure. We can see that data sources such as LIDAR,
+social media, internet sources are several orders of magnitude larger. Even if
+we assume the largest possible data possible - One sensor in every retail
+location in UK, we can assume something along the lines of __ This assuming data
+collected as we did in the main study and xxxx retail locations across UK in
+average.
+
+Figure comparing the typical size of the WiFi dataset to a small dataset and
+truly big data.
+
+To summarise, in the volume dimension WiFi data is 'medium' in size and is
+expected to remain so in the future.
+
+### Velocity
+
+Unlike volume, velocity is defined as the rate of collection data at short term.
+It is quantified similar to volume with size on disk per unit time but the time
+period is smaller. The Wifi probe requests are generated almost continuously at
+each location across various channels. The temporal precision is around micro
+seconds, but for convernience we have collected and aggregated data per minute
+for the pilot studies and 5 minutes for the Smart street sensor project. Every
+location generates around xx gb per minute and in total the project generates xx
+gb per minute. This again varies from xx to xx and on average we can say a
+moderately busy location is expected to generate xx in a minute. When we compare
+this to long term data sources such as census, slow data such as sample surverys
+it loosk impressively fast and almost realtime, but when we compare to actual
+real time data, Internet ad click through, Large Hadron Collider or Aviation, it
+is not as fast. This comparision is shown in figure. As we saw with volume, even
+in velocity the Wifi Data can be described as 'medium' data whcih is aggregated
+every 5 mins and mostly processed daily batches of xx gb. We can safely say that
+there are no real need for low latency real time solution while dealing with
+this data while at the same time we need to recognise that unlike traditional
+datasets, we have a steady stream of data which needs to be processed regularly
+and sustainably.
+
+|---------------------+---------+---------+---------|
+| Study               | Maximum | Minimum | Average |
+|---------------------+---------+---------+---------|
+| Pilot Study         |         |         |         |
+| Main Study          |         |         |         |
+| Smart Street Sensor |         |         |         |
+|---------------------+---------+---------+---------|
+
+Figure comparing the typical size of the WiFi dataset to a small dataset and
+truly big data.
+
+### Variety
+
+This aspect of the data cannot be quantified in absolute time but has to be
+subjectively discussed. Since the origin of the data is in the Wi-Fi standard,
+the core of the data is very very structured. Every probe request almost always
+have a core set of data which is highly structured and remains the same all over
+the world. This further propagates as well process the data further. There are
+two main sources of variability identified withing the WiFi probe requests
+
+ - Information elements : The standard specifies a good amount of flexible data
+   which can be encoded in the request detailing the capabilities of the mobile
+device. These information element are implemented as per the manufacturer
+discretion.
+ - There is a lot of variability in the rate at which the probe requests are
+   generated.
+
+the former is slowly becoming an unimportant one since most of the
+manufactureres following apple have started to include almost no information
+elements in the probe request packet to protect the privacy of users by
+eliminating the possibility of detailed fingerprinting of devices. The rate of
+probe request generation still varies widely for different manufacturers but
+overall cannot consitutue much of the variabily. In terms of standardised
+footfall counts there is only one Ordinal data point along time intervals with a geographic unit and time. From the above, we can safely assume that the 
+
+### Veracity
+
+
+### Visualisation
