@@ -76,35 +76,62 @@ annotation, data integration and aggregation, modeling and analysis, and finally
 visualisation and interpretation. Each step in this processing poses its own
 challenges. The volume, velocity and variety poses the problem in data
 acquisition by introducing the need for distributed, crowdsourced collection of
-data, need for heavitly parallelised computing and functional programming
+data, need for heavily parallelised computing and functional programming
 concepts while we clean and aggregate the data into valuable information. This
-is where the approaches in Programming languagaes such as Haskell,
-distributed storage and computing such as MapReduce, Hadoop and parallel
-processing approaches such as spark are introduced. There is a lot of bias
-arising from the unstrucutred way of collecting data which requires
-consideration on calibrating and weighting the data collection process to weed
-out any potential uncertainities and biases. The veracity of the big data
-introduces significant challenges in modelling and analysis of the data. The
-need for new ML algorithms which are data heavy and Deep learning methods such
-as CNN which focuses on processing heavy become prominent. The HPC methods with
-ultra paralllelised techniques such as GPU processing are indispensible to be
+is where the approaches in Programming languages such as Haskell, distributed
+storage and computing such as MapReduce, Hadoop and parallel processing
+approaches such as spark are introduced. There is a lot of bias arising from the
+unstructured way of collecting data which requires consideration on calibrating
+and weighting the data collection process to weed out any potential
+uncertainties and biases. The veracity of the big data introduces significant
+challenges in modelling and analysis of the data. The need for new ML algorithms
+which are data heavy and Deep learning methods such as CNN which focuses on
+processing heavy become prominent. The high performance computing methods with
+ultra parallelised techniques such as GPU processing are indispensable to be
 able to model and predict in such data sets. These properties also introduces
 significant challenges in presenting the knowledge mined with such data like
-visualisation. Visulisation is not only a presentation task supporting critical
-activity such as policy decision making support but also an indespensible tool
+visualisation. Visualisation is not only a presentation task supporting critical
+activity such as policy decision making support but also an indispensable tool
 in exploratory analysis. The volume and velocity of the data makes is hard to be
 able to visually digest the data, the variety especially in the time dimension
 can make the data too complex to interpret even when presented in small parts.
-GIS systems do a good job in visualising complext Geographic datasets but
+GIS systems do a good job in visualising complex geographic datasets but
 struggle to maintain legibility and understandability when dealing with the
 temporal dimension. There is a need for interactivity and connected components
 to be able to visually keep track of information presented. There needs to be a
 balance between functionality, aesthetics and performance. Finally the variety
-of the data set poses the challange of interoperability between various
+of the data set poses the challenge of interoperability between various
 approaches and tools. This creates need for consistent standards in terms of
 dealing with data. 
 
-Apart from these processing challanges, we also have management challanges to
+Apart from these processing challenges, we also have management challenges to
 consider such as privacy and security, Data governance and ownership, data and
 information sharing, and cost. Privacy and security is one of the basic
-consideration in any project dealing with big data. 
+consideration in any project dealing with big data. The approach, methods, tools
+should strictly have the capability comply with the legislation as well as the
+research ethics set up by all the stakeholders. At these scales there is no
+security by obscurity. The data collected itself may not be private but in
+conjunction with other datasets, it can be disclosive. There is also the
+ambiguity of the ownership of the data and risk associated with handling the
+data, it needs to comply with GDPR regulations. There also needs to be clear way
+to share the data securely with other projects along with publications of
+results so that the value of the all these processing is realised. The project
+management and issue tracking tools need to be capable of handling these data
+ownership and sharing concerns. This needs to be done in a timely, accessible
+manner as well. That leads us to the final challenge of cost of big data.
+Though most of the big data tools are developed openly and free there can be lot
+of hidden costs associated with collecting, processing and managing big data.
+There are the operational costs collecting data, network costs moving the data,
+server costs storing and processing the data, cost of specialised tools (or
+at least support for the tools) to use and the human resource cost in terms of
+training, time and money needed managing the data. This can make even a small
+project balloon in terms of cost when implemented in a scalable 'big data' way.
+This brings us to the need of us looking at the data at our hands closely so
+that we can make an informed decisions on how 'big' is our data and pick and
+choose the methods which are the most efficient in dealing with such dataset.
+
+## Is WiFi probe requests collected Big data?
+
+In this section we take a detailed look at the WiFi datasets collected in the
+research using the 5Vs big data framework. Out aim is to understand the nature of
+the data thus the challenges we will face processing and managing it.0
