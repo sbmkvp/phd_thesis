@@ -173,13 +173,11 @@ social media, internet sources are several orders of magnitude larger. Even if
 we assume the largest possible data possible - One sensor in every retail
 location in UK, we can assume something along the lines of __ This assuming data
 collected as we did in the main study and xxxx retail locations across UK in
-average.
+average. To summarise, in the volume dimension WiFi data is 'medium' in size and is
+expected to remain so in the future.
 
 Figure comparing the typical size of the WiFi dataset to a small dataset and
 truly big data.
-
-To summarise, in the volume dimension WiFi data is 'medium' in size and is
-expected to remain so in the future.
 
 ### Velocity
 
@@ -224,8 +222,9 @@ two main sources of variability identified withing the WiFi probe requests
 
  - Information elements : The standard specifies a good amount of flexible data
    which can be encoded in the request detailing the capabilities of the mobile
-device. These information element are implemented as per the manufacturer
-discretion.
+   device. These information element are implemented as per the manufacturer
+   discretion.
+
  - There is a lot of variability in the rate at which the probe requests are
    generated.
 
@@ -279,3 +278,44 @@ that Wi-Fi data shows Big data characteristics in terms of its veracity and
 requires tools and methods when aggregating, analysing and modelling it. 
 
 ### Visualisation
+
+Visualisation is closely related to volume, velocity and variety of the data.
+The Wi-Fi data due to its non-trivial size and velocity, exhibits similar
+characteristics and challenges in visualisation. Since there not much variety in
+the data-set when we process it into footfall all we are left with is time,
+location and footfall. Out of which location and footfall is easy to visualise
+but the time is the complicated one because of its volume - 2 to 3 years worth
+of data and granularity - 1/5 minute intervals. This is really hard to simplify
+and visualise. The key here is using approaches that show change efficiently and
+legibly. This shows the need for a dynamic, interactive visualisation tools
+which can deal with continuous change over long periods of time. There is also
+need for multiple linked dynamic visualisation platform for separating the scope
+of the visualisation into manageable units. The second challenge is the
+communicating the veracity of the data without distracting from the message.
+Finally the 'near real time' aspect of the data needs to taken into
+consideration while visualising it hence the need for always on, interactive,
+real time dashboards with geographic capabilities. Considering the above we can
+say that in terms of visualisation, Wi-Fi data partially shows big data
+characteristics.
+
+Figure: Example of too much data in time dimension
+
+Summarising the above discussion, we can say that the Wi-Fi data collected from
+probe requests is at best a 'medium' size data which shows big data
+characteristics in terms of its veracity. Any toolkit devised to be used with it
+need to be able to deal with its medium volume, velocity and visualisation
+needs and at the same time need to able to deal with the huge veracity of it.
+This leads us to devising a 'medium data toolkit' which can be used in such
+cases so that not to introduce the cost and complexity introduced by broader big
+data tools.
+
+Figure spider graph showing the profile of Wi-Fi data.
+
+## A Survey of Methods and Tools
+
+
+
+
+---
+
+## References
