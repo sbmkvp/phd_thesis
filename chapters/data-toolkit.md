@@ -154,13 +154,11 @@ comparison we have used the measure of size on disk for a year's worth of data
 encoded in text format. We have to note that this can vary quite a lot between
 fields and tools. This can act as a quantification of volume of the data.
 
-|---------------------|---------|---------|---------|
 | Study               | Maximum | Minimum | Average |
 |---------------------|---------|---------|---------|
 | Pilot Study         |         |         |         |
 | Main Study          |         |         |         |
 | Smart Street Sensor |         |         |         |
-|---------------------|---------|---------|---------|
 
 We can see that on average __ of data is generates at a place and project of the
 size of smart street sensor is estimated to generate around __ of data. This is
