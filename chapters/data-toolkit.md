@@ -159,7 +159,6 @@ fields and tools. This can act as a quantification of volume of the data.
 | Pilot Study         |         |         |         |
 | Main Study          |         |         |         |
 | Smart Street Sensor |         |         |         |
-|---------------------|---------|---------|---------|
 
 We can see that on average __ of data is generates at a place and project of the
 size of smart street sensor is estimated to generate around __ of data. This is
@@ -210,7 +209,6 @@ and sustainably.
 | Pilot Study         |         |         |         |
 | Main Study          |         |         |         |
 | Smart Street Sensor |         |         |         |
-|---------------------|---------|---------|---------|
 
 Figure comparing the typical size of the WiFi dataset to a small dataset and
 truly big data.
