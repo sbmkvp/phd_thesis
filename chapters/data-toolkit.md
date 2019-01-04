@@ -187,19 +187,19 @@ expected to remain so in the future.
 
 Unlike volume, velocity is defined as the rate of collection data at short term.
 It is quantified similar to volume with size on disk per unit time but the time
-period is smaller. The Wifi probe requests are generated almost continuously at
+period is smaller. The Wi-fi probe requests are generated almost continuously at
 each location across various channels. The temporal precision is around micro
-seconds, but for convernience we have collected and aggregated data per minute
+seconds, but for convenience we have collected and aggregated data per minute
 for the pilot studies and 5 minutes for the Smart street sensor project. Every
-location generates around xx gb per minute and in total the project generates xx
-gb per minute. This again varies from xx to xx and on average we can say a
+location generates around xx GB per minute and in total the project generates xx
+GB per minute. This again varies from xx to xx and on average we can say a
 moderately busy location is expected to generate xx in a minute. When we compare
-this to long term data sources such as census, slow data such as sample surverys
-it loosk impressively fast and almost realtime, but when we compare to actual
+this to long term data sources such as census, slow data such as sample surveys
+it looks impressively fast and almost real time, but when we compare to actual
 real time data, Internet ad click through, Large Hadron Collider or Aviation, it
-is not as fast. This comparision is shown in figure. As we saw with volume, even
-in velocity the Wifi Data can be described as 'medium' data whcih is aggregated
-every 5 mins and mostly processed daily batches of xx gb. We can safely say that
+is not as fast. This comparison is shown in figure. As we saw with volume, even
+in velocity the Wi-fi Data can be described as 'medium' data which is aggregated
+every 5 mins and mostly processed daily batches of xx GB. We can safely say that
 there are no real need for low latency real time solution while dealing with
 this data while at the same time we need to recognise that unlike traditional
 datasets, we have a steady stream of data which needs to be processed regularly
@@ -232,15 +232,53 @@ discretion.
  - There is a lot of variability in the rate at which the probe requests are
    generated.
 
-the former is slowly becoming an unimportant one since most of the
-manufactureres following apple have started to include almost no information
+The former is slowly becoming an unimportant one since most of the
+manufacturers following apple have started to include almost no information
 elements in the probe request packet to protect the privacy of users by
 eliminating the possibility of detailed fingerprinting of devices. The rate of
 probe request generation still varies widely for different manufacturers but
-overall cannot consitutue much of the variabily. In terms of standardised
-footfall counts there is only one Ordinal data point along time intervals with a geographic unit and time. From the above, we can safely assume that the 
+overall cannot constitute much of the variability. In terms of standardised
+footfall counts there is only one Ordinal data point along time intervals with a
+geographic unit and time. From the above, we can safely assume that the Wi-Fi
+data shows no Big-data characteristics in the variety dimension.
 
 ### Veracity
 
+This is the dimension in which the Wi-Fi data exhibits big data characteristics.
+This comes from the fact the data is collected in a unstructured way and
+passively. The first source of veracity originates from the unreliability of the
+data collection process. The data is collected through a network of sensors
+located in multiple locations which communicate to the central server using 3G
+mobile data connectivity. We know from experience that the sensors are
+unreliable at best and at any given period of time about 10% of sensors fail to
+send back data regularly. More over the sensors are installed and uninstalled
+regularly as and when the data partners join the project. This results in a data
+stream which is often erratic and incomplete with large gaps in them. In
+addition to this the sensors need to be rebooted regularly due to issues or
+updates leading to small gaps as well. This poses immense challenge when we
+attempt to aggregate the data. There is a requirement for cleaning and filling
+in the gaps of the data.
+
+There is also a lot of variability in the physical location of the sensors and
+the area of measurement. The sensors may report higher or lower count due to the
+way it is installed and due to the context of the location as showed in the data
+cleaning procedures. Cite Karlo's work. This leads to a situation where the
+accuracy of the data collection varying quite widely across location and times.
+There is a question of weather the change in the data is due to actual changes
+at the location or just the change in the configuration of the device. For
+example opening of a mobile shop next door can increase the estimated footfall
+without any change in footfall at the location.
+
+The final veracity issue is the changing mobile landscape. Though the wifi probe
+requests are standardised by IEEE, the mobile manufacturers have started
+adopting obfuscation techniques to protect the privacy of the users. This
+started with randomisation of MAC addresses, removal of information elements and
+generally getting more sophisticated with new versions of operating system.
+There is also the bias of operating system adoption and change in market share
+between manufacturers. There is no inherent structure or information on what is
+changed and how often these changes occur which leads to questions on the
+continuity of the data over long periods of time. From the above we can conclude
+that Wi-Fi data shows Big data characteristics in terms of its veracity and
+requires tools and methods when aggregating, analysing and modelling it. 
 
 ### Visualisation
