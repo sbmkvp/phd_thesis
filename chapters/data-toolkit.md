@@ -313,17 +313,18 @@ Figure spider graph showing the profile of Wi-Fi data.
 
 ## A Survey of Methods and Tools
 
-### Data Collection
 
-### Data Transport
+### Collection
 
-### Data Storage
+### Storage
 
-### Analysis and Modelling
+### Processing
 
 ### Visualisation
 
-### Medium Data toolkit
+### Medium-data toolkit
+![medium data toolkit](../images/data-toolkit.png "Medium Data toolkit")
+
 
 ## Conclusions
 
