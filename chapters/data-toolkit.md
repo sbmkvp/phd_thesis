@@ -316,14 +316,77 @@ Figure spider graph showing the profile of Wi-Fi data.
 
 In this section, we survey the tools and methods available at various stages of
 the data processing and management process we discusst he tools with respect to
-the performance (throughput, 
+the performance (throughput), flexibility, complexity and cost. We finally try
+to devise a toolkit which best suits our data needs. 
 
 ### Collection
 
+There are numerous tools available for data collection with network of sensors
+under the umbrella of internet of things. The primary consideration in the data
+collection is the scale of the infrastructure and the cost associated with it.
+The smartstreetsensor project uses its own proprietary sensor system which
+collects data at the location. The tooling decisions were made with the
+commercial application in mind and is not entirely relevant to our discussion,
+but for the research conducted with the data, it is necessary to understand the
+data collection process and how the toolkit integrates with the rest of the
+setup. We start by looking at different approaches in the data collection tools
+and try to reason the most appropriate solution for the WiFi data. At the
+hardware level, the lowest level of tool can be a micro-controller such as
+audrino with a dedicated hardware module with custom software to collect the
+exact data needed. This is time consuming, cumbersome takes a lot of cost to
+develop, but is very flexible, efficient and cheap to deploy. On the other end
+of this spectrum we have end-to-end solutions such as Blix, Walkbase, Ecuclid,
+Retail next, pygmalios etc where the data set is collected through multiple
+sources and syndicated into a cleaned source by a thirdparty. This can be costly
+and inflexible but quick and easy. The middle ground on this to deal with a
+complexity as much as the WiFi data, is to use a single board computer with
+external modules and use general purpose, tools to build a data collection
+device.
 
+The toolkit we have adopted consists of RaspberryPi, Linux,
+tcpdump/tshark and nodejs. The RaspberryPi and the linux platform it provides is
+one of the most diverse and general purpose systems available. On top of which
+we can build our data collection system with specialised, opensource and free
+Wi-Fi sniffing tool such as tcpdump, tshark along with a general purpose runtime
+such as nodejs which provides other functions such as scheduling, personal data
+obfuscation and data transmission. This system has a capacity to sniff and
+transfer large amounts of data and with a 3G module is very versatile in terms
+of location.
 
 ### Storage
 
+This is one of the most diverse set of area in terms of both methods and tools
+available. It has been constantly in development since the beginning of computer
+systems and is one of the fastest changing landscapes. The aspects to be
+considered while choosing the data storage solutions are,
+
+ 1. Speed
+ 2. Redundancy
+ 3. Reliability
+ 4. Cost & complexity
+
+One of the spectrum is just using file systems for storage. Though it seems to
+be primitive, this has a lot of advantages. Operating systems usually are
+really good at managing - reading, writing and searching filesystems, They
+usually have no overhead involved and are efficient. Hierarchical organisations
+can be pre-indexed for hierarchical data and finally is very reliable. But the
+primary disadvantage is the inability to handle complexity or variety in data.
+
+On the other end of the spectrum is the highly distributed big data systems such
+as Hadoop HDFS which are built for > petabyte datasets and query them without
+loss of speed. There are hybrid file systems which are hadoop compatible as well
+- Azure blob storage, Amazon S3 cloud storage which can be used a storage/ dump
+  for a large amount of data.
+
+In the middle there are databases, which are built prioritise and balance the
+database needs. The two major approaches are the relational databases which are
+optimised for structured data which are related to each other in tabular format.
+They are row heavy databases and are good for high volume, low veracity data
+which has need for consistency. SQL databases PostgreSQL, Mysql, SQLserver are
+examples. The other approach is the document store databases which are column
+heavy databases which are optimised for high variety data which doesnot need
+immediate consistency. These can be as simple as key-value based databases and
+as complicated as graph databases. Mongodb, 
 
 
 ### Processing
