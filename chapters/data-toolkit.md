@@ -397,7 +397,7 @@ concepts. This behaves like a hyper large scale database system and works in
 conjuntion with other big data tools
 
 | Type          | Comment                                                    |
-|---------------+------------------------------------------------------------|
+|---------------|------------------------------------------------------------|
 | Filesystem    | good for hierarchical data <br>around 10TB range           |
 | Cloud Storage | > 10TB, can add hdfs stuff, more reliability               |
 | Relational DB | 1-5TB, Good for relational Data, Row-wise, Patitioning     |
