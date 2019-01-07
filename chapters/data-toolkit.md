@@ -398,7 +398,7 @@ conjuntion with other big data tools
 
 | Type          | Comment                                                    |
 |---------------|------------------------------------------------------------|
-| Filesystem    | good for hierarchical data <br>around 10TB range           |
+| Filesystem    | good for hierarchical data around 10TB range               |
 | Cloud Storage | > 10TB, can add hdfs stuff, more reliability               |
 | Relational DB | 1-5TB, Good for relational Data, Row-wise, Patitioning     |
 | Document DB   | 1-10TB, Good for unstructured data, column wise,Clustering |
@@ -420,7 +420,12 @@ Data processing is done in two stages, the first one is the filtering, cleaning
 and aggregation of the raw Wi-Fi data and the second step is the analysis and
 modelling of the aggregated data. The primary considerations while surveying are
 the volume, velocity and veracity of the data. The first part we should be
-careful to choose the tools which are 
+careful to choose the tools which are right for the size. The perfect tools for
+a medium size data can be as much as 230x faster than big data tools (ref). One
+end there are Big Data analysis tools such as Hadoop based impementations such
+as Mapreduce and Spark, Business toosl such as skytree, realtime tools such as
+storm and samoa, cleaning tools such as Openrefine. As we know Wi-Fi data is not
+really 
 
 
 ### Visualisation
