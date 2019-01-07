@@ -386,11 +386,41 @@ which has need for consistency. SQL databases PostgreSQL, Mysql, SQLserver are
 examples. The other approach is the document store databases which are column
 heavy databases which are optimised for high variety data which doesnot need
 immediate consistency. These can be as simple as key-value based databases and
-as complicated as graph databases. Mongodb, 
+as complicated as graph databases. Mongodb, couchdb, cassandra as examples. Both
+these approaches can be scaled/distributed for less redundancy and increased
+throughput. The former tend to scale veritcally and the latter scale
+horizontally. Some like cassandra are built to be highly distributable.
 
+Finally there are solutions such as Hive and hbase which are database like
+functionality built on top of distributed file systems combining power of both
+concepts. This behaves like a hyper large scale database system and works in
+conjuntion with other big data tools
+
+| Type          | Comment                                                    |
+|---------------+------------------------------------------------------------|
+| Filesystem    | good for hierarchical data <br>around 10TB range           |
+| Cloud Storage | > 10TB, can add hdfs stuff, more reliability               |
+| Relational DB | 1-5TB, Good for relational Data, Row-wise, Patitioning     |
+| Document DB   | 1-10TB, Good for unstructured data, column wise,Clustering |
+| HDFS          | > 10 TB, Good for scale and structure                      |
+| Hive, Hbase   | built on top of HDFS, bring DB to HDFS                     |
+
+Raw wifi data has temporal hierarchy and is of medium size hence a normal
+filesystem is sufficiently suitable for its needs. When the same data is
+aggregated it loses its scale and is highly strucutred so a relation DBMS is
+sufficient for it. In case the project runs longer and more longitudinal
+analysis had to be done on raw data HDFS needs to be used and if the aggregated
+data scales to >10TB  we can handle it with a timescale db should be suitable.
+PostgreSQL is more suitable than other databases because of its better support
+to geographic data.
 
 ### Processing
 
+Data processing is done in two stages, the first one is the filtering, cleaning
+and aggregation of the raw Wi-Fi data and the second step is the analysis and
+modelling of the aggregated data. The primary considerations while surveying are
+the volume, velocity and veracity of the data. The first part we should be
+careful to choose the tools which are 
 
 
 ### Visualisation
