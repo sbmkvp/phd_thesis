@@ -441,28 +441,28 @@ easily understood and shared between UNIX tools. This also helps us in the data
 sharing and management which is discussed later.  For the first part of the
 processing - filtering & cleaning we use the following tools,
 
-1. *sed* - streaming text editor. A fully featured text editor which works on
+1. **sed** - streaming text editor. A fully featured text editor which works on
    stream of text. The stream is processed usually by each line and is the most
    commonly used to search and replace (translating) text streams using regular
    expressions.
 
-2. *Grep* - grep (global regex print) is a special case of sed where we search
+2. **Grep** - grep (global regex print) is a special case of sed where we search
    the stream for regular expression and print the result. This is usually used
    for searching and filtering text streams. 
 
-3. *awk* - This is a turing complete special purpose higher level programming
+3. **awk** - This is a turing complete special purpose higher level programming
    language which is optimised for sorting, validating and transforming text
    streams. It is full featured enough to be able to manage a small text based
    database by itself. This is usually used to transform tabular delimited
    data.
 
-4. *jq* - This is similar to awk, has a emcascript based scripting language for
+4. **jq** - This is similar to awk, has a emcascript based scripting language for
    transforming text data which is in the JavaScript Object Notation format.
    These four tools form a core toolkit for tranforming, translating and
    filtering data. All these tools are single threaded and need an external
    tool to parallelise the processes. For this we can use gnu-parallel.
 
-5. *parallel* - This is a tool built with perl (citation) which parallelises the
+5. **parallel** - This is a tool built with perl (citation) which parallelises the
    any operation across CPU cores and even across multiple nodes through secure
    shell (ssh). This gives us a medium sized cluster which is well suited
    dealing with text data stored in a file system.
@@ -489,6 +489,7 @@ open source free software has the added advantage of being secure as well.
 ## Conclusions
 
 To summarise we have done a survey of tools and arrived at the following toolkit
+
 ![medium data toolkit](../images/data-toolkit.png "Medium Data toolkit")
 
 
