@@ -374,9 +374,9 @@ primary disadvantage is the inability to handle complexity or variety in data.
 
 On the other end of the spectrum is the highly distributed big data systems such
 as Hadoop HDFS which are built for > petabyte datasets and query them without
-loss of speed. There are hybrid file systems which are hadoop compatible as well
-- Azure blob storage, Amazon S3 cloud storage which can be used a storage/ dump
-  for a large amount of data.
+loss of speed. There are hybrid file systems which are hadoop compatible as
+well, Azure blob storage, Amazon S3 cloud storage which can be used a storage/
+dump for a large amount of data.
 
 In the middle there are databases, which are built prioritise and balance the
 database needs. The two major approaches are the relational databases which are
@@ -416,22 +416,24 @@ to geographic data.
 
 ### Processing
 
+The primary considerations while surveying are the volume, velocity and veracity
+of the data. We should be careful to choose the tools which are right for the
+size. The perfect tools for a medium size data can be as much as 230x faster
+than big data tools (ref). At one end there are Big Data analysis tools such as
+Hadoop based impementations such as Mapreduce and Spark, Business toosl such as
+skytree, realtime tools such as storm and samoa, cleaning tools such as
+Openrefine. All these tools are optimised for the cluster/grid computing and the
+processing is heavily parallelised across the clusters. There is also a lot of
+overhead asssociated with moving data across clusters and we won't be making up
+for these overheads until we hit certain size of the data. As we know Wi-Fi data
+is not at the scale these tools operate, we can look into how large streams of
+data are handles in computer science/ systems engineering.
+
 Data processing is done in two stages, the first one is the filtering, cleaning
 and aggregation of the raw Wi-Fi data and the second step is the analysis and
-modelling of the aggregated data. The primary considerations while surveying are
-the volume, velocity and veracity of the data. The first part we should be
-careful to choose the tools which are right for the size. The perfect tools for
-a medium size data can be as much as 230x faster than big data tools (ref). At
-one end there are Big Data analysis tools such as Hadoop based impementations
-such as Mapreduce and Spark, Business toosl such as skytree, realtime tools such
-as storm and samoa, cleaning tools such as Openrefine. All these tools are
-optimised for the cluster/grid computing and the processing is heavily
-parallelised across the clusters. There is also a lot of overhead asssociated
-with moving data across clusters and we won't be making up for these overheads
-until we hit certain size of the data. As we know Wi-Fi data is not at the scale
-these tools operate, we can look into how large streams of data are handles in
-computer science/ systems engineering.
+modelling of the aggregated data. 
 
+#### Cleaning, Filtering and Aggregation
 As we saw in (ref) the system tools in combination with parallel processing
 across CPU cores, can be used and can be actually faster for medium sized data.
 The data transfer format is text since it is standardised with utf8 and is
@@ -439,28 +441,28 @@ easily understood and shared between UNIX tools. This also helps us in the data
 sharing and management which is discussed later.  For the first part of the
 processing - filtering & cleaning we use the following tools,
 
-1. _sed_ - streaming text editor. A fully featured text editor which works on
+1. *sed* - streaming text editor. A fully featured text editor which works on
    stream of text. The stream is processed usually by each line and is the most
    commonly used to search and replace (translating) text streams using regular
    expressions.
 
-2. Grep - grep (global regex print) is a special case of sed where we search
+2. *Grep* - grep (global regex print) is a special case of sed where we search
    the stream for regular expression and print the result. This is usually used
    for searching and filtering text streams. 
 
-3. awk - This is a turing complete special purpose higher level programming
+3. *awk* - This is a turing complete special purpose higher level programming
    language which is optimised for sorting, validating and transforming text
    streams. It is full featured enough to be able to manage a small text based
    database by itself. This is usually used to transform tabular delimited
    data.
 
-4. jq - This is similar to awk, has a emcascript based scripting language for
+4. *jq* - This is similar to awk, has a emcascript based scripting language for
    transforming text data which is in the JavaScript Object Notation format.
    These four tools form a core toolkit for tranforming, translating and
    filtering data. All these tools are single threaded and need an external
    tool to parallelise the processes. For this we can use gnu-parallel.
 
-5. parallel - This is a tool built with perl (citation) which parallelises the
+5. *parallel* - This is a tool built with perl (citation) which parallelises the
    any operation across CPU cores and even across multiple nodes through secure
    shell (ssh). This gives us a medium sized cluster which is well suited
    dealing with text data stored in a file system.
@@ -484,12 +486,11 @@ open source free software has the added advantage of being secure as well.
 ### Visualisation
 
 
+## Conclusions
 
-To summarise we have done a survey of tools which can be 
+To summarise we have done a survey of tools and arrived at the following toolkit
 ![medium data toolkit](../images/data-toolkit.png "Medium Data toolkit")
 
-
-## Conclusions
 
 
 ---
