@@ -11,3 +11,4 @@
 *.sh
 *.stderr
 *.stdout
+data/

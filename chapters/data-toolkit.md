@@ -421,21 +421,70 @@ and aggregation of the raw Wi-Fi data and the second step is the analysis and
 modelling of the aggregated data. The primary considerations while surveying are
 the volume, velocity and veracity of the data. The first part we should be
 careful to choose the tools which are right for the size. The perfect tools for
-a medium size data can be as much as 230x faster than big data tools (ref). One
-end there are Big Data analysis tools such as Hadoop based impementations such
-as Mapreduce and Spark, Business toosl such as skytree, realtime tools such as
-storm and samoa, cleaning tools such as Openrefine. As we know Wi-Fi data is not
-really 
+a medium size data can be as much as 230x faster than big data tools (ref). At
+one end there are Big Data analysis tools such as Hadoop based impementations
+such as Mapreduce and Spark, Business toosl such as skytree, realtime tools such
+as storm and samoa, cleaning tools such as Openrefine. All these tools are
+optimised for the cluster/grid computing and the processing is heavily
+parallelised across the clusters. There is also a lot of overhead asssociated
+with moving data across clusters and we won't be making up for these overheads
+until we hit certain size of the data. As we know Wi-Fi data is not at the scale
+these tools operate, we can look into how large streams of data are handles in
+computer science/ systems engineering.
+
+As we saw in (ref) the system tools in combination with parallel processing
+across CPU cores, can be used and can be actually faster for medium sized data.
+The data transfer format is text since it is standardised with utf8 and is
+easily understood and shared between UNIX tools. This also helps us in the data
+sharing and management which is discussed later.  For the first part of the
+processing - filtering & cleaning we use the following tools,
+
+1. _sed_ - streaming text editor. A fully featured text editor which works on
+   stream of text. The stream is processed usually by each line and is the most
+   commonly used to search and replace (translating) text streams using regular
+   expressions.
+
+2. Grep - grep (global regex print) is a special case of sed where we search
+   the stream for regular expression and print the result. This is usually used
+   for searching and filtering text streams. 
+
+3. awk - This is a turing complete special purpose higher level programming
+   language which is optimised for sorting, validating and transforming text
+   streams. It is full featured enough to be able to manage a small text based
+   database by itself. This is usually used to transform tabular delimited
+   data.
+
+4. jq - This is similar to awk, has a emcascript based scripting language for
+   transforming text data which is in the JavaScript Object Notation format.
+   These four tools form a core toolkit for tranforming, translating and
+   filtering data. All these tools are single threaded and need an external
+   tool to parallelise the processes. For this we can use gnu-parallel.
+
+5. parallel - This is a tool built with perl (citation) which parallelises the
+   any operation across CPU cores and even across multiple nodes through secure
+   shell (ssh). This gives us a medium sized cluster which is well suited
+   dealing with text data stored in a file system.
+
+Bash completes the toolkit to provide a overarching highlevel scripting
+interface to combine all the smaller tools and managing data transfer between
+them as text streams using the 'pipe' operator. This along with core bash tools
+such as sort, uniq can give us a basic data filtering, transformation and
+aggregation toolkit with a reasonable throughput. Example, For a normal word
+count problem, this toolkit can give us a through put of 540MB per minute
+without parallelisation and with parallelisation this can be improved to 2.5GB
+per minute. 
+
+For complex data cleaning techniques such as filling in the gaps, we can use higher level languages such as R or Python through their
+scripting environments and linking them to our pipelines using bash. Security in
+terms of obfuscation can be done through hashing algorithms implemented by
+openjs, nodejs and R and for encryption, we can use the gnupg. The toolkit being
+open source free software has the added advantage of being secure as well.
 
 
 ### Visualisation
 
 
-### Management
 
-
-
-### Medium-data toolkit
 To summarise we have done a survey of tools which can be 
 ![medium data toolkit](../images/data-toolkit.png "Medium Data toolkit")
 
