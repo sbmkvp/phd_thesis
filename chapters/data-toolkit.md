@@ -434,6 +434,7 @@ and aggregation of the raw Wi-Fi data and the second step is the analysis and
 modelling of the aggregated data. 
 
 #### Cleaning, Filtering and Aggregation
+
 As we saw in (ref) the system tools in combination with parallel processing
 across CPU cores, can be used and can be actually faster for medium sized data.
 The data transfer format is text since it is standardised with utf8 and is
@@ -479,11 +480,15 @@ per minute.
 For complex data cleaning techniques such as filling in the gaps, we can use higher level languages such as R or Python through their
 scripting environments and linking them to our pipelines using bash. Security in
 terms of obfuscation can be done through hashing algorithms implemented by
-openjs, nodejs and R and for encryption, we can use the gnupg. The toolkit being
+openssl, nodejs and R and for encryption, we can use the gnupg. The toolkit being
 open source free software has the added advantage of being secure as well.
 
 
 ### Visualisation
+
+Tableu, Omniscope.
+
+
 
 
 ## Conclusions
