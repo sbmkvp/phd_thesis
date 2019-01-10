@@ -3,20 +3,24 @@
 ## Introduction
 --------------------------------------------------------------------------------
 
-Big data promises lots of benefits but it has a lot of pitfalls as well. The
-data is readily available leading to possibilities but when we take up full on
-big data analysis, we encounter a lot of added complexity and cost. We need to
-be careful in terms of what is required for the data-sets in possession.
-Moreover in most disciplines there are existing methods built for large datasets
-e.g. geography, statistics etc. There have always been big data in other
-disciplines but the improvements in hardware has made the processing of big data
-possible so they need no major changes to do big data analysis. We need to
-devise the right tools for the right problem/work. In the environment of
-constant change and growth, we cannot afford to lose the opportunity of
-extracting information while trying to utilise a future proof big data approach.
-We need to have a pragmatic approach with a consistent philosophy in our
-approach rather than reinventing the wheel. We need to look at other disciplines
-and adopt approaches and solutions form them.
+Big data and its analytics promises huge benefits in terms of value realisation,
+cost reduction, insights but it also introduces a number of pitfalls as well.
+With developments in information technology, mobile communications and internet
+of things large assemblages of data are readily available leading to immense
+possibilities in terms of research but when we take up analysing these data at
+such scale, we encounter a equal amount of added complexity and cost as well.
+This makes it important that we are careful in choosing the methods and tools in
+dealing with such data. Moreover in several disciplines such as statistics and
+geography etc. the existing methods and tools are already developed for large
+scale data. These methods along with improvements in hardware recently has made
+the processing of big data possible to an extent in these disciplines without a
+major change. At these scales, we need to devise the right methods and tools for
+the right problems. In this environment of constant change and growth, we cannot
+afford to lose the opportunity of extracting information from these large
+datasets while trying to create a future proof big data approach. We need to
+have a pragmatic approach we look in to other disciplines and adopt best
+practices and solutions to develop a consistent philosophy rather than
+reinventing the wheel.
 
 In the previous chapters we looked at the various methods devised to collect and
 process data from WiFi probe requests emitted by phones. Though we discussed the
@@ -123,8 +127,8 @@ manner as well. That leads us to the final challenge of cost of big data.
 Though most of the big data tools are developed openly and free there can be lot
 of hidden costs associated with collecting, processing and managing big data.
 There are the operational costs collecting data, network costs moving the data,
-server costs storing and processing the data, cost of specialised tools (or
-at least support for the tools) to use and the human resource cost in terms of
+server costs storing and processing the data, cost of specialised tools (or at
+least support for the tools) to use and the human resource cost in terms of
 training, time and money needed managing the data. This can make even a small
 project balloon in terms of cost when implemented in a scalable 'big data' way.
 This brings us to the need of us looking at the data at our hands closely so
@@ -134,9 +138,9 @@ choose the methods which are the most efficient in dealing with such dataset.
 ## Is WiFi probe requests collected Big data?
 
 In this section we take a detailed look at the WiFi datasets collected in the
-research using the 5Vs big data framework. Out aim is to understand the nature of
-the data thus the challenges we will face processing and managing it. We want to
-answer the following questions,
+research using the 5Vs big data framework. Out aim is to understand the nature
+of the data thus the challenges we will face processing and managing it. We want
+to answer the following questions,
 
  - Can the WiFi data be defined as Big data?
  - What are the aspects where Wi-Fi data shows 'Big data' properties?
@@ -174,8 +178,8 @@ social media, internet sources are several orders of magnitude larger. Even if
 we assume the largest possible data possible - One sensor in every retail
 location in UK, we can assume something along the lines of __ This assuming data
 collected as we did in the main study and xxxx retail locations across UK in
-average. To summarise, in the volume dimension WiFi data is 'medium' in size and is
-expected to remain so in the future.
+average. To summarise, in the volume dimension WiFi data is 'medium' in size and
+is expected to remain so in the future.
 
 Figure comparing the typical size of the WiFi dataset to a small dataset and
 truly big data.
@@ -229,15 +233,15 @@ two main sources of variability identified withing the WiFi probe requests
  - There is a lot of variability in the rate at which the probe requests are
    generated.
 
-The former is slowly becoming an unimportant one since most of the
-manufacturers following apple have started to include almost no information
-elements in the probe request packet to protect the privacy of users by
-eliminating the possibility of detailed fingerprinting of devices. The rate of
-probe request generation still varies widely for different manufacturers but
-overall cannot constitute much of the variability. In terms of standardised
-footfall counts there is only one Ordinal data point along time intervals with a
-geographic unit and time. From the above, we can safely assume that the Wi-Fi
-data shows no Big-data characteristics in the variety dimension.
+The former is slowly becoming an unimportant one since most of the manufacturers
+following apple have started to include almost no information elements in the
+probe request packet to protect the privacy of users by eliminating the
+possibility of detailed fingerprinting of devices. The rate of probe request
+generation still varies widely for different manufacturers but overall cannot
+constitute much of the variability. In terms of standardised footfall counts
+there is only one Ordinal data point along time intervals with a geographic unit
+and time. From the above, we can safely assume that the Wi-Fi data shows no
+Big-data characteristics in the variety dimension.
 
 ### Veracity
 
@@ -394,7 +398,7 @@ horizontally. Some like cassandra are built to be highly distributable.
 Finally there are solutions such as Hive and hbase which are database like
 functionality built on top of distributed file systems combining power of both
 concepts. This behaves like a hyper large scale database system and works in
-conjuntion with other big data tools
+conjunction with other big data tools
 
 | Type          | Comment                                                    |
 |---------------|------------------------------------------------------------|
@@ -454,21 +458,20 @@ processing - filtering & cleaning we use the following tools,
 3. **awk** - This is a turing complete special purpose higher level programming
    language which is optimised for sorting, validating and transforming text
    streams. It is full featured enough to be able to manage a small text based
-   database by itself. This is usually used to transform tabular delimited
-   data.
+   database by itself. This is usually used to transform tabular delimited data.
 
-4. **jq** - This is similar to awk, has a emcascript based scripting language for
-   transforming text data which is in the JavaScript Object Notation format.
+4. **jq** - This is similar to awk, has a emcascript based scripting language
+   for transforming text data which is in the JavaScript Object Notation format.
    These four tools form a core toolkit for tranforming, translating and
-   filtering data. All these tools are single threaded and need an external
-   tool to parallelise the processes. For this we can use gnu-parallel.
+   filtering data. All these tools are single threaded and need an external tool
+   to parallelise the processes. For this we can use gnu-parallel.
 
-5. **parallel** - This is a tool built with perl (citation) which parallelises the
-   any operation across CPU cores and even across multiple nodes through secure
-   shell (ssh). This gives us a medium sized cluster which is well suited
+5. **parallel** - This is a tool built with perl (citation) which parallelises
+   the any operation across CPU cores and even across multiple nodes through
+   secure shell (ssh). This gives us a medium sized cluster which is well suited
    dealing with text data stored in a file system.
 
-Bash completes the toolkit to provide a overarching highlevel scripting
+Bash completes the toolkit to provide a overarching high-level scripting
 interface to combine all the smaller tools and managing data transfer between
 them as text streams using the 'pipe' operator. This along with core bash tools
 such as sort, uniq can give us a basic data filtering, transformation and
@@ -477,27 +480,22 @@ count problem, this toolkit can give us a through put of 540MB per minute
 without parallelisation and with parallelisation this can be improved to 2.5GB
 per minute. 
 
-For complex data cleaning techniques such as filling in the gaps, we can use higher level languages such as R or Python through their
-scripting environments and linking them to our pipelines using bash. Security in
-terms of obfuscation can be done through hashing algorithms implemented by
-openssl, nodejs and R and for encryption, we can use the gnupg. The toolkit being
-open source free software has the added advantage of being secure as well.
-
+For complex data cleaning techniques such as filling in the gaps, we can use
+higher level languages such as R or Python through their scripting environments
+and linking them to our pipelines using bash. Security in terms of obfuscation
+can be done through hashing algorithms implemented by openssl, nodejs and R and
+for encryption, we can use the gnupg. The toolkit being open source free
+software has the added advantage of being secure as well.
 
 ### Visualisation
 
 Tableu, Omniscope.
-
-
-
 
 ## Conclusions
 
 To summarise we have done a survey of tools and arrived at the following toolkit
 
 ![medium data toolkit](../images/data-toolkit.png "Medium Data toolkit")
-
-
 
 ---
 
