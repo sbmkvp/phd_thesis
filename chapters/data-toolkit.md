@@ -24,10 +24,10 @@ reinventing the wheel.
 
 In the previous chapters we looked at the various methods devised to collect and
 process data from WiFi probe requests emitted by phones. Though we discussed the
-methods in detail we left out the rationale behind the toolkit chosen to
+methods in detail, we left out the rationale behind the toolkit chosen to
 implement the methods. In this section we start by discussing the nature of 'Big
-Data', we discuss the previous research in the 'Big Data' space to understand
-the definition nature and challenges of big data. The we look at our data-sets
+Data', then discuss the previous research in the 'Big Data' space to understand
+the definition nature and challenges of big data. Then we look at our data-sets
 collected through the pilot studies and the Smart Street Sensor project closely
 and evaluate their nature in terms of the dimensions of the big data. We also
 discuss in detail the challenges faced in dealing with such dataset and the
