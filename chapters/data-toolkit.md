@@ -14,10 +14,10 @@ dealing with such data. Moreover in several disciplines such as statistics and
 geography etc. the existing methods and tools are already developed for large
 scale data. These methods along with improvements in hardware recently has made
 the processing of big data possible to an extent in these disciplines without a
-major change. At these scales, we need to devise the right methods and tools for
-the right problems. In this environment of constant change and growth, we cannot
-afford to lose the opportunity of extracting information from these large
-datasets while trying to create a future proof big data approach. We need to
+major changes. At these scales, we need to devise the right methods and tools
+for the right problems. In this environment of constant change and growth, while
+trying to create a future proof big data approach, we cannot afford to lose the
+opportunity in extracting information from these large datasets . We need to
 have a pragmatic approach we look in to other disciplines and adopt best
 practices and solutions to develop a consistent philosophy rather than
 reinventing the wheel.
