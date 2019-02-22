@@ -1,4 +1,6 @@
 *.lot
+*.bbl
+*.blg
 *.aux
 *.out
 *.lof
