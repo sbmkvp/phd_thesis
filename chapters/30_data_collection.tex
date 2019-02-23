@@ -1,6 +1,36 @@
-\chapter{Data Collection}
+\chapter{Collecting the Data}
+
+As we saw in the literature search Wi-Fi as a technology is well suited for research into human mobility.
+In this chapter we evaluate the technology in detail and devise a methodology to
+measure the most possible amount of information from from Wi-Fi.
+The data is defined by the IEEE standard.
+We start by looking at the standard in detail.
+Then we devise simple experiments to collect sample data.
+Then we expand the experiments to include locations across London to collect more data.
+Finally we give a detailed description of the methodology of the Smart Street Sensor project and the data collected from it.
 
 \section{Wi-Fi as a Source of Data}
+
+Wi-Fi is ubiquitous.
+The smart-phone adoption rates are growing.
+All smart-phones try to connect to internet.
+In addition to mobile networks, Wi-Fi is the second most common way they connect to internet.
+Most places provide Wi-Fi as the way to connect to internet.
+Unlike mobile networks Wi-Fi is a general purpose service.
+There are multiple networks across locations hence the phones are made to be able to move across networks seamlessly.
+The mobile phone initiates the contact.
+It sends a special signal called - Probe Requests.
+This has information about the mobile device.
+The router replies with a signal called Probe response.
+This forms a digital handshake between these devices.
+The devices then carry on with authentication and talking to each other.
+After authentication the connection is encrypted and private.
+But the probe request process is unencrypted and open.
+The probe request is sequential signal which is defined in IEEE standards.
+The table shows All possible information that can be included in a probe request.
+The figure shows the structure of a probe request.
+This is a stream of data broadcast over air from all the phones around a area. 
+
 
 \section{Initial Experiments}
 
@@ -8,6 +38,6 @@
 
 \section{Smart Street Sensor Project}
 
-\section{Uncertainities in Data}
+\section{Uncertainties in Data}
 
 \section{Discussion}
