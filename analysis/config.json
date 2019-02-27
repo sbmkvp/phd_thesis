@@ -1,0 +1,6 @@
+{
+    "dbhost":"cdrc-footfall.geog.ucl.ac.uk",
+    "dbuser":"footfall_read",
+    "dbpassword":"ff_read_2018",
+    "dbname":"footfall"
+}
