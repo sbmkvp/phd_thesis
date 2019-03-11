@@ -10,7 +10,7 @@ Lines Words Chars File
   360  5023 30847 chapters/41__data_toolkit.tex
     9     8   129 chapters/50_applications.tex
     2     1    23 chapters/60_conclusions.tex
-   25    27   388 chapters/70_back.tex
-  643  7748 48635 total
+   25    27   396 chapters/70_back.tex
+  643  7748 48643 total
 ----------------------------------------------------
 
