@@ -5,7 +5,7 @@ COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &> /dev/nul
     pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &> /dev/null &&\
     ./scripts/status > word-count.md &&\
     git add --all &> /dev/null &&\
-    git commit -m \"$(date)\" &> /dev/null &&\
+    git commit -m \"$1\" &> /dev/null &&\
     git push &> /dev/null &&\
     sleep 1 &&\
     rm thesis.bbl thesis.blg thesis.lof thesis.lot thesis.log thesis.aux thesis.toc"

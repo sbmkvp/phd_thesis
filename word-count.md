@@ -1,4 +1,4 @@
-Lines|Words|Chars|File
+Lines|Words|Characters|File
 ---|---|---|---
 55|227|1765|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
