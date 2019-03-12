@@ -1,4 +1,0 @@
-#! /bin/bash
-
-find . -regex ".*\.\(cls\|tex\|bib\)" \
-    | entr bash -c "pdflatex thesis.tex && bibtex thesis && pdflatex thesis.tex"

@@ -1,13 +1,9 @@
 \chapter{Collecting the Data}
 
-As we saw in the literature search Wi-Fi as a technology is well suited for research into human mobility.
-In this chapter we evaluate the technology in detail and devise a methodology to
-measure the most possible amount of information from from Wi-Fi.
-The data is defined by the IEEE standard.
-We start by looking at the standard in detail.
-Then we devise simple experiments to collect sample data.
-Then we expand the experiments to include locations across London to collect more data.
-Finally we give a detailed description of the methodology of the Smart Street Sensor project and the data collected from it.
+As we discussed in the previous chapter, out of all the technologies through
+which we can capture the traces of people moving across the urban environment,
+Wi-Fi is a well rounded technology and is suitable for our study. In this
+chapter, we look at Wi-Fi in detail.
 
 \section{Wi-Fi as a Source of Data}
 
@@ -44,9 +40,7 @@ The actual information present in the data collected by the SmartStreetSensor is
 \section{Initial Experiments}
 
 First setup using the laptop and wireshark in the living room.
-
 Second set of experiments in UCL cloisters.
-
 To start, we designed a small pilot study to validate the filtering and clustering methodology against the scale and complexity of data collected in an open public area such as a retail high street.
 We also aimed to find the algorithm which was best suited for the classification of signal strengths as 'low' and 'high' in order to filter out the background noise.
 The data was collected at Oxford Street, London on 20 December 2017 from 12:30 to 13:00 hrs, Wi-Fi probe requests were collected using the sensor described in Section and pedestrian footfall was manually recorded using the Android app - Clicker bala2018clicker.
@@ -57,25 +51,25 @@ The sensor was kept as close to the store window as possible, and the manual cou
 \section{Pilot Study}
 
 The methodology set out above was implemented in five different Central London locations at different times.
-Sensors were installed and data collected for extended periods of time.
-We also carried out manual counting at these locations across different times of the day.
+% Sensors were installed and data collected for extended periods of time.
+ensors were installed and data collected for extended periods of time.
+go
 We then applied the methodologies discussed earlier to arrive at estimated pedestrian footfall and compared them with the corresponding manual counts.
 We finally evaluated the effectiveness of the processes with the Mean Absolute Percentage Error (MAPE) at the locations and report our findings below.
 
 \begin{table}
-    \caption{Locations where sensors were installes, volume and speed of probe requests collected by
-    the sendor and total pedestrians manually counted. The data occupies around 1.8 GB on disk 
-    when encoded in text format.}
-        {\begin{tabular}{clllccc} 
-         ID & Location & Type & Installation notes & Probe Requests & Footfall\\
-         & & & & x10\textsuperscript{6} (per min) & No. (per min)\\
-         1 & Camden High Street & Phone Shop & Bus stop in front & 9.9 (297) & 3683 (33)\\
-         2 & Central St.Giles & Restaurant & Seating area on both sides & 3.9 (169) & 0346 (05)\\
-         3 & Holborn Station & Info. Kiosk & Overlooks station entrance & 4.3 (303) & 2956 (46)\\
-         4 & Brunswick Center & Fast Food & Has seating area on one side & 3.4 (210) & 0960 (12)\\
-         5 & The Strand & Tea Shop & Has phone shop next door & 8.4 (382) & 1969 (21)\\
-        \end{tabular}}
-        \label{locations-table}
+    \caption{Locations where sensors were installes, volume and speed of probe
+    requests collected by the sendor and total pedestrians manually counted. The data occupies around 1.8 GB on disk when encoded in text format.}
+    {\begin{tabular}{clllccc} 
+     ID & Location & Type & Installation notes & Probe Requests & Footfall\\
+     & & & & x10\textsuperscript{6} (per min) & No. (per min)\\
+     1 & Camden High Street & Phone Shop & Bus stop in front & 9.9 (297) & 3683 (33)\\
+     2 & Central St.Giles & Restaurant & Seating area on both sides & 3.9 (169) & 0346 (05)\\
+     3 & Holborn Station & Info. Kiosk & Overlooks station entrance & 4.3 (303) & 2956 (46)\\
+     4 & Brunswick Center & Fast Food & Has seating area on one side & 3.4 (210) & 0960 (12)\\
+     5 & The Strand & Tea Shop & Has phone shop next door & 8.4 (382) & 1969 (21)\\
+    \end{tabular}}
+    \label{locations-table}
 \end{table}
 
 The locations at which the data were collected are shown in Table .
@@ -109,9 +103,7 @@ The key challenge in this area is the collection of data at smallest scales poss
 This challenge when solved can provide immense value to occupiers, landlords, local authorities, investors and consumers within the retail industry.
 The project aims to facilitate decision making by stakeholders in addition to the tremendous opportunities for academic research.
 
-
-
-the data is collected through set of SmartStreetSensors (shown in Figure 3.1), a WiFi based sensor which when installed acts as a WiFi access point and collects specific type of packets (probe requests) relayed by mobile devices which are which are within the device’s signal range and are searching for available access points.
+The data is collected through set of SmartStreetSensors (shown in Figure 3.1), a WiFi based sensor which when installed acts as a WiFi access point and collects specific type of packets (probe requests) relayed by mobile devices which are which are within the device’s signal range and are searching for available access points.
 The sensor is usually installed on partnering retailer's shop windows so that its range covers the pavement in front of the shops.
 The installation and calibration of device with respect to the shop window and the pavement is illustrated in Figure 3.2.
 There is also a small percentage (3\%) of the devices which are installed within large shops to monitor internal footfall.

@@ -1,0 +1,3 @@
+echo "Lines|Words|Characters|File"
+echo "---|---|---|---"
+wc chapters/*tex | awk '{print $1"|"$2"|"$3"|"$4}'
