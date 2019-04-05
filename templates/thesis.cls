@@ -1,8 +1,7 @@
-%-------------------------------------------------------------------------------
 \NeedsTeXFormat{LaTeX2e}
 \ProvidesClass{thesis}
 \ProcessOptions\relax
-\LoadClass[a4paper,oneside]{report}
+\LoadClass[a4paper,twoside]{report}
 \RequirePackage{graphicx}
 \RequirePackage{ifthen}
 \raggedbottom
