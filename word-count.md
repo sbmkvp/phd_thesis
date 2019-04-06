@@ -8,5 +8,5 @@ Lines|Words|Characters|File
 381|5095|32070|chapters/45__data_toolkit.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
-18|29|434|chapters/70_back.tex
-696|7915|51772|total
+18|29|428|chapters/70_back.tex
+696|7915|51766|total
