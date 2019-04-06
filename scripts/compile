@@ -1,13 +1,13 @@
 #! /bin/bash
 
-COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &> /dev/null &&\
-    bibtex thesis &> /dev/null &&\
-    pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &> /dev/null &&\
+COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &&\
+    bibtex thesis &&\
+    pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &&\
     ./scripts/status > word-count.md &&\
-    git add --all &> /dev/null &&\
-    git commit -m \"$1\" &> /dev/null &&\
-    git push &> /dev/null &&\
+    git add --all &&\
+    git commit -m \"$1\" &&\
+    git push &&\
     sleep 1 &&\
     rm thesis.bbl thesis.blg thesis.lof thesis.lot thesis.log thesis.aux thesis.toc"
 
-eval "$COMMAND" > /dev/null
+eval "$COMMAND"
