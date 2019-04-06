@@ -1,0 +1,86 @@
+\chapter*{Outputs From The Research}
+  
+\section*{Books Chapter}
+  \par \noindent{1}\hspace{1.5em}
+  \textit{Consumer Data Research} 
+\section*{Journal Articles}
+  \par \noindent{1}\hspace{1.5em}
+  \textit{I.J.G.I.S paper}
+  \vspace{0.25cm}
+  \par \noindent{2}\hspace{1.5em}
+  \textit{Medium data paper}
+  \vspace{0.25cm}
+  \par \noindent{3}\hspace{1.5em}
+  \textit{Transfer Entropy Paper}
+\section*{Conference Talks}
+  \par \noindent{1}\hspace{1.5em}
+  \textit{GISRUK 2017}
+  \vspace{0.25cm}
+  \par \noindent{2}\hspace{1.5em}
+  \textit{GISRUK 2019}
+  \vspace{0.25cm}
+  \par \noindent{3}\hspace{1.5em}
+  \textit{Retail futures Oxford}
+  \vspace{0.25cm}
+  \par \noindent{4}\hspace{1.5em}
+  \textit{CCS 2016}
+  \vspace{0.25cm}
+  \par \noindent{5}\hspace{1.5em}
+  \textit{CCS 2018}
+  \vspace{0.25cm}
+  \par \noindent{6}\hspace{1.5em}
+  \textit{Italy 2018}
+\section*{Other Talks}
+  \par \noindent{11}\hspace{1.5em}{Data natives 2018}
+  \vspace{0.25cm}
+  \par \noindent{12}\hspace{1.5em}{Geo-data 2018}
+  \vspace{0.25cm}
+  \par \noindent{13}\hspace{1.5em}{SUPF Workshop 2018}
+\section*{CDRC Products}
+  \par \noindent{14}\hspace{1.5em}{C.D.R.C footfall dashboard}
+  \vspace{0.25cm}
+  \par \noindent{15}\hspace{1.5em}{C.D.R.C footfall indicator}
+  \vspace{0.25cm}
+  \par \noindent{16}\hspace{1.5em}{C.D.R.C footfall atlas}
+  \vspace{0.25cm}
+  \par \noindent{17}\hspace{1.5em}{Footfall package R (to be done)}
+  \vspace{0.25cm}
+  \par \noindent{18}\hspace{1.5em}{Clicker Android Application}
+
+\cleardoublepage
+~\vfill
+\begin{doublespace}
+\noindent\fontsize{14}{16}\selectfont\itshape
+\nohyphenation
+Dedicated to my parents, S. Kalavathy and K. Soundararaj.
+\end{doublespace}
+\vfill
+\vfill
+
+\chapter*{Prologue}
+
+\section*{Abstract}
+ - data is everywhere but no information
+ - need to understand population in detail
+ - this research connects this two quests
+ - Wi-Fi probes in built environment = detailed footfall information
+ - we conduct experiments collect two sets of data.
+ - we process the data with different methods to get footfall
+ - we establish the application of the data with series of examples
+
+\section*{Impact Statement}
+ - we live in era of explosion of data.
+ - everyone is looking for ways to use data
+ - this research looks in to one such data set
+ - deals with collection, processing and application.
+ - we develop a open-source toolkit for doing all the above
+ - the research resulted in publications
+ - Outputs with C.D.R.C and subsequent use of the data 
+ - methods communicated to data partner for industry application 
+ - \citep{gandomi2015beyond}
+
+\section*{Acknowledgements}
+ - Supervisors
+ - Colleagues
+ - Family and Friends
+ - OpenSource projects (esp. GNU Linux and R)

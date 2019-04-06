@@ -2,6 +2,7 @@
 
 COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex && \
     bibtex thesis && \
+    makeindex thesis && \
     pdflatex -halt-on-error -interaction=nonstopmode thesis.tex && \
     ./scripts/status > word-count.md"
 find . -type f \( -name "*.cls" -o -name "*.tex" -o -name "*.bib" \) \

@@ -1,3 +1,7 @@
+%-------------------------------------------------------------------------------
+% Introduction to the chapter
+%-------------------------------------------------------------------------------
+
 \section{Data Toolkit}
 
 Big data and its analytics promises huge benefits in terms of value realisation, cost reduction, insights but it also introduces a numerous pitfalls.
@@ -12,18 +16,22 @@ We need to move fast with a pragmatic approach where we look at other discipline
 In the previous chapters we looked at various methods we devised to collect and process data from WiFi probe requests emitted by phones.
 Though we discussed the methods conceptually, we left out the rationale behind choosing the toolkit employed to implement those methods.
 In this section we elaborate the thought process and rationale behind these decisions.
-We start by discussing the nature of 'Big Data', previous research conducted in the 'Big Data' space to understand the definition, nature and challenges of big data.
-Then we look at our data-sets collected through the pilot studies and the Smart Street Sensor project closely and evaluate their nature in terms of the dimensions of the big data.
-We also discuss in detail the challenges faced in dealing with such dataset and the requirements expected from a toolkit to do so.
-Finally we look across disciplines, discuss and evaluate approaches and tools available in dealing with such datasets and their fitness of purpose to do so.
+We start by discussing the concept of `Big Data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
+Then we look at the data-sets we collected through the pilot studies and the `Smart Street Sensor' project and evaluate them in terms of the dimensions of the big data.
+We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
+Finally we put together a toolkit to suit our datasets built from simple small unix tools.
 
-\subsection{Big Data Discussion}
+%-------------------------------------------------------------------------------
+% Discussion on what is big data
+%-------------------------------------------------------------------------------
 
-Big data has become the new hot thing in research.
-Data has become the next oil and we are in a data deluge moving from a data sparse to data rich environment.
-As we saw in the previous chapters there are easy and quick ways to collect large amount of data.
-The technological advancements has enabled us to be able to think about utilising such large assemblages of data.
-Big data gives us numerous benefits, it can provide us insights which were not possible before.
+\subsection{What is `Big Data'?}
+
+With the proliferation of internet enabled personal devices, we have quickly moved from data sparse environment to a data rich one.
+We can even confidently say that we are in an age of data deluge where the amount of data which are collected and stored are increasing exponentially in a very short period of time.
+As we saw in the previous chapters collecting large amount of data is quick and easy.
+Technological advancements have enabled us to be able to think about utilising such large assemblages of data which would have been impossible even in the recent past.
+These large assemblages of data give us numerous benefits, it can provide us insights which were not possible before.
 I can give comprehensive coverage.
 It can change the approach and methods in whole disciplines such as computer science where the shift towards machine learning and AI which is primarily fuelled by the explosion of data available.
 It also poses a lot of challenges because of its nature, in analysing and managing it.
@@ -78,6 +86,10 @@ There are the operational costs collecting data, network costs moving the data, 
 This can make even a small project balloon in terms of cost when implemented in a scalable 'big data' way.
 This brings us to the need of us looking at the data at our hands closely so that we can make an informed decisions on how 'big' is our data and pick and choose the methods which are the most efficient in dealing with such dataset.
 
+%-------------------------------------------------------------------------------
+% Dicuss the data we have in detail 
+%-------------------------------------------------------------------------------
+
 \subsection{Is WiFi probe requests collected Big data?}
 
 In this section we take a detailed look at the WiFi datasets collected in the research using the 5Vs big data framework.
@@ -88,7 +100,7 @@ What are the aspects where Wi-Fi data shows 'Big data' properties?
 This gives us good information when evaluating a viable and efficient toolkit to process and manage the data.
 First we look at the WiFi data in each dimension and then arrive at a general categorisation of the data.
 
-\subsubsection{Volume}
+\textit{Volume}
 
 We saw earlier that every location is bombarded with probe requests from phone in the area.
 Quantifying how much data is generated / arriving at each location is the first step of looking at the volume.
@@ -126,7 +138,7 @@ To summarise, in the volume dimension WiFi data is 'medium' in size and is expec
 
 Figure comparing the typical size of the WiFi dataset to a small dataset and truly big data.
 
-\subsubsection{Velocity}
+\textit{Velocity}
 
 Unlike volume, velocity is defined as the rate of collection data at short term.
 It is quantified similar to volume with size on disk per unit time but the time period is smaller.
@@ -156,7 +168,7 @@ We can safely say that there are no real need for low latency real time solution
 
 Figure comparing the typical size of the WiFi dataset to a small dataset and truly big data.
 
-\subsubsection{Variety}
+\textit{Variety}
 
 This aspect of the data cannot be quantified in absolute time but has to be subjectively discussed.
 Since the origin of the data is in the Wi-Fi standard, the core of the data is very very structured.
@@ -174,7 +186,7 @@ The rate of probe request generation still varies widely for different manufactu
 In terms of standardised footfall counts there is only one Ordinal data point along time intervals with a geographic unit and time.
 From the above, we can safely assume that the Wi-Fi data shows no Big-data characteristics in the variety dimension.
 
-\subsubsection{Veracity}
+\textit{Veracity}
 
 This is the dimension in which the Wi-Fi data exhibits big data characteristics.
 This comes from the fact the data is collected in a unstructured way and passively.
@@ -202,7 +214,7 @@ There is no inherent structure or information on what is changed and how often t
 From the above we can conclude that Wi-Fi data shows Big data characteristics in terms of its veracity and requires tools and methods when aggregating, analysing and modelling it.
 
 
-\subsubsection{Visualisation and reporting}
+\textit{Visualisation and reporting}
 
 Visualisation is closely related to volume, velocity and variety of the data.
 The Wi-Fi data due to its non-trivial size and velocity, exhibits similar characteristics and challenges in visualisation.
@@ -224,13 +236,17 @@ This leads us to devising a 'medium data toolkit' which can be used in such case
 
 Figure spider graph showing the profile of Wi-Fi data.
 
+%-------------------------------------------------------------------------------
+% A survey of all tools and methods dealing with big data.
+%-------------------------------------------------------------------------------
+
 \subsection{A Survey of Methods and Tools}
 
 In this section, we survey the tools and methods available at various stages of the data processing and management process we discusst he tools with respect to the performance (throughput), flexibility, complexity and cost.
 We finally try to devise a toolkit which best suits our data needs.
 
 
-\subsubsection{Collection}
+\textit{Collection}
 
 There are numerous tools available for data collection with network of sensors under the umbrella of internet of things.
 The primary consideration in the data collection is the scale of the infrastructure and the cost associated with it.
@@ -248,7 +264,7 @@ The RaspberryPi and the linux platform it provides is one of the most diverse an
 On top of which we can build our data collection system with specialised, opensource and free Wi-Fi sniffing tool such as tcpdump, tshark along with a general purpose runtime such as nodejs which provides other functions such as scheduling, personal data obfuscation and data transmission.
 This system has a capacity to sniff and transfer large amounts of data and with a 3G module is very versatile in terms of location.
 
-\subsubsection{Storage}
+\textit{Storage}
 
 This is one of the most diverse set of area in terms of both methods and tools available.
 It has been constantly in development since the beginning of computer systems and is one of the fastest changing landscapes.
@@ -309,7 +325,7 @@ When the same data is aggregated it loses its scale and is highly strucutred so 
 In case the project runs longer and more longitudinal analysis had to be done on raw data HDFS needs to be used and if the aggregated data scales to >10TB we can handle it with a timescale db should be suitable.
 PostgreSQL is more suitable than other databases because of its better support to geographic data.
 
-\subsubsection{Processing}
+\textit{Processing}
 
 The primary considerations while surveying are the volume, velocity and veracity
 of the data.
@@ -348,9 +364,13 @@ For complex data cleaning techniques such as filling in the gaps, we can use hig
 Security in terms of obfuscation can be done through hashing algorithms implemented by openssl, nodejs and R and for encryption, we can use the gnupg.
 The toolkit being open source free software has the added advantage of being secure as well.
 
-\subsubsection{Visualisation}
+\textit{Visualisation}
 
 Tableu, Omniscope.
+
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
+%-------------------------------------------------------------------------------
 
 \subsection{Conclusions}
 

@@ -1,4 +1,4 @@
-\chapter{Collecting the Data}
+\chapter{Passively Collecting Wi-Fi Data}
 
 As we discussed in the previous chapter, out of all the technologies through
 which we can capture the traces of people moving across the urban environment,
@@ -58,8 +58,7 @@ We then applied the methodologies discussed earlier to arrive at estimated pedes
 We finally evaluated the effectiveness of the processes with the Mean Absolute Percentage Error (MAPE) at the locations and report our findings below.
 
 \begin{table}
-    \caption{Locations where sensors were installes, volume and speed of probe
-    requests collected by the sendor and total pedestrians manually counted. The data occupies around 1.8 GB on disk when encoded in text format.}
+    \caption{Locations where the sensors were installed.}
     {\begin{tabular}{clllccc} 
      ID & Location & Type & Installation notes & Probe Requests & Footfall\\
      & & & & x10\textsuperscript{6} (per min) & No. (per min)\\
@@ -71,7 +70,8 @@ We finally evaluated the effectiveness of the processes with the Mean Absolute P
     \end{tabular}}
     \label{locations-table}
 \end{table}
-
+Locations where sensors were installes, volume and speed of probe requests collected by the sendor and total pedestrians manually counted.
+The data occupies around 1.8 GB on disk when encoded in text format.
 The locations at which the data were collected are shown in Table .
 The locations were chosen for their diverse site conditions and unique sources of noise around the potential location of the sensors.
 The position of the sensor at these locations with respect to the context is shown the Figure 
@@ -129,5 +129,3 @@ Essentially we are just looking for unique MAC addresses within a time period ra
 MAC address collisions: From the initial analysis we have observed that there are few instances of MAC address collisions reported where a device known to be in some place has been reported somewhere else.
 This might be occurring due to rogue MAC randomisation by certain devices and the hashing procedure done at two different places.
 Due to the negligible volume of such collisions (~2\%), for the purpose of this report, we ignore these collisions and treat all distinct hashed MAC addresses with know OUID to be the same device.
-
-\section{Discussion}
