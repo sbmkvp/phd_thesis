@@ -8,6 +8,6 @@ COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &&\
     git commit -m \"$1\" &&\
     git push &&\
     sleep 1 &&\
-    rm thesis.bbl thesis.blg thesis.lof thesis.lot thesis.log thesis.aux thesis.toc"
+    rm thesis.out thesis.ind thesis.idx thesis.ilg thesis.bbl thesis.blg thesis.lof thesis.lot thesis.log thesis.aux thesis.toc"
 
 eval "$COMMAND"
