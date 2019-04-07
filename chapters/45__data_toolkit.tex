@@ -4,13 +4,14 @@
 
 \section{Data Toolkit}
 
-Big data and its analytics promises huge benefits in terms of value realisation, cost reduction, insights but it also introduces a numerous pitfalls.
+\textsc{Big data and its analytics} promises huge benefits in terms of value realisation, cost reduction, insights but it also introduces a numerous pitfalls.
 With developments in information technology, mobile communications and internet of things, large assemblages of data are readily available leading to immense possibilities in research.
 But when we analyse these data at such scale, we also encounter a large amount of added complexity and cost.
 Hence it is important to be careful in choosing the methods and tools in dealing with big data where we should look to devise right methods and tools for the right problems.
-Moreover in several disciplines, such as statistics and geography etc., the existing methods and tools are already developed for large scale data.
+% Need a graphic showing growth of Big data
+Moreover in several disciplines, such as statistics and geography etc., the existing methods and tools are already developed for dealing with large scale data.
 These methods along with improvements in hardware has made the processing big data in these disciplines possible without a major changes in workflow.
-In the current environment of constant change and growth of sources of data, we cannot afford to lose the opportunity of extracting information from them while trying to create a perfect, future proof approach in dealing with them.
+In the current environment of constant change and growth of sources of data, we cannot afford to lose the opportunity to extract information from them while trying to create a perfect, future proof approach in dealing with them.
 We need to move fast with a pragmatic approach where we look at other disciplines and adopt best practices and solutions in them and develop consistent approach for our needs rather than reinventing the wheel.
 
 In the previous chapters we looked at various methods we devised to collect and process data from WiFi probe requests emitted by phones.
@@ -20,6 +21,7 @@ We start by discussing the concept of `Big Data' in general and look at previous
 Then we look at the data-sets we collected through the pilot studies and the `Smart Street Sensor' project and evaluate them in terms of the dimensions of the big data.
 We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
 Finally we put together a toolkit to suit our datasets built from simple small unix tools.
+% Thoughts on unix philosophy and link to it
 
 %-------------------------------------------------------------------------------
 % Discussion on what is big data
@@ -28,39 +30,41 @@ Finally we put together a toolkit to suit our datasets built from simple small u
 \subsection{What is `Big Data'?}
 
 With the proliferation of internet enabled personal devices, we have quickly moved from data sparse environment to a data rich one.
-We can even confidently say that we are in an age of data deluge where the amount of data which are collected and stored are increasing exponentially in a very short period of time.
+We can even confidently say that we are in an age of data deluge where the amount of data which are collected and stored are increasing exponentially in a very short period of time \cite{kitchin2014big}.
 As we saw in the previous chapters collecting large amount of data is quick and easy.
 Technological advancements have enabled us to be able to think about utilising such large assemblages of data which would have been impossible even in the recent past.
-These large assemblages of data give us numerous benefits, it can provide us insights which were not possible before.
-I can give comprehensive coverage.
-It can change the approach and methods in whole disciplines such as computer science where the shift towards machine learning and AI which is primarily fuelled by the explosion of data available.
-It also poses a lot of challenges because of its nature, in analysing and managing it.
-In addition to these, trying to solving 'normal' problem using big data tools and approaches can introduce enormous overhead and introduce additional complexity without providing much benefits.
-It can actually counter productive to use these methods when they are not necessary.
-It is absolutely necessary for any research to understand what is big data and how the subject at hand relates to big data.
+By providing unprecedented coverage, these large assemblages of data - `Big data', provide us with insights which were not possible before.
+They often change our approach and methods employed in entire disciplines.
+For example, In computer science, fuelled by the explosion of collected user data, there is a paradigm shift in Artifical Intelligence with the use of data mining, machine learning and deep learning.
+It is only time before this paradigm shift pervades social sciences research as well.
+In addition to the above advantages, Big data because of their nature also introduce numerous challanges in their collection, storage, analysis and visualisation.
+This is not including the enormous additional overhead and complexity introduced when we try to employ big data methods and tools.
+If we are not careful, using big data tools and methods for solving 'normal' problem can be counter productive where the advantages realised don't justified the overheads introduced.
+Hence it is important to understand the `Big data' nature of the datasets we are dealing with at a granular level and choose the tools and methods without any presumptions.
 
-The first and foremost challenge in big data is its definition.
-It is not clearly defined and the definition can vary widely based on the discipline and perspective.
-What is big data in one discipline may not be in another.
-Data also has various dimensions in which they can exhibit big data properties in limited number of dimensions.
-In general it is defined in contrast to traditional data.
-It is generally defined as the data which cannot be dealt with traditional desktop or server client computing methods and hardware and requires substantial change in the approach.
-Laney 2001 defined big data in three dimensions volume, velocity and variety - the three Vs of big data.
-These have been extended to include veracity - the reliability or truthfulness of the data, visualisation - the complexity in visual interpretation and presentation, and other additional dimensions such as visibility validity, variability, volatility and value.
-There have been other alternative dimensions proposed as well such as Cardinality, continuity and complexity - three Cs.
-However for our purposes we consider 5Vs of Big data, volume, velocity, variety, veracity and visualisation.
-It has to be noted that Not all data is 'Big' in all these dimensions and each dimension can lead to their own challenge in the analysis and management of the data.
-It is important to understand the dataset in terms of its Big data properties so that the corresponding challenges can be tackled with confidence.
+The first and foremost challenge we face while discussing big data is its definition.
+It is hard to clearly and objectively define `Big data' as it can vary widely based on the discipline and perspective.
+What may be `big' in one discipline may not be in another.
+The nature of data can also be evaluated in various dimensions and can exihibit differnt properties in those dimensions. 
+`Big data' is generally defined within the context of disciplines, as data which cannot be managed with traditional methods and tools in those disciplines and requires substantial change in the approach of the practitioners.
+This definition is too subjective and falls short of giving us more understanding of `Big data'.
+% Laney citation
+One of the most subscribed definition is to define the scale of the data in the dimentions of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data.
+This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation - the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
+There have also been other alternative dimensions proposed such as Cardinality, continuity and complexity.
+% Citation for 3Cs
+However we can consider the core dimensions of data - volume, velocity, variety, veracity and visualisation for evaluating our datasets.
+Since not all data is 'Big' in all these dimensions, we need to evaluate the `bigneess' of the data in each dimension and consider the associated challanges and colutions.
 
-The second set of challenges arise from the above mentioned nature of big data while processing it.
-The 'processing' of data can be categorised broadly as the following steps - data acquisition and recording, extraction cleaning and annotation, data integration and aggregation, modeling and analysis, and finally visualisation and interpretation.
-Each step in this processing poses its own challenges.
-The volume, velocity and variety poses the problem in data acquisition by introducing the need for distributed, crowdsourced collection of data, need for heavily parallelised computing and functional programming concepts while we clean and aggregate the data into valuable information.
-This is where the approaches in Programming languages such as Haskell, distributed storage and computing such as MapReduce, Hadoop and parallel processing approaches such as spark are introduced.
-There is a lot of bias arising from the unstructured way of collecting data which requires consideration on calibrating and weighting the data collection process to weed out any potential uncertainties and biases.
-The veracity of the big data introduces significant challenges in modelling and analysis of the data.
-The need for new ML algorithms which are data heavy and Deep learning methods such as CNN which focuses on processing heavy become prominent.
-The high performance computing methods with ultra parallelised techniques such as GPU processing are indispensable to be able to model and predict in such data sets.
+The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation, modeling, analysis, visualisation and interpretation.
+Challenges in each one of these processing activity arises due to the data being big in one or more dimensions.
+The data being big in volume, velocity and variety poses challanges in data acquisition, aggregation, cleaning and analysis \cite{li2016geospatial}. 
+These challenges make traditional methods impractical and introduce the need for distributed, crowdsourced collection of data, heavily parallelised computing and application of functional programming concepts.
+The unstructed nature of the big data also introduces notable biases which mandate careful consideration, proper calibration and weighting during analysis so that we can understand and remove any uncertainities arising from them.
+The data being big in veracity dimension poses significant challenges in its analysis and modelling.
+Since simple methods such as linear regression fails in such scenarios, we require complex methods such as support vector machines, neural networks and hidden markov models which compensate the lack of structure with the volume of data.
+With such computationally intensive methods, heavily parallelised high performance computing techniques such as GPU processing become indispensable.
+
 These properties also introduces significant challenges in presenting the knowledge mined with such data like visualisation.
 Visualisation is not only a presentation task supporting critical activity such as policy decision making support but also an indispensable tool in exploratory analysis.
 The volume and velocity of the data makes is hard to be able to visually digest the data, the variety especially in the time dimension can make the data too complex to interpret even when presented in small parts.
@@ -100,7 +104,7 @@ What are the aspects where Wi-Fi data shows 'Big data' properties?
 This gives us good information when evaluating a viable and efficient toolkit to process and manage the data.
 First we look at the WiFi data in each dimension and then arrive at a general categorisation of the data.
 
-\textit{Volume}
+\vspace{0.5em}\noindent\textit{Volume}\vspace{0.5em}
 
 We saw earlier that every location is bombarded with probe requests from phone in the area.
 Quantifying how much data is generated / arriving at each location is the first step of looking at the volume.
@@ -109,19 +113,21 @@ For the sake of comparison we have used the measure of size on disk for a year's
 We have to note that this can vary quite a lot between fields and tools.
 This can act as a quantification of volume of the data.
 
-\begin{table}
-    \centering
-    \begin{tabular}{|l|c|c|c|}
-        \hline
-        Study & Maximum & Minimum & Average \\
-        \hline
-        Pilot Study & & & \\
-        Main Study & & & \\
-        Smart Street Sensor & & & \\
-        \hline
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{lccc}
+      \toprule
+      Study & Maximum (GB) & Minimum (GB) & Average (GB) \\
+      \midrule
+      Pilot Study & & & \\
+      Main Study & & & \\
+      Smart Street Sensor & & & \\
+      \bottomrule
     \end{tabular}
-    \caption{Volume of the data}
-    \label{volume_table}
+  \end{center}
+  \caption{Comparison of volumes of the datasets collected for the research in Gigabytes per year.}
+  \label{tab:volume-table}
 \end{table}
 
 We can see that on average  of data is generates at a place and project of the size of smart street sensor is estimated to generate around  of data.

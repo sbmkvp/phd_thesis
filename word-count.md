@@ -4,9 +4,9 @@ Lines|Words|Characters|File
 39|396|2502|chapters/10_introduction.tex
 6|13|142|chapters/20_literature.tex
 131|2049|12697|chapters/30_data_collection.tex
-12|17|203|chapters/40_data_processing.tex
-381|5095|32070|chapters/45__data_toolkit.tex
+12|23|208|chapters/40_data_processing.tex
+387|5165|32697|chapters/45__data_toolkit.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 18|29|428|chapters/70_back.tex
-696|7915|51766|total
+702|7991|52398|total
