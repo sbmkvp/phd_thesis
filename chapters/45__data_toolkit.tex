@@ -16,14 +16,14 @@ We need to move fast with a pragmatic approach where we look at other discipline
 
 %-------------------------------------------------------------------------------
 
-In the previous chapters we looked at various methods we devised to collect and process data from WiFi probe requests emitted by phones.
+In the previous chapters we looked at various methods we devised to collect and process data from Wi-Fi probe requests emitted by phones.
 Though we discussed the methods conceptually, we left out the rationale behind choosing the toolkit employed to implement those methods.
 In this section we elaborate the thought process and rationale behind these decisions.
 We start by discussing the concept of `Big Data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
 Then we look at the data-sets we collected through the pilot studies and the `Smart Street Sensor' project and evaluate them in terms of the dimensions of the big data.
 We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
-Finally we put together a toolkit to suit our datasets built from simple small unix tools.
-% Thoughts on unix philosophy and link to it
+Finally we put together a toolkit to suit our datasets built from simple small UNIX tools.
+% Thoughts on UNIX philosophy and link to it
 
 %-------------------------------------------------------------------------------
 % Discussion on what is big data
@@ -37,9 +37,9 @@ As we saw in the previous chapters collecting large amount of data is quick and 
 Technological advancements have enabled us to be able to think about utilising such large assemblages of data which would have been impossible even in the recent past.
 By providing unprecedented coverage, these large assemblages of data - `Big data', provide us with insights which were not possible before.
 They often change our approach and methods employed in entire disciplines.
-For example, In computer science, fuelled by the explosion of collected user data, there is a paradigm shift in Artifical Intelligence with the use of data mining, machine learning and deep learning.
+For example, In computer science, fuelled by the explosion of collected user data, there is a paradigm shift in Artificial Intelligence with the use of data mining, machine learning and deep learning.
 It is only time before this paradigm shift pervades social sciences research as well.
-In addition to the above advantages, Big data because of their nature also introduce numerous challanges in their collection, storage, analysis and visualisation.
+In addition to the above advantages, Big data because of their nature also introduce numerous challenges in their collection, storage, analysis and visualisation.
 This is not including the enormous additional overhead and complexity introduced when we try to employ big data methods and tools.
 If we are not careful, using big data tools and methods for solving 'normal' problem can be counter productive where the advantages realised don't justified the overheads introduced.
 Hence it is important to understand the `Big data' nature of the datasets we are dealing with at a granular level and choose the tools and methods without any presumptions.
@@ -49,66 +49,62 @@ Hence it is important to understand the `Big data' nature of the datasets we are
 The first and foremost challenge we face while discussing big data is its definition.
 It is hard to clearly and objectively define `Big data' as it can vary widely based on the discipline and perspective.
 What may be `big' in one discipline may not be in another.
-The nature of data can also be evaluated in various dimensions and can exihibit differnt properties in those dimensions. 
+The nature of data can also be evaluated in various dimensions and can exhibit different properties in those dimensions. 
 `Big data' is generally defined within the context of disciplines, as data which cannot be managed with traditional methods and tools in those disciplines and requires substantial change in the approach of the practitioners.
 This definition is too subjective and falls short of giving us more understanding of `Big data'.
-% Laney citation
-One of the most subscribed definition is to define the scale of the data in the dimentions of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data.
+One of the most subscribed definition is to define the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite{laney20013d}.
 This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation - the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
-There have also been other alternative dimensions proposed such as Cardinality, continuity and complexity.
-% Citation for 3Cs
+There have also been other alternative dimensions proposed such as Cardinality, continuity and complexity \cite{suthaharan2014big}.
 However we can consider the core dimensions of data - volume, velocity, variety, veracity and visualisation for evaluating our datasets.
-Since not all data is 'Big' in all these dimensions, we need to evaluate the `bigneess' of the data in each dimension and consider the associated challanges and colutions.
+Since not all data is 'Big' in all these dimensions, we need to evaluate the `bigness' of the data in each dimension and consider the associated challenges and solutions.
 
 %-------------------------------------------------------------------------------
 
-The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation, modeling, analysis, visualisation and interpretation.
+The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation, modelling, analysis, visualisation and interpretation.
 Challenges in each one of these processing activity arises due to the data being big in one or more dimensions.
-The data being big in volume, velocity and variety poses challanges in data acquisition, aggregation, cleaning and analysis \cite{li2016geospatial}. 
+The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite{li2016geospatial}. 
 These challenges make traditional methods impractical and introduce the need for distributed, crowdsourced collection of data, heavily parallelised computing and application of functional programming concepts.
-The unstructed nature of the big data also introduces notable biases which mandate careful consideration, proper calibration and weighting during analysis so that we can understand and remove any uncertainities arising from them.
+The unstructured nature of the big data also introduces notable biases which mandate careful consideration, proper calibration and weighting during analysis so that we can understand and remove any uncertainties arising from them.
 The data being big in veracity dimension poses significant challenges in its analysis and modelling.
-Since simple methods such as linear regression fails in such scenarios, we require complex methods such as support vector machines, neural networks and hidden markov models which compensate the lack of structure with the volume of data.
+Since simple methods such as linear regression fails in such scenarios, we require complex methods such as support vector machines, neural networks and hidden Markov models which compensate the lack of structure with the volume of data.
 With such computationally intensive methods, heavily parallelised high performance computing techniques such as GPU processing become indispensable.
 We also face significant challenge in visualising such complex features and methods which not only supports critical decision making but also is indispensable in exploratory analysis.
 The volume and velocity of big data makes them hard to visually simplify and digest.
 They are especially complex to interpret in the time dimension unless presented in small parts.
-GIS systems do a good job in visualising complex geographic datasets but struggle to maintain legibility and understandability when dealing with the temporal dimension.
+Geographic information systems do a good job in visualising complex geographic data but struggle to maintain legibility and meaning when dealing with the temporal dimension.
 % Sample for visual complexity, hairball and point clouds
-The visualisations need to be highly processed, simplified and interactive to present meaning to the viewer. 
+The visualisations of big data need to be highly processed, simplified and interactive to present meaning to the viewer. 
 They have to balance between functionality, aesthetics and performance.
 Finally, because of the variety, big data creates need for consistent, well engineered standards so that multiple approaches and tools can be employed in tandem.
 
 %-------------------------------------------------------------------------------
 
-Apart from these processing challenges, we also have management challenges to consider such as privacy and security, Data governance and ownership, data and information sharing, and cost.
-Privacy and security is one of the basic consideration in any project dealing with big data.
-The approach, methods, tools should strictly have the capability comply with the legislation as well as the research ethics set up by all the stakeholders.
-At these scales there is no security by obscurity.
-The data collected itself may not be private but in conjunction with other datasets, it can be disclosive.
-There is also the ambiguity of the ownership of the data and risk associated with handling the data, it needs to comply with GDPR regulations.
-There also needs to be clear way to share the data securely with other projects along with publications of results so that the value of the all these processing is realised.
-The project management and issue tracking tools need to be capable of handling these data ownership and sharing concerns.
-This needs to be done in a timely, accessible manner as well.
-That leads us to the final challenge of cost of big data.
-Though most of the big data tools are developed openly and free there can be lot of hidden costs associated with collecting, processing and managing big data.
-There are the operational costs collecting data, network costs moving the data, server costs storing and processing the data, cost of specialised tools (or at least support for the tools) to use and the human resource cost in terms of training, time and money needed managing the data.
-This can make even a small project balloon in terms of cost when implemented in a scalable 'big data' way.
-This brings us to the need of us looking at the data at our hands closely so that we can make an informed decisions on how 'big' is our data and pick and choose the methods which are the most efficient in dealing with such dataset.
+Apart from these processing challenges, we also have management challenges associated with big data such as privacy and security, data governance and ownership, data and information sharing, and cost.
+Since these big datasets are usually comprehensive, securing them and protecting the privacy of the users becomes a central consideration in any project dealing with them.
+In many cases, though the data collected itself may not contain personal information but at these scales, in conjunction with other datasets, it can be used to infer them.
+The overall approach, methods, tools should comply with relevant legislation such as G.D.P.R as well as the research ethics of all the stakeholders.
+This is especially challenging since these large unstructured datasets exhibit ambiguity of their ownership as well which calls for a clear, transparent and secure way to share them with other stakeholders along with publications of results in a timely, accessible manner.
+The associated project management and tracking tools need to be capable of handling these data ownership and sharing concerns as well.
+
+Finally, the biggest challenge we face with big data is the cost in terms of money, resources and time.
+Though most of the big data tools are developed openly and distributed freely there can be lot of incidental, non-direct costs associated with collecting, processing and managing data with them.
+For example, there are the operational costs collecting data at such scale, network costs moving them, server costs storing and processing them, cost of procuring and supporting specialised tools and the human resource cost in hiring and training people who are capable for dealing with them.
+Though there are economies of scale at larger scales, the overall resources required to manage big data effectively can be several folds of what is needed for a traditional dataset. 
+This makes it important to look at the data in our hands closely and carefully so that we can make informed decisions on how 'big' it is and choose the methods which are the most suited for such dataset.
 
 %-------------------------------------------------------------------------------
-% Dicuss the data we have in detail 
+% Discuss the data we have in detail 
 %-------------------------------------------------------------------------------
 
-\subsection{Is WiFi probe requests collected Big data?}
+\subsection{How big are the datasets of Wi-Fi probe requests?}
 
-In this section we take a detailed look at the WiFi datasets collected in the research using the 5Vs big data framework.
+In this section we take a detailed look at the Wi-Fi datasets collected in the research using the 5Vs big data framework.
 Out aim is to understand the nature of the data thus the challenges we will face processing and managing it.
 We want to answer the following questions,
-Can the WiFi data be defined as Big data?
+Can the Wi-Fi data be defined as Big data?
 What are the aspects where Wi-Fi data shows 'Big data' properties?
 This gives us good information when evaluating a viable and efficient toolkit to process and manage the data.
-First we look at the WiFi data in each dimension and then arrive at a general categorisation of the data.
+First we look at the Wi-Fi data in each dimension and then arrive at a general categorisation of the data.
 
 \vspace{0.5em}\noindent\textit{Volume}\vspace{0.5em}
 
@@ -132,8 +128,8 @@ This can act as a quantification of volume of the data.
       \bottomrule
     \end{tabular}
   \end{center}
-  \caption{Comparison of volumes of the datasets collected for the research in Gigabytes per day.}
-  \label{tab:volume-table}
+  \caption{Comparison of volume of the datasets of Wi-Fi probe requests.}
+  \label{tab:toolkit:volume}
 \end{table}
 
 We can see that on average  of data is generates at a place and project of the size of smart street sensor is estimated to generate around  of data.
@@ -146,9 +142,9 @@ Within this interdisciplinary context, we can say that a national level sampled 
 A comparison of data sizes in various fields after being standardised is shown in the figure.
 We can see that data sources such as LIDAR, social media, internet sources are several orders of magnitude larger.
 Even if we assume the largest possible data possible - One sensor in every retail location in UK, we can assume something along the lines of  This assuming data collected as we did in the main study and xxxx retail locations across UK in average.
-To summarise, in the volume dimension WiFi data is 'medium' in size and is expected to remain so in the future.
+To summarise, in the volume dimension Wi-Fi data is 'medium' in size and is expected to remain so in the future.
 
-Figure comparing the typical size of the WiFi dataset to a small dataset and truly big data.
+Figure comparing the typical size of the Wi-Fi dataset to a small dataset and truly big data.
 
 \textit{Velocity}
 
@@ -178,7 +174,7 @@ We can safely say that there are no real need for low latency real time solution
     \label{velocity_table}
 \end{table}
 
-Figure comparing the typical size of the WiFi dataset to a small dataset and truly big data.
+Figure comparing the typical size of the Wi-Fi dataset to a small dataset and truly big data.
 
 \textit{Variety}
 
@@ -186,7 +182,7 @@ This aspect of the data cannot be quantified in absolute time but has to be subj
 Since the origin of the data is in the Wi-Fi standard, the core of the data is very very structured.
 Every probe request almost always have a core set of data which is highly structured and remains the same all over the world.
 This further propagates as well process the data further.
-There are two main sources of variability identified withing the WiFi probe requests
+There are two main sources of variability identified withing the Wi-Fi probe requests
 
  - Information elements : The standard specifies a good amount of flexible data  which can be encoded in the request detailing the capabilities of the mobile  device.
 These information element are implemented as per the manufacturer  discretion.
@@ -264,12 +260,12 @@ There are numerous tools available for data collection with network of sensors u
 The primary consideration in the data collection is the scale of the infrastructure and the cost associated with it.
 The smartstreetsensor project uses its own proprietary sensor system which collects data at the location.
 The tooling decisions were made with the commercial application in mind and is not entirely relevant to our discussion, but for the research conducted with the data, it is necessary to understand the data collection process and how the toolkit integrates with the rest of the setup.
-We start by looking at different approaches in the data collection tools and try to reason the most appropriate solution for the WiFi data.
+We start by looking at different approaches in the data collection tools and try to reason the most appropriate solution for the Wi-Fi data.
 At the hardware level, the lowest level of tool can be a micro-controller such as audrino with a dedicated hardware module with custom software to collect the exact data needed.
 This is time consuming, cumbersome takes a lot of cost to develop, but is very flexible, efficient and cheap to deploy.
 On the other end of this spectrum we have end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail next, pygmalios etc where the data set is collected through multiple sources and syndicated into a cleaned source by a thirdparty.
 This can be costly and inflexible but quick and easy.
-The middle ground on this to deal with a complexity as much as the WiFi data, is to use a single board computer with external modules and use general purpose, tools to build a data collection device.
+The middle ground on this to deal with a complexity as much as the Wi-Fi data, is to use a single board computer with external modules and use general purpose, tools to build a data collection device.
 
 The toolkit we have adopted consists of RaspberryPi, Linux, tcpdump/tshark and nodejs.
 The RaspberryPi and the linux platform it provides is one of the most diverse and general purpose systems available.

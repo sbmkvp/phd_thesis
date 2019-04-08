@@ -3,10 +3,10 @@ Lines|Words|Characters|File
 100|304|3560|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
 6|13|142|chapters/20_literature.tex
-131|2049|12697|chapters/30_data_collection.tex
+131|2048|12697|chapters/30_data_collection.tex
 12|23|208|chapters/40_data_processing.tex
-393|5144|32904|chapters/45__data_toolkit.tex
+389|5139|33069|chapters/45__data_toolkit.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 18|29|428|chapters/70_back.tex
-708|7969|52580|total
+704|7963|52745|total
