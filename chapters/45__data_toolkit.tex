@@ -2,11 +2,11 @@
 % Introduction to the chapter
 %-------------------------------------------------------------------------------
 
-\section{Data Toolkit}
+\section{Medium Data Toolkit}
 
-\textsc{Big data and its analytics} promises huge benefits in terms of value realisation, cost reduction, insights but it also introduces a numerous pitfalls.
+\textsc{Big data and its analytics} promises huge benefits in terms of value realisation, cost reduction, insights but it also introduces a numerous pitfalls \cite{gandomi2015beyond}.
 With developments in information technology, mobile communications and internet of things, large assemblages of data are readily available leading to immense possibilities in research.
-But when we analyse these data at such scale, we also encounter a large amount of added complexity and cost \cite{gandomi2015beyond}.
+But when we analyse these data at such scale, we also encounter a large amount of added complexity and cost.
 Hence it is important to be careful in choosing the methods and tools in dealing with big data where we should look to devise right methods and tools for the right problems.
 % Need a graphic showing growth of Big data
 Moreover in several disciplines, such as statistics and geography etc., the existing methods and tools are already developed for dealing with large scale data.
@@ -82,7 +82,7 @@ Finally, because of the variety, big data creates need for consistent, well engi
 Apart from these processing challenges, we also have management challenges associated with big data such as privacy and security, data governance and ownership, data and information sharing, and cost.
 Since these big datasets are usually comprehensive, securing them and protecting the privacy of the users becomes a central consideration in any project dealing with them.
 In many cases, though the data collected itself may not contain personal information but at these scales, in conjunction with other datasets, it can be used to infer them.
-The overall approach, methods, tools should comply with relevant legislation such as G.D.P.R as well as the research ethics of all the stakeholders.
+The overall approach, methods, tools should comply with relevant legislation such as GDPR as well as the research ethics of all the stakeholders.
 This is especially challenging since these large unstructured datasets exhibit ambiguity of their ownership as well which calls for a clear, transparent and secure way to share them with other stakeholders along with publications of results in a timely, accessible manner.
 The associated project management and tracking tools need to be capable of handling these data ownership and sharing concerns as well.
 
@@ -96,24 +96,30 @@ This makes it important to look at the data in our hands closely and carefully s
 % Discuss the data we have in detail 
 %-------------------------------------------------------------------------------
 
-\subsection{How big are the datasets of Wi-Fi probe requests?}
+\subsection{How big are the Wi-Fi probe request datasets?}
 
-In this section we take a detailed look at the Wi-Fi datasets collected in the research using the 5Vs big data framework.
-Out aim is to understand the nature of the data thus the challenges we will face processing and managing it.
-We want to answer the following questions,
-Can the Wi-Fi data be defined as Big data?
-What are the aspects where Wi-Fi data shows 'Big data' properties?
-This gives us good information when evaluating a viable and efficient toolkit to process and manage the data.
-First we look at the Wi-Fi data in each dimension and then arrive at a general categorisation of the data.
+In this section we take a detailed look at the three sets of Wi-Fi probe requests collected as described in chapter 1 \textbf{Reference} using the 5Vs big data framework.
+Our aim is to understand the nature of the data in each dimension and thus evaluate the challenges we face in that specific dimension leading to a bespoke solution..
+We look at each set of data in each dimension and try to answer the following questions,
+
+\begin{enumerate}
+  \setlength{\itemindent}{2em}
+  \itemsep-0.25em
+  \item{How can this dimension be measure objectively?}
+  \item{How big is the data in terms of the defined measurement?}
+  \item{How does it data compare with datasets in other disciplines?}
+  \item{How can we describe the size of the data?}
+\end{enumerate}
+
+We then combine these isolated evaluations to form a combined description of the datasets. This is then used as the basis for developing a list of requirements for designing the data processing and management toolkit.
 
 \vspace{0.5em}\noindent\textit{Volume}\vspace{0.5em}
 
-We saw earlier that every location is bombarded with probe requests from phone in the area.
-Quantifying how much data is generated / arriving at each location is the first step of looking at the volume.
-We look at the absolute scale of the data rather than the rate at which it is being generated.
-For the sake of comparison we have used the measure of size on disk for a year's worth of data encoded in text format.
-We have to note that this can vary quite a lot between fields and tools.
-This can act as a quantification of volume of the data.
+\noindent Probe requests data, being dynamic and continuous, cannot be quantified as an absolute static number in terms of volume. 
+Hence we use a long term measurement - yearly rate for each sensors instead.
+On shorter datasets such as the pilot study, we estimate the yearly volume linearly from the available data.
+We standardise this measure as the amount of disk space needed to store the collected data when encoded in text form.
+It is important to note that this can be reduced many folds by using compression or binary formats but we chose text since it the de-facto standard for exchanging data.
 
 \begin{table}[h]
   \footnotesize
@@ -128,7 +134,7 @@ This can act as a quantification of volume of the data.
       \bottomrule
     \end{tabular}
   \end{center}
-  \caption{Comparison of volume of the datasets of Wi-Fi probe requests.}
+  \caption{Comparison of volume of the datasets of Wi-Fi probe requests (GB/year).}
   \label{tab:toolkit:volume}
 \end{table}
 
@@ -146,6 +152,12 @@ To summarise, in the volume dimension Wi-Fi data is 'medium' in size and is expe
 
 Figure comparing the typical size of the Wi-Fi dataset to a small dataset and truly big data.
 
+\begin{marginfigure}
+\includegraphics{images/cat.jpeg}
+\caption{This is a margin figure.}
+\label{fig:marginfig}
+\end{marginfigure}
+
 \textit{Velocity}
 
 Unlike volume, velocity is defined as the rate of collection data at short term.
@@ -159,19 +171,21 @@ This comparison is shown in figure.
 As we saw with volume, even in velocity the Wi-fi Data can be described as 'medium' data which is aggregated every 5 mins and mostly processed daily batches of xx GB.
 We can safely say that there are no real need for low latency real time solution while dealing with this data while at the same time we need to recognise that unlike traditional datasets, we have a steady stream of data which needs to be processed regularly and sustainably.
 
-\begin{table}
-    \centering
-    \begin{tabular}{|l|c|c|c|}
-        \hline
-        Study & Maximum & Minimum & Average \\
-        \hline
-        Pilot Study & & & \\
-        Main Study & & & \\
-        Smart Street Sensor & & & \\
-        \hline
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{lccc}
+      \toprule
+      Study & Maximum & Minimum & Average \\
+      \midrule
+      Pilot Study & & & \\
+      Main Study & & & \\
+      Smart Street Sensor & & & \\
+      \bottomrule
     \end{tabular}
-    \caption{velocity of the data}
-    \label{velocity_table}
+  \end{center}
+  \caption{Comparison of velocity/speed of the datasets of Wi-Fi probe requests (MBps)}
+  \label{tab:toolkit:volume}
 \end{table}
 
 Figure comparing the typical size of the Wi-Fi dataset to a small dataset and truly big data.
