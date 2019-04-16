@@ -6,5 +6,5 @@ COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex && \
     pdflatex -halt-on-error -interaction=nonstopmode thesis.tex && \
     ./scripts/status > word-count.md"
   
-find . -type f \( -name "*.cls" -o -name "*.tex" -o -name "*.bib" \) \
+find . -type f \( -name "*.cls" -o -name "*.tex" -o -name "*.bib" -o -name "*.png" \) \
     | entr bash -c "$COMMAND"

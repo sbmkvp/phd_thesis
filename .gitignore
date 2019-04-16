@@ -15,3 +15,6 @@ config.json
 *.stderr
 *.stdout
 data/
+*.idx
+*.ilg
+*.ind

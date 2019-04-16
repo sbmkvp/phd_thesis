@@ -8,7 +8,6 @@
 With developments in information technology, mobile communications and internet of things, large assemblages of data are readily available leading to immense possibilities in research.
 But when we analyse these data at such scale, we also encounter a large amount of added complexity and cost.
 Hence it is important to be careful in choosing the methods and tools in dealing with big data where we should look to devise right methods and tools for the right problems.
-% Need a graphic showing growth of Big data
 Moreover in several disciplines, such as statistics and geography etc., the existing methods and tools are already developed for dealing with large scale data.
 These methods along with improvements in hardware has made the processing big data in these disciplines possible without a major changes in workflow.
 In the current environment of constant change and growth of sources of data, we cannot afford to lose the opportunity to extract information from them while trying to create a perfect, future proof approach in dealing with them.
@@ -22,8 +21,7 @@ In this section we elaborate the thought process and rationale behind these deci
 We start by discussing the concept of `Big Data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
 Then we look at the data-sets we collected through the pilot studies and the `Smart Street Sensor' project and evaluate them in terms of the dimensions of the big data.
 We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
-Finally we put together a toolkit to suit our datasets built from simple small UNIX tools.
-% Thoughts on UNIX philosophy and link to it
+Finally we put together a toolkit to suit our datasets built from simple small UNIX tools. \sidenote[][-1cm]{"Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.", Doug McIlroy on UNIX philosophy.}
 
 %-------------------------------------------------------------------------------
 % Discussion on what is big data
@@ -38,7 +36,7 @@ Technological advancements have enabled us to be able to think about utilising s
 By providing unprecedented coverage, these large assemblages of data - `Big data', provide us with insights which were not possible before.
 They often change our approach and methods employed in entire disciplines.
 For example, In computer science, fuelled by the explosion of collected user data, there is a paradigm shift in Artificial Intelligence with the use of data mining, machine learning and deep learning.
-It is only time before this paradigm shift pervades social sciences research as well.
+It is only time before this approach pervades social sciences research as well.
 In addition to the above advantages, Big data because of their nature also introduce numerous challenges in their collection, storage, analysis and visualisation.
 This is not including the enormous additional overhead and complexity introduced when we try to employ big data methods and tools.
 If we are not careful, using big data tools and methods for solving 'normal' problem can be counter productive where the advantages realised don't justified the overheads introduced.
@@ -72,14 +70,13 @@ We also face significant challenge in visualising such complex features and meth
 The volume and velocity of big data makes them hard to visually simplify and digest.
 They are especially complex to interpret in the time dimension unless presented in small parts.
 Geographic information systems do a good job in visualising complex geographic data but struggle to maintain legibility and meaning when dealing with the temporal dimension.
-% Sample for visual complexity, hairball and point clouds
 The visualisations of big data need to be highly processed, simplified and interactive to present meaning to the viewer. 
 They have to balance between functionality, aesthetics and performance.
 Finally, because of the variety, big data creates need for consistent, well engineered standards so that multiple approaches and tools can be employed in tandem.
 
 %-------------------------------------------------------------------------------
 
-Apart from these processing challenges, we also have management challenges associated with big data such as privacy and security, data governance and ownership, data and information sharing, and cost.
+Apart from these processing challenges, we also have management challenges associated with big data such as privacy and security, data governance and ownership, data and information sharing, and cost\cite{jagadish2014big}.
 Since these big datasets are usually comprehensive, securing them and protecting the privacy of the users becomes a central consideration in any project dealing with them.
 In many cases, though the data collected itself may not contain personal information but at these scales, in conjunction with other datasets, it can be used to infer them.
 The overall approach, methods, tools should comply with relevant legislation such as GDPR as well as the research ethics of all the stakeholders.
@@ -98,8 +95,8 @@ This makes it important to look at the data in our hands closely and carefully s
 
 \subsection{How big are the Wi-Fi probe request datasets?}
 
-In this section we take a detailed look at the three sets of Wi-Fi probe requests collected as described in chapter 1 \textbf{Reference} using the 5Vs big data framework.
-Our aim is to understand the nature of the data in each dimension and thus evaluate the challenges we face in that specific dimension leading to a bespoke solution..
+In this section we take a detailed look at the three sets of Wi-Fi probe requests collected as described in chapter on data collection using the 5Vs big data framework.
+Our aim is to understand the nature of the data in each dimension and thus evaluate the challenges we face in that specific dimension leading to a bespoke solution.
 We look at each set of data in each dimension and try to answer the following questions,
 
 \begin{enumerate}
@@ -113,10 +110,12 @@ We look at each set of data in each dimension and try to answer the following qu
 
 We then combine these isolated evaluations to form a combined description of the datasets. This is then used as the basis for developing a list of requirements for designing the data processing and management toolkit.
 
-\vspace{0.5em}\noindent\textit{Volume}\vspace{0.5em}
+%-------------------------------------------------------------------------------
+
+\vspace{1.5em}\noindent\textit{Volume}\vspace{0.5em}
 
 \noindent Probe requests data, being dynamic and continuous, cannot be quantified as an absolute static number in terms of volume. 
-Hence we use a long term measurement - yearly rate for each sensors instead.
+Hence we use a long term measurement - yearly rate, for each location instead.
 On shorter datasets such as the pilot study, we estimate the yearly volume linearly from the available data.
 We standardise this measure as the amount of disk space needed to store the collected data when encoded in text form.
 It is important to note that this can be reduced many folds by using compression or binary formats but we chose text since it the de-facto standard for exchanging data.
@@ -124,45 +123,76 @@ It is important to note that this can be reduced many folds by using compression
 \begin{table}[h]
   \footnotesize
   \begin{center}
-    \begin{tabular}{lccc}
+    \begin{tabular}{lcccc}
       \toprule
-      Study & Maximum & Minimum & Average \\
+      Study & Maximum* & Minimum* & Average* & Total** \\
       \midrule
-      Pilot Study & & & \\
-      Main Study & & & \\
-      Smart Street Sensor & & & \\
+      Pilot Study & 134 & 3 & 54 & 48.3 \\
+      Main Study & 6.1 & 2.4 & 4.42 & 4.1 \\
+      Smart Street Sensor & 5.4 & 0.001 & 0.8 & 0.8 \\
       \bottomrule
     \end{tabular}
   \end{center}
-  \caption{Comparison of volume of the datasets of Wi-Fi probe requests (GB/year).}
-  \label{tab:toolkit:volume}
+  \caption{Comparison of volume or size of the datasets of Wi-Fi probe requests.}
+  \label{table:toolkit:volume}
 \end{table}
 
-We can see that on average  of data is generates at a place and project of the size of smart street sensor is estimated to generate around  of data.
-This is not a trivial volume of data..
-Desktop normal analysis of such volume is next to impossible.
-At the same time this is not truly what is meant by Big data as well.
-True big data sources in terms of volume can be of  sizes.
-They cannot be even stored at a central single location.
-Within this interdisciplinary context, we can say that a national level sampled collection of Wi-Fi data is medium at best.
-A comparison of data sizes in various fields after being standardised is shown in the figure.
-We can see that data sources such as LIDAR, social media, internet sources are several orders of magnitude larger.
-Even if we assume the largest possible data possible - One sensor in every retail location in UK, we can assume something along the lines of  This assuming data collected as we did in the main study and xxxx retail locations across UK in average.
-To summarise, in the volume dimension Wi-Fi data is 'medium' in size and is expected to remain so in the future.
+\marginnote{\textit{* Measured/ Estimated for each location in gigabytes per year. ** Measured/ Estimated for 920 locations in terabytes per year} }
 
-Figure comparing the typical size of the Wi-Fi dataset to a small dataset and truly big data.
+We can see that there is a lot of variability in the volume of probe requests generated at a given location.
+This mostly depends on how many mobile devices are present around the location.
+We observe that when we collect most of the information present in the probe requests in a busy area such as Oxford street in the Pilot studies, we generate around 50 terabytes of data in a year.
+But in a more real world setting such as the Smart Street Sensor project where the sensors fail at times and the amount of data collected is optimised, the volume is around a 1 gigabyte.
+The total volume of data we deal with in the case of a national scale project with around 920 sensors running for around 4 years is around 2 terabytes.
+A comparison of this to datasets from other disciplines is shown in Figure \ref{figure:toolkit:volume}.
+It is key to note that the y-axis is scaled exponentially.
 
 \begin{marginfigure}
-\includegraphics{images/cat.jpeg}
-\caption{This is a margin figure.}
-\label{fig:marginfig}
+  \includegraphics{images/data-size-comparison.png}
+  \caption{Comparison of volumes of datasets across various disciplines.}
+  \label{figure:toolkit:volume}
 \end{marginfigure}
 
-\textit{Velocity}
+\marginnote[1em]{\fontsize{7}{7}\textit{NSA - National Security Agency, LHC - Large Hadron Collider, GE - Google Earth, EV - Event Horizon project, SP - Spotify music, BL - British Library data store, LoC - Library of Congress, SSS - Smart Street Sensor, NYU - New york city Uber trips 2009-15, OSM - Open Street Map and HG - Human Genome Project}}
 
-Unlike volume, velocity is defined as the rate of collection data at short term.
-It is quantified similar to volume with size on disk per unit time but the time period is smaller.
-The Wi-fi probe requests are generated almost continuously at each location across various channels.
+We can see that the probe requests data is not truly 'Big data' as experienced in other fields.
+It is only when we reach a complete coverage, i.e, putting a sensor at each retail establishment in UK, our estimated data volume reaches around 250 petabytes which is comparable to scales experienced in other fields such as particle physics and world wide social networks.
+At the same time, the scale of probe request data is not small either.
+The volume of 2 terabytes is more than the memory available in any desktop systems and is more than any of them can process in a timely manner.
+Summarising from the above, we can confidently say that the probe request datasets are `Medium Data' - especially the dataset collected by the smart street sensor project.
+Though it has potential to scale into a truly big dataset, for the purposes of this research we can classify it as `Medium data' in the volume dimension.
+
+%-------------------------------------------------------------------------------
+
+\vspace{1.5em}\noindent\textit{Velocity}\vspace{0.5em}
+
+Velocity is the rate at which the data is collected over time.
+It is significant when evaluating big data since some data which may not scale in terms of absolute volume but the speed at which they are received makes them challenging to deal with.
+A perfect example is the comparison between data generated by the Large Hadron Collider project by European Council for Nuclear Research and a world wide social network such as Facebook.
+Though their total volumes are comparable at 200 petabytes, the data from LHC is generated in concentrated experiments at a rate of 3 petabytes in 5 seconds while Facebook generates the same about in about a day.
+Since the size of an individual Wi-Fi probe request doesn't vary widely, we define the velocity of this dataset as the number of requests received at a given location at a given location within a given time interval.
+Though the precision of the time measured during data collection is in microseconds, the practical data transfer resolution in all the datasets is around 5 minutes.
+Hence we measure velocity of out datasets in terms of number of requests every 5 minutes.
+
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{lcccc}
+      \toprule
+      Study & Maximum* & Minimum* & Average* & Total** \\
+      \midrule
+      Pilot Study &  &  &  &  \\
+      Main Study &  &  &  &  \\
+      Smart Street Sensor &  &  &  &  \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Comparison of velocity or speed of the datasets of Wi-Fi probe requests.}
+  \label{table:toolkit:velocity}
+\end{table}
+
+\marginnote{\textit{* Measured/ Estimated for each location in number of requests per 5 minutes. ** Measured/ Estimated for 920 locations in number of requests per 5 minutes} }
+
 The temporal precision is around micro seconds, but for convenience we have collected and aggregated data per minute for the pilot studies and 5 minutes for the Smart street sensor project.
 Every location generates around xx GB per minute and in total the project generates xx GB per minute.
 This again varies from xx to xx and on average we can say a moderately busy location is expected to generate xx in a minute.
@@ -170,27 +200,9 @@ When we compare this to long term data sources such as census, slow data such as
 This comparison is shown in figure.
 As we saw with volume, even in velocity the Wi-fi Data can be described as 'medium' data which is aggregated every 5 mins and mostly processed daily batches of xx GB.
 We can safely say that there are no real need for low latency real time solution while dealing with this data while at the same time we need to recognise that unlike traditional datasets, we have a steady stream of data which needs to be processed regularly and sustainably.
+%-------------------------------------------------------------------------------
 
-\begin{table}[h]
-  \footnotesize
-  \begin{center}
-    \begin{tabular}{lccc}
-      \toprule
-      Study & Maximum & Minimum & Average \\
-      \midrule
-      Pilot Study & & & \\
-      Main Study & & & \\
-      Smart Street Sensor & & & \\
-      \bottomrule
-    \end{tabular}
-  \end{center}
-  \caption{Comparison of velocity/speed of the datasets of Wi-Fi probe requests (MBps)}
-  \label{tab:toolkit:volume}
-\end{table}
-
-Figure comparing the typical size of the Wi-Fi dataset to a small dataset and truly big data.
-
-\textit{Variety}
+\vspace{1.5em}\noindent\textit{Variety}\vspace{0.5em}
 
 This aspect of the data cannot be quantified in absolute time but has to be subjectively discussed.
 Since the origin of the data is in the Wi-Fi standard, the core of the data is very very structured.
@@ -208,7 +220,9 @@ The rate of probe request generation still varies widely for different manufactu
 In terms of standardised footfall counts there is only one Ordinal data point along time intervals with a geographic unit and time.
 From the above, we can safely assume that the Wi-Fi data shows no Big-data characteristics in the variety dimension.
 
-\textit{Veracity}
+%-------------------------------------------------------------------------------
+
+\vspace{1.5em}\noindent\textit{Veracity}\vspace{0.5em}
 
 This is the dimension in which the Wi-Fi data exhibits big data characteristics.
 This comes from the fact the data is collected in a unstructured way and passively.
@@ -235,8 +249,9 @@ There is also the bias of operating system adoption and change in market share b
 There is no inherent structure or information on what is changed and how often these changes occur which leads to questions on the continuity of the data over long periods of time.
 From the above we can conclude that Wi-Fi data shows Big data characteristics in terms of its veracity and requires tools and methods when aggregating, analysing and modelling it.
 
+%-------------------------------------------------------------------------------
 
-\textit{Visualisation and reporting}
+\vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
 Visualisation is closely related to volume, velocity and variety of the data.
 The Wi-Fi data due to its non-trivial size and velocity, exhibits similar characteristics and challenges in visualisation.
@@ -267,8 +282,9 @@ Figure spider graph showing the profile of Wi-Fi data.
 In this section, we survey the tools and methods available at various stages of the data processing and management process we discusst he tools with respect to the performance (throughput), flexibility, complexity and cost.
 We finally try to devise a toolkit which best suits our data needs.
 
+%-------------------------------------------------------------------------------
 
-\textit{Collection}
+\vspace{1.5em}\noindent\textit{Collection}\vspace{0.5em}
 
 There are numerous tools available for data collection with network of sensors under the umbrella of internet of things.
 The primary consideration in the data collection is the scale of the infrastructure and the cost associated with it.
@@ -286,7 +302,9 @@ The RaspberryPi and the linux platform it provides is one of the most diverse an
 On top of which we can build our data collection system with specialised, opensource and free Wi-Fi sniffing tool such as tcpdump, tshark along with a general purpose runtime such as nodejs which provides other functions such as scheduling, personal data obfuscation and data transmission.
 This system has a capacity to sniff and transfer large amounts of data and with a 3G module is very versatile in terms of location.
 
-\textit{Storage}
+%-------------------------------------------------------------------------------
+
+\vspace{1.5em}\noindent\textit{Storage}\vspace{0.5em}
 
 This is one of the most diverse set of area in terms of both methods and tools available.
 It has been constantly in development since the beginning of computer systems and is one of the fastest changing landscapes.
@@ -323,22 +341,24 @@ Finally there are solutions such as Hive and hbase which are database like funct
 This behaves like a hyper large scale database system and works in conjunction with other big data tools
 
 
-\begin{table}
-    \centering
-    \begin{tabular}{|l|l|}
-        \hline
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{ll}
+      \toprule
         Type & Comment\\
-        \hline
+      \midrule
         Filesystem & for hierarchical data around 10TB range\\
         Cloud Storage & \textless{}  10TB, can add hdfs stuff, more reliability\\
         Relational DB & 1-5TB, Good for relational Data, Row-wise, Partitioning\\
         Document DB & -10TB, Good for unstructured data, column wise,Clustering\\
         HDFS & \textgreater{} 10 TB, Good for scale and structure\\
         Hive, Hbase & on top of HDFS, bring DB to HDFS\\
-        \hline
+      \bottomrule
     \end{tabular}
-    \caption{Types and Use of Various Storage Solutions}
-    \label{storage_table}
+  \end{center}
+  \caption{Types and Use of Various Storage Solutions}
+  \label{table:toolkit:storage}
 \end{table}
 
 
@@ -347,7 +367,9 @@ When the same data is aggregated it loses its scale and is highly strucutred so 
 In case the project runs longer and more longitudinal analysis had to be done on raw data HDFS needs to be used and if the aggregated data scales to >10TB we can handle it with a timescale db should be suitable.
 PostgreSQL is more suitable than other databases because of its better support to geographic data.
 
-\textit{Processing}
+%-------------------------------------------------------------------------------
+
+\vspace{1.5em}\noindent\textit{Processing}\vspace{0.5em}
 
 The primary considerations while surveying are the volume, velocity and veracity
 of the data.
@@ -365,15 +387,15 @@ For the first part of the processing - filtering \& cleaning we use the followin
 
 \begin{enumerate}
 
-\item \textbf{sed} - streaming text editor. A fully featured text editor which works on  stream of text. The stream is processed usually by each line and is the most  commonly used to search and replace (translating) text streams using regular  expressions.
+  \item \textbf{sed} - streaming text editor. A fully featured text editor which works on  stream of text. The stream is processed usually by each line and is the most  commonly used to search and replace (translating) text streams using regular  expressions.
 
-\item \textbf{Grep} - grep (global regex print) is a special case of sed where we search  the stream for regular expression and print the result. This is usually used  for searching and filtering text streams.
+  \item \textbf{grep} - grep (global regex print) is a special case of sed where we search  the stream for regular expression and print the result. This is usually used  for searching and filtering text streams.
 
-\item \textbf{awk} - This is a turing complete special purpose higher level programming  language which is optimised for sorting, validating and transforming text  streams. It is full featured enough to be able to manage a small text based  database by itself. This is usually used to transform tabular delimited data.
+  \item \textbf{awk} - This is a turing complete special purpose higher level programming  language which is optimised for sorting, validating and transforming text  streams. It is full featured enough to be able to manage a small text based  database by itself. This is usually used to transform tabular delimited data.
 
-\item \textbf{jq} - This is similar to awk, has a emcascript based scripting language  for transforming text data which is in the JavaScript Object Notation format. These four tools form a core toolkit for tranforming, translating and  filtering data. All these tools are single threaded and need an external tool  to parallelise the processes. For this we can use gnu-parallel.
+  \item \textbf{jq} - This is similar to awk, has a emcascript based scripting language  for transforming text data which is in the JavaScript Object Notation format. These four tools form a core toolkit for tranforming, translating and  filtering data. All these tools are single threaded and need an external tool  to parallelise the processes. For this we can use gnu-parallel.
 
-\item \textbf{parallel} - This is a tool built with perl (citation) which parallelises  the any operation across CPU cores and even across multiple nodes through  secure shell (ssh). This gives us a medium sized cluster which is well suited  dealing with text data stored in a file system.
+  \item \textbf{parallel} - This is a tool built with perl (citation) which parallelises  the any operation across CPU cores and even across multiple nodes through  secure shell (ssh). This gives us a medium sized cluster which is well suited  dealing with text data stored in a file system.
 
 \end{enumerate}
 
@@ -386,12 +408,14 @@ For complex data cleaning techniques such as filling in the gaps, we can use hig
 Security in terms of obfuscation can be done through hashing algorithms implemented by openssl, nodejs and R and for encryption, we can use the gnupg.
 The toolkit being open source free software has the added advantage of being secure as well.
 
-\textit{Visualisation}
+%-------------------------------------------------------------------------------
+
+\vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
 Tableu, Omniscope.
 
 %-------------------------------------------------------------------------------
-%-------------------------------------------------------------------------------
+%
 %-------------------------------------------------------------------------------
 
 \subsection{Conclusions}
