@@ -5,8 +5,8 @@ Lines|Words|Characters|File
 6|13|142|chapters/20_literature.tex
 131|2061|12723|chapters/30_data_collection.tex
 12|23|208|chapters/40_data_processing.tex
-438|5782|38475|chapters/45__data_toolkit.tex
+451|5908|39607|chapters/45__data_toolkit.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 18|29|428|chapters/70_back.tex
-753|8619|58177|total
+766|8745|59309|total

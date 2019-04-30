@@ -245,8 +245,9 @@ We know from experience that the sensors are unreliable and fail to send back da
 More over the sensors are installed and uninstalled regularly as partners join and leave the project.
 This results in a data stream which is often erratic and incomplete with large gaps in them.
 In addition to this the sensors need to be rebooted regularly due to issues or updates leading to small gaps as well.
-This poses immense challenge when we attempt to aggregate the data.
-There is a requirement for cleaning and filling in the gaps of the data.
+Since the sensors are part of retail establishments they can be switched on and off regularly in some of them as well.
+Figure \ref{figure:toolkit:veracity:gaps} demonstrates the veracity of the data in terms of missing data for a sample of locations in London.
+All the above pose immense challenges when we attempt to aggregate the data where we have to estimate and fill these gaps.
 
 There is also a lot of variability in the physical location of the sensors and the area of measurement.
 The sensors may report higher or lower count due to their configuration and the context of their location as discussed in chapters pertaining to data cleaning.
@@ -257,34 +258,46 @@ For example, Opening of a mobile shop next door to the sensor can increase the e
 Finally we also have to work within the changing mobile landscape.
 Though the Wi-Fi probe requests are standardised by IEEE, the mobile manufacturers have started adopting obfuscation techniques to protect the privacy of the users.
 This started with randomisation of MAC addresses, removal of information elements and generally getting more sophisticated with new versions of operating system.
-There is also the bias of operating system adoption and change in market share between manufacturers.
+There is also bias in terms of operating system adoption and change in market share between manufacturers.
 There is no inherent structure or information on what is changed and how often these changes occur which leads to questions on the continuity of the data over long periods of time.
 
-From the above we can conclude that Wi-Fi data shows Big data characteristics in terms of its veracity and requires tools and methods when aggregating, analysing and modelling it.
+Summarising from the above, we can confidently conclude that Wi-Fi probe requests dataset shows `Big data' characteristics in terms of its veracity and requires appropriate tools and methods when aggregating, analysing and modelling it.
 
 %-------------------------------------------------------------------------------
 
 \vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
 Visualisation is closely related to volume, velocity and variety of the data.
-The Wi-Fi data due to its non-trivial size and velocity, exhibits similar characteristics and challenges in visualisation.
-Since there not much variety in the data-set when we process it into footfall all we are left with is time, location and footfall.
-Out of which location and footfall is easy to visualise but the time is the complicated one because of its volume - 2 to 3 years worth of data and granularity - 1/5 minute intervals.
-This is really hard to simplify and visualise.
-The key here is using approaches that show change efficiently and legibly.
-This shows the need for a dynamic, interactive visualisation tools which can deal with continuous change over long periods of time.
+The Wi-Fi data due to its non-trivial volume and velocity, exhibits similar characteristics and challenges in terms of visualisation.
+Since there is not much variety in the dataset, when we process the raw data into footfall counts we are left with just the time, location and footfall count for each data point.
+Out of these, location and footfall counts are easy to visualise but time exhibits big data properties.
+This is primarily due to its granularity at 5 minute intervals and longitudinal nature of the data collection.
+The major challenge with Wi-Fi data is to simplify and visualise them in a legible way while showing change in term of time.
+The veracity of the data presents challenges in simplifying them and the volume poses challenges in maintaining legibility.
+We also have to take the `near real time' aspect of the data into consideration while visualising them.
+There is a clear need for always on, interactive, real time dashboards with geographic capabilities in addition to the capabilities of traditional desktop GIS.
 There is also need for multiple linked dynamic visualisation platform for separating the scope of the visualisation into manageable units.
-The second challenge is the communicating the veracity of the data without distracting from the message.
-Finally the 'near real time' aspect of the data needs to taken into consideration while visualising it hence the need for always on, interactive, real time dashboards with geographic capabilities.
-Considering the above we can say that in terms of visualisation, Wi-Fi data partially shows big data characteristics.
+Figure \ref{figure:toolkit:visualisation} demonstrates the illegibility of simple visualisations of the data due to granularity, variability and veracity.
+We can safely say that the Wi-Fi probe requests dataset is at best `Medium' in the visualisation dimension.
 
-% Figure: Example of too much data in time dimension
+\begin{figure*}
+  \includegraphics{images/data-visualisation-challenge.png}
+  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018.}
+  \label{figure:toolkit:visualisation}
+\end{figure*}
 
-Summarising the above discussion, we can say that the Wi-Fi data collected from probe requests is at best a 'medium' size data which shows big data characteristics in terms of its veracity.
-Any toolkit devised to be used with it need to be able to deal with its medium volume, velocity and visualisation needs and at the same time need to able to deal with the huge veracity of it.
-This leads us to devising a 'medium data toolkit' which can be used in such cases so that not to introduce the cost and complexity introduced by broader big data tools.
+Summarising the above discussion, we can conclude that the datasets collected from Wi-Fi probe requests are at best of 'medium'.
+They show the most big data characteristics in terms of their veracity.
+In rest of the dimensions the datasets are not truly big data and we need to look at tools and methods appropriate to their size.
+The toolkit we devise need to be able to deal with their mid-size volume, velocity and visualisation dimensions and at the same time need to able to deal with the large amount of veracity of in them.
+Figure \ref{figure:toolkit:spider} illustrates the summary our discussion.
+This leads us to devise a `medium data toolkit' which can be used without incurring the extra cost and complexity introduced by big data tools while be able to handle the data at hand.
 
-% Figure spider graph showing the profile of Wi-Fi data.
+\begin{marginfigure}[5cm]
+  \includegraphics[trim={2.1cm 0 0 0},clip]{images/spider.png}
+  \caption{Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions}
+  \label{figure:toolkit:spider}
+\end{marginfigure}
 
 %-------------------------------------------------------------------------------
 % A survey of all tools and methods dealing with big data.
