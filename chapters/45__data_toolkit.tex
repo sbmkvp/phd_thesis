@@ -314,8 +314,8 @@ We first survey the tools available in each stage and specifically look at their
   \itemsep-0.25em
   \item \textit{Performance} - How much data can be processed in a given time?
   \item \textit{Flexibility} - How easy it is to change the scale and scope?
-  \item \textit{Complexity} - How many components/parts are involved?
-  \item \textit{Cost} - How much money/ infrastructure do they require?
+  \item \textit{Complexity} - How many components or parts are involved?
+  \item \textit{Cost} - How much money or infrastructure do they require?
 \end{itemize}
 
 We then discuss the principles of UNIX philosophy and how it helps in solving similar sized problems in computer science. Finally we pick and connect the tools to devise our toolkit which is best suited for out Wi-Fi probe request dataset.
@@ -324,8 +324,33 @@ We then discuss the principles of UNIX philosophy and how it helps in solving si
 
 \vspace{1.5em}\noindent\textit{Collection}\vspace{0.5em}
 
-There are numerous tools available for data collection with network of sensors under the umbrella of internet of things.
-The primary consideration in the data collection is the scale of the infrastructure and the cost associated with it.
+We discussed various technologies used in collecting passive data on ambient population and pedestrian movement in the literature search.
+In this section we look at tools and methods used to collect Wi-Fi based data passively.
+The primary considerations for evaluating data collection strategy are the scale of the infrastructure, expertise and effort required to implement it and cost involved.
+There have been numerous sensors, tools and associated software platforms made available for data collection under the umbrella of `internet of things'.
+On one end there are low level and low cost bespoke solutions which require lot of effort to implement and maintain.
+On the other end there are turn key solutions which doesn't require lesser effort but costs considerably more.
+The key is finding a balance between both while satisfying the requirements of the project.
+Table \ref{table:toolkit:collection} shows the requirements for an ideal platform
+
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{lcccc}
+      \toprule
+      Tool & Scalability & Flexibility & Complexity & Cost \\
+      \midrule
+      Bespoke Sensors & high & high & high & low \\
+      \color{blue}Ideal Platform & medium & high & medium & low \\
+      Turn Key Solutions & Low & Low & High \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Comparison of velocity or speed of the datasets of Wi-Fi probe requests.}
+  \label{table:toolkit:collection}
+\end{table}
+
+
 The smartstreetsensor project uses its own proprietary sensor system which collects data at the location.
 The tooling decisions were made with the commercial application in mind and is not entirely relevant to our discussion, but for the research conducted with the data, it is necessary to understand the data collection process and how the toolkit integrates with the rest of the setup.
 We start by looking at different approaches in the data collection tools and try to reason the most appropriate solution for the Wi-Fi data.
