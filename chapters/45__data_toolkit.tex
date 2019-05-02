@@ -295,7 +295,7 @@ Figure \ref{figure:toolkit:spider} illustrates the summary our discussion.
 This leads us to devise a `medium data toolkit' which can be used without incurring the extra cost and complexity introduced by big data tools while be able to handle the data at hand.
 
 \begin{marginfigure}[5cm]
-  \includegraphics[trim={2.1cm 0 0 0},clip]{images/spider.png}
+  \includegraphics[trim={2.1cm 0 0 0},clip]{images/data-toolkit-spider.png}
   \caption{Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions}
   \label{figure:toolkit:spider}
 \end{marginfigure}
@@ -324,46 +324,58 @@ We then discuss the principles of UNIX philosophy and how it helps in solving si
 
 \vspace{1.5em}\noindent\textit{Collection}\vspace{0.5em}
 
+\begin{marginfigure}
+  \includegraphics[trim={0.2cm 0 0 0},clip]{images/data-toolkit-collection.png}
+  \caption{Characteristics of types of Wi-Fi data collection tools at each end of the spectrum compared to an ideal candidate  }
+  \label{figure:toolkit:collection}
+\end{marginfigure}
+
+\marginnote[0.1cm]{\textit{(Darker colors show higher score)}}
+
 We discussed various technologies used in collecting passive data on ambient population and pedestrian movement in the literature search.
 In this section we look at tools and methods used to collect Wi-Fi based data passively.
 The primary considerations for evaluating data collection strategy are the scale of the infrastructure, expertise and effort required to implement it and cost involved.
 There have been numerous sensors, tools and associated software platforms made available for data collection under the umbrella of `internet of things'.
+We start by looking at different approaches in the Wi-Fi data collection tools and try to reason the most appropriate solution for our research.
 On one end there are low level and low cost bespoke solutions which require lot of effort to implement and maintain.
 On the other end there are turn key solutions which doesn't require lesser effort but costs considerably more.
 The key is finding a balance between both while satisfying the requirements of the project.
-Table \ref{table:toolkit:collection} shows the requirements for an ideal platform
+Since the Wi-Fi data is medium sized in terms of volume and velocity, we can deal with solutions with less than optimal scalability but since the data is 'big' in terms of veracity the toolkit has to give us most flexibility. 
+Essentially, we are looking for a data collection methodology which prioritises flexibility and cost while performing moderately in terms of scalability and complexity as illustrated in Figure \ref{figure:toolkit:collection}.
 
 \begin{table}[h]
   \footnotesize
   \begin{center}
-    \begin{tabular}{lcccc}
+    \begin{tabular}{lp{5cm}}
       \toprule
-      Tool & Scalability & Flexibility & Complexity & Cost \\
+      Type of solution & Examples\\
       \midrule
-      Bespoke Sensors & high & high & high & low \\
-      \color{blue}Ideal Platform & medium & high & medium & low \\
-      Turn Key Solutions & Low & Low & High \\
+      Bespoke & Micro-controllers with Wi-Fi modules Such as Audrino + ESP8266\\
+      Turn-key & End to end commercial services such as Blix, Euclid, Pygmalios egc\\ 
+      \textbf{Ideal} & \textbf{General purpose hardware such as Raspberry Pi or Repurposed mobile devices}\\
       \bottomrule
     \end{tabular}
   \end{center}
-  \caption{Comparison of velocity or speed of the datasets of Wi-Fi probe requests.}
+  \caption{Examples of different types of Wi-Fi based data collection solutions.}
   \label{table:toolkit:collection}
 \end{table}
 
+In terms of hardware, an example of a highly customised solution would be a micro-controller, such as Audrino, coupled with dedicated Wi-Fi module and programmed with custom software to collect the exact data needed.
+Designing and implementing of such system is time consuming, cumbersome and usually involves significant cost but it can also be highly flexible, efficient and cheap to deploy.
+On the other end of this spectrum, we have end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail next, pygmalios etc. where the data is collected through multiple sensors and sources and syndicated into a clean footfall information by a third party service provider.
+These platforms for footfall data collection and analysis have the advantage of being quick and easy to develop and deploy while they can also be highly inflexible for changes and turn out to be costly when scaled up.
+A middle ground here is to use a general purpose hardware such as single board computers or repurposed mobile devices, augment them with additional hardware modules and use general purpose scripting languages to write software for them.
+This way we avoid low level hardware or software design and implementation while maintaining good amount of flexibility.
+Table \ref{table:toolkit:collection} shows some examples of such systems while highlighting an ideal system.
 
-The smartstreetsensor project uses its own proprietary sensor system which collects data at the location.
-The tooling decisions were made with the commercial application in mind and is not entirely relevant to our discussion, but for the research conducted with the data, it is necessary to understand the data collection process and how the toolkit integrates with the rest of the setup.
-We start by looking at different approaches in the data collection tools and try to reason the most appropriate solution for the Wi-Fi data.
-At the hardware level, the lowest level of tool can be a micro-controller such as audrino with a dedicated hardware module with custom software to collect the exact data needed.
-This is time consuming, cumbersome takes a lot of cost to develop, but is very flexible, efficient and cheap to deploy.
-On the other end of this spectrum we have end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail next, pygmalios etc where the data set is collected through multiple sources and syndicated into a cleaned source by a thirdparty.
-This can be costly and inflexible but quick and easy.
-The middle ground on this to deal with a complexity as much as the Wi-Fi data, is to use a single board computer with external modules and use general purpose, tools to build a data collection device.
-
-The toolkit we have adopted consists of RaspberryPi, Linux, tcpdump/tshark and nodejs.
-The RaspberryPi and the linux platform it provides is one of the most diverse and general purpose systems available.
-On top of which we can build our data collection system with specialised, opensource and free Wi-Fi sniffing tool such as tcpdump, tshark along with a general purpose runtime such as nodejs which provides other functions such as scheduling, personal data obfuscation and data transmission.
-This system has a capacity to sniff and transfer large amounts of data and with a 3G module is very versatile in terms of location.
+The Smart Street Sensor project uses its own proprietary sensor system designed and instrumented by the data partner.
+The design and implementation decisions were made with the commercial application in mind and is not entirely relevant to our discussion in the context of our research.
+For the research conducted with the data, it is necessary to understand the data collection process and make sure it aligns and integrates with the rest of the toolkit.
+As discussed in the data collection chapter, the methodology used in the smart street sensor project satisfies our requirements.
+The toolkit we designed to collect other datasets are in-part inspired by this methodology or a modified version to include more flexibility.
+The toolkit consists of Raspberry Pi, Linux, tcpdump or tshark and nodejs.
+Raspberry Pi and the Linux OS it provides is the flexible and general purpose base system.
+On top of this we built our data collection system by assembling open source and free network analysis tools such as tcpdump and tshark along with other tools providing functions such as scheduling, personal data obfuscation and data transmission with scripting languages like nodejs and bash.
 
 %-------------------------------------------------------------------------------
 
