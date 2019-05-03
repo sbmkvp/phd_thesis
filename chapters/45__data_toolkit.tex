@@ -350,9 +350,9 @@ Essentially, we are looking for a data collection methodology which prioritises 
       \toprule
       Type of solution & Examples\\
       \midrule
-      Bespoke & Micro-controllers with Wi-Fi modules Such as Audrino + ESP8266\\
-      Turn-key & End to end commercial services such as Blix, Euclid, Pygmalios egc\\ 
-      \textbf{Ideal} & \textbf{General purpose hardware such as Raspberry Pi or Repurposed mobile devices}\\
+      Bespoke & Micro-controllers with Wi-Fi modules e.g. Audrino + ESP8266\\
+      Turn-key & End to end commercial services e.g. Blix, Euclid, Pygmalios etc.\\ 
+      \textbf{Ideal} & \textbf{General purpose hardware e.g. Raspberry Pi, Repurposed mobile devices - Tablets, Phones etc.}\\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -381,25 +381,17 @@ On top of this we built our data collection system by assembling open source and
 
 \vspace{1.5em}\noindent\textit{Storage}\vspace{0.5em}
 
-This is one of the most diverse set of area in terms of both methods and tools available.
-It has been constantly in development since the beginning of computer systems and is one of the fastest changing landscapes.
-The aspects to be considered while choosing the data storage solutions are,
+Data storage technology is one of the most diverse landscape in terms of both methods and tools available.
+It has been constantly in research and development since the beginning of computing and is one of the fastest changing landscapes with the advent of big data paradigm.
+A comprehensive review of storage solution warrants a chapter in itself so we restrict our survey to an outline of most significant approaches and corresponding systems and tools.
 
-\begin{enumerate}
-    \item Speed
-    \item Redundancy
-    \item Reliability
-    \item Cost \& complexity
-\end{enumerate}
-
-One of the spectrum is just using file systems for storage.
-Though it seems to be primitive, this has a lot of advantages.
-Operating systems usually are really good at managing - reading, writing and searching filesystems, They usually have no overhead involved and are efficient.
-Hierarchical organisations can be pre-indexed for hierarchical data and finally is very reliable.
-But the primary disadvantage is the inability to handle complexity or variety in data.
-
-On the other end of the spectrum is the highly distributed big data systems such as Hadoop HDFS which are built for > petabyte datasets and query them without loss of speed.
-There are hybrid file systems which are hadoop compatible as well, Azure blob storage, Amazon S3 cloud storage which can be used a storage/ dump for a large amount of data.
+At one end of the spectrum is one of the most underappreciated for of data storage - File systems.
+Though they seem like a low level interface for storing data, filesystems have their advantages as well.
+When the data is not complex or inter-related, flat text files in file systems could be the fastest way to store, search and retrieve data.
+Since operating systems are usually optimised to manage storage media through filesystems, they invovle no additional overhead and are extremely reliable.
+The heirarchical filesystems use in most of the operating systems act as an index with heirachical data.
+The major disadvantage of filesystems is that they are not useful for managing data with any kind of complexity.
+This is the primary reason why database management systems are built on top of file systems.
 
 In the middle there are databases, which are built prioritise and balance the database needs.
 The two major approaches are the relational databases which are optimised for structured data which are related to each other in tabular format.
@@ -412,6 +404,8 @@ Both these approaches can be scaled/distributed for less redundancy and increase
 The former tend to scale veritcally and the latter scale horizontally.
 Some like cassandra are built to be highly distributable.
 
+On the other end of the spectrum is the highly distributed big data systems such as Hadoop HDFS which are built for > petabyte datasets and query them without loss of speed.
+There are hybrid file systems which are hadoop compatible as well, Azure blob storage, Amazon S3 cloud storage which can be used a storage/ dump for a large amount of data.
 Finally there are solutions such as Hive and hbase which are database like functionality built on top of distributed file systems combining power of both concepts.
 This behaves like a hyper large scale database system and works in conjunction with other big data tools
 
@@ -419,23 +413,22 @@ This behaves like a hyper large scale database system and works in conjunction w
 \begin{table}[h]
   \footnotesize
   \begin{center}
-    \begin{tabular}{ll}
+    \begin{tabular}{lcp{5cm}}
       \toprule
-        Type & Comment\\
+      Approach & Optimal data size & Comments\\
       \midrule
-        Filesystem & for hierarchical data around 10TB range\\
-        Cloud Storage & \textless{}  10TB, can add hdfs stuff, more reliability\\
-        Relational DB & 1-5TB, Good for relational Data, Row-wise, Partitioning\\
-        Document DB & -10TB, Good for unstructured data, column wise,Clustering\\
-        HDFS & \textgreater{} 10 TB, Good for scale and structure\\
-        Hive, Hbase & on top of HDFS, bring DB to HDFS\\
+        Filesystem & \textless{} 10 TB & Simple and efficient. Best for hierarchical data. Cannot handle complex connected data.\\
+        Cloud Storage & \textgreater{} 10 TB & Emulates a filesystem on the cloud. Has more reliability and scalability than regular filesystems.\\
+        Relational DB & \textless{} 5 TB & Handles structured complex and related data. Optimised for large amount of rows and tries to guarentee validity.\\
+        Document DB & \textless 10 TB & Handles unstructured data. Optimised for large number of fields and distribution to multiple clusters. Tries to focus on any two guarentees of the Brewer's theorem.\\
+        HDFS & \textgreater{} 10 TB & Good for scale and structure\\
+        Hive, Hbase & \textgreater{} 10 TB & on top of HDFS, bring DB to HDFS\\
       \bottomrule
     \end{tabular}
   \end{center}
-  \caption{Types and Use of Various Storage Solutions}
+  \caption{Approaches in data storage and their characteristics.}
   \label{table:toolkit:storage}
 \end{table}
-
 
 Raw wifi data has temporal hierarchy and is of medium size hence a normal filesystem is sufficiently suitable for its needs.
 When the same data is aggregated it loses its scale and is highly strucutred so a relation DBMS is sufficient for it.
