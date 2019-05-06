@@ -12,6 +12,7 @@ Moreover in several disciplines, such as statistics and geography etc., the exis
 These methods along with improvements in hardware has made the processing big data in these disciplines possible without a major changes in workflow.
 In the current environment of constant change and growth of sources of data, we cannot afford to lose the opportunity to extract information from them while trying to create a perfect, future proof approach in dealing with them.
 We need to move fast with a pragmatic approach where we look at other disciplines and adopt best practices and solutions in them and develop consistent approach for our needs rather than reinventing the wheel.
+go
 
 %-------------------------------------------------------------------------------
 
@@ -386,63 +387,106 @@ It has been constantly in research and development since the beginning of comput
 A comprehensive review of storage solution warrants a chapter in itself so we restrict our survey to an outline of most significant approaches and corresponding systems and tools.
 
 At one end of the spectrum is one of the most underappreciated for of data storage - File systems.
-Though they seem like a low level interface for storing data, filesystems have their advantages as well.
+Though they seem like a low level interface for storing data, file systems have their advantages as well.
 When the data is not complex or inter-related, flat text files in file systems could be the fastest way to store, search and retrieve data.
-Since operating systems are usually optimised to manage storage media through filesystems, they invovle no additional overhead and are extremely reliable.
-The heirarchical filesystems use in most of the operating systems act as an index with heirachical data.
-The major disadvantage of filesystems is that they are not useful for managing data with any kind of complexity.
-This is the primary reason why database management systems are built on top of file systems.
+Since operating systems are usually optimised to manage storage media through file systems, they involve no additional overhead and are extremely reliable.
+The hierarchical file systems use in most of the operating systems act as an index with hierarchical data.
+The major disadvantage of file systems is that they are not useful for managing data with any kind of complexity.
+This is the primary reason why database management systems are developed on top of file systems.
 
-In the middle there are databases, which are built prioritise and balance the database needs.
-The two major approaches are the relational databases which are optimised for structured data which are related to each other in tabular format.
-They are row heavy databases and are good for high volume, low veracity data which has need for consistency.
-SQL databases PostgreSQL, Mysql, SQLserver are examples.
-The other approach is the document store databases which are column heavy databases which are optimised for high variety data which doesnot need immediate consistency.
-These can be as simple as key-value based databases and as complicated as graph databases.
-Mongodb, couchdb, cassandra as examples.
-Both these approaches can be scaled/distributed for less redundancy and increased throughput.
-The former tend to scale veritcally and the latter scale horizontally.
-Some like cassandra are built to be highly distributable.
+Database systems can be broadly divided into relational and document based.
+The relational databases are optimised to deal with relational data and usually enforce strict structure for the data
+In general they can handle large number of rows and are designed to scale vertically.
+Most relational database systems try to guarantee ACID \sidenote[][-6cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[-4cm]{Haerder1983ptd}.
+The document based databases are optimised to deal with unstructured data and can doesn't need a strictly defined scheme.
+In general they can handle large number of columns and are designed to be distributed and scaled horizontally.
+Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-1cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
+There a numerous databases systems which prioritise different things and the right solution depends on the properties of the data and the requirements of the project.
 
-On the other end of the spectrum is the highly distributed big data systems such as Hadoop HDFS which are built for > petabyte datasets and query them without loss of speed.
-There are hybrid file systems which are hadoop compatible as well, Azure blob storage, Amazon S3 cloud storage which can be used a storage/ dump for a large amount of data.
-Finally there are solutions such as Hive and hbase which are database like functionality built on top of distributed file systems combining power of both concepts.
-This behaves like a hyper large scale database system and works in conjunction with other big data tools
+Since the publication of the paper on `Google file system' by google \cite{sanjay2003gfs}.
+There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
+These systems are designed to be distributed and optimised for high throughput for queries on them.
+Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
+There are numerous cloud based, third-party solutions built with these file systems making them easy to use.
+There are also numerous tools, libraries and frameworks which emulate the features of database systems on these distributed file systems making them easier to use further.
+The primary advantage of these systems is the sheer scalability they provide when it comes to data volume.
+The primary disadvantage is the associated overheads in terms of cost and time incurred in learning, designing and implementing them.
+Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.
+Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.
 
 
 \begin{table}[h]
   \footnotesize
   \begin{center}
-    \begin{tabular}{lcp{5cm}}
+    \begin{tabular}{lcp{2cm}p{4.5cm}}
       \toprule
-      Approach & Optimal data size & Comments\\
+      Approach & Data size & Examples & Comments\\
       \midrule
-        Filesystem & \textless{} 10 TB & Simple and efficient. Best for hierarchical data. Cannot handle complex connected data.\\
-        Cloud Storage & \textgreater{} 10 TB & Emulates a filesystem on the cloud. Has more reliability and scalability than regular filesystems.\\
-        Relational DB & \textless{} 5 TB & Handles structured complex and related data. Optimised for large amount of rows and tries to guarentee validity.\\
-        Document DB & \textless 10 TB & Handles unstructured data. Optimised for large number of fields and distribution to multiple clusters. Tries to focus on any two guarentees of the Brewer's theorem.\\
-        HDFS & \textgreater{} 10 TB & Good for scale and structure\\
-        Hive, Hbase & \textgreater{} 10 TB & on top of HDFS, bring DB to HDFS\\
+        File system &
+          \textless{} 10 TB &
+          ext, ntfs, zfs, btrfs &
+          Simple and efficient. Best for hierarchical data. Cannot handle complex connected data.\\
+        \addlinespace[0.2cm]
+        Relational DB &
+          \textless{} 5 TB &
+          MySQL, PostgreSQL&
+          Handles structured and relational data. Optimised for large amount of rows and tries to guarantee validity.\\
+        \addlinespace[0.2cm]
+        Document DB &
+          \textless 10 TB &
+          MongoDB, Cassandra&
+          Handles unstructured data. Optimised for large number of fields and distribution to multiple clusters. Tries to focus on any two guarantees of the Brewer's theorem.\\
+        \addlinespace[0.2cm]
+        Distributed FS &
+          \textgreater{} 10 TB &
+          HDFS, Ceph, GFS &
+          Optimised for really large datasets which need to be distributed over multiple nodes.\\
+        \addlinespace[0.2cm]
+        Cloud Storage &
+          \textgreater{} 10 TB &
+          AWS, Azure, SWIFT &
+          Implements distributed file systems on the cloud. Has more reliability and scalability than local implementations.\\
+        \addlinespace[0.2cm]
+        Data Warehouse &
+          \textgreater{} 10 TB &
+          Hive, Hbase, Impala, Presto&
+          Interfaces built on top of distributed file systems to emulate capabilities of relational databases on them.\\
       \bottomrule
     \end{tabular}
   \end{center}
-  \caption{Approaches in data storage and their characteristics.}
+  \caption{Various data storage approaches and their characteristics.}
   \label{table:toolkit:storage}
 \end{table}
 
-Raw wifi data has temporal hierarchy and is of medium size hence a normal filesystem is sufficiently suitable for its needs.
-When the same data is aggregated it loses its scale and is highly strucutred so a relation DBMS is sufficient for it.
-In case the project runs longer and more longitudinal analysis had to be done on raw data HDFS needs to be used and if the aggregated data scales to >10TB we can handle it with a timescale db should be suitable.
-PostgreSQL is more suitable than other databases because of its better support to geographic data.
+We saw that the Wi-Fi probe request datasets are `Medium' sized hence we can safely eliminate distributed file systems for storing them.
+Though the smart street Sensor project uses Azure Blob Storage, when the data is downloaded to the local servers at the university, we can just store them in the file system because of their size (2TB approx.) and the hierarchical nature.
+The folder structure of - year/month/day/location/interval/ with individual text file, enable us to query the data for any given location at any interval nearly instantaneously without any further database operations.
+When this raw data is processed into 5 minute counts, we require more relational queries.
+For this purpose a relational database is sufficient as volume is quite small (25GB approx).
+We chose PostgreSQL because of the PostGIS extension which gives us flexibility in handling geographic data.
 
 %-------------------------------------------------------------------------------
 
 \vspace{1.5em}\noindent\textit{Processing}\vspace{0.5em}
 
-The primary considerations while surveying are the volume, velocity and veracity
-of the data.
-We should be careful to choose the tools which are right for the size.
-The perfect tools for a medium size data can be as much as 230x faster than big data tools (ref).
+\begin{marginfigure}
+  \includegraphics[trim={0 0 0 0},clip]{images/processing-time-old.png}
+  \caption{Increase in time taken to process data }
+  \label{figure:toolkit:time:old}
+\end{marginfigure}
+
+\marginnote[1em]{\fontsize{7}{7}\textit{The processing involved parsing json datarecieved for a single day at each location and aggregating them as number of probes requests recieved in every five minute intervals.}}
+
+We saw that the the data is medium in terms of volume and velocity and shows big data properties in terms of veracity.
+Hence we require tools which are capable of delaing with the veracity of the data while being able to manage the volume and velocity.
+The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS packages and process it.
+The size of the dataset and the lack of meaningful complexity of geography element in the data eliminates the use of GIS packages.
+Scripting languages such as R and Python can deal with the dataset and its requirements but the time taken to do so increases exponentially with the size of the data and gets prohibitive when we have more than 500 sensors.
+Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple aggregation exercise.
+Though this can be improved with more efficient coding practices, the margin of improvement is quite limited hence creating the need for better techniques.
+
+
+Command line tools can be as much as 230x faster than big data tools \cite{adam2014commandline}.
 At one end there are Big Data analysis tools such as Hadoop based impementations such as Mapreduce and Spark, Business toosl such as skytree, realtime tools such as storm and samoa, cleaning tools such as Openrefine.
 All these tools are optimised for the cluster/grid computing and the processing is heavily parallelised across the clusters.
 There is also a lot of overhead asssociated with moving data across clusters and we won't be making up for these overheads until we hit certain size of the data.
@@ -491,3 +535,4 @@ Tableu, Omniscope.
 To summarise we have done a survey of tools and arrived at the following toolkit
 
 Figure of the data toolkit.
+
