@@ -471,27 +471,61 @@ We chose PostgreSQL because of the PostGIS extension which gives us flexibility 
 
 \begin{marginfigure}
   \includegraphics[trim={0 0 0 0},clip]{images/processing-time-old.png}
-  \caption{Increase in time taken to process data }
+  \caption{Exponential increase in the processing time when using traditional methods.}
   \label{figure:toolkit:time:old}
 \end{marginfigure}
 
-\marginnote[1em]{\fontsize{7}{7}\textit{The processing involved parsing json datarecieved for a single day at each location and aggregating them as number of probes requests recieved in every five minute intervals.}}
+\marginnote[1em]{\fontsize{7}{7}\textit{The processing involves parsing json datarecieved for a single day at each location and aggregating them as number of probes requests recieved in every five minute intervals.}}
 
-We saw that the the data is medium in terms of volume and velocity and shows big data properties in terms of veracity.
-Hence we require tools which are capable of delaing with the veracity of the data while being able to manage the volume and velocity.
+We saw that the data is medium in terms of volume and velocity and shows big data properties in terms of veracity.
+Hence we require tools which are capable of dealing with the veracity of the data while being able to manage the volume and velocity.
 The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS packages and process it.
 The size of the dataset and the lack of meaningful complexity of geography element in the data eliminates the use of GIS packages.
-Scripting languages such as R and Python can deal with the dataset and its requirements but the time taken to do so increases exponentially with the size of the data and gets prohibitive when we have more than 500 sensors.
-Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple aggregation exercise.
+Scripting languages such as R and Python can deal with the dataset and its requirements but the time taken to do so increases exponentially with the size of the data as the size of objects in memory increases.
+Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple exercise where a day's worth of raw data is parsed and aggregated into number of probe requests per 5 minute intervals.
+This becomes prohibitively expensive as the number of locations and complexity of the processing increases.
 Though this can be improved with more efficient coding practices, the margin of improvement is quite limited hence creating the need for better techniques.
+It is important to note that data processing is done in two stages - the first stage where the raw Wi-Fi probe requests are filtered, cleaned and aggregated into footfall counts and second stage where the footfall counts are in turn analysed to produce reports and visualisations.
+The traditional methods are sufficient for the second stage of the processing and the first stage is the one which requires a better solution.
 
+On the other end we have big data analysis tools which are built for dealing with extremely large amount of data.
+Since the publication of the paper on MapReduce, there have been immense developments in the Big data analysis landscape.
+There numerous distributed programming tools to use the data stored within a distributed storage system each focussing on specific type of data and analysis.
+A concise, non-comprehensive list of types of data or specialities and corresponding big data tools is shown in Table \ref{table:toolkit:processing}.
 
-Command line tools can be as much as 230x faster than big data tools \cite{adam2014commandline}.
-At one end there are Big Data analysis tools such as Hadoop based impementations such as Mapreduce and Spark, Business toosl such as skytree, realtime tools such as storm and samoa, cleaning tools such as Openrefine.
-All these tools are optimised for the cluster/grid computing and the processing is heavily parallelised across the clusters.
-There is also a lot of overhead asssociated with moving data across clusters and we won't be making up for these overheads until we hit certain size of the data.
-As we know Wi-Fi data is not at the scale these tools operate, we can look into how large streams of data are handles in computer science/ systems engineering.
-Data processing is done in two stages, the first one is the filtering, cleaning and aggregation of the raw Wi-Fi data and the second step is the analysis and modelling of the aggregated data.
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{lp{3cm}}
+      \toprule
+      Tools & Speciality\\
+      \midrule
+        General Purpose &
+          MapReduce, Spark\\
+        Real-time streams &
+          Flink, Pulsar\\
+        Events or messages data &
+          Storm, Kafka, Flume\\
+        Networked or Graph data &
+          Tinkerpop, Corona \\
+        Scheduling &
+          Oozie, Falcon, Azkaban\\
+        Turn-key Platforms &
+          SpringXD, Cask Data\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Various types of big data processing tools and corresponding examples.}
+  \label{table:toolkit:processing}
+\end{table}
+
+We can rule out the necessity of the above tools since our dataset is neither big enough nor fast enough.
+The dataset does not have any specialised structure such as graph or network but just a very minimal component of geography to it.
+Using any of specialised big data tools is just going to introduce immense overheads without any added benefits.
+We need something in-between the above two approaches where we is sufficiently fast and flexible for our datasets.
+
+This is where we come across the possibility of using standard Unix tools along with Bash scripting language to create a processing pipeline.
+In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230x faster than using big data toolkits \cite{adam2014commandline}.
 As we saw in (ref) the system tools in combination with parallel processing across CPU cores, can be used and can be actually faster for medium sized data.
 The data transfer format is text since it is standardised with utf8 and is easily understood and shared between UNIX tools.
 This also helps us in the data sharing and management which is discussed later.

@@ -1,24 +1,24 @@
 "x","y","type"
-01,004.4,"R"
-02,008.6,"R"
-03,015.2,"R"
-04,024.1,"R"
-05,032.2,"R"
-06,064.8,"R"
-07,107.8,"R"
-08,141.5,"R"
-09,147.2,"R"
-10,187.0,"R"
-01,1.263,"bash"
-02,1.805,"bash"
-03,2.753,"bash"
-04,3.717,"bash"
-05,4.200,"bash"
-06,7.060,"bash"
-07,7.444,"bash"
-08,8.167,"bash"
-09,8.188,"bash"
-10,9.022,"bash"
+01,004.4,"R script"
+02,008.6,"R script"
+03,015.2,"R script"
+04,024.1,"R script"
+05,032.2,"R script"
+06,064.8,"R script"
+07,107.8,"R script"
+08,141.5,"R script"
+09,147.2,"R script"
+10,187.0,"R script"
+01,1.263,"Unix tools"
+02,1.805,"Unix tools"
+03,2.753,"Unix tools"
+04,3.717,"Unix tools"
+05,4.200,"Unix tools"
+06,7.060,"Unix tools"
+07,7.444,"Unix tools"
+08,8.167,"Unix tools"
+09,8.188,"Unix tools"
+10,9.022,"Unix tools"
 01,1.890,"parallel"
 02,1.006,"parallel"
 03,0.853,"parallel"
@@ -29,14 +29,3 @@
 08,3.622,"parallel"
 09,3.243,"parallel"
 10,3.498,"parallel"
-
-
-
-
-
-
-
-
-
-
-
