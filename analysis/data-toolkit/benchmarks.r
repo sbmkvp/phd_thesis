@@ -59,5 +59,4 @@ p <- data %>%
         axis.line.x = element_line(color= "black", size = 0.1))
  
 ggsave("../../images/processing-time-old.png", plot=p, height=3, width=3,units="in")
-write.csv(data,"r-times.csv",row.names=FALSE)
 
