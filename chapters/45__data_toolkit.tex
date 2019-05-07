@@ -12,6 +12,7 @@ Moreover in several disciplines, such as statistics and geography etc., the exis
 These methods along with improvements in hardware has made the processing big data in these disciplines possible without a major changes in workflow.
 In the current environment of constant change and growth of sources of data, we cannot afford to lose the opportunity to extract information from them while trying to create a perfect, future proof approach in dealing with them.
 We need to move fast with a pragmatic approach where we look at other disciplines and adopt best practices and solutions in them and develop consistent approach for our needs rather than reinventing the wheel.
+go
 
 %-------------------------------------------------------------------------------
 
@@ -234,6 +235,7 @@ Veracity is defined as the amount of abnormality present in the data in the form
 Similar to variety, veracity is hard to quantify hence required a subjective evaluation.
 Being sensor collected data, veracity is the dimension where the data exhibits most `big data' properties.
 
+
 \begin{marginfigure}
   \includegraphics{images/data-veracity-gaps.png}
   \caption{Missing data from five locations at Tottenham Court Road, London on 15 January 2018 demonstrating the veracity of the data.}
@@ -294,7 +296,7 @@ Figure \ref{figure:toolkit:spider} illustrates the summary our discussion.
 This leads us to devise a `medium data toolkit' which can be used without incurring the extra cost and complexity introduced by big data tools while be able to handle the data at hand.
 
 \begin{marginfigure}[5cm]
-  \includegraphics[trim={2.1cm 0 0 0},clip]{images/spider.png}
+  \includegraphics[trim={2.1cm 0 0 0},clip]{images/data-toolkit-spider.png}
   \caption{Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions}
   \label{figure:toolkit:spider}
 \end{marginfigure}
@@ -305,107 +307,225 @@ This leads us to devise a `medium data toolkit' which can be used without incurr
 
 \subsection{A Survey of Methods and Tools}
 
-In this section, we survey the tools and methods available at various stages of the data processing and management process we discusst he tools with respect to the performance (throughput), flexibility, complexity and cost.
-We finally try to devise a toolkit which best suits our data needs.
+Having classified the Wi-Fi probes dataset as a `Medium' sized data, in this section, we survey the tools and methods available at various stages of the data processing and management process - data collection, storage and retrieval, processing and analysis, visualisation.
+We first survey the tools available in each stage and specifically look at their suitability for Wi-Fi probe request datasets in terms of the following characteristics,
+
+\begin{itemize}
+  \setlength{\itemindent}{1em}
+  \itemsep-0.25em
+  \item \textit{Performance} - How much data can be processed in a given time?
+  \item \textit{Flexibility} - How easy it is to change the scale and scope?
+  \item \textit{Complexity} - How many components or parts are involved?
+  \item \textit{Cost} - How much money or infrastructure do they require?
+\end{itemize}
+
+We then discuss the principles of UNIX philosophy and how it helps in solving similar sized problems in computer science. Finally we pick and connect the tools to devise our toolkit which is best suited for out Wi-Fi probe request dataset.
 
 %-------------------------------------------------------------------------------
 
 \vspace{1.5em}\noindent\textit{Collection}\vspace{0.5em}
 
-There are numerous tools available for data collection with network of sensors under the umbrella of internet of things.
-The primary consideration in the data collection is the scale of the infrastructure and the cost associated with it.
-The smartstreetsensor project uses its own proprietary sensor system which collects data at the location.
-The tooling decisions were made with the commercial application in mind and is not entirely relevant to our discussion, but for the research conducted with the data, it is necessary to understand the data collection process and how the toolkit integrates with the rest of the setup.
-We start by looking at different approaches in the data collection tools and try to reason the most appropriate solution for the Wi-Fi data.
-At the hardware level, the lowest level of tool can be a micro-controller such as audrino with a dedicated hardware module with custom software to collect the exact data needed.
-This is time consuming, cumbersome takes a lot of cost to develop, but is very flexible, efficient and cheap to deploy.
-On the other end of this spectrum we have end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail next, pygmalios etc where the data set is collected through multiple sources and syndicated into a cleaned source by a thirdparty.
-This can be costly and inflexible but quick and easy.
-The middle ground on this to deal with a complexity as much as the Wi-Fi data, is to use a single board computer with external modules and use general purpose, tools to build a data collection device.
+\begin{marginfigure}
+  \includegraphics[trim={0.2cm 0 0 0},clip]{images/data-toolkit-collection.png}
+  \caption{Characteristics of types of Wi-Fi data collection tools at each end of the spectrum compared to an ideal candidate  }
+  \label{figure:toolkit:collection}
+\end{marginfigure}
 
-The toolkit we have adopted consists of RaspberryPi, Linux, tcpdump/tshark and nodejs.
-The RaspberryPi and the linux platform it provides is one of the most diverse and general purpose systems available.
-On top of which we can build our data collection system with specialised, opensource and free Wi-Fi sniffing tool such as tcpdump, tshark along with a general purpose runtime such as nodejs which provides other functions such as scheduling, personal data obfuscation and data transmission.
-This system has a capacity to sniff and transfer large amounts of data and with a 3G module is very versatile in terms of location.
+\marginnote[0.1cm]{\textit{(Darker colors show higher score)}}
+
+We discussed various technologies used in collecting passive data on ambient population and pedestrian movement in the literature search.
+In this section we look at tools and methods used to collect Wi-Fi based data passively.
+The primary considerations for evaluating data collection strategy are the scale of the infrastructure, expertise and effort required to implement it and cost involved.
+There have been numerous sensors, tools and associated software platforms made available for data collection under the umbrella of `internet of things'.
+We start by looking at different approaches in the Wi-Fi data collection tools and try to reason the most appropriate solution for our research.
+On one end there are low level and low cost bespoke solutions which require lot of effort to implement and maintain.
+On the other end there are turn key solutions which doesn't require lesser effort but costs considerably more.
+The key is finding a balance between both while satisfying the requirements of the project.
+Since the Wi-Fi data is medium sized in terms of volume and velocity, we can deal with solutions with less than optimal scalability but since the data is 'big' in terms of veracity the toolkit has to give us most flexibility. 
+Essentially, we are looking for a data collection methodology which prioritises flexibility and cost while performing moderately in terms of scalability and complexity as illustrated in Figure \ref{figure:toolkit:collection}.
+
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{lp{5cm}}
+      \toprule
+      Type of solution & Examples\\
+      \midrule
+      Bespoke & Micro-controllers with Wi-Fi modules e.g. Audrino + ESP8266\\
+      Turn-key & End to end commercial services e.g. Blix, Euclid, Pygmalios etc.\\ 
+      \textbf{Ideal} & \textbf{General purpose hardware e.g. Raspberry Pi, Repurposed mobile devices - Tablets, Phones etc.}\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Examples of different types of Wi-Fi based data collection solutions.}
+  \label{table:toolkit:collection}
+\end{table}
+
+In terms of hardware, an example of a highly customised solution would be a micro-controller, such as Audrino, coupled with dedicated Wi-Fi module and programmed with custom software to collect the exact data needed.
+Designing and implementing of such system is time consuming, cumbersome and usually involves significant cost but it can also be highly flexible, efficient and cheap to deploy.
+On the other end of this spectrum, we have end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail next, pygmalios etc. where the data is collected through multiple sensors and sources and syndicated into a clean footfall information by a third party service provider.
+These platforms for footfall data collection and analysis have the advantage of being quick and easy to develop and deploy while they can also be highly inflexible for changes and turn out to be costly when scaled up.
+A middle ground here is to use a general purpose hardware such as single board computers or repurposed mobile devices, augment them with additional hardware modules and use general purpose scripting languages to write software for them.
+This way we avoid low level hardware or software design and implementation while maintaining good amount of flexibility.
+Table \ref{table:toolkit:collection} shows some examples of such systems while highlighting an ideal system.
+
+The Smart Street Sensor project uses its own proprietary sensor system designed and instrumented by the data partner.
+The design and implementation decisions were made with the commercial application in mind and is not entirely relevant to our discussion in the context of our research.
+For the research conducted with the data, it is necessary to understand the data collection process and make sure it aligns and integrates with the rest of the toolkit.
+As discussed in the data collection chapter, the methodology used in the smart street sensor project satisfies our requirements.
+The toolkit we designed to collect other datasets are in-part inspired by this methodology or a modified version to include more flexibility.
+The toolkit consists of Raspberry Pi, Linux, tcpdump or tshark and nodejs.
+Raspberry Pi and the Linux OS it provides is the flexible and general purpose base system.
+On top of this we built our data collection system by assembling open source and free network analysis tools such as tcpdump and tshark along with other tools providing functions such as scheduling, personal data obfuscation and data transmission with scripting languages like nodejs and bash.
 
 %-------------------------------------------------------------------------------
 
 \vspace{1.5em}\noindent\textit{Storage}\vspace{0.5em}
 
-This is one of the most diverse set of area in terms of both methods and tools available.
-It has been constantly in development since the beginning of computer systems and is one of the fastest changing landscapes.
-The aspects to be considered while choosing the data storage solutions are,
+Data storage technology is one of the most diverse landscape in terms of both methods and tools available.
+It has been constantly in research and development since the beginning of computing and is one of the fastest changing landscapes with the advent of big data paradigm.
+A comprehensive review of storage solution warrants a chapter in itself so we restrict our survey to an outline of most significant approaches and corresponding systems and tools.
 
-\begin{enumerate}
-    \item Speed
-    \item Redundancy
-    \item Reliability
-    \item Cost \& complexity
-\end{enumerate}
+At one end of the spectrum is one of the most underappreciated for of data storage - File systems.
+Though they seem like a low level interface for storing data, file systems have their advantages as well.
+When the data is not complex or inter-related, flat text files in file systems could be the fastest way to store, search and retrieve data.
+Since operating systems are usually optimised to manage storage media through file systems, they involve no additional overhead and are extremely reliable.
+The hierarchical file systems use in most of the operating systems act as an index with hierarchical data.
+The major disadvantage of file systems is that they are not useful for managing data with any kind of complexity.
+This is the primary reason why database management systems are developed on top of file systems.
 
-One of the spectrum is just using file systems for storage.
-Though it seems to be primitive, this has a lot of advantages.
-Operating systems usually are really good at managing - reading, writing and searching filesystems, They usually have no overhead involved and are efficient.
-Hierarchical organisations can be pre-indexed for hierarchical data and finally is very reliable.
-But the primary disadvantage is the inability to handle complexity or variety in data.
+Database systems can be broadly divided into relational and document based.
+The relational databases are optimised to deal with relational data and usually enforce strict structure for the data
+In general they can handle large number of rows and are designed to scale vertically.
+Most relational database systems try to guarantee ACID \sidenote[][-6cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[-4cm]{Haerder1983ptd}.
+The document based databases are optimised to deal with unstructured data and can doesn't need a strictly defined scheme.
+In general they can handle large number of columns and are designed to be distributed and scaled horizontally.
+Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-1cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
+There a numerous databases systems which prioritise different things and the right solution depends on the properties of the data and the requirements of the project.
 
-On the other end of the spectrum is the highly distributed big data systems such as Hadoop HDFS which are built for > petabyte datasets and query them without loss of speed.
-There are hybrid file systems which are hadoop compatible as well, Azure blob storage, Amazon S3 cloud storage which can be used a storage/ dump for a large amount of data.
-
-In the middle there are databases, which are built prioritise and balance the database needs.
-The two major approaches are the relational databases which are optimised for structured data which are related to each other in tabular format.
-They are row heavy databases and are good for high volume, low veracity data which has need for consistency.
-SQL databases PostgreSQL, Mysql, SQLserver are examples.
-The other approach is the document store databases which are column heavy databases which are optimised for high variety data which doesnot need immediate consistency.
-These can be as simple as key-value based databases and as complicated as graph databases.
-Mongodb, couchdb, cassandra as examples.
-Both these approaches can be scaled/distributed for less redundancy and increased throughput.
-The former tend to scale veritcally and the latter scale horizontally.
-Some like cassandra are built to be highly distributable.
-
-Finally there are solutions such as Hive and hbase which are database like functionality built on top of distributed file systems combining power of both concepts.
-This behaves like a hyper large scale database system and works in conjunction with other big data tools
+Since the publication of the paper on `Google file system' by google \cite{sanjay2003gfs}.
+There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
+These systems are designed to be distributed and optimised for high throughput for queries on them.
+Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
+There are numerous cloud based, third-party solutions built with these file systems making them easy to use.
+There are also numerous tools, libraries and frameworks which emulate the features of database systems on these distributed file systems making them easier to use further.
+The primary advantage of these systems is the sheer scalability they provide when it comes to data volume.
+The primary disadvantage is the associated overheads in terms of cost and time incurred in learning, designing and implementing them.
+Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.
+Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.
 
 
 \begin{table}[h]
   \footnotesize
   \begin{center}
-    \begin{tabular}{ll}
+    \begin{tabular}{lcp{2cm}p{4.5cm}}
       \toprule
-        Type & Comment\\
+      Approach & Data size & Examples & Comments\\
       \midrule
-        Filesystem & for hierarchical data around 10TB range\\
-        Cloud Storage & \textless{}  10TB, can add hdfs stuff, more reliability\\
-        Relational DB & 1-5TB, Good for relational Data, Row-wise, Partitioning\\
-        Document DB & -10TB, Good for unstructured data, column wise,Clustering\\
-        HDFS & \textgreater{} 10 TB, Good for scale and structure\\
-        Hive, Hbase & on top of HDFS, bring DB to HDFS\\
+        File system &
+          \textless{} 10 TB &
+          ext, ntfs, zfs, btrfs &
+          Simple and efficient. Best for hierarchical data. Cannot handle complex connected data.\\
+        \addlinespace[0.2cm]
+        Relational DB &
+          \textless{} 5 TB &
+          MySQL, PostgreSQL&
+          Handles structured and relational data. Optimised for large amount of rows and tries to guarantee validity.\\
+        \addlinespace[0.2cm]
+        Document DB &
+          \textless 10 TB &
+          MongoDB, Cassandra&
+          Handles unstructured data. Optimised for large number of fields and distribution to multiple clusters. Tries to focus on any two guarantees of the Brewer's theorem.\\
+        \addlinespace[0.2cm]
+        Distributed FS &
+          \textgreater{} 10 TB &
+          HDFS, Ceph, GFS &
+          Optimised for really large datasets which need to be distributed over multiple nodes.\\
+        \addlinespace[0.2cm]
+        Cloud Storage &
+          \textgreater{} 10 TB &
+          AWS, Azure, SWIFT &
+          Implements distributed file systems on the cloud. Has more reliability and scalability than local implementations.\\
+        \addlinespace[0.2cm]
+        Data Warehouse &
+          \textgreater{} 10 TB &
+          Hive, Hbase, Impala, Presto&
+          Interfaces built on top of distributed file systems to emulate capabilities of relational databases on them.\\
       \bottomrule
     \end{tabular}
   \end{center}
-  \caption{Types and Use of Various Storage Solutions}
+  \caption{Various data storage approaches and their characteristics.}
   \label{table:toolkit:storage}
 \end{table}
 
-
-Raw wifi data has temporal hierarchy and is of medium size hence a normal filesystem is sufficiently suitable for its needs.
-When the same data is aggregated it loses its scale and is highly strucutred so a relation DBMS is sufficient for it.
-In case the project runs longer and more longitudinal analysis had to be done on raw data HDFS needs to be used and if the aggregated data scales to >10TB we can handle it with a timescale db should be suitable.
-PostgreSQL is more suitable than other databases because of its better support to geographic data.
+We saw that the Wi-Fi probe request datasets are `Medium' sized hence we can safely eliminate distributed file systems for storing them.
+Though the smart street Sensor project uses Azure Blob Storage, when the data is downloaded to the local servers at the university, we can just store them in the file system because of their size (2TB approx.) and the hierarchical nature.
+The folder structure of - year/month/day/location/interval/ with individual text file, enable us to query the data for any given location at any interval nearly instantaneously without any further database operations.
+When this raw data is processed into 5 minute counts, we require more relational queries.
+For this purpose a relational database is sufficient as volume is quite small (25GB approx).
+We chose PostgreSQL because of the PostGIS extension which gives us flexibility in handling geographic data.
 
 %-------------------------------------------------------------------------------
 
 \vspace{1.5em}\noindent\textit{Processing}\vspace{0.5em}
 
-The primary considerations while surveying are the volume, velocity and veracity
-of the data.
-We should be careful to choose the tools which are right for the size.
-The perfect tools for a medium size data can be as much as 230x faster than big data tools (ref).
-At one end there are Big Data analysis tools such as Hadoop based impementations such as Mapreduce and Spark, Business toosl such as skytree, realtime tools such as storm and samoa, cleaning tools such as Openrefine.
-All these tools are optimised for the cluster/grid computing and the processing is heavily parallelised across the clusters.
-There is also a lot of overhead asssociated with moving data across clusters and we won't be making up for these overheads until we hit certain size of the data.
-As we know Wi-Fi data is not at the scale these tools operate, we can look into how large streams of data are handles in computer science/ systems engineering.
-Data processing is done in two stages, the first one is the filtering, cleaning and aggregation of the raw Wi-Fi data and the second step is the analysis and modelling of the aggregated data.
+\begin{marginfigure}
+  \includegraphics[trim={0 0 0 0},clip]{images/processing-time-old.png}
+  \caption{Exponential increase in the processing time when using traditional methods.}
+  \label{figure:toolkit:time:old}
+\end{marginfigure}
+
+\marginnote[1em]{\fontsize{7}{7}\textit{The processing involves parsing json datarecieved for a single day at each location and aggregating them as number of probes requests recieved in every five minute intervals.}}
+
+We saw that the data is medium in terms of volume and velocity and shows big data properties in terms of veracity.
+Hence we require tools which are capable of dealing with the veracity of the data while being able to manage the volume and velocity.
+The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS packages and process it.
+The size of the dataset and the lack of meaningful complexity of geography element in the data eliminates the use of GIS packages.
+Scripting languages such as R and Python can deal with the dataset and its requirements but the time taken to do so increases exponentially with the size of the data as the size of objects in memory increases.
+Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple exercise where a day's worth of raw data is parsed and aggregated into number of probe requests per 5 minute intervals.
+This becomes prohibitively expensive as the number of locations and complexity of the processing increases.
+Though this can be improved with more efficient coding practices, the margin of improvement is quite limited hence creating the need for better techniques.
+It is important to note that data processing is done in two stages - the first stage where the raw Wi-Fi probe requests are filtered, cleaned and aggregated into footfall counts and second stage where the footfall counts are in turn analysed to produce reports and visualisations.
+The traditional methods are sufficient for the second stage of the processing and the first stage is the one which requires a better solution.
+
+On the other end we have big data analysis tools which are built for dealing with extremely large amount of data.
+Since the publication of the paper on MapReduce, there have been immense developments in the Big data analysis landscape.
+There numerous distributed programming tools to use the data stored within a distributed storage system each focussing on specific type of data and analysis.
+A concise, non-comprehensive list of types of data or specialities and corresponding big data tools is shown in Table \ref{table:toolkit:processing}.
+
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{lp{3cm}}
+      \toprule
+      Tools & Speciality\\
+      \midrule
+        General Purpose &
+          MapReduce, Spark\\
+        Real-time streams &
+          Flink, Pulsar\\
+        Events or messages data &
+          Storm, Kafka, Flume\\
+        Networked or Graph data &
+          Tinkerpop, Corona \\
+        Scheduling &
+          Oozie, Falcon, Azkaban\\
+        Turn-key Platforms &
+          SpringXD, Cask Data\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Various types of big data processing tools and corresponding examples.}
+  \label{table:toolkit:processing}
+\end{table}
+
+We can rule out the necessity of the above tools since our dataset is neither big enough nor fast enough.
+The dataset does not have any specialised structure such as graph or network but just a very minimal component of geography to it.
+Using any of specialised big data tools is just going to introduce immense overheads without any added benefits.
+We need something in-between the above two approaches where we is sufficiently fast and flexible for our datasets.
+
+This is where we come across the possibility of using standard Unix tools along with Bash scripting language to create a processing pipeline.
+In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230x faster than using big data toolkits \cite{adam2014commandline}.
 As we saw in (ref) the system tools in combination with parallel processing across CPU cores, can be used and can be actually faster for medium sized data.
 The data transfer format is text since it is standardised with utf8 and is easily understood and shared between UNIX tools.
 This also helps us in the data sharing and management which is discussed later.
@@ -449,3 +569,4 @@ Tableu, Omniscope.
 To summarise we have done a survey of tools and arrived at the following toolkit
 
 Figure of the data toolkit.
+

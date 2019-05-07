@@ -2,7 +2,7 @@
 
 awkc="awk -vFPAT='[^,]*|\"[^\"]*\"' -v OFS=','"
 folder="/home/ucfnbso/unorganised-files/ff_sample/2018/01/01/"
-sensors=`ls $folder | head -n 25`
+sensors=`ls $folder | head -n $1`
 
 jq_string=".[] | \
   [\"{}\",\

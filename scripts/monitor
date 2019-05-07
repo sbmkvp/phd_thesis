@@ -6,5 +6,5 @@ COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex && \
     pdflatex -halt-on-error -interaction=nonstopmode thesis.tex && \
     ./scripts/status > word-count.md"
 
-find . -path ./data -prune -o -print -regex ".*\.\(cls\|tex\|bib\)" \
+find . -path ./data -prune -path .git -prune -o -print -regex ".*\.\(cls\|tex\|bib\)" \
     | entr bash -c "$COMMAND"
