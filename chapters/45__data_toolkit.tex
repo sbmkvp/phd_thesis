@@ -2,7 +2,7 @@
 % Introduction to the chapter
 %-------------------------------------------------------------------------------
 
-\section{Medium Data Toolkit}
+\section{Data Toolkit}
 
 \textsc{Big data and its analytics} promises huge benefits in terms of value realisation, cost reduction, insights but it also introduces a numerous pitfalls \cite{gandomi2015beyond}.
 With developments in information technology, mobile communications and internet of things, large assemblages of data are readily available leading to immense possibilities in research.
@@ -12,7 +12,6 @@ Moreover in several disciplines, such as statistics and geography etc., the exis
 These methods along with improvements in hardware has made the processing big data in these disciplines possible without a major changes in workflow.
 In the current environment of constant change and growth of sources of data, we cannot afford to lose the opportunity to extract information from them while trying to create a perfect, future proof approach in dealing with them.
 We need to move fast with a pragmatic approach where we look at other disciplines and adopt best practices and solutions in them and develop consistent approach for our needs rather than reinventing the wheel.
-go
 
 %-------------------------------------------------------------------------------
 
@@ -284,7 +283,7 @@ We can safely say that the Wi-Fi probe requests dataset is at best `Medium' in t
 
 \begin{figure*}
   \includegraphics{images/data-visualisation-challenge.png}
-  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018.}
+  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.}
   \label{figure:toolkit:visualisation}
 \end{figure*}
 
@@ -414,7 +413,6 @@ The primary disadvantage is the associated overheads in terms of cost and time i
 Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.
 Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.
 
-
 \begin{table}[h]
   \footnotesize
   \begin{center}
@@ -462,7 +460,7 @@ We saw that the Wi-Fi probe request datasets are `Medium' sized hence we can saf
 Though the smart street Sensor project uses Azure Blob Storage, when the data is downloaded to the local servers at the university, we can just store them in the file system because of their size (2TB approx.) and the hierarchical nature.
 The folder structure of - year/month/day/location/interval/ with individual text file, enable us to query the data for any given location at any interval nearly instantaneously without any further database operations.
 When this raw data is processed into 5 minute counts, we require more relational queries.
-For this purpose a relational database is sufficient as volume is quite small (25GB approx).
+For this purpose a relational database is sufficient as volume is quite small (25GB approx.).
 We chose PostgreSQL because of the PostGIS extension which gives us flexibility in handling geographic data.
 
 %-------------------------------------------------------------------------------
@@ -475,7 +473,7 @@ We chose PostgreSQL because of the PostGIS extension which gives us flexibility 
   \label{figure:toolkit:time:old}
 \end{marginfigure}
 
-\marginnote[1em]{\fontsize{7}{7}\textit{The processing involves parsing json datarecieved for a single day at each location and aggregating them as number of probes requests recieved in every five minute intervals.}}
+\marginnote[1em]{\fontsize{7}{7}\textit{The processing involves parsing JSON data recieved for a single day at each location and aggregating them as number of probes requests recieved in every five minute intervals.}}
 
 We saw that the data is medium in terms of volume and velocity and shows big data properties in terms of veracity.
 Hence we require tools which are capable of dealing with the veracity of the data while being able to manage the volume and velocity.
@@ -500,18 +498,12 @@ A concise, non-comprehensive list of types of data or specialities and correspon
       \toprule
       Tools & Speciality\\
       \midrule
-        General Purpose &
-          MapReduce, Spark\\
-        Real-time streams &
-          Flink, Pulsar\\
-        Events or messages data &
-          Storm, Kafka, Flume\\
-        Networked or Graph data &
-          Tinkerpop, Corona \\
-        Scheduling &
-          Oozie, Falcon, Azkaban\\
-        Turn-key Platforms &
-          SpringXD, Cask Data\\
+        General purpose & MapReduce, Spark\\
+        Real-time streams & Flink, Pulsar\\
+        Events or messages data & Storm, Kafka, Flume\\
+        Networked or graph data & Tinkerpop, Corona \\
+        Scheduling & Oozie, Falcon, Azkaban\\
+        Turn-key platforms & SpringXD, Cask Data\\
       \bottomrule
     \end{tabular}
   \end{center}
@@ -519,46 +511,99 @@ A concise, non-comprehensive list of types of data or specialities and correspon
   \label{table:toolkit:processing}
 \end{table}
 
-We can rule out the necessity of the above tools since our dataset is neither big enough nor fast enough.
+We can rule out the necessity of the above big data tools since our dataset is neither big enough nor fast enough.
 The dataset does not have any specialised structure such as graph or network but just a very minimal component of geography to it.
 Using any of specialised big data tools is just going to introduce immense overheads without any added benefits.
 We need something in-between the above two approaches where we is sufficiently fast and flexible for our datasets.
 
-This is where we come across the possibility of using standard Unix tools along with Bash scripting language to create a processing pipeline.
-In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230x faster than using big data toolkits \cite{adam2014commandline}.
-As we saw in (ref) the system tools in combination with parallel processing across CPU cores, can be used and can be actually faster for medium sized data.
-The data transfer format is text since it is standardised with utf8 and is easily understood and shared between UNIX tools.
-This also helps us in the data sharing and management which is discussed later.
-For the first part of the processing - filtering \& cleaning we use the following tools,
+This is where we come across the possibility of using standard Unix tools along with connecting them to create a processing pipeline.
+In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite[-2cm]{adam2014commandline}.
+The command line tools were developed as parts of Unix operating system for processing text. 
+They are developed in line with the Unix philosophy which focuses on modular and minimal software development. 
+The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite{mcilroy1978unix},
 
 \begin{enumerate}
-
-  \item \textbf{sed} - streaming text editor. A fully featured text editor which works on  stream of text. The stream is processed usually by each line and is the most  commonly used to search and replace (translating) text streams using regular  expressions.
-
-  \item \textbf{grep} - grep (global regex print) is a special case of sed where we search  the stream for regular expression and print the result. This is usually used  for searching and filtering text streams.
-
-  \item \textbf{awk} - This is a turing complete special purpose higher level programming  language which is optimised for sorting, validating and transforming text  streams. It is full featured enough to be able to manage a small text based  database by itself. This is usually used to transform tabular delimited data.
-
-  \item \textbf{jq} - This is similar to awk, has a emcascript based scripting language  for transforming text data which is in the JavaScript Object Notation format. These four tools form a core toolkit for tranforming, translating and  filtering data. All these tools are single threaded and need an external tool  to parallelise the processes. For this we can use gnu-parallel.
-
-  \item \textbf{parallel} - This is a tool built with perl (citation) which parallelises  the any operation across CPU cores and even across multiple nodes through  secure shell (ssh). This gives us a medium sized cluster which is well suited  dealing with text data stored in a file system.
-
+  \setlength{\itemindent}{2em}
+  \itemsep-0.25em
+	\item Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features".
+	\item Expect the output of every program to become the input to another, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don't insist on interactive input.
+	\item Design and build software, even operating systems, to be tried early, ideally within weeks. Don't hesitate to throw away the clumsy parts and rebuild them.
+	\item Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.
 \end{enumerate}
 
-Bash completes the toolkit to provide a overarching high-level scripting interface to combine all the smaller tools and managing data transfer between them as text streams using the 'pipe' operator.
-This along with core bash tools such as sort, uniq can give us a basic data filtering, transformation and aggregation toolkit with a reasonable throughput.
-Example, For a normal word count problem, this toolkit can give us a through put of 540MB per minute without parallelisation and with parallelisation this can be improved to 2.5GB per minute.
+\begin{marginfigure}[5cm]
+  \includegraphics[trim={0 0 0 0},clip]{images/processing-times-r.png}
+  \caption{The increase in processing time with the Unix pipeline is linear thus improves the scalability compared to R based processing}
+  \label{figure:toolkit:time:new}
+\end{marginfigure}
 
+These principles along with the `pipe' operator gives us necessary tools to build more complex tools.
+We can replace most of the libraries we used in the R implementation of our processing with a corresponding command line tools and connect them together with a text interface to achieve similar pipeline.
+The first advantage of such design is that it is much more efficient than a monolith design.
+These tools being actively developed for since their invention are compiled as native binaries and are usually extremely optimised resulting in a much faster pipeline.
+Because of the design of the pipe operator, the individual parts of the pipeline are executed in parallel as chunks of data are passed through them thus avoiding the need to load entire datasets into memory which results in an exponential increase processing time with the size of the data.
+Being modular, we can even introduce process level parallelism to parts of the pipeline without any major change in the overall design.
+Finally the modular structure also gives us the advantage of using the best tool for any part of the pipeline.
+All of the gives us an extremely minimal and efficient toolkit to process the raw Wi-Fi probes data into counts in a scalable way.
+Figure \ref{figure:toolkit:time:new} compares the processing times of such Unix toolkit with the traditional R based toolkit as the data size increases.
+We can see that Unix toolkit performs extremely well and the performance gains are significant as the size of the data increases.
+For example, to process data for 25 locations, R based toolkit takes around 20 minutes while the Unix toolkit gets it done in 20 seconds.
+Table \ref{table:toolkit:tools} shows the activities in our pipeline and corresponding libraries in the traditional R workflow along with the equivalent Unix tools.
+It is important to note that tools for doing specialised actions such as statistical analysis, machine learning and time-series analysis are built on top of scripting languages such as R and Python.
+These can be embedded into our Unix pipeline as scripts running in corresponding front-ends such as Rscript or python.
 
-For complex data cleaning techniques such as filling in the gaps, we can use higher level languages such as R or Python through their scripting environments and linking them to our pipelines using bash.
-Security in terms of obfuscation can be done through hashing algorithms implemented by openssl, nodejs and R and for encryption, we can use the gnupg.
-The toolkit being open source free software has the added advantage of being secure as well.
+\begin{table}[h]
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{p{4cm}p{3cm}p{3cm}}
+      \toprule
+      Tools & R Library & Unix tool(s)\\
+      \midrule
+        Move data to and from Azure blog storage, SQL server and Postgres & AzureR, odbc , RPostgreSQL & azcopy, mssql, psql\\
+				Convert data from JSON format to CSV & jsonlite & jq\\
+        \addlinespace[0.2cm]
+				Encrypt raw data for secure storage & Rcrypt & gnupg\\
+        \addlinespace[0.2cm]
+				Anonymise personal data into cryptographic hash & digest & openssl\\
+        \addlinespace[0.2cm]
+				Transform and manipulate tabular data& dplyr & find, cat, cut, grep, sed, awk, sort, uniq, column, paste, join\\
+        \addlinespace[0.2cm]
+				Impute missing value using time series analysis & imputeTS & R-Script\\
+        \addlinespace[0.2cm]
+				Visualise the results into maps and charts & ggplot2 & R-Script\\
+        \addlinespace[0.2cm]
+        Create and manipulate geographic data & sf, rgdal & postgis, gdal\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Tasks in the processing pipeline, corresponding R libraries and equivalent Unix tools}
+  \label{table:toolkit:tools}
+\end{table}
+
+This toolkit can be further accelerated by parallelising parts of the pipeline using gnu-parallel \cite[-5cm]{tange2018parallel}.
+For example, the previous example pipeline can be parallelised by spawning a pipeline for each location this reduces the processing time for a set of 25 locations from 18 seconds to 3 seconds.
+This done by utilising every processor cores available in the CPU.
+Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation.
+Finally all the Unix tools discussed in this toolkit are open source and free software which has almost no cost in terms of resources.
+Since these tools are part of the POSIX specification \cite[-5.5cm]{walli1995posix} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
+
+\begin{marginfigure}[-1cm]
+  \includegraphics[trim={0 0 0 0},clip]{images/processing-times-parallel.png}
+  \caption{The scalability of the processing pipeline could be further improved with parallelising it.}
+  \label{figure:toolkit:time:parallel}
+\end{marginfigure}
 
 %-------------------------------------------------------------------------------
 
 \vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
-Tableu, Omniscope.
+\lipsum[1-2]
+
+\begin{figure*}[t]
+  \includegraphics{images/toolkit.png}
+  \caption{Outline of a `Medium data toolkit' for dealing with the Wi-Fi probe requests data}
+  \label{figure:toolkit:visualisation}
+\end{figure*}
 
 %-------------------------------------------------------------------------------
 % Discussion and conclusions
@@ -566,7 +611,5 @@ Tableu, Omniscope.
 
 \subsection{Conclusions}
 
-To summarise we have done a survey of tools and arrived at the following toolkit
-
-Figure of the data toolkit.
-
+\lipsum[1-2]
+\lipsum[1-2]
