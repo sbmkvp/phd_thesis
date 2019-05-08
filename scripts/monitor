@@ -1,9 +1,9 @@
 #! /bin/bash
 
-COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex && \
+COMMAND="pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
     bibtex thesis && \
     makeindex thesis && \
-    pdflatex -halt-on-error -interaction=nonstopmode thesis.tex && \
+    pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
     ./scripts/status > word-count.md"
 
 find . -path ./data -prune -path .git -prune -o -print -regex ".*\.\(cls\|tex\|bib\)" \

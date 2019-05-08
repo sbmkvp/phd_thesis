@@ -1,0 +1,21 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}! /bin/bash}
+
+\PYG{n+nv}{awkc}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}awk \PYGZhy{}vFPAT=\PYGZsq{}[\PYGZca{},]*|\PYGZbs{}\PYGZdq{}[\PYGZca{}\PYGZbs{}\PYGZdq{}]*\PYGZbs{}\PYGZdq{}\PYGZsq{} \PYGZhy{}v OFS=\PYGZsq{},\PYGZsq{}\PYGZdq{}}
+\PYG{n+nv}{folder}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}/home/ucfnbso/unorganised\PYGZhy{}files/ff\PYGZus{}sample/2018/01/01/\PYGZdq{}}
+\PYG{n+nv}{sensors}\PYG{o}{=}\PYG{l+s+sb}{`}ls \PYG{n+nv}{\PYGZdl{}folder} \PYG{p}{|} head \PYGZhy{}n \PYG{n+nv}{\PYGZdl{}1}\PYG{l+s+sb}{`}
+
+\PYG{n+nv}{jq\PYGZus{}string}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}.[] | \PYGZbs{}}
+\PYG{l+s+s2}{  [\PYGZbs{}\PYGZdq{}\PYGZob{}\PYGZcb{}\PYGZbs{}\PYGZdq{},\PYGZbs{}}
+\PYG{l+s+s2}{  ( (input\PYGZus{}filename/\PYGZbs{}\PYGZdq{}/\PYGZbs{}\PYGZdq{} | .[ .|length\PYGZhy{}1 ] )/\PYGZbs{}\PYGZdq{}.\PYGZbs{}\PYGZdq{} | .[0]),\PYGZbs{}}
+\PYG{l+s+s2}{  .VendorMacPart+.MacAddress] \PYGZbs{}}
+\PYG{l+s+s2}{  | @csv\PYGZdq{}}\PYG{p}{;}
+\PYG{n+nv}{cmd}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}jq \PYGZhy{}r \PYGZsq{}}\PYG{n+nv}{\PYGZdl{}jq\PYGZus{}string}\PYG{l+s+s2}{\PYGZsq{} }\PYG{n+nv}{\PYGZdl{}folder}\PYG{l+s+s2}{\PYGZob{}\PYGZcb{}/*.pd \PYGZbs{}}
+\PYG{l+s+s2}{  | sort | uniq \PYGZbs{}}
+\PYG{l+s+s2}{  | }\PYG{n+nv}{\PYGZdl{}awkc}\PYG{l+s+s2}{ \PYGZsq{}\PYGZob{}print \PYGZbs{}\PYGZdl{}1,\PYGZbs{}\PYGZdl{}2\PYGZcb{}\PYGZsq{} \PYGZbs{}}
+\PYG{l+s+s2}{  | sort | uniq \PYGZhy{}c\PYGZdq{}}\PYG{p}{;}
+
+\PYG{n+nb}{echo} \PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}sensors}\PYG{l+s+s2}{\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+  \PYG{p}{|} parallel \PYG{l+s+s2}{\PYGZdq{}}\PYG{n+nv}{\PYGZdl{}cmd}\PYG{l+s+s2}{\PYGZdq{}} \PYG{l+s+se}{\PYGZbs{}}
+  \PYGZgt{} output\PYGZhy{}new\PYGZhy{}parallel.csv
+\end{Verbatim}
