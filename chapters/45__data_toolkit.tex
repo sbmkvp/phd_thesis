@@ -473,14 +473,15 @@ We chose PostgreSQL because of the PostGIS extension which gives us flexibility 
   \label{figure:toolkit:time:old}
 \end{marginfigure}
 
-\marginnote[1em]{\fontsize{7}{7}\textit{The processing involves parsing JSON data recieved for a single day at each location and aggregating them as number of probes requests recieved in every five minute intervals.}}
+\marginnote[1em]{\fontsize{7}{7}\textit{The processing involves parsing JSON data received for a single day at each location and aggregating them as number of probes requests received in every five minute intervals.}}
 
 We saw that the data is medium in terms of volume and velocity and shows big data properties in terms of veracity.
 Hence we require tools which are capable of dealing with the veracity of the data while being able to manage the volume and velocity.
 The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS packages and process it.
 The size of the dataset and the lack of meaningful complexity of geography element in the data eliminates the use of GIS packages.
 Scripting languages such as R and Python can deal with the dataset and its requirements but the time taken to do so increases exponentially with the size of the data as the size of objects in memory increases.
-Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple exercise where a day's worth of raw data is parsed and aggregated into number of probe requests per 5 minute intervals.
+Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple exercise where a day's worth of raw data is parsed and aggregated into number of probe requests per 5 minute intervals 
+(The code used to produce these benchmarks are detailed in the appendix at page \pageref{appendix:benchmark}).
 This becomes prohibitively expensive as the number of locations and complexity of the processing increases.
 Though this can be improved with more efficient coding practices, the margin of improvement is quite limited hence creating the need for better techniques.
 It is important to note that data processing is done in two stages - the first stage where the raw Wi-Fi probe requests are filtered, cleaned and aggregated into footfall counts and second stage where the footfall counts are in turn analysed to produce reports and visualisations.
@@ -547,7 +548,8 @@ Finally the modular structure also gives us the advantage of using the best tool
 All of the gives us an extremely minimal and efficient toolkit to process the raw Wi-Fi probes data into counts in a scalable way.
 Figure \ref{figure:toolkit:time:new} compares the processing times of such Unix toolkit with the traditional R based toolkit as the data size increases.
 We can see that Unix toolkit performs extremely well and the performance gains are significant as the size of the data increases.
-For example, to process data for 25 locations, R based toolkit takes around 20 minutes while the Unix toolkit gets it done in 20 seconds.
+For example, to process data for 25 locations, R based toolkit takes around 20 minutes while the Unix toolkit gets it done in 20 seconds 
+(The code used to produce these benchmarks are detailed in the appendix at page \pageref{appendix:benchmark}).
 Table \ref{table:toolkit:tools} shows the activities in our pipeline and corresponding libraries in the traditional R workflow along with the equivalent Unix tools.
 It is important to note that tools for doing specialised actions such as statistical analysis, machine learning and time-series analysis are built on top of scripting languages such as R and Python.
 These can be embedded into our Unix pipeline as scripts running in corresponding front-ends such as Rscript or python.
@@ -568,9 +570,9 @@ These can be embedded into our Unix pipeline as scripts running in corresponding
         \addlinespace[0.2cm]
 				Transform and manipulate tabular data& dplyr & find, cat, cut, grep, sed, awk, sort, uniq, column, paste, join\\
         \addlinespace[0.2cm]
-				Impute missing value using time series analysis & imputeTS & R-Script\\
+				Impute missing value using time series analysis & imputeTS & Rscript\\
         \addlinespace[0.2cm]
-				Visualise the results into maps and charts & ggplot2 & R-Script\\
+				Visualise the results into maps and charts & ggplot2 & Rscript\\
         \addlinespace[0.2cm]
         Create and manipulate geographic data & sf, rgdal & postgis, gdal\\
       \bottomrule
@@ -583,7 +585,7 @@ These can be embedded into our Unix pipeline as scripts running in corresponding
 This toolkit can be further accelerated by parallelising parts of the pipeline using gnu-parallel \cite[-5cm]{tange2018parallel}.
 For example, the previous example pipeline can be parallelised by spawning a pipeline for each location this reduces the processing time for a set of 25 locations from 18 seconds to 3 seconds.
 This done by utilising every processor cores available in the CPU.
-Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation.
+Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation (The code used to produce these benchmarks are detailed in the appendix at page \pageref{appendix:benchmark}).
 Finally all the Unix tools discussed in this toolkit are open source and free software which has almost no cost in terms of resources.
 Since these tools are part of the POSIX specification \cite[-5.5cm]{walli1995posix} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
 
@@ -597,13 +599,12 @@ Since these tools are part of the POSIX specification \cite[-5.5cm]{walli1995pos
 
 \vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
-\lipsum[1-2]
-
-\begin{figure*}[t]
-  \includegraphics{images/toolkit.png}
-  \caption{Outline of a `Medium data toolkit' for dealing with the Wi-Fi probe requests data}
-  \label{figure:toolkit:visualisation}
-\end{figure*}
+In the last section we saw that the visualisation dimension of the data shows some level of complexity.
+The primary source of this complexity arises from the longitudinal nature of the data and the noise due to granularity of the data.
+For the processed dataset, traditional visualisation and mapping libraries with R is sufficient while the visualisation of raw data across long time periods for either for exploratory analysis or for communication needs some form of interactivity or simplification to be able to legible.
+Data driven documents (D3) \cite[-0.75cm]{stanford2011d3}and Dimensional charting (DC) provides us with both of these requirements.
+Both of these tools can accept text based input and can fit with other Unix tools discussed earlier.
+In case of binary file output such as images or documents, they could be directed to the file system and then read into other programs.
 
 %-------------------------------------------------------------------------------
 % Discussion and conclusions
@@ -611,5 +612,27 @@ Since these tools are part of the POSIX specification \cite[-5.5cm]{walli1995pos
 
 \subsection{Conclusions}
 
-\lipsum[1-2]
-\lipsum[1-2]
+In this chapter we saw how the advent of internet and internet enabled devices has lead to significant increase in the amount of data generated and collected across disciplines. 
+This data deluge and improvements in the capabilities of computing hardware has fuelled an explosion of research and development in tools and methods to deal with these `Big data'.
+Though these big data tools promise huge improvements in processing capabilities, when used under wrong circumstances they can lead to unwanted overheads and costs.
+Thus we need a framework to examine and understand the scale of the data that is being used so that we use the right tools for the right purposes and the 5Vs of `Big data' - Volume, Velocity, Veracity, Variety and Visualisation provides us with such frame work.
+Every dimension of big data poses unique set of challenges and we need make right decisions in choosing specialised tools and methods to overcome them.
+
+We then closely examined the Wi-Fi probes data we collected with this framework and found that the data, though posed significant challenges with traditional data processing techniques, do not exhibit `big data' properties in all its dimensions. 
+Only veracity of the data was found to have any meaningful big data properties, while volume and velocity was found to be 'medium' at best. 
+The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.
+Thus we arrived at the requirements for a bespoke `medium data toolkit' which is able to deal with these challenges.
+
+\begin{figure*}
+  \includegraphics{images/toolkit.png}
+  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
+  \label{figure:toolkit}
+\end{figure*}
+
+We undertook a brief survey of tools available for collecting, storing, processing and visualising the Wi-Fi probe request data and with the understanding of the data from the previous analysis chose the ones which are perfect for the datasets.
+For collecting Wi-Fi probes data in a scalable way, we chose a general purpose single board computers such as Raspberry-Pi along with open source tools such as tcpdump and tshark in a Linux environment.
+For data storage we narrowed in on using just the file system for the raw data and relational database management system for the processed counts.
+To process the raw data we chose to devise a processing pipeline using an assortment of standard Unix command line tools linked together using a shell scripting language and parallelised at the process level with gnu-parallel.
+We also demonstrated that this processing pipeline can be 400 times faster than the using a monolithic pipeline even with a small sample of locations.
+For visualisation we chose D3 and DC as the solution for communicating time information legibly.
+Finally we arrive a `medium data toolkit', illustrated in Figure \ref{figure:toolkit}, which is best suited for the Wi-Fi probes dataset which we employ to process and examine the data further.
