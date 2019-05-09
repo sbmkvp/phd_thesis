@@ -3,10 +3,11 @@ Lines|Words|Characters|File
 100|304|3560|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
 6|13|142|chapters/20_literature.tex
-131|2061|12723|chapters/30_data_collection.tex
-12|23|208|chapters/40_data_processing.tex
-638|8156|56026|chapters/45__data_toolkit.tex
+131|2062|12723|chapters/30_data_collection.tex
+4|7|118|chapters/40_data_processing.tex
+638|8156|56026|chapters/41__data_toolkit.tex
+0|0|0|chapters/42__mac_randomisation.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 27|45|908|chapters/70_back.tex
-962|11009|76208|total
+954|10994|76118|total

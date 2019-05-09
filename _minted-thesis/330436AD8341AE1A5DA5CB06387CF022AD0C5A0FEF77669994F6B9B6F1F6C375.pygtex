@@ -1,6 +1,5 @@
 \begin{Verbatim}[commandchars=\\\{\}]
 \PYG{c+ch}{\PYGZsh{}! /bin/bash}
-
 \PYG{n+nv}{awkc}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}awk \PYGZhy{}vFPAT=\PYGZsq{}[\PYGZca{},]*|\PYGZbs{}\PYGZdq{}[\PYGZca{}\PYGZbs{}\PYGZdq{}]*\PYGZbs{}\PYGZdq{}\PYGZsq{} \PYGZhy{}v OFS=\PYGZsq{},\PYGZsq{}\PYGZdq{}}
 \PYG{n+nv}{folder}\PYG{o}{=}\PYG{l+s+s2}{\PYGZdq{}/home/ucfnbso/unorganised\PYGZhy{}files/ff\PYGZus{}sample/2018/01/01/\PYGZdq{}}
 \PYG{n+nv}{sensors}\PYG{o}{=}\PYG{l+s+sb}{`}ls \PYG{n+nv}{\PYGZdl{}folder} \PYG{p}{|} head \PYGZhy{}n \PYG{n+nv}{\PYGZdl{}1}\PYG{l+s+sb}{`}

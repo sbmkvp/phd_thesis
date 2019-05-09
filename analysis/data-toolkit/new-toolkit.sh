@@ -1,6 +1,5 @@
 #! /bin/bash
 awkc="awk -vFPAT='[^,]*|\"[^\"]*\"' -v OFS=','"
-
 FOLDER="/home/ucfnbso/unorganised-files/ff_sample/2018/01/01/"
 SENSORS=`ls $FOLDER | head -n $1`
 
