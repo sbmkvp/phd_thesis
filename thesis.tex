@@ -1,60 +1,28 @@
 \input{template}
-%----------------------------------------------------------------------------------------
-%	BOOK META-INFORMATION
-%----------------------------------------------------------------------------------------
 
-\title{Estimating Activity From Passively Collected Data}
-\newcommand{\subtitle}{A Case Study of Smart Street Sensor Project}
-\author[Balamurugan Soundararaj]{Balamurugan Soundararaj}
-\publisher{University College London}
+%-------------------------------------------------------------------------------
+% Metadata	
+%-------------------------------------------------------------------------------
+
+\title{Estimating Footfall From Passive WiFi Signals}
+\newcommand{\subtitle}{Case Study with Smart Street Sensor Project}
+\author{Balamurugan Soundararaj}
+\newcommand{\degree}{Doctor of Philosophy}
+\publisher{University College London - UCL}
+
 \begin{document}
+
+%-------------------------------------------------------------------------------
+% Front Matter
+%-------------------------------------------------------------------------------
 \frontmatter
-
-%-------------------------------------------------------------------------------
-%	EPIGRAPH - Three good quotes about the research
-%-------------------------------------------------------------------------------
-
-\thispagestyle{empty}
-\openepigraph{There is no logic that can be superimposed on the city; people make it, and it is to them, not buildings, that we must fit our plans.}{Jane Jacobs,{ \small \itshape The Death and Life of Great American Cities}}
-\vfill
-\openepigraph{Information is the oil of the 21st century, and analytics is the combustion engine}{Peter Sondergaard,{\small \itshape SVP, Gartner}}
-\vfill
-\openepigraph{Errors using inadequate data are much less than those using no data at all}{Charles Babbage {\small \itshape The Education Industry}}
-\maketitle
-
-%-------------------------------------------------------------------------------
-%	Declaration Page
-%-------------------------------------------------------------------------------
-
-\newpage
-\begin{fullwidth}
-~\vfill
-\thispagestyle{empty}
-\setlength{\parindent}{0pt}
-\setlength{\parskip}{\baselineskip}
-% \copyright\ \the\year,\ \thanklessauthor\\
-\smallcaps{Doctor of Philosophy}\\
-\smallcaps{Department of Geography, UCL}
-  \par I, \textit{Balamurugan Soundararaj} confirm that the work presented in this thesis is my own. Where information has been derived from other sources, I confirm that this has been indicated in the thesis.\index{declaration}\\
-  \vspace{1cm}
-  \par..........................................................................
-\par\textit{Submitted on, \monthyear}
-\end{fullwidth}
-
-%-------------------------------------------------------------------------------
-%	FRONT MATTER
-%-------------------------------------------------------------------------------
-% \setcounter{secnumdepth}{1}
-% \setcounter{tocdepth}{1}
-\tableofcontents
-\listoffigures 
-\listoftables
-
-%-------------------------------------------------------------------------------
-%	Chapters
-%-------------------------------------------------------------------------------
 \input{chapters/00_front}
 \cleardoublepage
+
+%-------------------------------------------------------------------------------
+%	Main Matter
+%-------------------------------------------------------------------------------
+\mainmatter
 \input{chapters/10_introduction}
 \cleardoublepage
 \input{chapters/20_literature}
@@ -66,6 +34,16 @@
 \input{chapters/50_applications}
 \cleardoublepage
 \input{chapters/60_conclusions}
-\mainmatter
 \cleardoublepage
-\input{chapters/70_back}
+\input{chapters/70_appendix.tex}
+
+%-------------------------------------------------------------------------------
+%	Back Matter
+%-------------------------------------------------------------------------------
+
+\backmatter
+\bibliography{references}
+\bibliographystyle{plainnat}
+
+
+\end{document}

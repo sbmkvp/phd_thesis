@@ -21,7 +21,7 @@ In this section we elaborate the thought process and rationale behind these deci
 We start by discussing the concept of `Big Data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
 Then we look at the data-sets we collected through the pilot studies and the `Smart Street Sensor' project and evaluate them in terms of the dimensions of the big data.
 We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
-Finally we put together a toolkit to suit our datasets built from simple small UNIX tools. \sidenote[][-1cm]{"Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.", Doug McIlroy on UNIX philosophy.}
+Finally we put together a toolkit to suit our datasets built from simple small UNIX tools. \sidenote[][-3cm]{"Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.", Doug McIlroy on UNIX philosophy.}
 
 %-------------------------------------------------------------------------------
 % Discussion on what is big data
@@ -294,7 +294,7 @@ The toolkit we devise need to be able to deal with their mid-size volume, veloci
 Figure \ref{figure:toolkit:spider} illustrates the summary our discussion.
 This leads us to devise a `medium data toolkit' which can be used without incurring the extra cost and complexity introduced by big data tools while be able to handle the data at hand.
 
-\begin{marginfigure}[5cm]
+\begin{marginfigure}[4cm]
   \includegraphics[trim={2.1cm 0 0 0},clip]{images/data-toolkit-spider.png}
   \caption{Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions}
   \label{figure:toolkit:spider}
@@ -373,8 +373,8 @@ The design and implementation decisions were made with the commercial applicatio
 For the research conducted with the data, it is necessary to understand the data collection process and make sure it aligns and integrates with the rest of the toolkit.
 As discussed in the data collection chapter, the methodology used in the smart street sensor project satisfies our requirements.
 The toolkit we designed to collect other datasets are in-part inspired by this methodology or a modified version to include more flexibility.
-The toolkit consists of Raspberry Pi, Linux, tcpdump or tshark and nodejs.
-Raspberry Pi and the Linux OS it provides is the flexible and general purpose base system.
+The toolkit consists of Raspberry Pi, Linux, tcpdump or tshark \cite{wireshark2} and nodejs.
+Raspberry Pi and the Linux OS provides a general purpose base system and hence the flexibility.
 On top of this we built our data collection system by assembling open source and free network analysis tools such as tcpdump and tshark along with other tools providing functions such as scheduling, personal data obfuscation and data transmission with scripting languages like nodejs and bash.
 
 %-------------------------------------------------------------------------------
@@ -396,13 +396,13 @@ This is the primary reason why database management systems are developed on top 
 Database systems can be broadly divided into relational and document based.
 The relational databases are optimised to deal with relational data and usually enforce strict structure for the data
 In general they can handle large number of rows and are designed to scale vertically.
-Most relational database systems try to guarantee ACID \sidenote[][-6cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[-4cm]{Haerder1983ptd}.
+Most relational database systems try to guarantee ACID \sidenote[][-0.5cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[0.5cm]{Haerder1983ptd}.
 The document based databases are optimised to deal with unstructured data and can doesn't need a strictly defined scheme.
 In general they can handle large number of columns and are designed to be distributed and scaled horizontally.
-Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-1cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
+Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][1cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
 There a numerous databases systems which prioritise different things and the right solution depends on the properties of the data and the requirements of the project.
 
-Since the publication of the paper on `Google file system' by google \cite{sanjay2003gfs}.
+Since the publication of the paper on `Google file system' by google \cite[0.5cm]{sanjay2003gfs}.
 There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
 These systems are designed to be distributed and optimised for high throughput for queries on them.
 Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
@@ -481,7 +481,7 @@ The traditional approach to deal with such dataset is to load it into a general 
 The size of the dataset and the lack of meaningful complexity of geography element in the data eliminates the use of GIS packages.
 Scripting languages such as R and Python can deal with the dataset and its requirements but the time taken to do so increases exponentially with the size of the data as the size of objects in memory increases.
 Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple exercise where a day's worth of raw data is parsed and aggregated into number of probe requests per 5 minute intervals 
-(The code used to produce these benchmarks are detailed in the appendix at page \pageref{appendix:benchmark}).
+(The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
 This becomes prohibitively expensive as the number of locations and complexity of the processing increases.
 Though this can be improved with more efficient coding practices, the margin of improvement is quite limited hence creating the need for better techniques.
 It is important to note that data processing is done in two stages - the first stage where the raw Wi-Fi probe requests are filtered, cleaned and aggregated into footfall counts and second stage where the footfall counts are in turn analysed to produce reports and visualisations.
@@ -549,7 +549,7 @@ All of the gives us an extremely minimal and efficient toolkit to process the ra
 Figure \ref{figure:toolkit:time:new} compares the processing times of such Unix toolkit with the traditional R based toolkit as the data size increases.
 We can see that Unix toolkit performs extremely well and the performance gains are significant as the size of the data increases.
 For example, to process data for 25 locations, R based toolkit takes around 20 minutes while the Unix toolkit gets it done in 20 seconds 
-(The code used to produce these benchmarks are detailed in the appendix at page \pageref{appendix:benchmark}).
+(The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
 Table \ref{table:toolkit:tools} shows the activities in our pipeline and corresponding libraries in the traditional R workflow along with the equivalent Unix tools.
 It is important to note that tools for doing specialised actions such as statistical analysis, machine learning and time-series analysis are built on top of scripting languages such as R and Python.
 These can be embedded into our Unix pipeline as scripts running in corresponding front-ends such as Rscript or python.
@@ -582,14 +582,14 @@ These can be embedded into our Unix pipeline as scripts running in corresponding
   \label{table:toolkit:tools}
 \end{table}
 
-This toolkit can be further accelerated by parallelising parts of the pipeline using gnu-parallel \cite[-5cm]{tange2018parallel}.
+This toolkit can be further accelerated by parallelising parts of the pipeline using gnu-parallel \cite[-7cm]{tange2018parallel}.
 For example, the previous example pipeline can be parallelised by spawning a pipeline for each location this reduces the processing time for a set of 25 locations from 18 seconds to 3 seconds.
 This done by utilising every processor cores available in the CPU.
-Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation (The code used to produce these benchmarks are detailed in the appendix at page \pageref{appendix:benchmark}).
+Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation (The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
 Finally all the Unix tools discussed in this toolkit are open source and free software which has almost no cost in terms of resources.
-Since these tools are part of the POSIX specification \cite[-5.5cm]{walli1995posix} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
+Since these tools are part of the POSIX specification \cite[-7.5cm]{walli1995posix} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
 
-\begin{marginfigure}[-1cm]
+\begin{marginfigure}[-4cm]
   \includegraphics[trim={0 0 0 0},clip]{images/processing-times-parallel.png}
   \caption{The scalability of the processing pipeline could be further improved with parallelising it.}
   \label{figure:toolkit:time:parallel}
@@ -607,10 +607,10 @@ Both of these tools can accept text based input and can fit with other Unix tool
 In case of binary file output such as images or documents, they could be directed to the file system and then read into other programs.
 
 %-------------------------------------------------------------------------------
-% Discussion and conclusions
+% Final summary and conclusions
 %-------------------------------------------------------------------------------
 
-\subsection{Conclusions}
+\subsection{The Bespoke `Medium data toolkit'}
 
 In this chapter we saw how the advent of internet and internet enabled devices has lead to significant increase in the amount of data generated and collected across disciplines. 
 This data deluge and improvements in the capabilities of computing hardware has fuelled an explosion of research and development in tools and methods to deal with these `Big data'.

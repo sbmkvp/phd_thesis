@@ -1461,10 +1461,12 @@
   \begin{fullwidth}%
   \fontsize{18}{20}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklessauthor}}%
   \vspace{11.5pc}%
-  \fontsize{28}{45}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklesstitle}}%
+  \fontsize{28}{45}\selectfont\par\noindent\allcaps{\thanklesstitle}%
   \fontsize{14}{40}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\subtitle}}%
   \vfill%
-  \fontsize{14}{16}\selectfont\par\noindent\allcaps{\thanklesspublisher}%
+  \fontsize{12}{14}\selectfont\par\noindent\textcolor{black}{\allcaps{\degree}}%
+  \vspace{0.25em}%
+  \fontsize{12}{16}\selectfont\par\noindent\textcolor{darkgray}{\allcaps{\thanklesspublisher}}
   \end{fullwidth}%
   }
   \thispagestyle{empty}%
