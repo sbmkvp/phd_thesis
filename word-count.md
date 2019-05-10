@@ -2,8 +2,11 @@ Lines|Words|Characters|File
 ---|---|---|---
 124|748|7161|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
-270|5107|33928|chapters/20_literature.tex
-12|55|506|chapters/30_data_collection.tex
+16|194|1415|chapters/20_literature.tex
+47|1224|8255|chapters/21__research_themes.tex
+135|3134|20735|chapters/22__technologies.tex
+79|560|3691|chapters/23__research_gaps.tex
+20|59|554|chapters/30_data_collection.tex
 33|391|2412|chapters/31__wifi_data_source.tex
 12|223|1343|chapters/32__initial_experiments.tex
 33|407|2431|chapters/33__pilot_study.tex
@@ -16,4 +19,4 @@ Lines|Words|Characters|File
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-1680|22684|154796|total
+1695|22693|155012|total
