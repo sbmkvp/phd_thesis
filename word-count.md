@@ -10,7 +10,7 @@ Lines|Words|Characters|File
 33|391|2412|chapters/31__wifi_data_source.tex
 12|223|1343|chapters/32__initial_experiments.tex
 33|407|2431|chapters/33__pilot_study.tex
-31|584|3728|chapters/34__smart_street_sensor.tex
+31|585|3728|chapters/34__smart_street_sensor.tex
 18|405|2501|chapters/35__discussion.tex
 7|10|186|chapters/40_data_processing.tex
 638|8153|56032|chapters/41__data_toolkit.tex
@@ -19,4 +19,4 @@ Lines|Words|Characters|File
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-1695|22693|155012|total
+1680|22685|154796|total
