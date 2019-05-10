@@ -2,7 +2,7 @@ Lines|Words|Characters|File
 ---|---|---|---
 124|745|7134|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
-263|5090|33710|chapters/20_literature.tex
+270|5107|33928|chapters/20_literature.tex
 12|55|506|chapters/30_data_collection.tex
 33|391|2412|chapters/31__wifi_data_source.tex
 12|223|1343|chapters/32__initial_experiments.tex
@@ -12,8 +12,8 @@ Lines|Words|Characters|File
 7|10|186|chapters/40_data_processing.tex
 638|8153|56032|chapters/41__data_toolkit.tex
 0|0|0|chapters/42__cleaning_and_aggregation.tex
-416|6020|40039|chapters/43__mac_randomisation.tex
+417|6021|40125|chapters/43__mac_randomisation.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-1672|22663|154465|total
+1680|22681|154769|total

@@ -16,7 +16,7 @@ Unlike GPS, the location of the Wi-Fi enabled mobile device cannot be directly i
 This can overcome the usual shortcoming of GPS, which struggles for precision and accuracy in indoor and densely built environments \citep{zarim2006, kawaguchi2009wifi, xi2010locating}.
 Utilising this, we can easily and quickly estimate trajectories of the mobile devices \citep{musa2012tracking} which can be used similary to the GPS trajectories to understand individual travel patterns \citep{reki2007, Sap2015}, crowd behaviour \citep{abedi2013bluetooth, mowafi2013tracking}, vehicular \citep{lu2010vehicle} and pedestrian movement \citep{xu2013pedestrian, fukuzaki2014pedestrian, wang2016gait}.
 Such data can also be used in transportation planning and management to estimate travel time \citep{musa2011wiflow} and real time traffic monitoring \citep{abbott2013empirical}.
-Using techniques demonstrated by \cite{franklin2006passive} and \cite{pang2007802}, along with information present in the probe requests, one can even model interactions between the users \citep{cheng2012inferring, barbera2013signals, cunche2014know, cunche2014linking} such as predicting which of them are most likely to meet again \citep{cunche2012know}.
+Using techniques demonstrated by \citep{franklin2006passive} and \citep{pang2007802}, along with information present in the probe requests, one can even model interactions between the users \citep{cheng2012inferring, barbera2013signals, cunche2014know, cunche2014linking} such as predicting which of them are most likely to meet again \citep{cunche2012know}.
 Using the semantic information present in these probe requests it even is possible to understand the nature of population at a large scale \citep{di2016mind}
 .
 
@@ -257,10 +257,10 @@ The methodology set out above was implemented in five different Central London l
     \caption{Locations where sensors were installes, volume and speed of probe requests collected by
     the sendor and total pedestrians manually counted. The data occupies around 1.8 GB on disk 
     when encoded in text format.}
-	{\begin{tabular}{clllccc} 
+    {\begin{tabular}{cp{2cm}p{1.5cm}p{2cm}cc} 
 		\toprule
          ID & Location & Type & Installation notes & Probe Requests & Footfall\\
-         & & & & x10\textsuperscript{6} (per min) & No. (per min)\\
+         % & & & & x10\textsuperscript{6} (per min) & No. (per min)\\
 		 \midrule
          1 & Camden High Street & Phone Shop & Bus stop in front & 9.9 (297) & 3683 (33)\\
          2 & Central St.Giles & Restaurant & Seating area on both sides & 3.9 (169) & 0346 (05)\\
@@ -348,12 +348,13 @@ significantly. However, using the filtering process, we can reduce the error to
 almost 10\% closer to that of the ground truth.
 
 \begin{table}
+  \footnotesize
 	\caption{Results of footfall estimation at each location as Mean Absolute Percentage Error (MAPE) after each step of the filtering process}
-	{\begin{tabular}{ccccccc} 
+  {\begin{tabular}{cp{1.4cm}p{1.4cm}p{1.4cm}p{1.4cm}p{1.4cm}p{1.4cm}} 
 		\toprule
-			Sensor & Signal strength & Adjustment & MAPE & MAPE after & MAPE after & MAPE of\\
-			& threshold & factor & without any & filtering signal & filtering sequence & final adjusted\\
-			& (-dBm) & &  cleaning (\%) & strength (\%) & numbers (\%) & counts (\%)\\
+			Sensor & Signal strength threshold& Adjustment factor& MAPE without any & MAPE after filtering signal& MAPE after filtering sequence & MAPE of final adjusted\\
+			&  &  & &  &  & \\
+			% & (-dBm) & &  cleaning (\%) & strength (\%) & numbers (\%) & counts (\%)\\
 		 \midrule
 			1 & -70 & 1.25 & 259 &  22 & -13 &  9 \\
 			2 & -74 & 0.51 & 928 & 396 & 206 & 55 \\
