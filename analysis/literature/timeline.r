@@ -13,8 +13,8 @@ p <- data %>%
   filter(year > 1979) %>%
   group_by(year) %>% summarize(count = length(year)) %>%
   ggplot() + 
-  geom_line(aes(x = as.integer(year), y = count),
-           color="#E67E22", show.legend = FALSE) +
+  geom_bar(aes(x = as.integer(year), y = count), width=1, stat="identity",
+           fill="#E67E22", show.legend = FALSE) +
   ylab("Number of Articles") + xlab("") +
   coord_cartesian(clip = 'off') +
   theme(text = element_text(family = "Helvetica"),
@@ -50,7 +50,7 @@ r <- data %>%
   filter(year > 1979) %>%
   ggplot() + 
   geom_bar(aes(x = year, fill = category),
-           color = "white", width = 1, size=0.5) +
+           width = 1, size=0.5) +
   scale_fill_brewer(palette = "Dark2") +
   ylab("Number of Articles") + xlab("") +
   theme(text = element_text(family = "Helvetica"),
@@ -83,7 +83,7 @@ s <- tech %>%  ggplot() +
            size = ifelse(tech$per<10,2.5,3.5),show.legend=FALSE) +
   geom_text(aes(x=.6,y=lab-(per/2),label=paste0(round(per),"%")),
            size = 2.5,fontface="bold",color="darkgrey") +
-  scale_fill_brewer(palette = "Set2") +
+  scale_fill_brewer(palette = "Dark2") +
   coord_polar(theta="y",start = 0) +
   ylab("") + xlab("") +
   guides(fill=guide_legend(ncol=2)) +
@@ -100,3 +100,62 @@ s <- tech %>%  ggplot() +
         axis.line.x = element_blank())
 
 ggsave("../../images/literature-technology.png", plot=s, height=3.5, width=3.5,units="in")
+
+#
+# library(ggrepel)
+# techtime <- data %>% 
+#   filter(technology!="-") %>%
+#   filter(year > 1999) %>%
+#   group_by(year, technology) %>% summarize(count = length(technology))
+# techtimefull <- expand.grid(seq(min(techtime$year),max(techtime$year)),unique(techtime$technology)) %>%
+#   select(year = Var1, technology = Var2) %>%
+#   left_join(techtime,c("year","technology")) %>%
+#   mutate(count = replace_na(count,0)) %>%
+#   mutate(year = ceiling(year/5)*5) %>%
+#   group_by(year,technology) %>% summarise(count = sum(count)) %>%
+#   group_by(year) %>% mutate(count = count/sum(count)) %>%
+#   mutate(count = replace_na(count,0)) 
+#
+# t <- techtimefull %>%  ggplot() + 
+#   geom_area(aes(x = year, y = count, fill = technology),
+#            size=0.5, color = "white",show.legend = FALSE)+ 
+#   geom_text(data = techtimefull %>% filter(year == 2020), hjust = 1,check_overlap = TRUE,
+#             size = 3,
+#             aes(x = 2019.5, y = 1-(cumsum(count)-(count/2)), label= technology)) +
+#   scale_fill_brewer(palette = "Dark2") +
+#   ylab("Number of Articles") + xlab("") +
+#   theme(text = element_text(family = "Helvetica"),
+#         legend.title = element_blank(),
+#         panel.background = element_blank(),
+#         plot.margin = margin(0,5,0,0),
+#         axis.text = element_text(size = 10, color = "black"),
+#         axis.ticks.y = element_blank(),
+#         axis.title.y = element_text(size=10, color="black",margin=margin(0,10,0,0)),
+#         axis.title.x = element_text(size=10, color="black",margin=margin(10,0,0,0)),
+#         axis.line.x = element_line(color= "black", size = 0.1))
+#
+# ggsave("../../images/literature-technology-timeline.png", plot=t, height=3.5, width=3.5, units="in")
+#
+
+
+s <- data %>% 
+  filter(technology!="-") %>%
+  filter(include=="yes") %>%
+  filter(year > 1979) %>%
+  ggplot() + 
+  geom_bar(aes(x = year, fill = technology),
+           width = 1, size=0.5) +
+  scale_fill_brewer(palette = "Dark2") +
+  ylab("Number of Articles") + xlab("") +
+  theme(text = element_text(family = "Helvetica"),
+        legend.title = element_blank(),
+        panel.background = element_blank(),
+        plot.margin = margin(0,50,0,0),
+        legend.margin = margin(30,0,0,20),
+        axis.text = element_text(size = 10, color = "black"),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_text(size=10, color="black",margin=margin(0,10,0,0)),
+        axis.title.x = element_text(size=10, color="black",margin=margin(10,0,0,0)),
+        axis.line.x = element_line(color= "black", size = 0.1))
+
+ggsave("../../images/literature-tech-timeline.png", plot=s, height=3.5, width=8,units="in")
