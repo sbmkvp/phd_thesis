@@ -21,7 +21,7 @@ In this section we elaborate the thought process and rationale behind these deci
 We start by discussing the concept of `Big Data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
 Then we look at the data-sets we collected through the pilot studies and the `Smart Street Sensor' project and evaluate them in terms of the dimensions of the big data.
 We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
-Finally we put together a toolkit to suit our datasets built from simple small UNIX tools. \sidenote[][-3cm]{"Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.", Doug McIlroy on UNIX philosophy.}
+Finally we put together a toolkit to suit our datasets built from simple small UNIX tools. \sidenote[]{"Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.", Doug McIlroy on UNIX philosophy.}
 
 %-------------------------------------------------------------------------------
 % Discussion on what is big data
@@ -60,7 +60,7 @@ Since not all data is 'Big' in all these dimensions, we need to evaluate the `bi
 
 The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation, modelling, analysis, visualisation and interpretation.
 Challenges in each one of these processing activity arises due to the data being big in one or more dimensions.
-The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite{li2016geospatial}. 
+The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite[-0.5cm]{li2016geospatial}. 
 These challenges make traditional methods impractical and introduce the need for distributed, crowdsourced collection of data, heavily parallelised computing and application of functional programming concepts.
 The unstructured nature of the big data also introduces notable biases which mandate careful consideration, proper calibration and weighting during analysis so that we can understand and remove any uncertainties arising from them.
 The data being big in veracity dimension poses significant challenges in its analysis and modelling.
@@ -147,6 +147,13 @@ The total volume of data we deal with in the case of a national scale project wi
 A comparison of this to datasets from other disciplines is shown in Figure \ref{figure:toolkit:volume}.
 It is key to note that the y-axis is scaled exponentially.
 
+We can see that the probe requests data is not truly 'Big data' as experienced in other fields.
+It is only when we reach a complete coverage, i.e, putting a sensor at each retail establishment in UK, our estimated data volume reaches around 250 petabytes which is comparable to scales experienced in other fields such as particle physics and world wide social networks.
+At the same time, the scale of probe request data is not small either.
+The volume of 2 terabytes is more than the memory available in any desktop systems and is more than any of them can process in a timely manner.
+Summarising from the above, we can confidently say that the probe request datasets are `Medium Data' - especially the dataset collected by the smart street sensor project.
+Though it has potential to scale into a truly big dataset, for the purposes of this research we can classify it as `Medium data' in the volume dimension.
+
 \begin{marginfigure}
   \includegraphics{images/data-size-comparison.png}
   \caption{Comparison of volumes of datasets across various disciplines.}
@@ -155,12 +162,6 @@ It is key to note that the y-axis is scaled exponentially.
 
 \marginnote[1em]{\fontsize{7}{7}\textit{NSA - National Security Agency, LHC - Large Hadron Collider, GE - Google Earth, EV - Event Horizon project, SP - Spotify music, BL - British Library data store, LoC - Library of Congress, SSS - Smart Street Sensor, NYU - New york city Uber trips 2009-15, OSM - Open Street Map and HG - Human Genome Project}}
 
-We can see that the probe requests data is not truly 'Big data' as experienced in other fields.
-It is only when we reach a complete coverage, i.e, putting a sensor at each retail establishment in UK, our estimated data volume reaches around 250 petabytes which is comparable to scales experienced in other fields such as particle physics and world wide social networks.
-At the same time, the scale of probe request data is not small either.
-The volume of 2 terabytes is more than the memory available in any desktop systems and is more than any of them can process in a timely manner.
-Summarising from the above, we can confidently say that the probe request datasets are `Medium Data' - especially the dataset collected by the smart street sensor project.
-Though it has potential to scale into a truly big dataset, for the purposes of this research we can classify it as `Medium data' in the volume dimension.
 
 %-------------------------------------------------------------------------------
 
@@ -235,7 +236,7 @@ Similar to variety, veracity is hard to quantify hence required a subjective eva
 Being sensor collected data, veracity is the dimension where the data exhibits most `big data' properties.
 
 
-\begin{marginfigure}
+\begin{marginfigure}[-4.5cm]
   \includegraphics{images/data-veracity-gaps.png}
   \caption{Missing data from five locations at Tottenham Court Road, London on 15 January 2018 demonstrating the veracity of the data.}
   \label{figure:toolkit:veracity:gaps}
@@ -324,17 +325,17 @@ We then discuss the principles of UNIX philosophy and how it helps in solving si
 
 \vspace{1.5em}\noindent\textit{Collection}\vspace{0.5em}
 
+We discussed various technologies used in collecting passive data on ambient population and pedestrian movement in the literature search.
+In this section we look at tools and methods used to collect Wi-Fi based data passively.
+The primary considerations for evaluating data collection strategy are the scale of the infrastructure, expertise and effort required to implement it and cost involved.
+
 \begin{marginfigure}
   \includegraphics[trim={0.2cm 0 0 0},clip]{images/data-toolkit-collection.png}
   \caption{Characteristics of types of Wi-Fi data collection tools at each end of the spectrum compared to an ideal candidate  }
   \label{figure:toolkit:collection}
 \end{marginfigure}
-
 \marginnote[0.1cm]{\textit{(Darker colors show higher score)}}
 
-We discussed various technologies used in collecting passive data on ambient population and pedestrian movement in the literature search.
-In this section we look at tools and methods used to collect Wi-Fi based data passively.
-The primary considerations for evaluating data collection strategy are the scale of the infrastructure, expertise and effort required to implement it and cost involved.
 There have been numerous sensors, tools and associated software platforms made available for data collection under the umbrella of `internet of things'.
 We start by looking at different approaches in the Wi-Fi data collection tools and try to reason the most appropriate solution for our research.
 On one end there are low level and low cost bespoke solutions which require lot of effort to implement and maintain.
@@ -342,6 +343,7 @@ On the other end there are turn key solutions which doesn't require lesser effor
 The key is finding a balance between both while satisfying the requirements of the project.
 Since the Wi-Fi data is medium sized in terms of volume and velocity, we can deal with solutions with less than optimal scalability but since the data is 'big' in terms of veracity the toolkit has to give us most flexibility. 
 Essentially, we are looking for a data collection methodology which prioritises flexibility and cost while performing moderately in terms of scalability and complexity as illustrated in Figure \ref{figure:toolkit:collection}.
+
 
 \begin{table}[h]
   \footnotesize
@@ -396,13 +398,13 @@ This is the primary reason why database management systems are developed on top 
 Database systems can be broadly divided into relational and document based.
 The relational databases are optimised to deal with relational data and usually enforce strict structure for the data
 In general they can handle large number of rows and are designed to scale vertically.
-Most relational database systems try to guarantee ACID \sidenote[][-0.5cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[0.5cm]{Haerder1983ptd}.
+Most relational database systems try to guarantee ACID \sidenote[][-7cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[-5cm]{Haerder1983ptd}.
 The document based databases are optimised to deal with unstructured data and can doesn't need a strictly defined scheme.
 In general they can handle large number of columns and are designed to be distributed and scaled horizontally.
-Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][1cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
+Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-3cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
 There a numerous databases systems which prioritise different things and the right solution depends on the properties of the data and the requirements of the project.
 
-Since the publication of the paper on `Google file system' by google \cite[0.5cm]{sanjay2003gfs}.
+Since the publication of the paper on `Google file system' by google \cite{sanjay2003gfs}.
 There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
 These systems are designed to be distributed and optimised for high throughput for queries on them.
 Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
@@ -602,7 +604,7 @@ Since these tools are part of the POSIX specification \cite[-7.5cm]{walli1995pos
 In the last section we saw that the visualisation dimension of the data shows some level of complexity.
 The primary source of this complexity arises from the longitudinal nature of the data and the noise due to granularity of the data.
 For the processed dataset, traditional visualisation and mapping libraries with R is sufficient while the visualisation of raw data across long time periods for either for exploratory analysis or for communication needs some form of interactivity or simplification to be able to legible.
-Data driven documents (D3) \cite[-0.75cm]{stanford2011d3}and Dimensional charting (DC) provides us with both of these requirements.
+Data driven documents (D3) \cite[-3cm]{stanford2011d3}and Dimensional charting (DC) provides us with both of these requirements.
 Both of these tools can accept text based input and can fit with other Unix tools discussed earlier.
 In case of binary file output such as images or documents, they could be directed to the file system and then read into other programs.
 
@@ -623,11 +625,11 @@ Only veracity of the data was found to have any meaningful big data properties, 
 The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.
 Thus we arrived at the requirements for a bespoke `medium data toolkit' which is able to deal with these challenges.
 
-\begin{figure*}
+\begin{figure}
   \includegraphics{images/toolkit.png}
   \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
   \label{figure:toolkit}
-\end{figure*}
+\end{figure}
 
 We undertook a brief survey of tools available for collecting, storing, processing and visualising the Wi-Fi probe request data and with the understanding of the data from the previous analysis chose the ones which are perfect for the datasets.
 For collecting Wi-Fi probes data in a scalable way, we chose a general purpose single board computers such as Raspberry-Pi along with open source tools such as tcpdump and tshark in a Linux environment.

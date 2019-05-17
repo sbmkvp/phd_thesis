@@ -1,9 +1,7 @@
-Tue 14 May - Literature | MAC Randomisation
-Wed 15 May - MAC Randomisation | Data Collection
-Thu 16 May - Data Collection
-Fri 17 May - Data Collection
-Sat 18 May - Data Aggregation | Submission
-Sun 19 May - Polish everything except analysis
+<!-- Thu 16 May - Finish Literature and sent it asking for extension over weekend. -->
+Fri 17 May - Do the device fingerprinting part
+Sat 18 May - Data Collection 
+Sun 19 May - Data Collection and submit draft.
 
 Mon 20 May - 
 Tue 14 May - 

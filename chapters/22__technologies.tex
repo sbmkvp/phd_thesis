@@ -1,10 +1,11 @@
 \section{Techniques and technology}
 
-\begin{figure*}
-  \includegraphics{images/literature-tech-timeline.png}
-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
-  \label{figure:literature:tech:timeline}
-\end{figure*}
+\begin{marginfigure}
+  \includegraphics[trim={1.1cm 1cm 1cm 1cm},clip]{images/literature-technology.png}
+  \caption{Growth of research in the topic of `'}
+  \label{figure:literature:timeline}
+  \noindent\fontsize{7}{7}\textit{Measured in the number of papers published}
+\end{marginfigure}
 
 When we look at the literature from the technology perspective, we observe that the continuous application of recent technological developments in the pursuit of understanding the distribution of human activity and population spatially and temporally over the past two decades.
 The distribution of the research in terms of the main technique/ technology used over the years is shown in Figure 1.
@@ -14,14 +15,11 @@ When mobile devices became mainstream, the focus shifted to utilize the relevant
 A significant number of studies were done in utilising data collected from the mobile network, sensors in the mobile devices, especially GPS and WiFi, in addition to the social media content generated from these devices.
 A detailed account of these studies is given below,
 
-
-\begin{marginfigure}
-  \includegraphics[trim={1.1cm 1cm 1cm 1cm},clip]{images/literature-technology.png}
-  \caption{Growth of research in the topic of `'}
-  \label{figure:literature:timeline}
-  \noindent\fontsize{7}{7}\textit{Measured in the number of papers published}
-\end{marginfigure}
-
+\begin{figure*}
+  \includegraphics{images/literature-tech-timeline.png}
+  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
+  \label{figure:literature:tech:timeline}
+\end{figure*}
 
 \subsection{Interpolation and Modelling}
 Attempts in using the existing data collected through traditional methods such as census and large scale sample surveys to create spatially and temporally granular and detailed estimates were carried out by applying various interpolation methods such as pycnophylactic, dasymetric interpolation (Tobler, 1979; Mennis, 2003; Mennis, 2006; Hawley, 2005; Tapp, 2010) along with spatial (Lam, 1983; Martin, 1989) and temporal interpolation techniques (Glickman, 1986).
@@ -148,4 +146,63 @@ The use of geo located tweets on the study of small area dynamic population esti
 These data sources are shown to be useful in social sciences (Crane, 2008), abnormal event detection (Chae, 2012) and analysing urban environments (Sagl, 2012).
 It can also be used as a control layer for interpolation techniques we discussed earlier (Lin, 2015).
 
+In terms of technology, which can be used for data collection at local level, the summary of the advantages of each is given below,
 
+	Interpolation
+	Bespoke Systems
+	Cellular Network
+	GPS 
+	WiFi
+	Coverage
+	-
+	Local
+	City to National
+	Local to Global
+	Local
+	Certainty
+	Very Low
+	High
+	Medium
+	High
+	Medium
+	Independence*
+	Low
+	Very High
+	Low
+	Medium
+	High
+	Intrusiveness
+	Low
+	Medium
+	High
+	High
+	Medium
+	Granularity
+	Very Low
+	Very High
+	Medium
+	High
+	High
+	Ease of Collection
+	Medium
+	Low
+	Medium
+	Low
+	High
+	Scalability
+	Medium
+	Low
+	High
+	Medium
+	High
+	Privacy Risk
+	Low
+	Medium
+	High
+	High
+	Medium
+
+Table 2.
+: Evaluation of advantages of different approaches that can be used for data collection.
+*independence from secondary data collected by a third party.
+From Table 2.1 we can see that though it poses some risk on privacy of participants and some uncertainty regarding range, WiFi offers the best possible technology for data collection through mobile devices at smaller scales.

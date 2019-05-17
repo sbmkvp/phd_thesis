@@ -20,3 +20,4 @@ data/
 .RData
 .Rhistory
 thesis.pdf
+.~lock.*

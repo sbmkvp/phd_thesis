@@ -2,10 +2,10 @@ Lines|Words|Characters|File
 ---|---|---|---
 124|751|7184|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
-27|522|3450|chapters/20_literature.tex
-91|1611|11311|chapters/21__research_themes.tex
-151|3178|21286|chapters/22__technologies.tex
-79|560|3691|chapters/23__research_gaps.tex
+49|845|5880|chapters/20_literature.tex
+94|1710|12115|chapters/21__research_themes.tex
+208|3329|22272|chapters/22__technologies.tex
+25|421|2849|chapters/23__research_gaps.tex
 20|59|554|chapters/30_data_collection.tex
 33|391|2412|chapters/31__wifi_data_source.tex
 12|223|1343|chapters/32__initial_experiments.tex
@@ -13,10 +13,10 @@ Lines|Words|Characters|File
 31|584|3728|chapters/34__smart_street_sensor.tex
 18|405|2501|chapters/35__discussion.tex
 12|12|231|chapters/40_data_processing.tex
-638|8153|56032|chapters/41__data_toolkit.tex
+640|8153|56030|chapters/41__data_toolkit.tex
 417|6021|40125|chapters/42__mac_randomisation.tex
 0|0|0|chapters/43__cleaning_and_aggregation.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-1771|23457|160722|total
+1801|23891|164098|total
