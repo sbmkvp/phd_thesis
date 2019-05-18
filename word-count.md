@@ -3,7 +3,7 @@ Lines|Words|Characters|File
 124|753|7178|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
 49|845|5880|chapters/20_literature.tex
-149|2066|16045|chapters/21__research_themes.tex
+163|2159|16658|chapters/21__research_themes.tex
 187|3396|22858|chapters/22__technologies.tex
 25|421|2849|chapters/23__research_gaps.tex
 20|59|554|chapters/30_data_collection.tex
@@ -19,4 +19,4 @@ Lines|Words|Characters|File
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-1839|24318|168551|total
+1853|24411|169164|total
