@@ -1,6 +1,6 @@
-%-------------------------------------------------------------------------------
+%==============================================================================%
 % Introduction to the chapter
-%-------------------------------------------------------------------------------
+%==============================================================================%
 
 \section{Data Toolkit}
 
@@ -13,7 +13,7 @@ These methods along with improvements in hardware has made the processing big da
 In the current environment of constant change and growth of sources of data, we cannot afford to lose the opportunity to extract information from them while trying to create a perfect, future proof approach in dealing with them.
 We need to move fast with a pragmatic approach where we look at other disciplines and adopt best practices and solutions in them and develop consistent approach for our needs rather than reinventing the wheel.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 In the previous chapters we looked at various methods we devised to collect and process data from Wi-Fi probe requests emitted by phones.
 Though we discussed the methods conceptually, we left out the rationale behind choosing the toolkit employed to implement those methods.
@@ -23,9 +23,9 @@ Then we look at the data-sets we collected through the pilot studies and the `Sm
 We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
 Finally we put together a toolkit to suit our datasets built from simple small UNIX tools. \sidenote[]{"Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.", Doug McIlroy on UNIX philosophy.}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 % Discussion on what is big data
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \subsection{What is `Big Data'?}
 
@@ -42,7 +42,7 @@ This is not including the enormous additional overhead and complexity introduced
 If we are not careful, using big data tools and methods for solving 'normal' problem can be counter productive where the advantages realised don't justified the overheads introduced.
 Hence it is important to understand the `Big data' nature of the datasets we are dealing with at a granular level and choose the tools and methods without any presumptions.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 The first and foremost challenge we face while discussing big data is its definition.
 It is hard to clearly and objectively define `Big data' as it can vary widely based on the discipline and perspective.
@@ -89,9 +89,9 @@ For example, there are the operational costs collecting data at such scale, netw
 Though there are economies of scale at larger scales, the overall resources required to manage big data effectively can be several folds of what is needed for a traditional dataset. 
 This makes it important to look at the data in our hands closely and carefully so that we can make informed decisions on how 'big' it is and choose the methods which are the most suited for such dataset.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 % Discuss the data we have in detail 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \subsection{How big are the Wi-Fi probe request datasets?}
 
@@ -110,7 +110,7 @@ We look at each set of data in each dimension and try to answer the following qu
 
 We then combine these isolated evaluations to form a combined description of the datasets. This is then used as the basis for developing a list of requirements for designing the data processing and management toolkit.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Volume}\vspace{0.5em}
 
@@ -163,7 +163,7 @@ Though it has potential to scale into a truly big dataset, for the purposes of t
 \marginnote[1em]{\fontsize{7}{7}\textit{NSA - National Security Agency, LHC - Large Hadron Collider, GE - Google Earth, EV - Event Horizon project, SP - Spotify music, BL - British Library data store, LoC - Library of Congress, SSS - Smart Street Sensor, NYU - New york city Uber trips 2009-15, OSM - Open Street Map and HG - Human Genome Project}}
 
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Velocity}\vspace{0.5em}
 
@@ -204,7 +204,7 @@ To summarise, in terms of velocity, the Wi-Fi probes data can be described as 'M
 The methods dealing with the data should be time sensitive and be able to deal with a continuous stream of data but at the same time need not be real time or need sub-second latency.
 Since the Wi-Fi probe requests don't have actual location information the mobile devices, it does not have the similar value in real-time analytics as shown in comparable location or movement based datasets.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Variety}\vspace{0.5em}
 
@@ -227,7 +227,7 @@ Comparing with some of the big data encountered in unstructured data collected o
 Further when we convert these probe requests in to footfall counts, the variety in the dataset drops almost to zero as it becomes just an ordinal data point varying in geography and time.
 Summarising the above, we can confidently say that the Wi-Fi probe request data does not exhibit any `big data' properties in the variety dimension.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Veracity}\vspace{0.5em}
 
@@ -265,7 +265,7 @@ There is no inherent structure or information on what is changed and how often t
 
 Summarising from the above, we can confidently conclude that Wi-Fi probe requests dataset shows `Big data' characteristics in terms of its veracity and requires appropriate tools and methods when aggregating, analysing and modelling it.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
@@ -301,9 +301,9 @@ This leads us to devise a `medium data toolkit' which can be used without incurr
   \label{figure:toolkit:spider}
 \end{marginfigure}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 % A survey of all tools and methods dealing with big data.
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \subsection{A Survey of Methods and Tools}
 
@@ -321,7 +321,7 @@ We first survey the tools available in each stage and specifically look at their
 
 We then discuss the principles of UNIX philosophy and how it helps in solving similar sized problems in computer science. Finally we pick and connect the tools to devise our toolkit which is best suited for out Wi-Fi probe request dataset.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Collection}\vspace{0.5em}
 
@@ -379,7 +379,7 @@ The toolkit consists of Raspberry Pi, Linux, tcpdump or tshark \cite{wireshark2}
 Raspberry Pi and the Linux OS provides a general purpose base system and hence the flexibility.
 On top of this we built our data collection system by assembling open source and free network analysis tools such as tcpdump and tshark along with other tools providing functions such as scheduling, personal data obfuscation and data transmission with scripting languages like nodejs and bash.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Storage}\vspace{0.5em}
 
@@ -465,7 +465,7 @@ When this raw data is processed into 5 minute counts, we require more relational
 For this purpose a relational database is sufficient as volume is quite small (25GB approx.).
 We chose PostgreSQL because of the PostGIS extension which gives us flexibility in handling geographic data.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Processing}\vspace{0.5em}
 
@@ -520,7 +520,7 @@ Using any of specialised big data tools is just going to introduce immense overh
 We need something in-between the above two approaches where we is sufficiently fast and flexible for our datasets.
 
 This is where we come across the possibility of using standard Unix tools along with connecting them to create a processing pipeline.
-In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite[-2cm]{adam2014commandline}.
+In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite[-2cm]{adam2014}.
 The command line tools were developed as parts of Unix operating system for processing text. 
 They are developed in line with the Unix philosophy which focuses on modular and minimal software development. 
 The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite{mcilroy1978unix},
@@ -597,7 +597,7 @@ Since these tools are part of the POSIX specification \cite[-7.5cm]{walli1995pos
   \label{figure:toolkit:time:parallel}
 \end{marginfigure}
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
@@ -608,9 +608,9 @@ Data driven documents (D3) \cite[-3cm]{stanford2011d3}and Dimensional charting (
 Both of these tools can accept text based input and can fit with other Unix tools discussed earlier.
 In case of binary file output such as images or documents, they could be directed to the file system and then read into other programs.
 
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 % Final summary and conclusions
-%-------------------------------------------------------------------------------
+%------------------------------------------------------------------------------%
 
 \subsection{The Bespoke `Medium data toolkit'}
 

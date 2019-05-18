@@ -14,9 +14,9 @@ In this section, using the set of probe requests and manual counts collected at 
 
 Unlike GPS, the location of the Wi-Fi enabled mobile device cannot be directly inferred from Wi-Fi, however there are reliable methods to triangulate the location of mobile devices from the locations of known access points (AP) and the signal strength reported by them \citep{he2003range, moore2004robust, lamarca2005place}.
 This can overcome the usual shortcoming of GPS, which struggles for precision and accuracy in indoor and densely built environments \citep{zarim2006, kawaguchi2009wifi, xi2010locating}.
-Utilising this, we can easily and quickly estimate trajectories of the mobile devices \citep{musa2012tracking} which can be used similary to the GPS trajectories to understand individual travel patterns \citep{reki2007, Sap2015}, crowd behaviour \citep{abedi2013bluetooth, mowafi2013tracking}, vehicular \citep{lu2010vehicle} and pedestrian movement \citep{xu2013pedestrian, fukuzaki2014pedestrian, wang2016gait}.
+Utilising this, we can easily and quickly estimate trajectories of the mobile devices \citep{musa2012tracking} which can be used similary to the GPS trajectories to understand individual travel patterns \citep{reki2007, sap2015}, crowd behaviour \citep{abedi2013bluetooth, mowafi2013tracking}, vehicular \citep{lu2010} and pedestrian movement \citep{xu2013pedestrian, fukuzaki2014pedestrian, wang2016gait}.
 Such data can also be used in transportation planning and management to estimate travel time \citep{musa2011wiflow} and real time traffic monitoring \citep{abbott2013empirical}.
-Using techniques demonstrated by \citep{franklin2006passive} and \citep{pang2007802}, along with information present in the probe requests, one can even model interactions between the users \citep{cheng2012inferring, barbera2013signals, cunche2014know, cunche2014linking} such as predicting which of them are most likely to meet again \citep{cunche2012know}.
+Using techniques demonstrated by \citep{franklin2006passive} and \citep{pang2007}, along with information present in the probe requests, one can even model interactions between the users \citep{cheng2012inferring, barbera2013signals, cunche2014linking} such as predicting which of them are most likely to meet again \citep{cunche2012iknow}.
 Using the semantic information present in these probe requests it even is possible to understand the nature of population at a large scale \citep{di2016mind}
 .
 
@@ -24,7 +24,7 @@ Although extensive research has been carried out on this subject with feasible a
 Various methods have been devised to overcome this anonymisation process such as estimating the device model information from a known dataset of manufacturers and device behaviours \citep{martin2016decomposition}; Scrambler attack using a small part of the physical layer specification for Wi-Fi \citep{vo2016, bloessl2015scrambler}; and timing attack where the packet sequence information along with information elements present in the probe request frame is used \citep{matte2016, cheng2016can}. A combination of these methodologies has been proven to produce de-anonymised globally unique device information \citep{vanhoef2016, martin2017}. These approaches usually result in serious risk of breach of privacy of the users of the mobile devices by revealing their identifiable personal information.
 
 There is a clear gap in the research for exploring methodologies for estimating the number of unique mobile devices from a set of anonymised probe requests, without the need to reveal their original device information.
-Such a technique has various applications such as uncovering the urban wireless landscape \citep{rose2010mapping}, revealing human activity at large scales \citep{qin2013discovering}, estimating pedestrian numbers in crowds \citep{schauer2014estimating, fukuzaki2015statistical}, and even counting people in hyper local scales such as queues \citep{wang2013measuring}.
+Such a technique has various applications such as uncovering the urban wireless landscape \citep{rose2010}, revealing human activity at large scales \citep{qin2013discovering}, estimating pedestrian numbers in crowds \citep{schauer2014estimating, fukuzaki2015statistical}, and even counting people in hyper local scales such as queues \citep{wang2013}.
 With enough infrastructure to collect such information we can even aim to generate a real-time census of the city \citep{konto2017}.
 With this background, we set out to devise and implement a methodology to reliably estimate human activity such as pedestrian footfall from Wi-Fi probe requests without risking a breach of privacy of the users involved. 
 
@@ -392,7 +392,7 @@ This is a non-trivial task, since the ebbs and flows of smart device-enabled cit
 
 Our objective here has been to collect, rather than re-use, data on smart city functioning, by recording Wi-Fi probes and ultimately reconciling them with manual counts in order to infer ambient populations.
 The internal validation methodology set out in the technical sections of this paper, allied to external validation from pedestrian counts, renders the method inclusive and robust when recording activity levels in retail centres in real time.
-We have described the collection and processing of a novel consumer Big Dataset that enables valid measures of levels of footfall activity which has been scaled across a wide network of sensors \citep{cdrc2018consumer}.
+We have described the collection and processing of a novel consumer Big Dataset that enables valid measures of levels of footfall activity which has been scaled across a wide network of sensors \citep{cdrc2018}.
  In both conceptual and technical terms, it illustrates the ways in which passively collected consumer data can be ‘hardened’ to render them robust and reliable by using related procedures of internal and external validation.
 
 Internal validation addresses the issues of screening out device probes that do not indicate footfall, and the further screening of device probes to ‘fingerprint’ the effects of MAC randomization.
@@ -405,7 +405,7 @@ This procedure makes it possible to generalise from locations at which manual fo
 This Wi-Fi based footfall counting methodology offers a large number of applications and benefits for real time spatial analysis.
 Since Wi-Fi based sensors are inexpensive and the data model is scalable, it is possible to use this methodology for a large network of sensors to gather granular data on pedestrian footfall.
 A snapshot showing a week’s worth of precise footfall in area around Charring cross, London is shown in Figure \ref{main_study_counts} in order to demonstrate the potential for such a dataset.
-Projects such as SmartStreetSensors \citep{cdrc2018consumer}, may utilise this methodology to overcome the challenges introduced by the implementation of MAC address randomisation.
+Projects such as SmartStreetSensors \citep{cdrc2018}, may utilise this methodology to overcome the challenges introduced by the implementation of MAC address randomisation.
 
 The vicissitudes of MAC randomisation, and the provisions of privacy legislation such as EU General Data Protection Regulations mitigate against tracking individuals across the smart city using this approach.
  This can be modelled using agent-based methods \citep{heppenstall2011agent}, however.

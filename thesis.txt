@@ -61,77 +61,82 @@ Bibliography
 
 17
 
-71
+77
 
-75
+81
 
 19
 
-31
+35
 
-39
+43
 
-67
+73
 
-69
+75
 
 List of Figures
 
-2.1 Treemap showing the volume of research conducted under each major themes
-and their sub-themes.
+2.1 Growth of research in the areas of understanding distribution and dynamics of human activity since 1980.
 20
-2.2 Comparison of volumes of datasets across various disciplines.
-22
+2.2 Tree-map showing the volume of research conducted under each major themes
+and their sub-themes.
+21
 2.3 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
 and manage the Wi-Fi probe requests data
-23
+24
+2.4 Growth of research in the topic of ‘’
+25
+2.5 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
+and manage the Wi-Fi probe requests data
+25
 4.1 Comparison of volumes of datasets across various disciplines.
-43
+49
 4.2 Missing data from five locations at Tottenham Court Road, London on 15
 January 2018 demonstrating the veracity of the data.
-45
-4.3 Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.
-46
-4.4 Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions
-46
-4.5 Characteristics of types of Wi-Fi data collection tools at each end of the spectrum compared to an ideal candidate
-47
-4.6 Exponential increase in the processing time when using traditional methods.
 50
+4.3 Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.
+52
+4.4 Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions
+52
+4.5 Characteristics of types of Wi-Fi data collection tools at each end of the spectrum compared to an ideal candidate
+53
+4.6 Exponential increase in the processing time when using traditional methods.
+56
 4.7 The increase in processing time with the Unix pipeline is linear thus improves
 the scalability compared to R based processing
-51
+57
 4.8 The scalability of the processing pipeline could be further improved with
 parallelising it.
-52
+58
 4.9 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
 and manage the Wi-Fi probe requests data
-53
+59
 
 List of Tables
 
 Comparison of volume or size of the datasets of Wi-Fi probe requests.
-42
+48
 Comparison of velocity or speed of the datasets of Wi-Fi probe requests.
-43
-Examples of different types of Wi-Fi based data collection solutions.
-47
-Various data storage approaches and their characteristics.
 49
+Examples of different types of Wi-Fi based data collection solutions.
+53
+Various data storage approaches and their characteristics.
+55
 Various types of big data processing tools and corresponding examples.
-51
+56
 Tasks in the processing pipeline, corresponding R libraries and equivalent
 Unix tools
-52
-60
+58
+66
 4.7 Comparison of clustering algorithms with a sample of 40000 probe requests
 4.8 Locations where sensors were installes, volume and speed of probe requests
 collected by the sendor and total pedestrians manually counted. The data
 occupies around 1.8 GB on disk when encoded in text format.
-63
+69
 4.9 Results of footfall estimation at each location as Mean Absolute Percentage
 Error (MAPE) after each step of the filtering process
-64
+70
 4.1
 4.2
 4.3
@@ -253,37 +258,37 @@ city mapper, sharing economy etc.
 
 2
 Review of Literature
-
-Understanding the scale, nature and dynamics of distribution of population in space and time has been a central premise of academic research in
-various fields of study such as human geography, sociology, urban planning and architecture. This granular knowledge of where people are and
-how they move is critical in practical decision making in various industries such as real estate for valuing places, retail for business planning and
-emergencies for risk management and evacuation. The primary challenge
-in these research is collecting precise and accurate data. As the technology
-improved through the later half of twentieth century, the research methodologies adopted the new technologies to utilise better sources of data. It
-becomes imperative that we understand the evolution of these techniques
-and methodologies to build a rationale behind any further research in the
-area. Moreover the proliferation of mobile devices and wireless internet
-connectivity lead to the availability of large amount of easily accessible data
-which can be collected passively. The users’ acceptance to the collection and
-analysis of such data has also been improving until recently 1 . There has
-also been rising concerns regarding user privacy along with the development of more accurate methods to track them. In this context, the critical
+Understanding the scale, nature and dynamics of distribution of population
+in space and time has been a central premise of academic research in various fields of study such as human geography, sociology, urban planning
+and architecture. This granular knowledge of where people are and how
+they move is critical in practical decision making in various industries such
+as real estate for valuing places, retail for business planning and emergencies for risk management and evacuation. The first challenge in any of these
+research is collecting precise and accurate data. This started as research into
+methods estimating and interpolating highly granular data from existing
+regional level aggregate datasets and as the technology improved through
+the later half of twentieth century, the research methodologies adopted the
+new technologies to utilise these more granular sources of data. Though
+new technologies provide immense opportunity in collecting large amounts
+of data which were previously impossible they also introduce their share
+of uncertainties. Hence it becomes imperative that we understand the evolution of these techniques and methodologies along with the research that
+used them to build our rationale behind any further research.
+Moreover with the proliferation of mobile devices and wireless internet
+connectivity, even day to day activities are being digitised leading to the
+creation of large amount of easily accessible data which are generated passively in an unstructured manner. The users’ acceptance to the collection
+and analysis of such data has also been improving until recently 1 . There
+has also been rising concerns regarding user privacy along with the development of more accurate methods to track them. In this context, the critical
 task in all these research is to solve the problem of balancing these two by
 choosing the right technologies and devising the appropriate methods.
-In this chapter we conduct a detailed survey of literature in this broad
-area of ‘measuring distribution and dynamics of human activity’. First we
-conduct a comprehensive survey of over 300 publications which discuss
-this area of research and we then look at the major themes and trends in the
-last 70 years. We discuss these themes in detail and their evolution along
-with the technology landscape Then we group the studies by looking at
-the technologies employed by them and note the trends in the adoption
-and phasing out of relevant technologies. We also try and understand the
-advantages and disadvantages of these techniques and develop a theoretical
-framework to understand when and how to use them effectively answer
-research questions. Finally we summarise the literature search to focus on
-the major gaps still left in our understanding and the new and emerging
-areas where more research is necessary. We also critically evaluate these
-areas of research to form our broad research question and devise a plan for
-our research.
+In this chapter we conduct a systematic survey of literature in this broad
+area of ‘distribution and dynamics of human activity’. The aim of this
+survey is to evaluate where we are at the research and understand how
+we got here. First we conduct a comprehensive survey of over 300 publications which discuss this area of research and we then look at the major
+themes and trends in the last 70 years. We discuss these themes in detail
+looking at the aims and achievement of these research while highlighting
+the opportunities and gaps they leave. We also look at the timeline of their
+publication and discuss the evolution of the research along with the changes
+in the technology landscape. We then classify the studies by looking at the
+technologies employed by them and note the trends in the adoption and
 
 Alfred Kobsa. User
 acceptance of footfall analytics with aggregated
@@ -302,97 +307,262 @@ ISBN 9783319097695. doi:
 
 estimating footfall from passive wifi signals
 
-2.1 Major themes
-There have been approximately 300 academic publications concerned with
-the high-resolution quantification of the spatio-temporal dynamics of urban
-movements. It is clearly a multi-disciplinary topic that has been studied
-extensively under the fields of geography, urban studies, urban planning
-and management, emergency planning and management, economics, computer science and engineering, security and transportation planning. Fig 1.
-shows the hierarchy themes as a tree map where the size shows the volume
-of research published. We observe that the previous work can be classified
-into 5 major areas - theory and methods, applications in studying mobility,
-applications in studying population, privacy and other areas which include
-de-anonymization, spatial classification, social networks and visualisation.
-Figure 2.1: Treemap showing the volume of research
-conducted under each
-major themes and their
-sub-themes.
+phasing out of relevant technologies. We also try and understand the advantages and disadvantages of these techniques and develop a theoretical
+framework to understand when and how to use them effectively answer
+research questions. Finally we summarise the literature survey focussing
+on the major gaps still left in our understanding and the new, emerging
+areas where more research is necessary. We also critically evaluate these
+areas of research in terms of priority and feasibility to develop our research
+questions and devise a plan for our research.
+We begin our literature review with a systematic search for academic
+publications studying the distribution and dynamics of human activity. We
+start this search from a set of reviews pertaining to the topic such as Ratti
+et al. [2006], Jiang et al. [2013], Steenbruggen et al. [2013], Arribas-Bel [2014]
+and Li et al. [2016]. From these reviews we further expand by navigating
+the citation networks and finding research which are relevant to our search.
+Though this does not give us a perfectly comprehensive set of research
+literature, it does provide us with a representative sample of all the different
+directions of the research conducted in the area. Through this process, we
+identified around 325 relevant research publications which deal with the collection, measurement, analysis, visualisation and discussion of population
+at a granular level. The research started around 1950s looking at estimating day-time urban population at a granular level using existing broader
+data employing various estimation methods 2 , 3 . Though this served as a
+starting point, the pursuit of such granular data and their applications in
+corresponding fields didn’t pick up until the start of the 21st century fuelled
+by the digital revolution that followed growth of internet. Figure 2.4 shows
+the yearly volume of research published since 1980. We can observe though
+there were some research conducted through 80s and 90s the real push
+forward came around beginning of the millennium when mobile phones
+adoption skyrocketed. In addition to the early 2000s we also see a substantial increase in interest in the beginning of the next decade fuelled by the
+smartphone revolution which completely changed the research avenues
+in-terms of volume and types of data available and methodologies available
+to tackle them. The area of research is multidisciplinary encompassing academic interest and commercial applications in Geography, Urban Studies,
+Urban Planning and Management, Emergency planning and Management,
+Economics, Computer Science and Engineering etc.
 
-(Measured by the total number
-of articles or papers published)
+2.1 Research Themes
+In this section we look at the major themes and questions tackled by this
+knowledge base. We start by classifying the research into the major and
+minor themes explored in them as shown in Figure 2.2. The tree-map shows
+the volume of research in corresponding themes measured in terms of
+number of publications. We can observe that the research is conducted in
+five major areas - population studies focussing on the creating and utilising
+data on distribution and nature of human activity, mobility and interaction
+focussing on the changes in these distributions, understanding the nature
+and function of space from these distribution and change, methods and
+techniques which can be used to conduct the research and finally issues
 
-2.1.1 Population estimation and interpolation
-2.1.2 Human Mobility and Interaction
-2.1.3 Methodology and Techniques
-2.1.4
+Figure 2.1: Growth of
+research in the areas of
+understanding distribution
+and dynamics of human
+activity since 1980.
+Measured in the number of papers
+published
 
-Spatial Theory and Modelling
-
-2.1.5
-
-Privacy
-
-Traditional and modern geography were usually dominated by the study of
-centrally collected data acquired through extensive field surveys and remote
-sensing. In the last two decades, a significant paradigm change has been introduced by the availability of unprecedented amount of data generated by
-unconventional sources such as mobile phones, social media posts etc. This
-move to the postmodern geography (Soja, 1989) has been accompanied by a
-change in our understanding of the built environment and human geogra-
+Donald L Foley. Urban
+daytime population: a field
+for demographic-ecological
+analysis. Social Forces,
+pages 323–330, 1954. ISSN
+0037-7732
+3
+Robert C Schmitt. Estimating daytime populations.
+Journal of the American Institute of Planners, 22(2):83–85,
+1956. ISSN 0002-8991
+2
 
 review of literature
 
-phy, from a static point of view to a more dynamic definition based on the
-bottom up mechanisms which manifest in them, such as economic activity
-and information exchange (Batty 1990, 1997, 2012, 2013a,b). This transition
-into the digital age (Graham, 1999; Tranos, 2012; 2013) has changed the
-politics of space and time (Massey, 1992) and been more pronounced in
-the study of urban built environment where technology has redefined the
-concepts of place and space (Graham, 2001; Sassen, 2001; Graham, 2002).
-With the ability to collect and analyse of data on large complex systems
-in real-time (Graham, 1997), we are exploring the possibilities of understanding their structure and organisation using concepts of complexity
-theory (Bettencourt, 2013; Portugali, 2012) with more emphasis on their
-temporal patterns such as the argument towards finding the pulse of the
-city (Batty, 2010). With the population getting more and more connected
-(Castells, 2010), the nature of space/place is being dynamically defined by
-the population themselves (Giuliano, 1991) and vice versa (Zandvliet, 2006).
-This movement to the digital era was accompanied not only by optimism in
-its potential (Thomas, 2001; Nature, 2008) but also by the questions raised
-on the challenges in handling the diverse, large scale, non standardised
-data (Miller, 2010; Arribas-Bel, 2014 a) it produces and the usefulness or
-representativeness of the resulting analysis. Nonetheless, availability of such
-data has impressive uses in urban studies (Bettencourt, 2014) especially
-with advancement of new technologies (Steenbruggen, 2015) and possibility
-of distributed, crowdsourced data collection (Lokanathan, 2015). Visualising the temporal dynamics of data collected on human activities through
-decentralised processes poses significant challenges when approached with
-traditional cartographic concepts (MacEachren, 2001 Hallisey, 2005). Digital
-media especially animation has been explored as an option to solve for the
-temporal dimension (Morrison, 2000; Lobben, 2003) but is bound by the
-cognitive limits of the viewer (Harrower, 2007). There have been approaches
-proposed around animations of generated surfaces (Kobayashi, 2011) and
-network-based visualizations (Ferrara, 2014) leaving gaps in research for
-new methods in dynamic geo-visualisation (Fabrikant, 2005) and visualising path and flow of phenomena (Thomas, 2005). This provides us with
-a promising opportunity for research in methods for visualising high frequency, hyper-local pedestrian data within the limits of cognition of the
-viewer.
-As we can see from Figure 2. population studies and urban mobility
-are the most significant themes in this area of research. Population studies
-include interpolation and estimation of population at small scales by using
-either traditionally available large-scale data (Sutton, 1997, Yuan, 1997) or
-newly available mobile device based data (Yuan, 2016) or a combination
-of both (Rao, 2015). Urban mobility studies include collection and study
-of trajectories of mobile devices to understand human mobility at small
-scales and traffic and transportation studies at large scales. Urban mobility
-research significantly benefited from the decentralised collection of granular
-data (Castells, 2000) and its augmentation through traditional models
-of travel behaviour (Janssens, 2013). The large volume of research done
-under these themes is discussed in detail in the section on techniques and
-technologies.
-
 21
+
+Figure 2.2: Tree-map
+showing the volume of
+research conducted under
+each major themes and
+their sub-themes.
+
+and solutions related to the privacy of the users while conducting these
+research. We can also observe that most of the research conducted are in the
+domain of mobile and social interaction closely followed by the population
+distribution. In the following sections we discuss these in detail along with
+their sub themes with the following framework,
+1. What are the major lines of questioning?
+2. What has been done previously?
+3. Where are the opportunities for further research?
+
+Michael Reibel and
+Michael E Bufalino. Streetweighted interpolation
+techniques for demographic
+count estimation in incompatible zone systems.
+Environment and Planning A,
+37(1):127–139, 2005. ISSN
+0308-518X
+4
+
+2.1.1 Population Studies
+Though Foley [1954] and Schmitt [1956] started this line of research in
+1950’s with the discussion on estimating daytime population using broader
+datasets it was not until the 80s significant volume of research kicked off
+in this area of study. From 80s until mid 2000’s numerous studies were
+conducted on measuring and studying the population at a granular level
+both spatially and temporally. The focus of the research around this time
+was primarily on interpolation from the larger datasets created using
+censuses, regional or national level sample surveys and other centrally
+collected sources of data. There have been numerous fairly successful
+attempts with methodologies where a broad dataset such as regional level
+population summaries and modelling or interpolating more granular
+data from them by augmenting with other sources of data such as street
+networks4 , remote sensing5 etc. Dobson et al. [2000, 2003], Bhaduri et al.
+[2002, 2007] and [Mennis, 2003, Mennis and Hultgren, 2006] are examples of
+such research methodology. These studies were almost done on a city scale
+or above with mostly modelling or interpolation methods since the data
+sources were few and were centrally collected.
+Around 2005, there was a sharp shift in research where the interpolation
+
+5
+Paul Sutton. Modeling
+population density with
+night-time satellite imagery
+and gis. Computers, Environment and Urban Systems, 21
+(3):227–244, 1997. ISSN 01989715; Yew Yuan, Richard M
+Smith, and W Fredrick
+Limp. Remodeling census
+population with spatial
+information from landsat
+tm imagery. Computers, Environment and Urban Systems,
+21(3):245–258, 1997. ISSN
+0198-9715; and K Chen.
+An approach to linking
+remotely sensed data and
+areal census data. International Journal of Remote
+Sensing, 23(1):37–48, 2002.
+ISSN 0143-1161
 
 22
 
 estimating footfall from passive wifi signals
 
+methods were replaced by highly available granular data collected over
+cellular network. Studies were conducted on estimating population densities, presence of tourists, general activity pattens using data from cellular
+networks. Most of these research were conducted at a far larger geographic
+scale looking at things at an area level [Pulselli et al., 2008, Girardin et al.,
+2009, Phithakkitnukoon et al., 2010, Yuan and Raubal, 2016]. There were
+efforts in using device level sensors such as global positioning system(GPS),
+Wi-Fi and Bluetooth to detect population distribution and socio-geographic
+routines [Calabrese et al., 2010, Rose and Welsh, 2010, Farrahi and GaticaPerez, 2010]. There have been studies on looking at people distribution as
+granular as queue lengths as discussed by Wang et al. [2013] to city level
+dynamic population mapping where the limitations of traditional datasets
+generated through censuses and surveys 6 .
+Around the 2015, along with the data collected directly from the mobile
+devices,the data that are generated by the users activity on these devices
+are became more important. Social media data such as twitter [Lansley
+and Longley, 2016] and other consumer data such as loyalty cards [Lloyd
+and Cheshire, 2018], smart cards [Ordonez and Erath, 2012] etc. have also
+become a significant sources of data for such research. Recently, with
+increased concerns and legislation on privacy, there have been studies
+which go back to the effort of interpolating granular data from broader
+datasets but using more data and processor intensive technologies such as
+agent based modelling, deep learning, small area estimation 7 etc.. Though
+there have been a lot of work done in most of the directions in this research
+area, the clear gap arises due to the absence of a continuous granular and
+sufficiently longitudinal data-sets to complement the methodologies that
+have been developed.
+
+2.1.2 Human Mobility and Interaction
+Urban mobility research significantly benefited from the decentralised
+collection of granular data (Castells, 2000) and its augmentation through
+traditional models of travel behaviour (Janssens, 2013). The large volume
+of research done under these themes is discussed in detail in the section on
+techniques and technologies.
+
+2.1.3 Methodology and Techniques
+Visualising the temporal dynamics of data collected on human activities
+through decentralised processes poses significant challenges when approached with traditional cartographic concepts (MacEachren, 2001 Hallisey,
+2005). Digital media especially animation has been explored as an option
+to solve for the temporal dimension (Morrison, 2000; Lobben, 2003) but
+is bound by the cognitive limits of the viewer (Harrower, 2007). There
+have been approaches proposed around animations of generated surfaces
+(Kobayashi, 2011) and network-based visualizations (Ferrara, 2014) leaving
+gaps in research for new methods in dynamic geo-visualisation (Fabrikant,
+2005) and visualising path and flow of phenomena (Thomas, 2005). This
+provides us with a promising opportunity for research in methods for visualising high frequency, hyper-local pedestrian data within the limits of
+
+6
+Pierre Deville, Catherine
+Linard, Samuel Martin, Marius Gilbert, Forrest R Stevens, Andrea E
+Gaughan, Vincent D Blondel, and Andrew J Tatem.
+Dynamic population mapping using mobile phone
+data. Proceedings of the
+National Academy of Sciences,
+111(45):15888–15893, 2014.
+ISSN 0027-8424. doi:
+10.1073/pnas.1408439111.
+URL http://www.pnas.org/
+
+lookup/doi/10.1073/pnas.
+1408439111
+
+Tomas Crols and Nick
+Malleson. Quantifying the
+ambient population using
+hourly population footfall
+data and an agent-based
+model of daily mobility.
+Geoinformatica, pages 1–20,
+2019; Kyosuke Shibata and
+Hiroshi Yamamoto. People
+crowd density estimation
+system using deep learning
+for radio wave sensing of
+cellular communication. In
+2019 International Conference
+on Artificial Intelligence in
+Information and Communication (ICAIIC), pages 143–148.
+IEEE, 2019; and John N K
+Rao and Isabel Molina.
+Small area estimation. John
+Wiley & Sons, 2015. ISBN
+1118735722
+7
+
+review of literature
+
+cognition of the viewer.
+
+2.1.4 Spatial Analysis Theory and Modelling
+Traditional and modern geography were usually dominated by the study
+of centrally collected data acquired through extensive field surveys and
+remote sensing. In the last two decades, a significant paradigm change
+has been introduced by the availability of unprecedented amount of data
+generated by unconventional sources such as mobile phones, social media
+posts etc. This move to the postmodern geography (Soja, 1989) has been
+accompanied by a change in our understanding of the built environment
+and human geography, from a static point of view to a more dynamic
+definition based on the bottom up mechanisms which manifest in them,
+such as economic activity and information exchange (Batty 1990, 1997,
+2012, 2013a,b). This transition into the digital age (Graham, 1999; Tranos,
+2012; 2013) has changed the politics of space and time (Massey, 1992) and
+been more pronounced in the study of urban built environment where
+technology has redefined the concepts of place and space (Graham, 2001;
+Sassen, 2001; Graham, 2002). With the ability to collect and analyse of data
+on large complex systems in real-time (Graham, 1997), we are exploring
+the possibilities of understanding their structure and organisation using
+concepts of complexity theory (Bettencourt, 2013; Portugali, 2012) with
+more emphasis on their temporal patterns such as the argument towards
+finding the pulse of the city (Batty, 2010). With the population getting
+more and more connected (Castells, 2010), the nature of space/place is
+being dynamically defined by the population themselves (Giuliano, 1991)
+and vice versa (Zandvliet, 2006). This movement to the digital era was
+accompanied not only by optimism in its potential (Thomas, 2001; Nature,
+2008) but also by the questions raised on the challenges in handling the
+diverse, large scale, non standardised data (Miller, 2010; Arribas-Bel, 2014
+a) it produces and the usefulness or representativeness of the resulting
+analysis. Nonetheless, availability of such data has impressive uses in urban
+studies (Bettencourt, 2014) especially with advancement of new technologies
+(Steenbruggen, 2015) and possibility of distributed, crowdsourced data
+collection (Lokanathan, 2015).
+
+2.1.5 Privacy
 The rise in personal technology has many opportunities for researchers
 and industry but at the same time has increased the general concern on
 privacy (Saponas, 2007; Krumm, 2009). There is immense value in uniquely
@@ -404,16 +574,23 @@ usable for research by maintaining the uniqueness in the data is the major
 concern which leads us to frameworks for secure practices in confidentially
 collecting and using the location data (Duckham, 2006; Tang, 2006; Lane,
 2014). Some efforts seek to accomplish this through cryptographic hashing
-algorithms (Pang, 2007) while others aim to thwart identification and tracking at the device level by techniques such as MAC randomisation (Gruteser,
+algorithms (Pang, 2007) while others aim to thwart identification and track-
+
+23
+
+24
+
+estimating footfall from passive wifi signals
+
+ing at the device level by techniques such as MAC randomisation (Gruteser,
 2005; Greenstein, 2008). The consent of users’ for the collection and use of
 such information from their mobile devices is low but with smart devices
 becoming ubiquitous there is a significantly improved acceptance when
 the process offers value in return such as discounts and monetary benefits
 (Kobsa, 2014) .
 
-2.1.6 Chronology
-Figure 1 shows the volume of research done in this topic throughout years
-categorised based on their major themes discussed above. We can observe
+2.2 Research Trends
+Figure 1 shows the volume of research done in this topic since 1980 categorised based on their major themes discussed above. We can observe
 that there are distinct trends in the research over time, with the explosion
 of interest in the last decade. The research was mostly centered around
 population studies on interpolating larger datasets. The period between
@@ -424,29 +601,35 @@ is observed in applying the data for population and urban mobility studies
 and in the development of theory, methods to use the data. Between 2005
 and 2010 the ‘mobile era’ saw significant rise in the volume of research,
 especially research focused on urban mobility and localisation and identification of the unique devices from the massive cellular network data which
-was met with an equal interest in privacy and data security.
-In 2010 there was a clear increase in the volume of the research concerned with urban mobility, especially on tracking devices for trajectories.
+was met with an equal interest in privacy and data security. In 2010 there
+was a clear increase in the volume of the research concerned with urban
+mobility, especially on tracking devices for trajectories.
 This might be due to the emergence and proliferation of ‘smartphones’
 around that time, which made collecting data from these devices directly
 much easier and less reliant on carrier provided datasets. We also observe
-a focus on inferring the nature of the spaces these devices occupy and the
-social interactions between those who own these devices. With the theoretical limit to predictability in human mobility quantified, the focus on urban
-mobility has been declining in the past few years. This has been replaced
-by a renewed interest in population studies at a real-time, hyper-local level.
-We also see a recent increase in interest in deanonymization in response
-to the industry adopting anti-tracking mechanisms in their products for
-example MAC randomisation in iOS devices. Currently the research interest
-and gaps in the field concern the hyper-local estimation of population and
+a focus on inferring the nature of the spaces these devices occupy and
+the social interactions between those who own these devices. With the
+theoretical limit to predictability in human mobility quantified, the focus
 
-Figure 2.2: Comparison of
-volumes of datasets across
-various disciplines.
+Figure 2.3: Outline of
+the ‘Medium data toolkit’
+devised to collect, process,
+visualise and manage the
+Wi-Fi probe requests data
 
 review of literature
 
-nature along with methods to identify unique devices at this scale.
+25
 
-2.2 Techniques and technology
+on urban mobility has been declining in the past few years. This has been
+replaced by a renewed interest in population studies at a real-time, hyperlocal level. We also see a recent increase in interest in de-anonymisation
+in response to the industry adopting anti-tracking mechanisms in their
+products for example MAC randomisation in iOS devices. Currently the
+research interest and gaps in the field concern the hyper-local estimation
+of population and nature along with methods to identify unique devices at
+this scale.
+
+2.3 Techniques and technology
 When we look at the literature from the technology perspective, we observe
 that the continuous application of recent technological developments in the
 pursuit of understanding the distribution of human activity and population
@@ -464,28 +647,31 @@ devices, especially GPS and WiFi, in addition to the social media content
 generated from these devices. A detailed account of these studies is given
 below,
 
-2.2.1 Interpolation and Modelling
+2.3.1 Interpolation and Modelling
 Attempts in using the existing data collected through traditional methods
-such as census and large scale sample surveys to create spatially and temporally granular and detailed estimates were carried out by applying various
-interpolation methods such as pycnophylactic, dasymetric interpolation (Tobler, 1979; Mennis, 2003; Mennis, 2006; Hawley, 2005; Tapp, 2010) along with
-spatial (Lam, 1983; Martin, 1989) and temporal interpolation techniques
-(Glickman, 1986). These methods along with supplementary data such as
-remote sensing imagery (Sutton, 2001; Chen, 2002) and street networks
-(Reibel, 2005) were shown to be useful in producing detailed granular pop-
+such as census and large scale sample surveys to create spatially and tempo-
 
-23
+Figure 2.4: Growth of
+research in the topic of ‘’
+Measured in the number of papers
+published
 
-Figure 2.3: Outline of
+Figure 2.5: Outline of
 the ‘Medium data toolkit’
 devised to collect, process,
 visualise and manage the
 Wi-Fi probe requests data
 
-24
+26
 
 estimating footfall from passive wifi signals
 
-ulation maps at various scales with varying degree of success (Dobson,
+rally granular and detailed estimates were carried out by applying various
+interpolation methods such as pycnophylactic, dasymetric interpolation (Tobler, 1979; Mennis, 2003; Mennis, 2006; Hawley, 2005; Tapp, 2010) along with
+spatial (Lam, 1983; Martin, 1989) and temporal interpolation techniques
+(Glickman, 1986). These methods along with supplementary data such as
+remote sensing imagery (Sutton, 2001; Chen, 2002) and street networks
+(Reibel, 2005) were shown to be useful in producing detailed granular population maps at various scales with varying degree of success (Dobson,
 2000; Bhaduri, 2002; Dobson, 2003; Bhaduri, 2005; Bhaduri, 2007). These approaches have been employed in various applications such as econometric
 studies (McDonald, 1989), studies on public health (Hay, 2005), emergency
 management (Kwan, 2005) and flood risk estimations (Smith, 2016). In addition to these interpolation techniques classic modelling techniques can
@@ -502,7 +688,7 @@ being useful, these techniques are still shown to have limitations and uncertain
 data employed. This leads us to the need for more detailed and frequent
 collection of data.
 
-2.2.2 Bespoke technologies
+2.3.2 Bespoke technologies
 Following this need, there has been efforts to use bespoke/specialised
 technologies such as cameras (Cai, 1996 Heikkilä, 2004 Kröckel, 2012),
 Lasers (Zhao, 2005 Arras, 2008) and radio frequency receivers (Bahl, 2000
@@ -518,17 +704,16 @@ owned by the users’ themselves. The network part, in addition to providing con
 actively (calls, messages) and passively (tower to tower handover). The
 mobile devices themselves have a variety of sensors (accelerometer, compass, barometer etc) and capabilities (cellular, WiFi, NFC etc) that can be
 sources of data themselves. With the growth of mobile devices and the infrastructure surrounding it, there has been significant effort in utilising data
-generated by every component of this complex infrastructure.
-
-2.2.3 Cellular/ Mobile network
-The use of cellular network data is relevant for urban studies (see Jiang,
-2013; Steenbruggen, 2015; Lokanathan, 2015; Calabrese, 2015; Reades, 2007)
-even though it is acknowledged to have inherent biases such as ownership
-bias across particular demographic groups (Wesolowski, 2013). Visual explo-
 
 review of literature
 
-ration of use of such data using interactive interfaces to evaluate quality of
+generated by every component of this complex infrastructure.
+
+2.3.3 Cellular/ Mobile network
+The use of cellular network data is relevant for urban studies (see Jiang,
+2013; Steenbruggen, 2015; Lokanathan, 2015; Calabrese, 2015; Reades, 2007)
+even though it is acknowledged to have inherent biases such as ownership
+bias across particular demographic groups (Wesolowski, 2013). Visual exploration of use of such data using interactive interfaces to evaluate quality of
 service and scenario testing has been tested for the optimisation of public
 transport (Sbodio, 2014). Such network data with the active and passive
 information collected from them can be used to create trajectories of people (Schlaich, 2010), detect their daily routine (Sevtsuk, 2010) and classify
@@ -563,21 +748,20 @@ network distribution usually follows the purpose of service coverage and
 commercial decisions which introduces systematic biases in the data passively collected through them, while the data actively collected through
 them has bias based on the volume of usage of services by the customers
 which can vary widely based on location and demography. This makes
-collection of data directly from the devices using the sensors available a
-more robust option.
 
-2.2.4 Mobile Sensors
-The major sensors and capabilities present in mobile devices that can be
-used for distributed urban sensing are cellular radio, Bluetooth, WiFi, GPS,
-accelerometer and a compass. Since cellular radio is managed by the cellu-
+27
 
-25
-
-26
+28
 
 estimating footfall from passive wifi signals
 
-lar network and covered in mobile network data, we explore the research
+collection of data directly from the devices using the sensors available a
+more robust option.
+
+2.3.4 Mobile Sensors
+The major sensors and capabilities present in mobile devices that can be
+used for distributed urban sensing are cellular radio, Bluetooth, WiFi, GPS,
+accelerometer and a compass. Since cellular radio is managed by the cellular network and covered in mobile network data, we explore the research
 done with other sensors. In contrast to planned actively collected data, data
 passively collected via a distributed network of general purpose devices
 tends to be larger and more temporally dynamic. For example, an organised
@@ -604,7 +788,7 @@ active engagement from the user (device pairing) Bluetooth is much less
 preferable for large-scale data collection than GPS/ WiFi. The research on
 GPS and WiFi based studies are discussed in more detail below.
 
-2.2.5 Global Positioning System
+2.3.5 Global Positioning System
 In addition to providing a user’s location to applications such as Google
 Maps, the GPS capability in mobile devices working with the WiFi can
 maintain a continuous list of locations visited by the device over long
@@ -614,6 +798,9 @@ data, due to the privacy risks associated with it GPS is often one of the
 resources in a device that requires explicit user permission to be accessed.
 The concepts and methodologies for collecting such data were set out by
 Asakura (2004) and there have been attempts to collect this rich data from
+
+review of literature
+
 volunteers at a large scale along with ancillary data (Kiukkonen, 2010) and
 provide a location based service application for the collection of data (Ratti,
 2006; Jiang, 2006; Ahas, 2005).
@@ -621,9 +808,6 @@ GPS is one of the most used technologies for mobility studies. It has been
 used to analyse and understand individual mobility patterns (Gonzalez,
 2008; Neuhaus, 2009), which have been shown to have a high order of
 regularity in spite of the complexity (Brockmann, 2006; Song, 2010 b). There
-
-review of literature
-
 have been efforts to use this regularity to predict the future location of
 people (Monreale, 2009; Calabrese, 2010). The limitations of predictions
 have also been quantified (Song, 2010a). There have been successful efforts
@@ -658,12 +842,19 @@ urban sensing methods using GPS of mobile devices also has problems of
 enhanced risk of breach of privacy when done passively and need for user
 engagement when done actively.
 
-2.2.6 Wi-Fi
+2.3.6 Wi-Fi
 WiFi is a wireless network connection protocol standardised by IEEE, 2013.
 It is a distributed server-client based system where the client connects to
 access points (AP). Every device in the network has a unique hardware
 specific MAC address, which is transmitted between the device and AP
 before the connection is made. The key feature of WiFi infrastructure is
+
+29
+
+30
+
+estimating footfall from passive wifi signals
+
 that the network is distributed and the APs can be set up and operated
 by anyone locally unlike mobile networks. Since they are primarily used
 for Internet service provision, the protocol has priority for continuity of
@@ -671,13 +862,6 @@ connectivity so the devices constantly scan for new and better connections.
 This is done through a probe request, which is detailed in later sections.
 With this background we can see that WiFi provides a fair middle ground
 between an entirely network driven approach such as cellular network to an
-
-27
-
-28
-
-estimating footfall from passive wifi signals
-
 entirely user driven approach such as GPS. Since the network infrastructure
 is distributed and deployed for Internet it offers near complete coverage,
 is very resilient, and can encapsulate and reinforce civic space in cities
@@ -717,6 +901,9 @@ are not even carrying a WiFi enabled device (Elgohary, 2013).
 Because of the security and privacy risks posed by the WiFi protocol’s
 use of hardware based MAC address, various methods to strengthen the
 security have been proposed (Pang, 2007; Greenstein, 2008). The randomisation of MAC addresses has become more mainstream in mobile devices
+
+review of literature
+
 with the introduction of it as a default operating system behaviour in iOS 8
 by Apple Inc. Since MAC randomisation is not a perfect solution (Cunche,
 2016) there have been numerous attempts to fingerprint unique devices
@@ -724,9 +911,6 @@ from the randomised anonymous information present in the probe request
 frames for the purposes of trajectory tracking and access point security. The
 methods used are decomposition of OUIs where detailed device model
 information is estimated by analysing an already known dataset of OUIs
-
-review of literature
-
 (Martin, 2016); Scrambler attack where a small part of the physical layer
 specification for WiFi is used (Bloessl, 2015); and finally, the timing attack
 where the packet sequence information present in the probe request frame
@@ -746,7 +930,7 @@ Pinelli (2015) where through experiments on a telecom operator dataset, it
 was showed that using network-driven mobile phone location data is more
 advantageous compared to the widely used event-driven ones.
 
-2.2.7 Social Media
+2.3.7 Social Media
 In addition to the direct data from the sensors themselves the content generated from the mobile devices in social media can provide a viable proxy
 for estimating the level and nature of human activity. The use of geo located
 tweets on the study of small area dynamic population estimation (Ordonez,
@@ -755,46 +939,6 @@ tweets on the study of small area dynamic population estimation (Ordonez,
 useful in social sciences (Crane, 2008), abnormal event detection (Chae,
 2012) and analysing urban environments (Sagl, 2012). It can also be used as
 a control layer for interpolation techniques we discussed earlier (Lin, 2015).
-
-2.3 Discussion and Research Gaps
-From the above literature search we can conclude there is a considerable opportunity in the application of mobile phone based data to be used to measure small-scale spatio-temporal dynamics of human activity and potential
-for research gaps in the following areas: Hyper-local population estimation
-This research is at the limits of acceptable mobility research in the context
-of privacy concerns i. between the explosion of usage of smartphones and
-implementation of MAC randomisation. The availability of identifiable
-device information has led to a considerable effort in urban mobility studies
-and there are still opportunities in real time small-scale population measurement and estimation. Detailed WiFi data, combined with other data
-sources such as public transport, weather etc. along with interpolation and
-modelling techniques can produce detailed spatio-temporal estimates of
-population at local level. De-Anonymisation of devices The increase in privacy concerns and the normalisation of device level security measures such
-as MAC address randomisation has questioned the basic assumptions about
-
-29
-
-30
-
-estimating footfall from passive wifi signals
-
-the reliability of data collected through mobile devices. There is a definite
-research need and interest in finding a method to uniquely identify devices
-with sufficient confidence while not deciphering any personal data from
-such analysis. Device classification There has been a significant volume of
-studies in the classification of space based on the temporal patterns in the
-human activity around them and classification of human activity based
-on the space it is clustered around. But there is a research opportunity in
-looking at these devices closely, especially their temporal patterns around
-the point of interest to make inferences about the nature of the device. This
-idea is closely related to de-anonymisation discussed about but rather than
-trying to find unique users or devices from a set of signals, we try to find
-the groups of similar devices and connecting these groups to meaningful
-typologies.
-Sensor catchment and flow Having access to a broader sensor data, we
-can cross-sectionally see the distribution or occurrence of a unique MAC
-address / device and determine the influence of a sensor. This can be approached in two ways: the first being the pedestrian flow approach where
-we can model the movement of pedestrian based on these relationships and
-the second is treating these relationships as network and detecting communities in them. In addition to these, there is a definite opportunity for
-research in methods for visualising high frequency, hyper-local pedestrian
-data within the limits of cognition of the viewer.
 In terms of technology, which can be used for data collection at local
 level, the summary of the advantages of each is given below,
 Interpolation Bespoke Systems Cellular Network GPS WiFi Coverage
@@ -806,12 +950,68 @@ Low High Scalability Medium Low High Medium High Privacy Risk Low
 Medium High High Medium
 Table 2. : Evaluation of advantages of different approaches that can be
 used for data collection. *independence from secondary data collected by
+
+31
+
+32
+
+estimating footfall from passive wifi signals
+
 a third party. From Table 2.1 we can see that though it poses some risk on
 privacy of participants and some uncertainty regarding range, WiFi offers
 the best possible technology for data collection through mobile devices at
 smaller scales.
 
-3
+2.4 Research Gaps and Opportunities
+From the above literature search we can conclude there is a considerable
+opportunity in the application of mobile phone based data to be used to
+measure small-scale spatio-temporal dynamics of human activity and potential for research gaps in the following areas: Hyper-local population
+estimation This research is at the limits of acceptable mobility research
+in the context of privacy concerns in between the explosion of usage of
+smartphones and implementation of MAC randomisation. The availability
+of identifiable device information has led to a considerable effort in urban
+mobility studies and there are still opportunities in real time small-scale
+population measurement and estimation. Detailed WiFi data, combined
+with other data sources such as public transport, weather etc. along with interpolation and modelling techniques can produce detailed spatio-temporal
+estimates of population at local level.
+
+2.4.1 Device fingerprinting
+De-Anonymisation of devices The increase in privacy concerns and the
+normalisation of device level security measures such as MAC address
+randomisation has questioned the basic assumptions about the reliability
+of data collected through mobile devices. There is a definite research need
+and interest in finding a method to uniquely identify devices with sufficient
+confidence while not deciphering any personal data from such analysis.
+Device classification There has been a significant volume of studies in
+the classification of space based on the temporal patterns in the human
+activity around them and classification of human activity based on the
+space it is clustered around. But there is a research opportunity in looking
+at these devices closely, especially their temporal patterns around the point
+of interest to make inferences about the nature of the device. This idea
+is closely related to de-anonymisation discussed about but rather than
+trying to find unique users or devices from a set of signals, we try to find
+the groups of similar devices and connecting these groups to meaningful
+typologies.
+
+2.4.2 Event Detection
+2.4.3 Pedestrian Flow and Catchments
+Sensor catchment and flow Having access to a broader sensor data, we
+can cross-sectionally see the distribution or occurrence of a unique MAC
+address / device and determine the influence of a sensor. This can be approached in two ways: the first being the pedestrian flow approach where
+we can model the movement of pedestrian based on these relationships and
+the second is treating these relationships as network and detecting com-
+
+review of literature
+
+munities in them. In addition to these, there is a definite opportunity for
+research in methods for visualising high frequency, hyper-local pedestrian
+data within the limits of cognition of the viewer.
+
+2.4.4 Study of Urban Places
+
+33
+
+3
 Collecting Wi-Fi Data
 As we discussed in the previous chapter, out of all the technologies through
 which we can capture the traces of people moving across the urban environment, Wi-Fi is a well rounded technology and is suitable for our study. In
@@ -845,7 +1045,7 @@ identifies the source device and frame body part that contains the information a
 probe request shown in Table 3.2. As mentioned earlier, the SmartStreetSensor collects some of the information present in probe request frame relayed
 by mobile devices, along with the time interval at which the request was col-
 
-32
+36
 
 estimating footfall from passive wifi signals
 
@@ -876,9 +1076,9 @@ pavement (3m wide approximately) using a mobile phone. The sensor was
 kept as close to the store window as possible, and the manual count was
 done as a cordon count in front of the store.
 
-33
+37
 
-34
+38
 
 estimating footfall from passive wifi signals
 
@@ -949,9 +1149,9 @@ small percentage (3%) of the devices which are installed within large shops
 to monitor internal footfall. Each device collects data independently and
 uploads the collected data to a central container at regular interval 5 minutes through a dedicated 3G mobile data connection. The sensor hardware
 
-35
+39
 
-36
+40
 
 estimating footfall from passive wifi signals
 
@@ -1000,10 +1200,85 @@ volume of such collisions ( 2%), for the purpose of this report, we ignore
 these collisions and treat all distinct hashed MAC addresses with know
 OUID to be the same device.
 
-37
+41
 
 4
 Processing the Data into Footfall
+Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit,
+vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida
+mauris. Nam arcu libero, nonummy eget, consectetuer id, vulputate a,
+magna. Donec vehicula augue eu neque. Pellentesque habitant morbi
+tristique senectus et netus et malesuada fames ac turpis egestas. Mauris
+ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna
+fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer
+sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel
+leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu,
+pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius
+orci eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis,
+diam. Duis eget orci sit amet orci dignissim rutrum.
+Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
+auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies
+et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
+magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis.
+Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis
+natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.
+Aliquam tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque
+cursus luctus mauris.
+Nulla malesuada porttitor diam. Donec felis erat, congue non, volutpat
+at, tincidunt tristique, libero. Vivamus viverra fermentum felis. Donec nonummy pellentesque ante. Phasellus adipiscing semper elit. Proin fermentum massa ac quam. Sed diam turpis, molestie vitae, placerat a, molestie
+nec, leo. Maecenas lacinia. Nam ipsum ligula, eleifend at, accumsan nec,
+suscipit a, ipsum. Morbi blandit ligula feugiat magna. Nunc eleifend consequat lorem. Sed lacinia nulla vitae enim. Pellentesque tincidunt purus vel
+magna. Integer non enim. Praesent euismod nunc eu purus. Donec bibendum quam in tellus. Nullam cursus pulvinar lectus. Donec et mi. Nam
+vulputate metus eu enim. Vestibulum pellentesque felis eu massa.
+Quisque ullamcorper placerat ipsum. Cras nibh. Morbi vel justo vitae lacus tincidunt ultrices. Lorem ipsum dolor sit amet, consectetuer adipiscing
+elit. In hac habitasse platea dictumst. Integer tempus convallis augue. Etiam
+facilisis. Nunc elementum fermentum wisi. Aenean placerat. Ut imperdiet,
+enim sed gravida sollicitudin, felis odio placerat quam, ac pulvinar elit purus eget enim. Nunc vitae tortor. Proin tempus nibh sit amet nisl. Vivamus
+quis tortor vitae risus porta vehicula.
+
+44
+
+estimating footfall from passive wifi signals
+
+Fusce mauris. Vestibulum luctus nibh at lectus. Sed bibendum, nulla
+a faucibus semper, leo velit ultricies tellus, ac venenatis arcu wisi vel nisl.
+Vestibulum diam. Aliquam pellentesque, augue quis sagittis posuere, turpis
+lacus congue quam, in hendrerit risus eros eget felis. Maecenas eget erat in
+sapien mattis porttitor. Vestibulum porttitor. Nulla facilisi. Sed a turpis eu
+lacus commodo facilisis. Morbi fringilla, wisi in dignissim interdum, justo
+lectus sagittis dui, et vehicula libero dui cursus dui. Mauris tempor ligula
+sed lacus. Duis cursus enim ut augue. Cras ac magna. Cras nulla. Nulla
+egestas. Curabitur a leo. Quisque egestas wisi eget nunc. Nam feugiat lacus
+vel est. Curabitur consectetuer.
+Suspendisse vel felis. Ut lorem lorem, interdum eu, tincidunt sit amet,
+laoreet vitae, arcu. Aenean faucibus pede eu ante. Praesent enim elit,
+rutrum at, molestie non, nonummy vel, nisl. Ut lectus eros, malesuada
+sit amet, fermentum eu, sodales cursus, magna. Donec eu purus. Quisque
+vehicula, urna sed ultricies auctor, pede lorem egestas dui, et convallis elit
+erat sed nulla. Donec luctus. Curabitur et nunc. Aliquam dolor odio, commodo pretium, ultricies non, pharetra in, velit. Integer arcu est, nonummy
+in, fermentum faucibus, egestas vel, odio.
+Sed commodo posuere pede. Mauris ut est. Ut quis purus. Sed ac odio.
+Sed vehicula hendrerit sem. Duis non odio. Morbi ut dui. Sed accumsan
+risus eget odio. In hac habitasse platea dictumst. Pellentesque non elit.
+Fusce sed justo eu urna porta tincidunt. Mauris felis odio, sollicitudin sed,
+volutpat a, ornare ac, erat. Morbi quis dolor. Donec pellentesque, erat ac
+sagittis semper, nunc dui lobortis purus, quis congue purus metus ultricies
+tellus. Proin et quam. Class aptent taciti sociosqu ad litora torquent per
+conubia nostra, per inceptos hymenaeos. Praesent sapien turpis, fermentum
+vel, eleifend faucibus, vehicula eu, lacus.
+Pellentesque habitant morbi tristique senectus et netus et malesuada
+fames ac turpis egestas. Donec odio elit, dictum in, hendrerit sit amet,
+egestas sed, leo. Praesent feugiat sapien aliquet odio. Integer vitae justo.
+Aliquam vestibulum fringilla lorem. Sed neque lectus, consectetuer at,
+consectetuer sed, eleifend ac, lectus. Nulla facilisi. Pellentesque eget lectus.
+Proin eu metus. Sed porttitor. In hac habitasse platea dictumst. Suspendisse
+eu lectus. Ut mi mi, lacinia sit amet, placerat et, mollis vitae, dui. Sed ante
+tellus, tristique ut, iaculis eu, malesuada ac, dui. Mauris nibh leo, facilisis
+non, adipiscing quis, ultrices a, dui.
+
+processing the data into footfall
+
+45
 
 4.1 Data Toolkit
 Big data and its analytics promises huge benefits in terms of value
@@ -1038,6 +1313,18 @@ dataset in detail and try to understand the requirements for devising a
 toolkit for it. Finally we put together a toolkit to suit our datasets built from
 simple small UNIX tools. 2
 
+4.1.1 What is ‘Big Data’?
+With the proliferation of internet enabled personal devices, we have quickly
+moved from data sparse environment to a data rich one. We can even
+confidently say that we are in an age of data deluge where the amount of
+data which are collected and stored are increasing exponentially in a very
+short period of time 3 . As we saw in the previous chapters collecting large
+amount of data is quick and easy. Technological advancements have enabled us to be able to think about utilising such large assemblages of data
+which would have been impossible even in the recent past. By providing
+unprecedented coverage, these large assemblages of data - ‘Big data’, provide us with insights which were not possible before. They often change
+our approach and methods employed in entire disciplines. For example,
+In computer science, fuelled by the explosion of collected user data, there
+
 Amir Gandomi and
 Murtaza Haider. Beyond
 the hype: Big data concepts,
@@ -1057,21 +1344,17 @@ because that is a universal
 interface.", Doug McIlroy
 on UNIX philosophy.
 
-40
+Rob Kitchin. Big data,
+new epistemologies
+and paradigm shifts.
+Big Data & Society, 1(1):
+2053951714528481, 2014
+3
+
+46
 
 estimating footfall from passive wifi signals
 
-4.1.1 What is ‘Big Data’?
-With the proliferation of internet enabled personal devices, we have quickly
-moved from data sparse environment to a data rich one. We can even
-confidently say that we are in an age of data deluge where the amount of
-data which are collected and stored are increasing exponentially in a very
-short period of time 3 . As we saw in the previous chapters collecting large
-amount of data is quick and easy. Technological advancements have enabled us to be able to think about utilising such large assemblages of data
-which would have been impossible even in the recent past. By providing
-unprecedented coverage, these large assemblages of data - ‘Big data’, provide us with insights which were not possible before. They often change
-our approach and methods employed in entire disciplines. For example,
-In computer science, fuelled by the explosion of collected user data, there
 is a paradigm shift in Artificial Intelligence with the use of data mining,
 machine learning and deep learning. It is only time before this approach
 pervades social sciences research as well. In addition to the above advantages, Big data because of their nature also introduce numerous challenges
@@ -1103,14 +1386,20 @@ velocity, variety, veracity and visualisation for evaluating our datasets. Since
 not all data is ’Big’ in all these dimensions, we need to evaluate the ‘bigness’
 of the data in each dimension and consider the associated challenges and
 solutions.
-The second set of challenges arise while we process the big data, its ac-
-
-Rob Kitchin. Big data,
-new epistemologies
-and paradigm shifts.
-Big Data & Society, 1(1):
-2053951714528481, 2014
-3
+The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation,
+modelling, analysis, visualisation and interpretation. Challenges in each
+one of these processing activity arises due to the data being big in one or
+more dimensions. The data being big in volume, velocity and variety poses
+challenges in data acquisition, aggregation, cleaning and analysis 6 . These
+challenges make traditional methods impractical and introduce the need for
+distributed, crowdsourced collection of data, heavily parallelised computing
+and application of functional programming concepts. The unstructured
+nature of the big data also introduces notable biases which mandate careful
+consideration, proper calibration and weighting during analysis so that we
+can understand and remove any uncertainties arising from them. The data
+being big in veracity dimension poses significant challenges in its analysis
+and modelling. Since simple methods such as linear regression fails in such
+scenarios, we require complex methods such as support vector machines,
 
 Doug Laney. 3d data
 management: Controlling
@@ -1129,22 +1418,24 @@ Evaluation Review, 41(4):
 70–73, 2014
 5
 
+Songnian Li, Suzana
+Dragicevic, Francesc Antón
+Castro, Monika Sester,
+Stephan Winter, Arzu
+Coltekin, Christopher
+Pettit, Bin Jiang, James
+Haworth, Alfred Stein,
+et al. Geospatial big
+data handling theory and
+methods: A review and
+research challenges. ISPRS
+journal of Photogrammetry
+and Remote Sensing, 115:
+119–133, 2016
+6
+
 processing the data into footfall
 
-quisition, storage, extraction, cleaning, annotation, integration, aggregation,
-modelling, analysis, visualisation and interpretation. Challenges in each
-one of these processing activity arises due to the data being big in one or
-more dimensions. The data being big in volume, velocity and variety poses
-challenges in data acquisition, aggregation, cleaning and analysis 6 . These
-challenges make traditional methods impractical and introduce the need for
-distributed, crowdsourced collection of data, heavily parallelised computing
-and application of functional programming concepts. The unstructured
-nature of the big data also introduces notable biases which mandate careful
-consideration, proper calibration and weighting during analysis so that we
-can understand and remove any uncertainties arising from them. The data
-being big in veracity dimension poses significant challenges in its analysis
-and modelling. Since simple methods such as linear regression fails in such
-scenarios, we require complex methods such as support vector machines,
 neural networks and hidden Markov models which compensate the lack
 of structure with the volume of data. With such computationally intensive
 methods, heavily parallelised high performance computing techniques
@@ -1178,24 +1469,17 @@ capable of handling these data ownership and sharing concerns as well.
 Finally, the biggest challenge we face with big data is the cost in terms
 of money, resources and time. Though most of the big data tools are developed openly and distributed freely there can be lot of incidental, non-direct
 costs associated with collecting, processing and managing data with them.
+For example, there are the operational costs collecting data at such scale,
+network costs moving them, server costs storing and processing them, cost
+of procuring and supporting specialised tools and the human resource
+cost in hiring and training people who are capable for dealing with them.
+Though there are economies of scale at larger scales, the overall resources required to manage big data effectively can be several folds of what is needed
+for a traditional dataset. This makes it important to look at the data in our
+hands closely and carefully so that we can make informed decisions on
+how ’big’ it is and choose the methods which are the most suited for such
+dataset.
 
-41
-
-Songnian Li, Suzana
-Dragicevic, Francesc Antón
-Castro, Monika Sester,
-Stephan Winter, Arzu
-Coltekin, Christopher
-Pettit, Bin Jiang, James
-Haworth, Alfred Stein,
-et al. Geospatial big
-data handling theory and
-methods: A review and
-research challenges. ISPRS
-journal of Photogrammetry
-and Remote Sensing, 115:
-119–133, 2016
-6
+47
 
 HV Jagadish, Johannes
 Gehrke, Alexandros Labrinidis, Yannis Papakonstantinou, Jignesh M Patel,
@@ -1206,19 +1490,9 @@ Communications of the ACM,
 57(7):86–94, 2014
 7
 
-42
+48
 
 estimating footfall from passive wifi signals
-
-For example, there are the operational costs collecting data at such scale,
-network costs moving them, server costs storing and processing them, cost
-of procuring and supporting specialised tools and the human resource
-cost in hiring and training people who are capable for dealing with them.
-Though there are economies of scale at larger scales, the overall resources required to manage big data effectively can be several folds of what is needed
-for a traditional dataset. This makes it important to look at the data in our
-hands closely and carefully so that we can make informed decisions on
-how ’big’ it is and choose the methods which are the most suited for such
-dataset.
 
 4.1.2 How big are the Wi-Fi probe request datasets?
 In this section we take a detailed look at the three sets of Wi-Fi probe
@@ -1274,19 +1548,6 @@ We can see that there is a lot of variability in the volume of probe requests ge
 mobile devices are present around the location. We observe that when we
 collect most of the information present in the probe requests in a busy area
 such as Oxford street in the Pilot studies, we generate around 50 terabytes
-
-Table 4.1: Comparison
-of volume or size of the
-datasets of Wi-Fi probe
-requests.
-* Measured/ Estimated for
-each location in gigabytes per
-year. ** Measured/ Estimated
-for 920 locations in terabytes
-per year
-
-processing the data into footfall
-
 of data in a year. But in a more real world setting such as the Smart Street
 Sensor project where the sensors fail at times and the amount of data collected is optimised, the volume is around a 1 gigabyte. The total volume
 of data we deal with in the case of a national scale project with around 920
@@ -1295,6 +1556,22 @@ of this to datasets from other disciplines is shown in Figure 4.1. It is key to
 note that the y-axis is scaled exponentially.
 We can see that the probe requests data is not truly ’Big data’ as experienced in other fields. It is only when we reach a complete coverage, i.e,
 putting a sensor at each retail establishment in UK, our estimated data
+
+Table 4.1: Comparison
+of volume or size of the
+datasets of Wi-Fi probe
+requests.
+
+* Measured/ Estimated for
+each location in gigabytes per
+year. ** Measured/ Estimated
+for 920 locations in terabytes
+per year
+
+processing the data into footfall
+
+49
+
 volume reaches around 250 petabytes which is comparable to scales experienced in other fields such as particle physics and world wide social
 networks. At the same time, the scale of probe request data is not small
 either. The volume of 2 terabytes is more than the memory available in
@@ -1304,21 +1581,6 @@ request datasets are ‘Medium Data’ - especially the dataset collected by the
 smart street sensor project. Though it has potential to scale into a truly big
 dataset, for the purposes of this research we can classify it as ‘Medium data’
 in the volume dimension.
-
-43
-
-Figure 4.1: Comparison of
-volumes of datasets across
-various disciplines.
-NSA - National Security Agency,
-LHC - Large Hadron Collider,
-GE - Google Earth, EV - Event
-Horizon project, SP - Spotify
-music, BL - British Library data
-store, LoC - Library of Congress,
-SSS - Smart Street Sensor, NYU New york city Uber trips 2009-15,
-OSM - Open Street Map and HG Human Genome Project
-
 Velocity
 Velocity is the rate at which the data is collected over time. It is significant when evaluating big data since some data which may not scale in
 terms of absolute volume but the speed at which they are received makes
@@ -1367,6 +1629,27 @@ We observe that locations can receive up to 8500 requests in 5 minutes or
 can get no request at all depending on the time and how busy it is. But we
 can see that on average a national scale project with around 900 locations
 generates around a million requests every 15 mins. Compared to the LHC’s
+180 billion records or Google’s 190 million searches per 5 minutes this
+seems to be not high speed data. However, this is much faster compared to
+traditional data sources such as census or geographical surveys which are
+updated anywhere between 6 months to 10 years.
+To summarise, in terms of velocity, the Wi-Fi probes data can be described as ’Medium’ at best. The methods dealing with the data should
+be time sensitive and be able to deal with a continuous stream of data but
+at the same time need not be real time or need sub-second latency. Since
+the Wi-Fi probe requests don’t have actual location information the mobile
+devices, it does not have the similar value in real-time analytics as shown in
+
+Figure 4.1: Comparison of
+volumes of datasets across
+various disciplines.
+NSA - National Security Agency,
+LHC - Large Hadron Collider,
+GE - Google Earth, EV - Event
+Horizon project, SP - Spotify
+music, BL - British Library data
+store, LoC - Library of Congress,
+SSS - Smart Street Sensor, NYU New york city Uber trips 2009-15,
+OSM - Open Street Map and HG Human Genome Project
 
 Table 4.2: Comparison of
 velocity or speed of the
@@ -1379,19 +1662,10 @@ Measured/ Estimated for
 920 locations in Millions of
 requests per 5 minutes
 
-44
+50
 
 estimating footfall from passive wifi signals
 
-180 billion records or Google’s 190 million searches per 5 minutes this
-seems to be not high speed data. However, this is much faster compared to
-traditional data sources such as census or geographical surveys which are
-updated anywhere between 6 months to 10 years.
-To summarise, in terms of velocity, the Wi-Fi probes data can be described as ’Medium’ at best. The methods dealing with the data should
-be time sensitive and be able to deal with a continuous stream of data but
-at the same time need not be real time or need sub-second latency. Since
-the Wi-Fi probe requests don’t have actual location information the mobile
-devices, it does not have the similar value in real-time analytics as shown in
 comparable location or movement based datasets.
 Variety
 Variety is defined by the amount of variance in the type and characteristics of the data. Since variety is hard to quantify and compare across
@@ -1426,6 +1700,7 @@ these probe requests in to footfall counts, the variety in the dataset drops
 almost to zero as it becomes just an ordinal data point varying in geography
 and time. Summarising the above, we can confidently say that the Wi-Fi
 probe request data does not exhibit any ‘big data’ properties in the variety
+dimension.
 
 IEEE. IEEE standard for
 information technologytelecommunications and
@@ -1460,11 +1735,6 @@ ISBN 1450342337. doi:
 10.1145/2897845.2897883
 9
 
-processing the data into footfall
-
-45
-
-dimension.
 Veracity
 Veracity is defined as the amount of abnormality present in the data
 in the form of inaccuracies, biases and noise. Similar to variety, veracity
@@ -1473,6 +1743,16 @@ collected data, veracity is the dimension where the data exhibits most ‘big
 data’ properties.
 First set of veracity in the dataset arise from the fact that it is collected
 through sensors located in multiple locations which communicate to the
+
+Figure 4.2: Missing data
+from five locations at
+Tottenham Court Road,
+London on 15 January 2018
+demonstrating the veracity
+of the data.
+
+processing the data into footfall
+
 central server using 3G mobile data connectivity. We know from experience
 that the sensors are unreliable and fail to send back data regularly due to
 various reasons. More over the sensors are installed and uninstalled regularly as partners join and leave the project. This results in a data stream
@@ -1506,13 +1786,18 @@ veracity and requires appropriate tools and methods when aggregating,
 analysing and modelling it.
 Visualisation
 Visualisation is closely related to volume, velocity and variety of the data.
+The Wi-Fi data due to its non-trivial volume and velocity, exhibits similar
+characteristics and challenges in terms of visualisation. Since there is not
+much variety in the dataset, when we process the raw data into footfall
+counts we are left with just the time, location and footfall count for each
+data point. Out of these, location and footfall counts are easy to visualise
+but time exhibits big data properties. This is primarily due to its granularity
+at 5 minute intervals and longitudinal nature of the data collection. The
+major challenge with Wi-Fi data is to simplify and visualise them in a
+legible way while showing change in term of time. The veracity of the data
+presents challenges in simplifying them and the volume poses challenges
 
-Figure 4.2: Missing data
-from five locations at
-Tottenham Court Road,
-London on 15 January 2018
-demonstrating the veracity
-of the data.
+51
 
 Karlo Lugomer, Balamurugan Soundararaj,
 Roberto Murcio, James
@@ -1525,20 +1810,10 @@ GISRUK 2017. GIS Research
 UK (GISRUK), 2017
 10
 
-46
+52
 
 estimating footfall from passive wifi signals
 
-The Wi-Fi data due to its non-trivial volume and velocity, exhibits similar
-characteristics and challenges in terms of visualisation. Since there is not
-much variety in the dataset, when we process the raw data into footfall
-counts we are left with just the time, location and footfall count for each
-data point. Out of these, location and footfall counts are easy to visualise
-but time exhibits big data properties. This is primarily due to its granularity
-at 5 minute intervals and longitudinal nature of the data collection. The
-major challenge with Wi-Fi data is to simplify and visualise them in a
-legible way while showing change in term of time. The veracity of the data
-presents challenges in simplifying them and the volume poses challenges
 in maintaining legibility. We also have to take the ‘near real time’ aspect of
 the data into consideration while visualising them. There is a clear need for
 always on, interactive, real time dashboards with geographic capabilities
@@ -1578,15 +1853,6 @@ retrieval, processing and analysis, visualisation. We first survey the tools
 available in each stage and specifically look at their suitability for Wi-Fi
 probe request datasets in terms of the following characteristics,
 • Performance - How much data can be processed in a given time?
-
-Figure 4.4: Big data characteristics of the Wi-Fi probe
-request datasets in their
-corresponding dimensions
-
-processing the data into footfall
-
-47
-
 • Flexibility - How easy it is to change the scale and scope?
 • Complexity - How many components or parts are involved?
 • Cost - How much money or infrastructure do they require?
@@ -1595,24 +1861,32 @@ solving similar sized problems in computer science. Finally we pick and
 connect the tools to devise our toolkit which is best suited for out Wi-Fi
 probe request dataset.
 Collection
+
+Figure 4.4: Big data characteristics of the Wi-Fi probe
+request datasets in their
+corresponding dimensions
+
+processing the data into footfall
+
 We discussed various technologies used in collecting passive data on
-ambient population and pedestrian movement in the literature search. In
-this section we look at tools and methods used to collect Wi-Fi based data
-passively. The primary considerations for evaluating data collection strategy
-are the scale of the infrastructure, expertise and effort required to implement it and cost involved. There have been numerous sensors, tools and
-associated software platforms made available for data collection under the
-umbrella of ‘internet of things’. We start by looking at different approaches
-in the Wi-Fi data collection tools and try to reason the most appropriate
-solution for our research. On one end there are low level and low cost
-bespoke solutions which require lot of effort to implement and maintain.
-On the other end there are turn key solutions which doesn’t require lesser
-effort but costs considerably more. The key is finding a balance between
-both while satisfying the requirements of the project. Since the Wi-Fi data is
-medium sized in terms of volume and velocity, we can deal with solutions
-with less than optimal scalability but since the data is ’big’ in terms of veracity the toolkit has to give us most flexibility. Essentially, we are looking
-for a data collection methodology which prioritises flexibility and cost while
-performing moderately in terms of scalability and complexity as illustrated
-in Figure 4.5.
+ambient population and pedestrian movement in the literature search.
+In this section we look at tools and methods used to collect Wi-Fi based
+data passively. The primary considerations for evaluating data collection
+strategy are the scale of the infrastructure, expertise and effort required to
+implement it and cost involved.
+There have been numerous sensors, tools and associated software platforms made available for data collection under the umbrella of ‘internet
+of things’. We start by looking at different approaches in the Wi-Fi data
+collection tools and try to reason the most appropriate solution for our
+research. On one end there are low level and low cost bespoke solutions
+which require lot of effort to implement and maintain. On the other end
+there are turn key solutions which doesn’t require lesser effort but costs
+considerably more. The key is finding a balance between both while satisfying the requirements of the project. Since the Wi-Fi data is medium sized
+in terms of volume and velocity, we can deal with solutions with less than
+optimal scalability but since the data is ’big’ in terms of veracity the toolkit
+has to give us most flexibility. Essentially, we are looking for a data collection methodology which prioritises flexibility and cost while performing
+moderately in terms of scalability and complexity as illustrated in Figure
+4.5.
+
 Type of solution
 
 Examples
@@ -1636,6 +1910,15 @@ end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail next, pygmalios
 etc. where the data is collected through multiple sensors and sources and
 syndicated into a clean footfall information by a third party service provider.
 These platforms for footfall data collection and analysis have the advantage of being quick and easy to develop and deploy while they can also be
+highly inflexible for changes and turn out to be costly when scaled up. A
+middle ground here is to use a general purpose hardware such as single
+board computers or repurposed mobile devices, augment them with additional hardware modules and use general purpose scripting languages to
+write software for them. This way we avoid low level hardware or software
+design and implementation while maintaining good amount of flexibility.
+Table 4.3 shows some examples of such systems while highlighting an ideal
+system.
+
+53
 
 Figure 4.5: Characteristics
 of types of Wi-Fi data
@@ -1650,17 +1933,10 @@ different types of Wi-Fi
 based data collection
 solutions.
 
-48
+54
 
 estimating footfall from passive wifi signals
 
-highly inflexible for changes and turn out to be costly when scaled up. A
-middle ground here is to use a general purpose hardware such as single
-board computers or repurposed mobile devices, augment them with additional hardware modules and use general purpose scripting languages to
-write software for them. This way we avoid low level hardware or software
-design and implementation while maintaining good amount of flexibility.
-Table 4.3 shows some examples of such systems while highlighting an ideal
-system.
 The Smart Street Sensor project uses its own proprietary sensor system
 designed and instrumented by the data partner. The design and implementation decisions were made with the commercial application in mind and
 is not entirely relevant to our discussion in the context of our research. For
@@ -1676,6 +1952,15 @@ open source and free network analysis tools such as tcpdump and tshark
 along with other tools providing functions such as scheduling, personal
 data obfuscation and data transmission with scripting languages like nodejs
 and bash.
+
+Gerald Combs and
+Contributors. Wireshark network protocol analyzer.
+
+11
+
+https://www.wireshark.
+org/about.html, 2018
+
 Storage
 Data storage technology is one of the most diverse landscape in terms
 of both methods and tools available. It has been constantly in research and
@@ -1697,17 +1982,6 @@ database management systems are developed on top of file systems.
 Database systems can be broadly divided into relational and document
 based. The relational databases are optimised to deal with relational data
 and usually enforce strict structure for the data In general they can handle
-
-Gerald Combs and
-Contributors. Wireshark network protocol analyzer.
-
-11
-
-https://www.wireshark.
-org/about.html, 2018
-
-processing the data into footfall
-
 large number of rows and are designed to scale vertically. Most relational
 database systems try to guarantee ACID 12 compliance and hence used
 in critical systems such as financial operations, sales etc 13 . The document
@@ -1715,6 +1989,38 @@ based databases are optimised to deal with unstructured data and can
 doesn’t need a strictly defined scheme. In general they can handle large
 number of columns and are designed to be distributed and scaled horizontally. Being distributed, most document based databases try to pick a
 focus and compromise on others as specified in CAP theorem 14 . There a
+
+Atomicity, Consistency,
+Isolation and Durability
+are properties which make
+sure that the data in the
+database is valid even
+during failures.
+
+12
+
+13
+Theo Haerder and
+Andreas Reuter. Principles
+of transaction-oriented
+database recovery. ACM
+Comput. Surv., 15(4):287–317,
+December 1983. ISSN 03600300. doi: 10.1145/289.291.
+URL http://doi.acm.org/
+
+10.1145/289.291
+
+Brewer’s theorem or CAP
+theorem states that it is
+impossible to simultaneously guarantee consistency,
+availability and partition
+tolerance in a distributed
+data store.
+
+14
+
+processing the data into footfall
+
 numerous databases systems which prioritise different things and the right
 solution depends on the properties of the data and the requirements of the
 project.
@@ -1807,36 +2113,15 @@ Interfaces built on top of distributed file systems to emulate
 capabilities of relational databases
 on them.
 
-49
+We saw that the Wi-Fi probe request datasets are ‘Medium’ sized hence
+we can safely eliminate distributed file systems for storing them. Though
+the smart street Sensor project uses Azure Blob Storage, when the data is
+downloaded to the local servers at the university, we can just store them
+in the file system because of their size (2TB approx.) and the hierarchical
+nature. The folder structure of - year/month/day/location/interval/ with
+individual text file, enable us to query the data for any given location at any
 
-Atomicity, Consistency,
-Isolation and Durability
-are properties which make
-sure that the data in the
-database is valid even
-during failures.
-
-12
-
-13
-Theo Haerder and
-Andreas Reuter. Principles
-of transaction-oriented
-database recovery. ACM
-Comput. Surv., 15(4):287–317,
-December 1983. ISSN 03600300. doi: 10.1145/289.291.
-URL http://doi.acm.org/
-
-10.1145/289.291
-
-Brewer’s theorem or CAP
-theorem states that it is
-impossible to simultaneously guarantee consistency,
-availability and partition
-tolerance in a distributed
-data store.
-
-14
+55
 
 Sanjay Ghemawat,
 Howard Gobioff, and
@@ -1854,17 +2139,10 @@ Table 4.4: Various data
 storage approaches and
 their characteristics.
 
-50
+56
 
 estimating footfall from passive wifi signals
 
-We saw that the Wi-Fi probe request datasets are ‘Medium’ sized hence
-we can safely eliminate distributed file systems for storing them. Though
-the smart street Sensor project uses Azure Blob Storage, when the data is
-downloaded to the local servers at the university, we can just store them
-in the file system because of their size (2TB approx.) and the hierarchical
-nature. The folder structure of - year/month/day/location/interval/ with
-individual text file, enable us to query the data for any given location at any
 interval nearly instantaneously without any further database operations.
 When this raw data is processed into 5 minute counts, we require more
 relational queries. For this purpose a relational database is sufficient as
@@ -1903,21 +2181,6 @@ to use the data stored within a distributed storage system each focussing
 on specific type of data and analysis. A concise, non-comprehensive list of
 types of data or specialities and corresponding big data tools is shown in
 Table 4.5.
-We can rule out the necessity of the above big data tools since our dataset
-is neither big enough nor fast enough. The dataset does not have any
-
-Figure 4.6: Exponential
-increase in the processing
-time when using traditional
-methods.
-The processing involves parsing
-JSON data received for a single
-day at each location and aggregating them as number of probes
-requests received in every five
-minute intervals.
-
-processing the data into footfall
-
 Tools
 
 Speciality
@@ -1935,6 +2198,26 @@ Storm, Kafka, Flume
 Tinkerpop, Corona
 Oozie, Falcon, Azkaban
 SpringXD, Cask Data
+
+We can rule out the necessity of the above big data tools since our dataset
+is neither big enough nor fast enough. The dataset does not have any
+
+Figure 4.6: Exponential
+increase in the processing
+time when using traditional
+methods.
+The processing involves parsing
+JSON data received for a single
+day at each location and aggregating them as number of probes
+requests received in every five
+minute intervals.
+
+Table 4.5: Various types
+of big data processing
+tools and corresponding
+examples.
+
+processing the data into footfall
 
 specialised structure such as graph or network but just a very minimal
 component of geography to it. Using any of specialised big data tools is
@@ -1955,12 +2238,7 @@ rather than complicate old programs by adding new "features".
 as yet unknown, program. Don’t clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don’t insist on
 interactive input.
 
-51
-
-Table 4.5: Various types
-of big data processing
-tools and corresponding
-examples.
+57
 
 Command-line tools
 can be 235x faster than
@@ -2000,18 +2278,6 @@ processing time with the size of the data. Being modular, we can even
 introduce process level parallelism to parts of the pipeline without any
 major change in the overall design. Finally the modular structure also gives
 us the advantage of using the best tool for any part of the pipeline. All
-
-Figure 4.7: The increase in
-processing time with the
-Unix pipeline is linear thus
-improves the scalability
-compared to R based
-processing
-
-52
-
-estimating footfall from passive wifi signals
-
 of the gives us an extremely minimal and efficient toolkit to process the
 raw Wi-Fi probes data into counts in a scalable way. Figure 4.7 compares
 the processing times of such Unix toolkit with the traditional R based
@@ -2020,6 +2286,18 @@ extremely well and the performance gains are significant as the size of the
 data increases. For example, to process data for 25 locations, R based toolkit
 takes around 20 minutes while the Unix toolkit gets it done in 20 seconds
 (The code used to produce these benchmarks are detailed at Section 7.1.1).
+
+Figure 4.7: The increase in
+processing time with the
+Unix pipeline is linear thus
+improves the scalability
+compared to R based
+processing
+
+58
+
+estimating footfall from passive wifi signals
+
 Table 4.6 shows the activities in our pipeline and corresponding libraries
 in the traditional R workflow along with the equivalent Unix tools. It is
 important to note that tools for doing specialised actions such as statistical
@@ -2112,7 +2390,6 @@ source and free software which has almost no cost in terms of resources.
 Since these tools are part of the POSIX specification 19 for operating systems, the expertise in their design and use are transferable to and from
 other disciplines thus reducing researcher time learning and using these
 tools.
-Visualisation
 
 5281/zenodo.1146014
 
@@ -2132,20 +2409,13 @@ of the processing pipeline
 could be further improved
 with parallelising it.
 
-processing the data into footfall
-
+Visualisation
 In the last section we saw that the visualisation dimension of the data
 shows some level of complexity. The primary source of this complexity
 arises from the longitudinal nature of the data and the noise due to granularity of the data. For the processed dataset, traditional visualisation and
 mapping libraries with R is sufficient while the visualisation of raw data
 across long time periods for either for exploratory analysis or for communication needs some form of interactivity or simplification to be able to legible.
 Data driven documents (D3) 20 and Dimensional charting (DC) provides us
-with both of these requirements. Both of these tools can accept text based
-input and can fit with other Unix tools discussed earlier. In case of binary
-file output such as images or documents, they could be directed to the file
-system and then read into other programs.
-
-53
 
 Michael Bostock, Vadim
 Ogievetsky, and Jeffrey
@@ -2157,6 +2427,15 @@ URL http://vis.stanford.
 20
 
 edu/papers/d3
+
+processing the data into footfall
+
+59
+
+with both of these requirements. Both of these tools can accept text based
+input and can fit with other Unix tools discussed earlier. In case of binary
+file output such as images or documents, they could be directed to the file
+system and then read into other programs.
 
 4.1.4 The Bespoke ‘Medium data toolkit’
 In this chapter we saw how the advent of internet and internet enabled
@@ -2178,20 +2457,14 @@ meaningful big data properties, while volume and velocity was found to be
 ’medium’ at best. The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.
 Thus we arrived at the requirements for a bespoke ‘medium data toolkit’
 which is able to deal with these challenges.
-
-We undertook a brief survey of tools available for collecting, storing,
-processing and visualising the Wi-Fi probe request data and with the understanding of the data from the previous analysis chose the ones which are
-
 Figure 4.9: Outline of
 the ‘Medium data toolkit’
 devised to collect, process,
 visualise and manage the
 Wi-Fi probe requests data
 
-54
-
-estimating footfall from passive wifi signals
-
+We undertook a brief survey of tools available for collecting, storing,
+processing and visualising the Wi-Fi probe request data and with the understanding of the data from the previous analysis chose the ones which are
 perfect for the datasets. For collecting Wi-Fi probes data in a scalable way,
 we chose a general purpose single board computers such as Raspberry-Pi
 along with open source tools such as tcpdump and tshark in a Linux environment. For data storage we narrowed in on using just the file system for
@@ -2200,6 +2473,11 @@ counts. To process the raw data we chose to devise a processing pipeline
 using an assortment of standard Unix command line tools linked together
 using a shell scripting language and parallelised at the process level with
 gnu-parallel. We also demonstrated that this processing pipeline can be 400
+
+60
+
+estimating footfall from passive wifi signals
+
 times faster than the using a monolithic pipeline even with a small sample of locations. For visualisation we chose D3 and DC as the solution for
 communicating time information legibly. Finally we arrive a ‘medium data
 toolkit’, illustrated in Figure 4.9, which is best suited for the Wi-Fi probes
@@ -2231,35 +2509,31 @@ users. In this section, using the set of probe requests and manual counts
 collected at various high street locations across London, we demonstrate
 that pedestrian footfall at these locations can be estimated with considerable
 precision and accuracy while protecting the privacy of the pedestrians.
-Unlike GPS, the location of the Wi-Fi enabled mobile device cannot
-be directly inferred from Wi-Fi, however there are reliable methods to
-triangulate the location of mobile devices from the locations of known
-access points (AP) and the signal strength reported by them [He et al.,
-2003, Moore et al., 2004, LaMarca et al., 2005]. This can overcome the usual
-shortcoming of GPS, which struggles for precision and accuracy in indoor
-and densely built environments [Zarimpas et al., 2006, Kawaguchi, 2009, Xi
-et al., 2010]. Utilising this, we can easily and quickly estimate trajectories of
-the mobile devices [Musa and Eriksson, 2012] which can be used similary
-to the GPS trajectories to understand individual travel patterns [Rekimoto
-et al., 2007, Sapiezynski et al., 2015], crowd behaviour [Abedi et al., 2013,
-Mowafi et al., 2013], vehicular [?] and pedestrian movement [Xu et al., 2013,
-Fukuzaki et al., 2014, Wang et al., 2016]. Such data can also be used in
-transportation planning and management to estimate travel time [Musa and
-Eriksson, 2011] and real time traffic monitoring [Abbott-Jard et al., 2013].
-Using techniques demonstrated by [Franklin et al., 2006] and [?], along with
-information present in the probe requests, one can even model interactions
-between the users [Cheng et al., 2012, Barbera et al., 2013, ?, Cunche et al.,
-2014] such as predicting which of them are most likely to meet again [?].
-Using the semantic information present in these probe requests it even is
-possible to understand the nature of population at a large scale [Di Luzio
+Unlike GPS, the location of the Wi-Fi enabled mobile device cannot be
+directly inferred from Wi-Fi, however there are reliable methods to triangulate the location of mobile devices from the locations of known access
+points (AP) and the signal strength reported by them [He et al., 2003, Moore
+et al., 2004, LaMarca et al., 2005]. This can overcome the usual shortcoming
+of GPS, which struggles for precision and accuracy in indoor and densely
+built environments [?Kawaguchi, 2009, Xi et al., 2010]. Utilising this, we
+can easily and quickly estimate trajectories of the mobile devices [Musa
+and Eriksson, 2012] which can be used similary to the GPS trajectories to
+understand individual travel patterns [Rekimoto et al., 2007, ?], crowd behaviour [Abedi et al., 2013, Mowafi et al., 2013], vehicular [?] and pedestrian
+movement [Xu et al., 2013, Fukuzaki et al., 2014, Wang et al., 2016]. Such
+data can also be used in transportation planning and management to estimate travel time [Musa and Eriksson, 2011] and real time traffic monitoring
+[Abbott-Jard et al., 2013]. Using techniques demonstrated by [Franklin et al.,
+2006] and [?], along with information present in the probe requests, one can
+even model interactions between the users [Cheng et al., 2012, Barbera et al.,
+2013, ?, Cunche et al., 2014] such as predicting which of them are most
+likely to meet again [?]. Using the semantic information present in these
+probe requests it even is possible to understand the nature of population at
+a large scale [Di Luzio et al., 2016] .
 
-55
+61
 
-56
+62
 
 estimating footfall from passive wifi signals
 
-et al., 2016] .
 Although extensive research has been carried out on this subject with
 feasible and favorable results, in recent years, one of the major challenges
 faced in such attempts has been the increasing attempt by mobile phone
@@ -2276,19 +2550,17 @@ proven to produce de-anonymised globally unique device information
 [Vanhoef et al., 2016, Martin et al., 2017]. These approaches usually result
 in serious risk of breach of privacy of the users of the mobile devices by
 revealing their identifiable personal information.
-There is a clear gap in the research for exploring methodologies for
-estimating the number of unique mobile devices from a set of anonymised
-probe requests, without the need to reveal their original device information.
-Such a technique has various applications such as uncovering the urban
-wireless landscape [Rose and Welsh, 2010], revealing human activity at large
-scales [Qin et al., 2013], estimating pedestrian numbers in crowds [Schauer
-et al., 2014, Fukuzaki et al., 2015], and even counting people in hyper local
-scales such as queues [Wang et al., 2013]. With enough infrastructure to
-collect such information we can even aim to generate a real-time census of
-the city [Kontokosta and Johnson, 2017]. With this background, we set out
-to devise and implement a methodology to reliably estimate human activity
-such as pedestrian footfall from Wi-Fi probe requests without risking a
-breach of privacy of the users involved.
+There is a clear gap in the research for exploring methodologies for estimating the number of unique mobile devices from a set of anonymised
+probe requests, without the need to reveal their original device information. Such a technique has various applications such as uncovering the
+urban wireless landscape [?], revealing human activity at large scales [Qin
+et al., 2013], estimating pedestrian numbers in crowds [Schauer et al., 2014,
+Fukuzaki et al., 2015], and even counting people in hyper local scales such
+as queues [?]. With enough infrastructure to collect such information we
+can even aim to generate a real-time census of the city [Kontokosta and
+Johnson, 2017]. With this background, we set out to devise and implement a
+methodology to reliably estimate human activity such as pedestrian footfall
+from Wi-Fi probe requests without risking a breach of privacy of the users
+involved.
 Methodology
 The primary aim of this research was to enable us to collect a series of
 probe requests and process them into a usable pedestrian footfall count.
@@ -2306,10 +2578,10 @@ for available APs and quick geolocation by triangulation based known
 APs, etc. These are broadcast by all Wi-Fi enabled devices regardless of
 the manufacturer, type or model of the devices, although there is some
 variation in the frequency and the content of the information transmitted
+through them. In some cases, such as Android devices, these are broadcast
 
 processing the data into footfall
 
-through them. In some cases, such as Android devices, these are broadcast
 even when the Wi-Fi functionality has been turned off by the user so that
 the device can immediately connect to networks when the functionality is
 switched back on. Since some devices even use the probe requests as a less
@@ -2351,14 +2623,14 @@ device with Wi-Fi and 3G modules. It keeps the Wi-Fi module in ‘Monitor
 mode’ and uses the open source software - Wireshark [Combs and Contributors, 2018] to passively collect all packets sent to ‘broadcast’, marked with
 type as ‘management’, and subtype ‘probe requests’. The MAC address in
 these probe requests is obfuscated at the device level using a cryptographic
+hashing algorithm and transmitted through 3G connection to a central
 
-57
+63
 
-58
+64
 
 estimating footfall from passive wifi signals
 
-hashing algorithm and transmitted through 3G connection to a central
 database via web-sockets protocol, where it is stored in a PostgreSQL
 database for further analysis. The random salt used in the hashing algorithm was rotated regularly to further mitigate the risk of de-anonymisation
 of the hash. Though hashing cannot completely ensure anonymisation
@@ -2402,10 +2674,10 @@ Filtering with Signal Strength
 One of the clues that we can use to estimate the distance between the
 mobile device and the sensor is the strength of the signal received by the
 sensor. The obvious approach was to first try and establish a relationship
+between the signal strength and distance and to use this to filter out the
 
 processing the data into footfall
 
-between the signal strength and distance and to use this to filter out the
 unwanted probe requests. However this approach was found to not be
 feasible, since the decay of signal strength with respect to distance is not
 always constant. For instance, signal strength varies with atmospheric
@@ -2446,14 +2718,14 @@ a unique identifier to each device.
 The proposed algorithm created a graph where the probe requests represented the nodes; links were created between them based on the following
 rules:
 • A link could go only forward in time.
+• A link could go from low to high sequence numbers.
 
-59
+65
 
-60
+66
 
 estimating footfall from passive wifi signals
 
-• A link could go from low to high sequence numbers.
 • A link could exist between nodes with a maximum time difference of α time threshold.
 • A link could exist between nodes with a maximum sequence number
 difference of β - sequence threshold.
@@ -2512,6 +2784,7 @@ was collected at Oxford Street, London on 20 December 2017 from 12:30 to
 13:00 hrs, Wi-Fi probe requests were collected using the sensor described
 in Section ?? and pedestrian footfall was manually recorded using the
 Android app - Clicker [Soundararaj, 2018]. Being located at one of the
+busiest retail locations in the United Kingdom, the Wi-Fi sensor captured
 
 Table 4.7: Comparison of
 clustering algorithms with
@@ -2520,7 +2793,6 @@ requests
 
 processing the data into footfall
 
-busiest retail locations in the United Kingdom, the Wi-Fi sensor captured
 approximately 60,000 probe requests during the half hour period; 3,722
 people were manually recorded walking on the pavement during that
 time. The surveyor positioned himself at the front of a store while carrying
@@ -2565,14 +2837,14 @@ the surveyor’s device was being actively used to count pedestrians and it’s
 Wi-Fi module was kept active without establishing connection to any network, the device was known to be continuously probing for new networks.
 We also knew that the OUI of the device was ’Google’ and the device was
 regularly randomising it’s MAC address, thus providing us an excellent
+reference with which we could optimise the parameters for our clustering
 
-61
+67
 
-62
+68
 
 estimating footfall from passive wifi signals
 
-reference with which we could optimise the parameters for our clustering
 algorithm. We then, by increasing the thresholds in steps of 1, found the
 minimum possible threshold for time and sequence numbers at which the
 algorithm clusters the reference device properly without over clustering the
@@ -2617,6 +2889,7 @@ purposes of comparing with ground truth, we considered the data from
 sensors which correspond to the 12 sets of available manual counts. The
 schedule of data collection is shown in Figure ??.
 We begin by looking at the distribution of the signal strength reported
+by the probe requests across the locations. From the density plot shown in
 
 processing the data into footfall
 
@@ -2696,7 +2969,6 @@ Footfall
 
 1969 (21)
 
-by the probe requests across the locations. From the density plot shown in
 Figure ??, we can observe that there is clear relation between the distribution of the signal strength and the distance and complexity of the source of
 noise. We can see that while location 5 shows clean difference between low
 and high signal strengths, location 2 is almost normally distributed. Intuitively we expected that location 2 and 4 would be harder to classify than
@@ -2721,8 +2993,9 @@ surroundings.
 We then ran the sequence numbers based clustering process on the rest
 of the probe requests to reduce the MAPE by almost 50 - 100% on all the
 sensors except for location 3. Location 3 is an outlier among all the other
+sensors since it is the only one with large amount of pedestrians very close
 
-63
+69
 
 Table 4.8: Locations where
 sensors were installes,
@@ -2735,11 +3008,10 @@ around 1.8 GB on disk
 when encoded in text
 format.
 
-64
+70
 
 estimating footfall from passive wifi signals
 
-sensors since it is the only one with large amount of pedestrians very close
 to the sensor. This may be the reason behind the over filtering observed
 in the previous process. We finally ran the calibration process where we
 calculated the adjustment factors from the ratio between the manual counts
@@ -2841,6 +3113,7 @@ conceptual and technical terms, it illustrates the ways in which passively
 collected consumer data can be ‘hardened’ to render them robust and
 reliable by using related procedures of internal and external validation.
 Internal validation addresses the issues of screening out device probes
+that do not indicate footfall, and the further screening of device probes to
 
 Table 4.9: Results of footfall
 estimation at each location
@@ -2850,7 +3123,6 @@ process
 
 processing the data into footfall
 
-that do not indicate footfall, and the further screening of device probes to
 ‘fingerprint’ the effects of MAC randomization. It is important to note that
 the filtering process work based solely on the information present in the
 probe requests and their temporal distribution. This ensures that although
@@ -2895,7 +3167,7 @@ future research may not only simulate linkage of harmonised footfall counts
 between sensor locations, but also link these in turn to disaggregate origindestination matrices for bikeshare and other public transport modes. Our
 own investigations will consider these and other challenges to understanding the functioning of the sentient city.
 
-65
+71
 
 5
 Visualisations and Applications
@@ -3004,7 +3276,7 @@ type <- append(type, record$PacketType);
 
 vendor <- append(vendor, record$VendorMacPart);
 
-72
+78
 
 estimating footfall from passive wifi signals
 
@@ -3193,7 +3465,7 @@ echo "$sensors" \
 7.1.2 Wi-Fi Sensor
 7.1.3 Data Processing Pipeline
 
-73
+79
 
 Bibliography
 Command-line tools can be 235x faster than your hadoop cluster, Jan 2014.
@@ -3203,10 +3475,18 @@ Transport Research Forum (ATRF), 36th, 2013, Brisbane, Queensland, Australia,
 page 14, 2013.
 Naeim Abedi, Ashish Bhaskar, and Edward Chung. Bluetooth and WiFi mac address based crowd data collection and monitoring: benefits,
 challenges and enhancement. 2013.
+Daniel Arribas-Bel. Accidental, open and everywhere: Emerging data
+sources for the understanding of cities. Applied Geography, 49:45–53, 2014.
+ISSN 01436228. doi: 10.1016/j.apgeog.2013.09.012.
 Marco V Barbera, Alessandro Epasto, Alessandro Mei, Vasile C Perta, and
 Julinda Stefa. Signals from the crowd: uncovering social relationships
 through smartphone probes. In Proceedings of the 2013 conference on Internet
 measurement conference, pages 265–276. ACM, 2013. ISBN 145031953X.
+Budhendra Bhaduri, Edward Bright, Phillip Coleman, and Jerome Dobson.
+Landscan. Geoinformatics, 5(2):34–37, 2002.
+Budhendra Bhaduri, Edward Bright, Phillip Coleman, and Marie L. Urban.
+Landscan usa: A high-resolution geospatial and temporal modeling approach for population distribution and dynamics. In GeoJournal, volume 69,
+pages 103–117. Springer, 2007. ISBN 0165-0009. doi: 10.1007/s10708-0079105-9.
 Bastian Bloessl, Christoph Sommer, Falko Dressier, and David Eckhoff.
 The scrambler attack: A robust physical layer attack on location privacy in
 vehicular networks. In Computing, Networking and Communications (ICNC),
@@ -3214,8 +3494,19 @@ vehicular networks. In Computing, Networking and Communications (ICNC),
 Michael Bostock, Vadim Ogievetsky, and Jeffrey Heer. D3: Data-driven
 documents. IEEE Trans. Visualization & Comp. Graphics (Proc. InfoVis), 2011.
 URL http://vis.stanford.edu/papers/d3.
+Francesco Calabrese, Francisco C Pereira, Giusy Di Lorenzo, Liang Liu,
+and Carlo Ratti. The geography of taste: analyzing cell-phone mobility and
+social events. In International Conference on Pervasive Computing, pages 22–37.
+Springer, 2010.
+
+82
+
+estimating footfall from passive wifi signals
+
 CDRC. Smart street sensor project. goo.gl/E4tR8o, 2016. [Online; accessed
 31-January-2018].
+K Chen. An approach to linking remotely sensed data and areal census data.
+International Journal of Remote Sensing, 23(1):37–48, 2002. ISSN 0143-1161.
 Linsong Cheng and Jiliang Wang. How can i guard my ap?: non-intrusive
 user identification for mobile devices using wifi signals. In Proceedings
 of the 17th ACM International Symposium on Mobile Ad Hoc Networking and
@@ -3226,20 +3517,37 @@ relationship from hidden information in wlans. In Military Communications
 Conference, 2012-MILCOM 2012, pages 1–6. IEEE, 2012. ISBN 1467317314.
 Gerald Combs and Contributors. Wireshark - network protocol analyzer.
 https://www.wireshark.org/about.html, 2018.
-
-76
-
-estimating footfall from passive wifi signals
-
+Tomas Crols and Nick Malleson. Quantifying the ambient population
+using hourly population footfall data and an agent-based model of daily
+mobility. Geoinformatica, pages 1–20, 2019.
 Mathieu Cunche, Mohamed-Ali Kaafar, and Roksana Boreli. Linking
 wireless devices using information contained in wi-fi probe requests.
 Pervasive and Mobile Computing, 11:56–69, 2014. ISSN 1574-1192.
 Levent Demir, Mathieu Cunche, and Cédric Lauradoux. Analysing the
 privacy policies of Wi-Fi trackers. In Proceedings of the 2014 workshop on
 physical analytics, pages 39–44. ACM, 2014.
+Pierre Deville, Catherine Linard, Samuel Martin, Marius Gilbert, Forrest R
+Stevens, Andrea E Gaughan, Vincent D Blondel, and Andrew J Tatem.
+Dynamic population mapping using mobile phone data. Proceedings of the
+National Academy of Sciences, 111(45):15888–15893, 2014. ISSN 0027-8424.
+doi: 10.1073/pnas.1408439111. URL http://www.pnas.org/lookup/doi/10.
+1073/pnas.1408439111.
 Adriano Di Luzio, Alessandro Mei, and Julinda Stefa. Mind your probes:
 De-anonymization of large crowds through smartphone wifi probe requests. In Proceedings - IEEE INFOCOM, volume 2016-July, 2016. ISBN
 9781467399531. doi: 10.1109/INFOCOM.2016.7524459.
+Jerome E Dobson, Edward A Bright, Phillip R Coleman, Richard C Durfee,
+and Brian A Worley. Landscan: a global population database for estimating
+populations at risk. Photogrammetric engineering and remote sensing, 66(7):
+849–857, 2000. ISSN 0099-1112.
+Jerome E Dobson, Eddie A Bright, Phil R Coleman, and Budhendra L
+Bhaduri. Landscan2000: A new global population geography. Technical
+report, 2003.
+Katayoun Farrahi and Daniel Gatica-Perez. Probabilistic mining of sociogeographic routines from mobile phone data. IEEE Journal of Selected Topics
+in Signal Processing, 4(4):746–755, 2010.
+
+bibliography
+
+Donald L Foley. Urban daytime population: a field for demographicecological analysis. Social Forces, pages 323–330, 1954. ISSN 0037-7732.
 Jason Franklin, Damon McCoy, Parisa Tabriz, Vicentiu Neagoe, Jamie V
 Randwyk, and Douglas Sicker. Passive data link layer 802.11 wireless device
 driver fingerprinting. In USENIX Security Symposium, volume 3, pages
@@ -3262,6 +3570,10 @@ italy. Data, 4(1):8, 2019.
 Sanjay Ghemawat, Howard Gobioff, and Shun-Tak Leung. The google file
 system. In Proceedings of the 19th ACM Symposium on Operating Systems
 Principles, pages 20–43, Bolton Landing, NY, 2003.
+Fabien Girardin, Andrea Vaccari, Alexandre Gerber, Assaf Biderman,
+and Carlo Ratti. Towards estimating the presence of visitors from the
+aggregate mobile phone network activity they generate. In Intl. Conference
+on Computers in Urban Planning and Urban Management, 2009.
 Theo Haerder and Andreas Reuter. Principles of transaction-oriented
 database recovery. ACM Comput. Surv., 15(4):287–317, December 1983. ISSN
 0360-0300. doi: 10.1145/289.291. URL http://doi.acm.org/10.1145/289.
@@ -3270,12 +3582,16 @@ Tian He, Chengdu Huang, Brian M Blum, John A Stankovic, and Tarek
 Abdelzaher. Range-free localization schemes for large scale sensor networks.
 In Proceedings of the 9th annual international conference on Mobile computing
 and networking, pages 81–95. ACM, 2003. ISBN 1581137532.
-
-bibliography
-
 Alison J Heppenstall, Andrew T Crooks, Linda M See, and Michael Batty.
 Agent-based models of geographical systems. Springer Science & Business
 Media, 2011.
+
+83
+
+84
+
+estimating footfall from passive wifi signals
+
 Hande Hong, Girisha Durrel De Silva, and Mun Choon Chan. Crowdprobe:
 Non-invasive crowd monitoring with Wi-Fi probe. Proceedings of the ACM
 on Interactive, Mobile, Wearable and Ubiquitous Technologies, 2(3):115, 2018.
@@ -3287,6 +3603,11 @@ control (MAC) and physical layer (PHY) specifications. IEEE Std 802.112016 (Revi
 HV Jagadish, Johannes Gehrke, Alexandros Labrinidis, Yannis Papakonstantinou, Jignesh M Patel, Raghu Ramakrishnan, and Cyrus Shahabi. Big
 data and its technical challenges. Communications of the ACM, 57(7):86–94,
 2014.
+Shan Jiang, Gaston A Fiore, Yingxiang Yang, Joseph Ferreira Jr, Emilio
+Frazzoli, and Marta C González. A review of urban computing for mobile
+phone traces: current methods, challenges and opportunities. In Proceedings
+of the 2nd ACM SIGKDD international workshop on Urban Computing, page 2.
+ACM, 2013. ISBN 1450323316.
 Nobuo Kawaguchi. Wifi location information system for both indoors and
 outdoors. In International Work-Conference on Artificial Neural Networks, pages
 638–645. Springer, 2009.
@@ -3306,19 +3627,20 @@ In International Conference on Pervasive Computing, pages 116–133. Springer,
 2005. ISBN 3540260080.
 Doug Laney. 3d data management: Controlling data volume, velocity and
 variety. META group research note, 6(70):1, 2001.
+Guy Lansley and Paul A Longley. The geography of twitter topics in london.
+Computers, Environment and Urban Systems, 58:85–96, 2016. ISSN 0198-9715.
 Songnian Li, Suzana Dragicevic, Francesc Antón Castro, Monika Sester,
 Stephan Winter, Arzu Coltekin, Christopher Pettit, Bin Jiang, James Haworth, Alfred Stein, et al. Geospatial big data handling theory and methods:
+
+bibliography
+
 A review and research challenges. ISPRS journal of Photogrammetry and
 Remote Sensing, 115:119–133, 2016.
+Alyson Lloyd and James Cheshire. Detecting address uncertainty in
+loyalty card data. Applied Spatial Analysis and Policy, Jan 2018. ISSN 18744621. doi: 10.1007/s12061-018-9250-1. URL https://doi.org/10.1007/
+s12061-018-9250-1.
 Paul Longley, James Cheshire, and Alex Singleton. Consumer Data Research.
 UCL Press, 2018.
-
-77
-
-78
-
-estimating footfall from passive wifi signals
-
 Karlo Lugomer, Balamurugan Soundararaj, Roberto Murcio, James
 Cheshire, and Paul Longley. Understanding sources of measurement
 error in the wi-fi sensor data in the smart city. In Proceedings of GISRUK
@@ -3333,6 +3655,11 @@ arXiv:1703.02874, 2017.
 Bryan H Massam. Location and space in social administration. E. Arnold, 1975.
 Malcolm D McIlroy, Elliot N Pinson, and Berkley A Tague. Unix timesharing system: Foreword. Bell System Technical Journal, 57(6):1899–1904,
 1978.
+Jeremy Mennis. Generating surface models of population using dasymetric
+mapping. The Professional Geographer, 55(1):31–42, 2003. ISSN 0033-0124.
+Jeremy Mennis and Torrin Hultgren. Intelligent dasymetric mapping and
+its application to areal interpolation. Cartography and Geographic Information
+Science, 33(3):179–194, 2006. ISSN 1523-0406.
 David Moore, John Leonard, Daniela Rus, and Seth Teller. Robust distributed network localization with noisy range measurements. In Proceedings
 of the 2nd international conference on Embedded networked sensor systems,
 pages 50–61. ACM, 2004. ISBN 1581138792.
@@ -3343,6 +3670,13 @@ A. B. M. Musa and Jakob Eriksson. Tracking unmodified smartphones
 using wi-fi monitors. Proceedings of the 10th ACM Conference on Embedded Networked Sensor Systems (SenSys ’12), pages 281–294, 2012. doi:
 10.1145/2426656.2426685. URL http://dl.acm.org/citation.cfm?doid=
 2426656.2426685.
+
+85
+
+86
+
+estimating footfall from passive wifi signals
+
 ABM Musa and Jakob Eriksson. Wiflow: real time travel time estimation
 using Wi-Fi monitors. In Proceedings of the 9th ACM Conference on Embedded
 Networked Sensor Systems, pages 429–430. ACM, 2011.
@@ -3350,30 +3684,62 @@ Taewoo Nam and Theresa A Pardo. Conceptualizing smart city with
 dimensions of technology, people, and institutions. In Proceedings of the 12th
 annual international digital government research conference: digital government
 innovation in challenging times, pages 282–291. ACM, 2011.
+S. Ordonez and A. Erath. Estimating dynamic workplace capacities using
+public transport smart card data and a household travel survey. Proceedings
+of the 17th International Conference of Hong Kong Society for Transportation
+Studies, HKSTS 2012: Transportation and Logistics Management, pages 505–
+512, 2012. ISSN 0361-1981. doi: 10.3141/2344-03. URL http://www.
+scopus.com/inward/record.url?eid=2-s2.0-84896879480{&}partnerID=
+tZOtx3y1.
+
+Santi Phithakkitnukoon, Teerayut Horanont, Giusy Di Lorenzo, Ryosuke
+Shibasaki, and Carlo Ratti. Activity-aware map: Identifying human daily
+activity pattern using mobile phone data. In International Workshop on
+Human Behavior Understanding, pages 14–25. Springer, 2010.
+R Pulselli, P Ramono, Carlo Ratti, and E Tiezzi. Computing urban mobile
+landscapes through monitoring population density based on cellphone
+chatting. Int. J. of Design and Nature and Ecodynamics, 3(2):121–134, 2008.
 Weijun Qin, Jiadi Zhang, Bo Li, and Limin Sun. Discovering human
 presence activities with smartphones using nonintrusive wi-fi sniffer
 sensors: The big data prospective. International Journal of Distributed Sensor
 Networks, 2013, 2013. ISSN 15501477. doi: 10.1155/2013/927940.
+John N K Rao and Isabel Molina. Small area estimation. John Wiley & Sons,
+2015. ISBN 1118735722.
+Carlo Ratti, Dennis Frenchman, Riccardo Maria Pulselli, and Sarah
+Williams. Mobile landscapes: Using location data from cell phones for
+urban analysis. Environment and Planning B: Planning and Design, 33(5):
+727–748, 2006. ISSN 02658135. doi: 10.1068/b32047.
+Michael Reibel and Michael E Bufalino. Street-weighted interpolation techniques for demographic count estimation in incompatible zone systems.
+Environment and Planning A, 37(1):127–139, 2005. ISSN 0308-518X.
 Jun Rekimoto, Takashi Miyaki, and Takaaki Ishizawa. Lifetag: Wifi-based
 continuous location logging for life pattern analysis. In LoCA, volume 2007,
 pages 35–49, 2007.
-
-bibliography
-
 Ian Rose and Matt Welsh. Mapping the urban wireless landscape with
 argos. In Proceedings of the 8th ACM Conference on Embedded Networked Sensor
 Systems, pages 323–336. ACM, 2010. ISBN 1450303447.
-Piotr Sapiezynski, Arkadiusz Stopczynski, Radu Gatej, and Sune Lehmann.
-Tracking human mobility using wifi signals. PloS one, 10(7):e0130824, 2015.
 Lorenz Schauer, Martin Werner, and Philipp Marcus. Estimating
 crowd densities and pedestrian flows using wi-fi and bluetooth. Proceedings of the 11th International Conference on Mobile and Ubiquitous Systems: Computing, Networking and Services, pages 171–177, 2014. doi:
+
+bibliography
+
 10.4108/icst.mobiquitous.2014.257870. URL http://eudl.eu/doi/10.
 4108/icst.mobiquitous.2014.257870.
+Robert C Schmitt. Estimating daytime populations. Journal of the American
+Institute of Planners, 22(2):83–85, 1956. ISSN 0002-8991.
+Kyosuke Shibata and Hiroshi Yamamoto. People crowd density estimation
+system using deep learning for radio wave sensing of cellular communication. In 2019 International Conference on Artificial Intelligence in Information and
+Communication (ICAIIC), pages 143–148. IEEE, 2019.
 Balamurugan Soundararaj. Clicker - an Android app for counting pedestrian footfalls with accuracy. https://play.google.com/store/apps/
 details?id=com.bala.manualcount, 2018.
+John Steenbruggen, Maria Teresa Borzacchiello, Peter Nijkamp, and Henk
+Scholten. Mobile phone data from gsm networks for traffic parameter and
+urban spatial pattern assessment: a review of applications and opportunities. GeoJournal, 78(2):223–243, 2013. ISSN 0343-2521.
 Shan Suthaharan. Big data classification: Problems and challenges in
 network intrusion prediction with machine learning. ACM SIGMETRICS
 Performance Evaluation Review, 41(4):70–73, 2014.
+Paul Sutton. Modeling population density with night-time satellite imagery
+and gis. Computers, Environment and Urban Systems, 21(3):227–244, 1997.
+ISSN 0198-9715.
 Ole Tange. GNU Parallel 2018. Ole Tange, March 2018. ISBN 9781387509881.
 doi: 10.5281/zenodo.1146014. URL https://doi.org/10.5281/zenodo.
 1146014.
@@ -3392,18 +3758,19 @@ W. Wang, A.X. Liu, and M. Shahzad. Gait recognition using wifi signals.
 In UbiComp 2016 - Proceedings of the 2016 ACM International Joint Conference
 on Pervasive and Ubiquitous Computing, 2016. ISBN 9781450344616. doi:
 10.1145/2971648.2971670.
+
+87
+
+88
+
+estimating footfall from passive wifi signals
+
 Yan Wang, Jie Yang, Hongbo Liu, and Yingying Chen. Measuring human
 queues using wifi signals. In Proceedings of the 19th annual international
 conference on Mobile computing & networking, pages 235–237, 2013. ISBN
 9781450319997. doi: 10.1145/2500423.2504584. URL http://dl.acm.org/
 citation.cfm?doid=2500423.2504584{%}5Cnhttp://dl.acm.org/citation.
 cfm?id=2504584.
-
-79
-
-80
-
-estimating footfall from passive wifi signals
 
 Wei Xi, Yuan He, Yunhao Liu, Jizhong Zhao, Lufeng Mo, Zheng Yang,
 Jiliang Wang, and Xiangyang Li. Locating sensors in the wild: pursuit
@@ -3413,9 +3780,13 @@ Zhuliang Xu, Kumbesan Sandrasegaran, Xiaoying Kong, Xinning Zhu,
 Jingbin Zhao, Bin Hu, and Cheng-Chung Lin. Pedestrain monitoring system
 using Wi-Fi technology and rssi based localization. International Journal of
 Wireless & Mobile Networks, 5(4):17, 2013.
-Vasileios Zarimpas, Bahram Honary, and Mike Darnell. Indoor 802.1 x
-based location determination and realtime tracking. In The IET International
-Conference on Wireless, Mobile and Multimedia Networks (ICWMMN 2006),
-Hang Zhou, China. IET, 2006.
+Yew Yuan, Richard M Smith, and W Fredrick Limp. Remodeling census
+population with spatial information from landsat tm imagery. Computers,
+Environment and Urban Systems, 21(3):245–258, 1997. ISSN 0198-9715.
+Yihong Yuan and Martin Raubal. Analyzing the distribution of human
+activity space from mobile phone usage: an individual and urban-oriented
+study. International Journal of Geographical Information Science, 30(8):1594–
+1621, 2016. ISSN 1365-8816. doi: 10.1080/13658816.2016.1143555. URL
+http://www.tandfonline.com/doi/full/10.1080/13658816.2016.1143555.
 
 
