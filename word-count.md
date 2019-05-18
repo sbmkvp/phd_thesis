@@ -1,9 +1,9 @@
 Lines|Words|Characters|File
 ---|---|---|---
-124|751|7184|chapters/00_front.tex
+124|753|7178|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
 49|845|5880|chapters/20_literature.tex
-132|2002|15009|chapters/21__research_themes.tex
+149|2066|16045|chapters/21__research_themes.tex
 187|3396|22858|chapters/22__technologies.tex
 25|421|2849|chapters/23__research_gaps.tex
 20|59|554|chapters/30_data_collection.tex
@@ -13,10 +13,10 @@ Lines|Words|Characters|File
 31|584|3728|chapters/34__smart_street_sensor.tex
 18|405|2501|chapters/35__discussion.tex
 12|12|231|chapters/40_data_processing.tex
-640|8153|56019|chapters/41__data_toolkit.tex
+644|8156|56030|chapters/41__data_toolkit.tex
 417|6020|40068|chapters/42__mac_randomisation.tex
 0|0|0|chapters/43__cleaning_and_aggregation.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-1818|24249|167510|total
+1839|24318|168551|total

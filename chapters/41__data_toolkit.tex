@@ -60,7 +60,7 @@ Since not all data is 'Big' in all these dimensions, we need to evaluate the `bi
 
 The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation, modelling, analysis, visualisation and interpretation.
 Challenges in each one of these processing activity arises due to the data being big in one or more dimensions.
-The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite[-0.5cm]{li2016geospatial}. 
+The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite{li2016geospatial}. 
 These challenges make traditional methods impractical and introduce the need for distributed, crowdsourced collection of data, heavily parallelised computing and application of functional programming concepts.
 The unstructured nature of the big data also introduces notable biases which mandate careful consideration, proper calibration and weighting during analysis so that we can understand and remove any uncertainties arising from them.
 The data being big in veracity dimension poses significant challenges in its analysis and modelling.
@@ -155,6 +155,7 @@ Summarising from the above, we can confidently say that the probe request datase
 Though it has potential to scale into a truly big dataset, for the purposes of this research we can classify it as `Medium data' in the volume dimension.
 
 \begin{marginfigure}
+  \forcerectofloat
   \includegraphics{images/data-size-comparison.png}
   \caption{Comparison of volumes of datasets across various disciplines.}
   \label{figure:toolkit:volume}
@@ -236,7 +237,7 @@ Similar to variety, veracity is hard to quantify hence required a subjective eva
 Being sensor collected data, veracity is the dimension where the data exhibits most `big data' properties.
 
 
-\begin{marginfigure}[-4.5cm]
+\begin{marginfigure}
   \includegraphics{images/data-veracity-gaps.png}
   \caption{Missing data from five locations at Tottenham Court Road, London on 15 January 2018 demonstrating the veracity of the data.}
   \label{figure:toolkit:veracity:gaps}
@@ -269,6 +270,12 @@ Summarising from the above, we can confidently conclude that Wi-Fi probe request
 
 \vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
+\begin{figure*}
+  \includegraphics{images/data-visualisation-challenge.png}
+  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.}
+  \label{figure:toolkit:visualisation}
+\end{figure*}
+
 Visualisation is closely related to volume, velocity and variety of the data.
 The Wi-Fi data due to its non-trivial volume and velocity, exhibits similar characteristics and challenges in terms of visualisation.
 Since there is not much variety in the dataset, when we process the raw data into footfall counts we are left with just the time, location and footfall count for each data point.
@@ -282,12 +289,6 @@ There is also need for multiple linked dynamic visualisation platform for separa
 Figure \ref{figure:toolkit:visualisation} demonstrates the illegibility of simple visualisations of the data due to granularity, variability and veracity.
 We can safely say that the Wi-Fi probe requests dataset is at best `Medium' in the visualisation dimension.
 
-\begin{figure*}
-  \includegraphics{images/data-visualisation-challenge.png}
-  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.}
-  \label{figure:toolkit:visualisation}
-\end{figure*}
-
 Summarising the above discussion, we can conclude that the datasets collected from Wi-Fi probe requests are at best of 'medium'.
 They show the most big data characteristics in terms of their veracity.
 In rest of the dimensions the datasets are not truly big data and we need to look at tools and methods appropriate to their size.
@@ -295,7 +296,7 @@ The toolkit we devise need to be able to deal with their mid-size volume, veloci
 Figure \ref{figure:toolkit:spider} illustrates the summary our discussion.
 This leads us to devise a `medium data toolkit' which can be used without incurring the extra cost and complexity introduced by big data tools while be able to handle the data at hand.
 
-\begin{marginfigure}[4cm]
+\begin{marginfigure}
   \includegraphics[trim={2.1cm 0 0 0},clip]{images/data-toolkit-spider.png}
   \caption{Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions}
   \label{figure:toolkit:spider}
@@ -328,13 +329,6 @@ We then discuss the principles of UNIX philosophy and how it helps in solving si
 We discussed various technologies used in collecting passive data on ambient population and pedestrian movement in the literature search.
 In this section we look at tools and methods used to collect Wi-Fi based data passively.
 The primary considerations for evaluating data collection strategy are the scale of the infrastructure, expertise and effort required to implement it and cost involved.
-
-\begin{marginfigure}
-  \includegraphics[trim={0.2cm 0 0 0},clip]{images/data-toolkit-collection.png}
-  \caption{Characteristics of types of Wi-Fi data collection tools at each end of the spectrum compared to an ideal candidate  }
-  \label{figure:toolkit:collection}
-\end{marginfigure}
-\marginnote[0.1cm]{\textit{(Darker colors show higher score)}}
 
 There have been numerous sensors, tools and associated software platforms made available for data collection under the umbrella of `internet of things'.
 We start by looking at different approaches in the Wi-Fi data collection tools and try to reason the most appropriate solution for our research.
@@ -369,6 +363,13 @@ These platforms for footfall data collection and analysis have the advantage of 
 A middle ground here is to use a general purpose hardware such as single board computers or repurposed mobile devices, augment them with additional hardware modules and use general purpose scripting languages to write software for them.
 This way we avoid low level hardware or software design and implementation while maintaining good amount of flexibility.
 Table \ref{table:toolkit:collection} shows some examples of such systems while highlighting an ideal system.
+
+\begin{marginfigure}
+  \includegraphics[trim={0.2cm 0 0 0},clip]{images/data-toolkit-collection.png}
+  \caption{Characteristics of types of Wi-Fi data collection tools at each end of the spectrum compared to an ideal candidate  }
+  \label{figure:toolkit:collection}
+\end{marginfigure}
+\marginnote[0.1cm]{\textit{(Darker colors show higher score)}}
 
 The Smart Street Sensor project uses its own proprietary sensor system designed and instrumented by the data partner.
 The design and implementation decisions were made with the commercial application in mind and is not entirely relevant to our discussion in the context of our research.
@@ -525,7 +526,7 @@ The command line tools were developed as parts of Unix operating system for proc
 They are developed in line with the Unix philosophy which focuses on modular and minimal software development. 
 The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite{mcilroy1978unix},
 
-\begin{enumerate}
+\begin{enumerate}[rightmargin=1cm]
   \setlength{\itemindent}{2em}
   \itemsep-0.25em
 	\item Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features".
@@ -534,7 +535,8 @@ The core tenants of the Unix philosophy has been summarised by Doug McIlroy as b
 	\item Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.
 \end{enumerate}
 
-\begin{marginfigure}[5cm]
+\begin{marginfigure}
+  \forcerectofloat
   \includegraphics[trim={0 0 0 0},clip]{images/processing-times-r.png}
   \caption{The increase in processing time with the Unix pipeline is linear thus improves the scalability compared to R based processing}
   \label{figure:toolkit:time:new}
@@ -547,14 +549,6 @@ These tools being actively developed for since their invention are compiled as n
 Because of the design of the pipe operator, the individual parts of the pipeline are executed in parallel as chunks of data are passed through them thus avoiding the need to load entire datasets into memory which results in an exponential increase processing time with the size of the data.
 Being modular, we can even introduce process level parallelism to parts of the pipeline without any major change in the overall design.
 Finally the modular structure also gives us the advantage of using the best tool for any part of the pipeline.
-All of the gives us an extremely minimal and efficient toolkit to process the raw Wi-Fi probes data into counts in a scalable way.
-Figure \ref{figure:toolkit:time:new} compares the processing times of such Unix toolkit with the traditional R based toolkit as the data size increases.
-We can see that Unix toolkit performs extremely well and the performance gains are significant as the size of the data increases.
-For example, to process data for 25 locations, R based toolkit takes around 20 minutes while the Unix toolkit gets it done in 20 seconds 
-(The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
-Table \ref{table:toolkit:tools} shows the activities in our pipeline and corresponding libraries in the traditional R workflow along with the equivalent Unix tools.
-It is important to note that tools for doing specialised actions such as statistical analysis, machine learning and time-series analysis are built on top of scripting languages such as R and Python.
-These can be embedded into our Unix pipeline as scripts running in corresponding front-ends such as Rscript or python.
 
 \begin{table}[h]
   \footnotesize
@@ -584,18 +578,28 @@ These can be embedded into our Unix pipeline as scripts running in corresponding
   \label{table:toolkit:tools}
 \end{table}
 
-This toolkit can be further accelerated by parallelising parts of the pipeline using gnu-parallel \cite[-7cm]{tange2018parallel}.
-For example, the previous example pipeline can be parallelised by spawning a pipeline for each location this reduces the processing time for a set of 25 locations from 18 seconds to 3 seconds.
-This done by utilising every processor cores available in the CPU.
-Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation (The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
-Finally all the Unix tools discussed in this toolkit are open source and free software which has almost no cost in terms of resources.
-Since these tools are part of the POSIX specification \cite[-7.5cm]{walli1995posix} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
-
-\begin{marginfigure}[-4cm]
+\begin{marginfigure}[2cm]
   \includegraphics[trim={0 0 0 0},clip]{images/processing-times-parallel.png}
   \caption{The scalability of the processing pipeline could be further improved with parallelising it.}
   \label{figure:toolkit:time:parallel}
 \end{marginfigure}
+
+All of the gives us an extremely minimal and efficient toolkit to process the raw Wi-Fi probes data into counts in a scalable way.
+Figure \ref{figure:toolkit:time:new} compares the processing times of such Unix toolkit with the traditional R based toolkit as the data size increases.
+We can see that Unix toolkit performs extremely well and the performance gains are significant as the size of the data increases.
+For example, to process data for 25 locations, R based toolkit takes around 20 minutes while the Unix toolkit gets it done in 20 seconds 
+(The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
+Table \ref{table:toolkit:tools} shows the activities in our pipeline and corresponding libraries in the traditional R workflow along with the equivalent Unix tools.
+It is important to note that tools for doing specialised actions such as statistical analysis, machine learning and time-series analysis are built on top of scripting languages such as R and Python.
+
+These can be embedded into our Unix pipeline as scripts running in corresponding front-ends such as Rscript or python.
+This toolkit can be further accelerated by parallelising parts of the pipeline using gnu-parallel \cite{tange2018parallel}.
+For example, the previous example pipeline can be parallelised by spawning a pipeline for each location this reduces the processing time for a set of 25 locations from 18 seconds to 3 seconds.
+This done by utilising every processor cores available in the CPU.
+Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation (The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
+Finally all the Unix tools discussed in this toolkit are open source and free software which has almost no cost in terms of resources.
+Since these tools are part of the POSIX specification \cite{walli1995posix} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
+
 
 %------------------------------------------------------------------------------%
 
@@ -604,7 +608,7 @@ Since these tools are part of the POSIX specification \cite[-7.5cm]{walli1995pos
 In the last section we saw that the visualisation dimension of the data shows some level of complexity.
 The primary source of this complexity arises from the longitudinal nature of the data and the noise due to granularity of the data.
 For the processed dataset, traditional visualisation and mapping libraries with R is sufficient while the visualisation of raw data across long time periods for either for exploratory analysis or for communication needs some form of interactivity or simplification to be able to legible.
-Data driven documents (D3) \cite[-3cm]{stanford2011d3}and Dimensional charting (DC) provides us with both of these requirements.
+Data driven documents (D3) \cite{stanford2011d3} and Dimensional charting (DC) provides us with both of these requirements.
 Both of these tools can accept text based input and can fit with other Unix tools discussed earlier.
 In case of binary file output such as images or documents, they could be directed to the file system and then read into other programs.
 

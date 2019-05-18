@@ -14,7 +14,7 @@ p <- data %>%
   group_by(year) %>% summarize(count = length(year)) %>%
   ggplot() + 
   geom_bar(aes(x = as.integer(year), y = count), width=1, stat="identity",
-           fill="#E67E22", show.legend = FALSE) +
+           fill="#E68E22", show.legend = FALSE) +
   ylab("Number of Articles") + xlab("") +
   coord_cartesian(clip = 'off') +
   theme(text = element_text(family = "Helvetica"),
@@ -56,13 +56,15 @@ r <- data %>%
   theme(text = element_text(family = "Helvetica"),
         legend.title = element_blank(),
         panel.background = element_blank(),
+        legend.position = "bottom",
+        legend.spacing.x = unit(4.0,'mm'),
         axis.text = element_text(size = 10, color = "black"),
         axis.ticks.y = element_blank(),
         axis.title.y = element_text(size=10, color="black",margin=margin(0,10,0,0)),
         axis.title.x = element_text(size=10, color="black",margin=margin(10,0,0,0)),
         axis.line.x = element_line(color= "black", size = 0.1))
 
-ggsave("../../images/literature-themes-timeline.png", plot=r, height=3.5, width=8,units="in")
+ggsave("../../images/literature-themes-timeline.png", plot=r, height=3.5, width=9,units="in")
 
 tech <- data %>% 
   filter(technology!="-") %>%
@@ -150,12 +152,14 @@ s <- data %>%
   theme(text = element_text(family = "Helvetica"),
         legend.title = element_blank(),
         panel.background = element_blank(),
-        plot.margin = margin(0,50,0,0),
-        legend.margin = margin(30,0,0,20),
+        legend.position = "bottom",
+        legend.spacing.x = unit(4.0,'mm'),
+        # plot.margin = margin(0,0,0,0),
+        # legend.margin = margin(0,0,0,0),
         axis.text = element_text(size = 10, color = "black"),
         axis.ticks.y = element_blank(),
         axis.title.y = element_text(size=10, color="black",margin=margin(0,10,0,0)),
         axis.title.x = element_text(size=10, color="black",margin=margin(10,0,0,0)),
         axis.line.x = element_line(color= "black", size = 0.1))
 
-ggsave("../../images/literature-tech-timeline.png", plot=s, height=3.5, width=8,units="in")
+ggsave("../../images/literature-tech-timeline.png", plot=s, height=3.75, width=9,units="in")
