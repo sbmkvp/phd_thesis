@@ -1,25 +1,100 @@
 \section{Research Gaps and Opportunities}
 
-From the above literature search we can conclude there is a considerable opportunity in the application of mobile phone based data to be used to measure small-scale spatio-temporal dynamics of human activity and potential for research gaps in the following areas:
-Hyper-local population estimation This research is at the limits of acceptable mobility research in the context of privacy concerns in between the explosion of usage of smartphones and implementation of MAC randomisation.
-The availability of identifiable device information has led to a considerable effort in urban mobility studies and there are still opportunities in real time small-scale population measurement and estimation.
-Detailed WiFi data, combined with other data sources such as public transport, weather etc.
-along with interpolation and modelling techniques can produce detailed spatio-temporal estimates of population at local level.
+From the above literature search we can summarise that there is a considerable opportunity in the collection and analysis of mobile phone based data for measuring hyper-local, spatio-temporal dynamics of human activity.
+The potential for research gaps broadly fall under the following areas,
 
+%==============================================================================%
+\subsection{Granular population analysis}
+%==============================================================================%
+
+\marginnote{\textit{\textbf{Opportunity 1:} Design and collection of national/regional, longitudinal, grass root level data set which enables study of population both spatially and temporally.} }
+
+Previous research in this area of study has been limited to either national/ regional level studies using centrally collected night time population data such as censuses or to area level studies conducted with mobile devices based technologies.
+Though there were some efforts in collecting and using mobile phone data at national/ regional level we have never been presented with such unprecedented level of data available now.
+The explosion of consumer data both publicly available and privately held presents previously unseen opportunity and also limited by the privacy concerns that arise with them.
+There is an immense opportunity to collect and standardise a large national level dataset which closely linked to the population distribution and movement in an anonymised way which then can be used to understand the distribution of population and its change.
+There is a need to extend such effort  longitudinally which can give us insights in to the change of such phenomenon in time.
+This has the potential to enable us to ask broad questions such as,
+
+\begin{itemize}
+  \setlength{\itemindent}{2em}
+  \itemsep-0.25em
+  \item What are the trends in the footfall in UK?
+  \item What are the daily rhythm of different cites?
+  \item How much a weather event affect economy of a region?
+\end{itemize}
+
+Such dataset, in conjunction with other consumer data sources, in addition to augmenting each other to improve their quality, can vastly improve our understanding of the structure and dynamics of population.
+
+%==============================================================================%
 \subsection{Device fingerprinting}
-De-Anonymisation of devices The increase in privacy concerns and the normalisation of device level security measures such as MAC address randomisation has questioned the basic assumptions about the reliability of data collected through mobile devices.
-There is a definite research need and interest in finding a method to uniquely identify devices with sufficient confidence while not deciphering any personal data from such analysis.
-Device classification There has been a significant volume of studies in the classification of space based on the temporal patterns in the human activity around them and classification of human activity based on the space it is clustered around.
-But there is a research opportunity in looking at these devices closely, especially their temporal patterns around the point of interest to make inferences about the nature of the device.
-This idea is closely related to de-anonymisation discussed about but rather than trying to find unique users or devices from a set of signals, we try to find the groups of similar devices and connecting these groups to meaningful typologies.
+%==============================================================================%
 
+\marginnote{\textit{\textbf{Opportunity 2:} Developing models and methods to identify anomalies in the data and underlying events causing them } }
+
+The privacy concerns about the data collected from personal mobile devices has pushed the industry and users to find ways to anonymise the data generate over the last decade.
+All the mobility studies recording user trajectories across space and time are rendered infeasible with the cryptographic hashing and randomisation techniques employed by the devices. 
+This along with progressive legislation such as General Data Protection Regulation have severely constrained the data available for mobility research.
+As we see later, even the estimation of ambient population is limited by these developments.
+Though there are prior research in this area, most are conducted from security perspective evaluating the robustness of the randomisation/obfuscation procedure.
+These research focus around de-anonymising the obfuscated data to recreate the personal information from them thus demonstrating vulnerabilities and risks for the users. 
+In this context, there is a clear gap for research in to methods to rather carry out  fingerprinting of these devices using patterns in the data to create useful information from them without actually de-anonymise the data.
+This can lead to production of data-sets and methodologies which will enable us to,
+
+\begin{itemize}
+  \setlength{\itemindent}{2em}
+  \itemsep-0.25em
+  \item Get accurate estimation of ambient populations.
+  \item Understand the movement of the population in space and time.
+\end{itemize}
+
+%==============================================================================%
 \subsection{Event Detection}
+%==============================================================================%
 
+\marginnote{\textit{\textbf{Opportunity 3:} Developing models and methods to identify anomalies in the data and underlying events causing them } }
 
-\subsection{Pedestrian Flow and Catchments}
-Sensor catchment and flow Having access to a broader sensor data, we can cross-sectionally see the distribution or occurrence of a unique MAC address / device and determine the influence of a sensor.
-This can be approached in two ways: the first being the pedestrian flow approach where we can model the movement of pedestrian based on these relationships and the second is treating these relationships as network and detecting communities in them.
-In addition to these, there is a definite opportunity for research in methods for visualising high frequency, hyper-local pedestrian data within the limits of cognition of the viewer.
+Having granular spatio-temporal data on population at an area level also enables us to look at the activity of people at this scale.
+For example, the spike in Wi-Fi activity at a certain area at a certain time can illuminate us with a specific event that is happening in that area.
+Thought research have been done on this area using social media data, a longitudinal data-set collected using mobile technology can enable us to formalise the models needed to identify anomalies, quantify the causation of such anomalies to real world event.
+The near real-time aspect of such research also provides us opportunities in fields of disaster management, smart cities etc. 
+There are opportunities to ask questions such as,
 
+\begin{itemize}
+  \setlength{\itemindent}{2em}
+  \itemsep-0.25em
+  \item How did the tube strike affected London?
+  \item What were the hot spots for New years celebration?
+  \item What was effect of a road closure in specific part of the city?
+\end{itemize}
 
-\subsection{Study of Urban Places}
+%==============================================================================%
+\subsection{Pedestrian Flow}
+%==============================================================================%
+
+\marginnote{\textit{\textbf{Opportunity 4:} Estimating flow of pedestrians in the street network from Wi-Fi data } }
+
+Similar to the device fingerprinting, estimating and understanding pedestrian flow in the street network has immense opportunities since the anonymisation of mobile devices has taken off.
+Even when the problem of the identifying unique fingerprints of users in the data has not been solved, there is a need to understand the overall performance of the street network in terms of pedestrian flow just from the precise, granular data available, especially when the data source is as unstructured and noisy as the Wi-Fi sensors.
+This problem can he approached in two ways,
+\begin{enumerate}
+  \itemsep-0.25em
+  \item Probabilistic approach - Where the relationship between the temporal change in volumes at locations are modelled.
+  For e.g. how much and how often the footfall counts at one location mirrors/ follows other location gives us an idea of how many pedestrians move from one location to the other.
+  \item Interpolation - Where the relationship between the locations are defined in terms of multiple variables such as how similar they are, how close they are etc.
+  These relationships can in turn used to build a graph of locations and use this graph as a source to interpolate other locations.
+\end{enumerate}
+
+%==============================================================================%
+\subsection{Nature and Change of Places}
+%==============================================================================%
+\marginnote{\textit{\textbf{Opportunity 5:} Using long term data to detect the nature and change of form and function of a place. } }
+
+Though there are extensive research in using ambient population and people's movement to understand the form and function of the space, the mobile technologies have introduced the opportunity to remove the subjectivity from them.
+With access to granular and long-term data sets, we can hope to look into the how the places have changed over time and how the external factors such as policy and economy has affected them.
+There are opportunities to ask questions such as,
+\begin{itemize}
+  \itemsep-0.25em
+  \item How does UK's exit from EU affect its high streets?
+  \item Has a specific area has become more or less vibrant?
+\end{itemize}
