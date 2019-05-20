@@ -1,8 +1,7 @@
 %==============================================================================%
-% Section Introduction
+\section{Research Themes}
 %==============================================================================%
 
-\section{Research Themes}
 In this section we look at the major themes and questions tackled by this knowledge base.
 We start by classifying the research into the major and minor themes explored in them as shown in Figure \ref{figure:literature:themes}.
 The tree-map shows the volume of research in corresponding themes measured in terms of number of publications.
@@ -25,10 +24,9 @@ In the following sections we discuss these in detail along with their sub themes
 \end{figure}
 
 %------------------------------------------------------------------------------%
-% Population Studies
+\subsection{Population Studies}
 %------------------------------------------------------------------------------%
 
-\subsection{Population Studies}
 Though \citet{foley1954} and \citet{schmitt1956} started this line of research in 1950's with the discussion on estimating daytime population using broader datasets it was not until the 80s significant volume of research kicked off in this area of study.
 From 80s until mid 2000's numerous studies were conducted on measuring and studying the population at a granular level both spatially and temporally.
 The focus of the research around this time was primarily on interpolation from the larger datasets created using censuses, regional or national level sample surveys and other centrally collected sources of data.
@@ -48,42 +46,44 @@ Recently, with increased concerns and legislation on privacy, there have been st
 Though there have been a lot of work done in most of the directions in this research area, the clear gap arises due to the absence of a continuous, granular and sufficiently longitudinal data-sets to complement the methodologies that have been developed. 
 
 %------------------------------------------------------------------------------%
-% Mobility and Interaction
-%------------------------------------------------------------------------------%
-
 \subsection{Human Mobility and Interaction}
+%------------------------------------------------------------------------------%
 
 This is one of the major areas of research which have significantly benefited from the decentralised collection of data at a granular level \cite{castells2000}.
 In addition to being useful in their own right, these data were in turn used to augment traditional models of travel behaviour, traffic and transport to provide a better understanding of human movement over time and space \citep{janssens2013}.
 The major themes of research within this area are, Movement of people in space and time with emphasis on understanding the built environment, social interaction between these people with a sociology perspective and traffic and transportation studies with a infrastructure perspective.
 There is significant volume of research which dealt with recording and analysing the trajectories of the users to understand their movement patterns enabled by the unprecedented availability of detailed data from mobile devices and this is discussed in detail along with the discussion of the technologies used.
-\lipsum[1]
-%------------------------------------------------------------------------------%
-% Methodology and Techniques
-%------------------------------------------------------------------------------%
 
+%------------------------------------------------------------------------------%
 \subsection{Methodology and Techniques}
+%------------------------------------------------------------------------------%
 
 Research in this are focused around 5 major topics,
 
-\begin{enumerate}
-  % \setlength{\itemindent}{2em}
+\begin{enumerate}[rightmargin=2em, leftmargin=2em]
   \itemsep-0.25em
   \item Localisation - Research into using the mobile devices and data generated from them as a cheaper alternative to Global Positioning Systems and remote sensing.
-  \item Data Sources - Identifying and formalising new data-sources as technology develops
+  \item Data Sources - Identifying and formalising new data-sources as the technology develops
   \item Application - Applying these identified data sources to answer questions and solve problems in different disciplines.
   \item Visualisation - simplifying, visualising and interpreting these high volume of unstructured, noisy datasets.
   \item Device fingerprinting - overcoming the difficulties posed by the anonymisation process and extract useful information.
 \end{enumerate}
 
-Localisation
+Localisation of mobile devices without the use of expensive additional infrastructure such as GPS is one of the earliest ideas pursued in this aspect \citep{bulusu2000, he2003range, moore2004robust, lamarca2005place}. This research, when reversed, could also lead to the tracking of these devices in space without the aforementioned infrastructure thus providing a inexpensive, easy way to collect mobility data. The sensors which are already present in the phones such as Bluetooth \citep{bandara2004}, Wi-Fi \citep{zarim2006}, cellular radio \citep{dil2011, ahas2005} etc. have been considered to be used for localisation of the devices. This has been particularly important in the field of indoor localisation where GPS doesn't usually work \cite{kawaguchi2009wifi}. When seen from the other perspective the same technologies and methods can enable us to collect presence and movement data on people indoors \citep{roy2018smartphone, roy2018indoor, jia2019selecting, nikitin2019developing}.
 
 The identification of data sources started with looking at the 'real time' city examining the digital landscape created by the citizens their electronic devices \citep{townsend2000}.
 This was furthered by the notion of `instrumenting' the city and developing methods and techniques under the umbrella of smart cities and internet of things \citep{oneil2006}.
 Since there have been research looking at the wireless data collected from positioning technologies \citep{bensky2007} and cellular network \citep{kiukkonen2010, steenbruggen2015} and even crowdsourcing as method of collection \citep{shin2013} leading towards a framework for computational urban planning \citep{kontokosta2015}.
 With the effort to formalise them as valid sources of data, there have also been research looking at the biases in them such as mobile phone ownership \citep{wesolowski2013, kobus2013}.
 
-Finger printing
+Identifying and fingerprinting unique devices and users from noisy, unstructured data is another area of active research under methodologies and techniques \citep{jiang2006, liao2006location}.
+The majority of the work has been done as an extension of localisation where the GPS-less positioning leading to finger printing people and their movement out of the data \citep{pang2007a, pappalardo2015}.
+Additionally there are work looking at the tracks collected from Wi-Fi or mobile data and extract unique users out of them \citep{girardin2008, eagle2009, jiang2012}.
+It is also demonstrated that it is possible to wireless technologies can be used to detect even device free entities \citep{elgohary2013}.
+These localisation and clustering techniques can also be used for socio-geographical analysis and to understand the patterns of activity of people \citep{licoppe2008}.
+There have been quite a few security research on the robustness of the anonymisation techniques while revealing methodologies to overcome limitations imposed by them \citep{mathieuCunche2016, chothia2010, krumm2007}.
+\citet{cheng2016can} was one of the first to look into devising a method to do this in a non-intrusive way which are further extended by \citet{di2016mind, adamsky2018wlan} and \citet{dai2019combination}.
+This is currently an active field of research and there is immense opportunity for further research.
 
 Visualising the temporal dynamics of data collected on human activities through decentralised processes poses significant challenges when approached with traditional cartographic concepts \citep{maceachren2001, hallisey2005}.
 Digital media especially animation has been explored as an option to solve for the temporal dimension \citep{morrison2000, lobben2003} but is bound by the cognitive limits of the viewer \citep{harrower2007}.
@@ -91,9 +91,8 @@ There have been approaches proposed around animations of generated surfaces \cit
 This provides us with a promising opportunity for research in methods for visualising high frequency, hyper-local pedestrian data within the limits of cognition of the viewer.
 
 %------------------------------------------------------------------------------%
-% Spatial Analysis Theory and Modelling
-%------------------------------------------------------------------------------%
 \subsection{Spatial Analysis - Theory and Modelling}
+%------------------------------------------------------------------------------%
 
 Traditional and modern geography was dominated by the study of centrally collected data acquired through extensive field surveys and remote sensing.
 In the last two decades, a significant paradigm change has been introduced by the availability of unprecedented amount of data generated by unconventional sources such as mobile phones, social media posts etc.
@@ -108,9 +107,8 @@ This flood of hard data \cite{nature2008} was accompanied not only by optimism i
 However, availability of such data has impressive uses in urban studies \citep{bettencourt2014} especially with advancement of new technologies \citep{steenbruggen2013} and possibility of distributed, crowdsourced data collection \citep{lokanathan2015}.
 
 %------------------------------------------------------------------------------%
-% Privacy
-%------------------------------------------------------------------------------%
 \subsection{Privacy}
+%------------------------------------------------------------------------------%
 
 The ubiquity of personal devices and digitisation of day to day activities through these mobile devices \citep{mcmeel2018dark} has provided many opportunities for researchers and industry for collecting, analysing and deriving inputs from them.
 However at the same this also increased the risk of infringement on privacy of the users whose data is being collected \cite{saponas2007, krumm2009}.
@@ -123,16 +121,8 @@ Finally though getting consent of users for the collection and use of such infor
 There is opportunity in this area for research in applying the cryptographic solutions along with the privacy preserving frameworks to arrive at methods which can extract useful information out of large personal data while obscuring or anonymising them.
 
 %==============================================================================%
-% Research Trends
-%==============================================================================%
-
-\begin{figure*}
-  \includegraphics{images/literature-themes-timeline.png}
-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
-  \label{figure:literature:themes:timeline}
-\end{figure*}
-
 \section{Research Trends}
+%==============================================================================%
 
 Figure \ref{figure:literature:themes:timeline} shows the volume of research done in this topic since 1980 categorised based on their major themes discussed earlier.
 We can observe that there are distinct trends in the research over time, which evolved around the development of technology in the last two decades.
@@ -143,6 +133,15 @@ This explosion of research coincided with mobile phones becoming more popular an
 There were also extensive studies in using the datasets to understand human mobility along with a rising concern in the privacy of the users who's data which are being used for these studies.
 
 %------------------------------------------------------------------------------%
+
+\begin{figure*}
+  \includegraphics{images/literature-themes-timeline.png}
+  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
+  \label{figure:literature:themes:timeline}
+\end{figure*}
+
+%------------------------------------------------------------------------------%
+
 
 The release of iPhone in 2008 and the increase in the share of 'smartphones' in the next 10 years sparked the `smartphone' era. 
 The change made sure that all the mobile devices gaining numerous capabilities such as internet connectivity over Wi-Fi and mobile network, location awareness with global positioning system, movement recognition with accelerometers and connectivity other `wearable' devices through Bluetooth.
