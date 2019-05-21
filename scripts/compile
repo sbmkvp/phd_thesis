@@ -1,8 +1,8 @@
 #! /bin/bash
 
-COMMAND="pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &&\
+COMMAND="pdflatex -halt-on-error -interaction=nonstopmode -shell-escape thesis.tex &&\
     bibtex thesis &&\
-    pdflatex -halt-on-error -interaction=nonstopmode thesis.tex &&\
+    pdflatex -halt-on-error -interaction=nonstopmode -shell-escape thesis.tex &&\
     ./scripts/status > word-count.md &&\
     git add --all &&\
     git commit -m \"$1\" &&\
