@@ -4,7 +4,7 @@ Lines|Words|Characters|File
 39|395|2477|chapters/10_introduction.tex
 49|845|5880|chapters/20_literature.tex
 162|2664|20497|chapters/21__research_themes.tex
-185|3344|23073|chapters/22__technologies.tex
+188|3344|23123|chapters/22__technologies.tex
 100|1057|7877|chapters/23__research_gaps.tex
 12|55|506|chapters/30_data_collection.tex
 33|391|2412|chapters/31__wifi_data_source.tex
@@ -19,4 +19,4 @@ Lines|Words|Characters|File
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-1917|25496|178198|total
+1920|25496|178248|total
