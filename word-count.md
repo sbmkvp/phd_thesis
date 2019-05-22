@@ -3,9 +3,9 @@ Lines|Words|Characters|File
 124|753|7178|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
 49|849|5864|chapters/20_literature.tex
-166|2670|20416|chapters/21__research_themes.tex
+168|2671|20428|chapters/21__research_themes.tex
 202|3178|24499|chapters/22__technologies.tex
-103|1057|7880|chapters/23__research_gaps.tex
+104|1057|7881|chapters/23__research_gaps.tex
 12|55|506|chapters/30_data_collection.tex
 33|391|2412|chapters/31__wifi_data_source.tex
 12|223|1343|chapters/32__initial_experiments.tex
@@ -19,4 +19,4 @@ Lines|Words|Characters|File
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-1941|25340|179214|total
+1944|25341|179227|total
