@@ -4,7 +4,7 @@
 
 \section{Data Toolkit}
 
-\textsc{Big data and its analytics} promises huge benefits in terms of value realisation, cost reduction, insights but it also introduces a numerous pitfalls \cite{gandomi2015beyond}.
+\textsc{Big data and its analytics} promises huge benefits in terms of value realisation, cost reduction, insights but it also introduces a numerous pitfalls \cite{gandomi2015}.
 With developments in information technology, mobile communications and internet of things, large assemblages of data are readily available leading to immense possibilities in research.
 But when we analyse these data at such scale, we also encounter a large amount of added complexity and cost.
 Hence it is important to be careful in choosing the methods and tools in dealing with big data where we should look to devise right methods and tools for the right problems.
@@ -30,7 +30,7 @@ Finally we put together a toolkit to suit our datasets built from simple small U
 \subsection{What is `Big Data'?}
 
 With the proliferation of internet enabled personal devices, we have quickly moved from data sparse environment to a data rich one.
-We can even confidently say that we are in an age of data deluge where the amount of data which are collected and stored are increasing exponentially in a very short period of time \cite{kitchin2014big}.
+We can even confidently say that we are in an age of data deluge where the amount of data which are collected and stored are increasing exponentially in a very short period of time \cite{kitchin2014}.
 As we saw in the previous chapters collecting large amount of data is quick and easy.
 Technological advancements have enabled us to be able to think about utilising such large assemblages of data which would have been impossible even in the recent past.
 By providing unprecedented coverage, these large assemblages of data - `Big data', provide us with insights which were not possible before.
@@ -50,9 +50,9 @@ What may be `big' in one discipline may not be in another.
 The nature of data can also be evaluated in various dimensions and can exhibit different properties in those dimensions. 
 `Big data' is generally defined within the context of disciplines, as data which cannot be managed with traditional methods and tools in those disciplines and requires substantial change in the approach of the practitioners.
 This definition is too subjective and falls short of giving us more understanding of `Big data'.
-One of the most subscribed definition is to define the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite{laney20013d}.
+One of the most subscribed definition is to define the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite{laney2001}.
 This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation - the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
-There have also been other alternative dimensions proposed such as Cardinality, continuity and complexity \cite{suthaharan2014big}.
+There have also been other alternative dimensions proposed such as Cardinality, continuity and complexity \cite{suthaharan2014}.
 However we can consider the core dimensions of data - volume, velocity, variety, veracity and visualisation for evaluating our datasets.
 Since not all data is 'Big' in all these dimensions, we need to evaluate the `bigness' of the data in each dimension and consider the associated challenges and solutions.
 
@@ -60,7 +60,7 @@ Since not all data is 'Big' in all these dimensions, we need to evaluate the `bi
 
 The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation, modelling, analysis, visualisation and interpretation.
 Challenges in each one of these processing activity arises due to the data being big in one or more dimensions.
-The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite{li2016geospatial}. 
+The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite{li2016}. 
 These challenges make traditional methods impractical and introduce the need for distributed, crowdsourced collection of data, heavily parallelised computing and application of functional programming concepts.
 The unstructured nature of the big data also introduces notable biases which mandate careful consideration, proper calibration and weighting during analysis so that we can understand and remove any uncertainties arising from them.
 The data being big in veracity dimension poses significant challenges in its analysis and modelling.
@@ -76,7 +76,7 @@ Finally, because of the variety, big data creates need for consistent, well engi
 
 %-------------------------------------------------------------------------------
 
-Apart from these processing challenges, we also have management challenges associated with big data such as privacy and security, data governance and ownership, data and information sharing, and cost\cite{jagadish2014big}.
+Apart from these processing challenges, we also have management challenges associated with big data such as privacy and security, data governance and ownership, data and information sharing, and cost\cite{jagadish2014}.
 Since these big datasets are usually comprehensive, securing them and protecting the privacy of the users becomes a central consideration in any project dealing with them.
 In many cases, though the data collected itself may not contain personal information but at these scales, in conjunction with other datasets, it can be used to infer them.
 The overall approach, methods, tools should comply with relevant legislation such as GDPR as well as the research ethics of all the stakeholders.
@@ -254,7 +254,7 @@ All the above pose immense challenges when we attempt to aggregate the data wher
 
 There is also a lot of variability in the physical location of the sensors and the area of measurement.
 The sensors may report higher or lower count due to their configuration and the context of their location as discussed in chapters pertaining to data cleaning.
-This leads to a situation where the accuracy of the data collection varying quite widely across location and times \cite{lugomer2017understanding}.
+This leads to a situation where the accuracy of the data collection varying quite widely across location and times \cite{lugomer2017}.
 It is often not clear if the change in the data is due to actual changes at the location or just the change in the configuration of the device.
 For example, Opening of a mobile shop next door to the sensor can increase the estimated footfall without any change in actual footfall at the location.
 
@@ -399,13 +399,13 @@ This is the primary reason why database management systems are developed on top 
 Database systems can be broadly divided into relational and document based.
 The relational databases are optimised to deal with relational data and usually enforce strict structure for the data
 In general they can handle large number of rows and are designed to scale vertically.
-Most relational database systems try to guarantee ACID \sidenote[][-7cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[-5cm]{Haerder1983ptd}.
+Most relational database systems try to guarantee ACID \sidenote[][-7cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[-5cm]{Haerder1983}.
 The document based databases are optimised to deal with unstructured data and can doesn't need a strictly defined scheme.
 In general they can handle large number of columns and are designed to be distributed and scaled horizontally.
 Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-3cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
 There a numerous databases systems which prioritise different things and the right solution depends on the properties of the data and the requirements of the project.
 
-Since the publication of the paper on `Google file system' by google \cite{sanjay2003gfs}.
+Since the publication of the paper on `Google file system' by google \cite{sanjay2003}.
 There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
 These systems are designed to be distributed and optimised for high throughput for queries on them.
 Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
@@ -524,7 +524,7 @@ This is where we come across the possibility of using standard Unix tools along 
 In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite[-2cm]{adam2014}.
 The command line tools were developed as parts of Unix operating system for processing text. 
 They are developed in line with the Unix philosophy which focuses on modular and minimal software development. 
-The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite{mcilroy1978unix},
+The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite{mcilroy1978},
 
 \begin{enumerate}[rightmargin=1cm]
   \setlength{\itemindent}{2em}
@@ -593,12 +593,12 @@ Table \ref{table:toolkit:tools} shows the activities in our pipeline and corresp
 It is important to note that tools for doing specialised actions such as statistical analysis, machine learning and time-series analysis are built on top of scripting languages such as R and Python.
 
 These can be embedded into our Unix pipeline as scripts running in corresponding front-ends such as Rscript or python.
-This toolkit can be further accelerated by parallelising parts of the pipeline using gnu-parallel \cite{tange2018parallel}.
+This toolkit can be further accelerated by parallelising parts of the pipeline using gnu-parallel \cite{tange2018}.
 For example, the previous example pipeline can be parallelised by spawning a pipeline for each location this reduces the processing time for a set of 25 locations from 18 seconds to 3 seconds.
 This done by utilising every processor cores available in the CPU.
 Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation (The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
 Finally all the Unix tools discussed in this toolkit are open source and free software which has almost no cost in terms of resources.
-Since these tools are part of the POSIX specification \cite{walli1995posix} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
+Since these tools are part of the POSIX specification \cite{walli1995} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
 
 
 %------------------------------------------------------------------------------%
@@ -608,7 +608,7 @@ Since these tools are part of the POSIX specification \cite{walli1995posix} for 
 In the last section we saw that the visualisation dimension of the data shows some level of complexity.
 The primary source of this complexity arises from the longitudinal nature of the data and the noise due to granularity of the data.
 For the processed dataset, traditional visualisation and mapping libraries with R is sufficient while the visualisation of raw data across long time periods for either for exploratory analysis or for communication needs some form of interactivity or simplification to be able to legible.
-Data driven documents (D3) \cite{stanford2011d3} and Dimensional charting (DC) provides us with both of these requirements.
+Data driven documents (D3) \cite{stanford2011} and Dimensional charting (DC) provides us with both of these requirements.
 Both of these tools can accept text based input and can fit with other Unix tools discussed earlier.
 In case of binary file output such as images or documents, they could be directed to the file system and then read into other programs.
 

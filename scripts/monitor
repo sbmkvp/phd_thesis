@@ -4,6 +4,10 @@ COMMAND="pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.
     bibtex thesis && \
     makeindex thesis && \
     pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
+    bibtex thesis && \
+    pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
+    bibtex thesis && \
+    pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
     ./scripts/status > word-count.md"
 
 find . -path './data' -prune -o -path './.git' -prune -o -print -regex ".*\.\(cls\|tex\|bib\)" \
