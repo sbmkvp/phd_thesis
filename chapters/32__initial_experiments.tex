@@ -1,9 +1,53 @@
 \section{Initial Experiments}
+
+With our theoretical understanding of the Wi-Fi standard and its capabilities, we move on to looking at the Wi-Fi landscape in real-world.
+We achieve this by designing small independent experiments where we record the Wi-Fi probe requests within controlled conditions along with the knowledge of the ambient population of the field of measurement. 
+We then look at the collected probe requests, examine them in detail to look at their properties, aggregate them to footfall counts and compare them with the real-world counts to get a overall idea of how well they translate into real counts.
+The aim of these experiments to know more about the probe requests data and pick out the uncertainties and opportunities present in them.
+The objectives here are,
+
+\begin{enumerate}
+  \setlength{\itemindent}{2em}
+  \itemsep-0.25em
+   \item Design a simple method to collect probe requests.
+  \item Select locations with different levels of complexity.
+  \item Collect real-world data through manual counting.
+  \item Analyse the probe requests to extract useful information.
+\end{enumerate}
+
 \subsection{Experiment Design}
+
+The first step was to design a simple method to collect Wi-Fi probe requests.
+We accomplish by utilising the application - \textit{tshark} \cite{wireshark2} on a regular laptop.
+First we put the Wi-Fi module of the laptop in `Monitor mode' where it behaves as a wireless access point.
+Then we run tshark to collect the data in CSV format using the following command under a shell.
+
+\begin{minted}{bash}
+#! /bin/bash
+tshark \
+  -I -i en0 \
+  -T fields \
+  -E separator=, \
+  -E quote=d \
+    -e frame.time \
+    -e frame.len \
+    -e wlan_radio.signal_dbm \
+    -e wlan_radio.duration \
+    -e wlan.sa_resolved \
+    -e wlan.seq \
+    -e wlan.tag.length \
+    -e wlan.ssid \
+  type mgt subtype probe-req and broadcast
+\end{minted}
+
+The counting of pedestrians next to the sensor is done manually by the surveyor.
+
 \subsection{Isolated Environment}
 First setup using the laptop and wireshark in the living room.
+
 \subsection{University Hall}
 Second set of experiments in UCL cloisters.
+
 \subsection{Oxford Street}
 To start, we designed a small pilot study to validate the filtering and clustering methodology against the scale and complexity of data collected in an open public area such as a retail high street.
 We also aimed to find the algorithm which was best suited for the classification of signal strengths as 'low' and 'high' in order to filter out the background noise.

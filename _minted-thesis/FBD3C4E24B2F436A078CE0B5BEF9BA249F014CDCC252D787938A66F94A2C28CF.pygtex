@@ -1,0 +1,17 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+ch}{\PYGZsh{}! /bin/bash}
+tshark \PYG{l+s+se}{\PYGZbs{}}
+  \PYGZhy{}I \PYGZhy{}i en0 \PYG{l+s+se}{\PYGZbs{}}
+  \PYGZhy{}T fields \PYG{l+s+se}{\PYGZbs{}}
+  \PYGZhy{}E \PYG{n+nv}{separator}\PYG{o}{=}, \PYG{l+s+se}{\PYGZbs{}}
+  \PYGZhy{}E \PYG{n+nv}{quote}\PYG{o}{=}d \PYG{l+s+se}{\PYGZbs{}}
+    \PYGZhy{}e frame.time \PYG{l+s+se}{\PYGZbs{}}
+    \PYGZhy{}e frame.len \PYG{l+s+se}{\PYGZbs{}}
+    \PYGZhy{}e wlan\PYGZus{}radio.signal\PYGZus{}dbm \PYG{l+s+se}{\PYGZbs{}}
+    \PYGZhy{}e wlan\PYGZus{}radio.duration \PYG{l+s+se}{\PYGZbs{}}
+    \PYGZhy{}e wlan.sa\PYGZus{}resolved \PYG{l+s+se}{\PYGZbs{}}
+    \PYGZhy{}e wlan.seq \PYG{l+s+se}{\PYGZbs{}}
+    \PYGZhy{}e wlan.tag.length \PYG{l+s+se}{\PYGZbs{}}
+    \PYGZhy{}e wlan.ssid \PYG{l+s+se}{\PYGZbs{}}
+  \PYG{n+nb}{type} mgt subtype probe\PYGZhy{}req and broadcast
+\end{Verbatim}

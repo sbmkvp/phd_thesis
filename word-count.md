@@ -8,9 +8,9 @@ Lines|Words|Characters|File
 139|1312|9786|chapters/23__research_gaps.tex
 13|56|517|chapters/30_data_collection.tex
 33|392|2443|chapters/31__wifi_data_source.tex
-15|234|1498|chapters/32__initial_experiments.tex
-53|396|2738|chapters/33__pilot_study.tex
-50|618|4028|chapters/34__smart_street_sensor.tex
+59|521|3399|chapters/32__initial_experiments.tex
+68|445|3279|chapters/33__pilot_study.tex
+57|640|4266|chapters/34__smart_street_sensor.tex
 194|2139|15491|chapters/35__discussion.tex
 12|13|229|chapters/40_data_processing.tex
 644|8156|55965|chapters/41__data_toolkit.tex
@@ -19,4 +19,4 @@ Lines|Words|Characters|File
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-2173|27399|195347|total
+2239|27757|198027|total
