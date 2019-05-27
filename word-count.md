@@ -1,6 +1,6 @@
 Lines|Words|Characters|File
 ---|---|---|---
-124|753|7178|chapters/00_front.tex
+125|783|7443|chapters/00_front.tex
 39|395|2477|chapters/10_introduction.tex
 49|850|5869|chapters/20_literature.tex
 167|2680|20529|chapters/21__research_themes.tex
@@ -19,4 +19,4 @@ Lines|Words|Characters|File
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
 37|173|1802|chapters/70_appendix.tex
-2172|27369|195082|total
+2173|27399|195347|total
