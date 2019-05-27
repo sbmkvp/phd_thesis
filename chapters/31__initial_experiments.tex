@@ -40,20 +40,57 @@ tshark \
   type mgt subtype probe-req and broadcast
 \end{minted}
 
-The counting of pedestrians next to the sensor is done manually by the surveyor.
+The fields marked with \textit{-e} correspond to time stamp when the packet was received, total length of the packet, reported signal strength, duration for which the packet was transmitted, the MAC address of the source device, sequence number of the packet assigned by the source device, length of the tags attached to the packet and the network for which the probe request is being sent for.
+The manufacturer information is extracted from the \textit{wlan.sa\_resolved} field into a separate column and the original field is hashed using the SHA256 algorithm implemented in R.
+In addition to this, the pedestrians next to the sensor were counted manually by the surveyor.
 
-\subsection{Isolated Environment}
-First setup using the laptop and wireshark in the living room.
+\subsection{Living room}
+
+\begin{marginfigure}
+  \forcerectofloat
+  \includegraphics{images/home-total-count.png}
+  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \label{figure:collection:home:total}
+\end{marginfigure}
+
+The first set of experiment was conducted with the laptop in the researcher's living room. 
+The room was known to have 2 phones and an Android TV device and the whole house had an occupancy of 3.
+Probe requests were collected on 15 Nov 2015 from 19:44 to 21:15 with a gap of 15 minutes in between.
+We collected around 3000 probe requests at the rate of 38 requests per minute.
+The total number of probe requests collected every minute is shown in Figure \ref{figure:collection:home:total}.
+
+The first thing we looked to convert this to footfall is the mac address along with OUIs.
+Initial thoughts on this.
+We found that it is not enough.
+Strong evidence that mac address randomisation is affecting the numbers.
+
+Other information that can help here - Signal strength, tags, SSID, length, sequence numbers and duration.
+Signal strength shows promise!
+Length seems useful as it give uniqueness!
+Duration and length are directly related and gives no extra information.
+SSID and tags have very low or varied data they have no use.
+Sequence numbers are interesting and shows most promise.
+We need to see the variation and usefulness of length, so need more data.
 
 \subsection{University Hall}
-Second set of experiments in UCL cloisters.
+This was conducted to examine the previous results in a larger set of data in a real world setting.
+Conducted in one of the main corridors - Southern cloisters of UCL with lot of pedestrian traffic.
+There were also seating areas across the corridor where students work with their computers.
+The area is also used heavily for lunch for large contingent of visitors.
+Collected around 14750 probe requests collected and 652 users were counted walking around the sensors manually.
+
+Major conclusion is that confirmation that Signal strength is still useful.
+Length information is not that useful in certain standardised manufacturers.
 
 \subsection{Oxford Street}
-To start, we designed a small pilot study to validate the filtering and clustering methodology against the scale and complexity of data collected in an open public area such as a retail high street.
+
+Aim is to validate the filtering and clustering methodology against the scale and complexity of data collected in an open public area such as a retail high street.
 We also aimed to find the algorithm which was best suited for the classification of signal strengths as 'low' and 'high' in order to filter out the background noise.
 The data was collected at Oxford Street, London on 20 December 2017 from 12:30 to 13:00 hrs, Wi-Fi probe requests were collected using the sensor described in Section and pedestrian footfall was manually recorded using the Android app - Clicker bala2018clicker.
 Being located at one of the busiest retail locations in the United Kingdom, the Wi-Fi sensor captured approximately 60,000 probe requests during the half hour period; 3,722 people were manually recorded walking on the pavement during that time.
 The surveyor positioned himself at the front of a store while carrying the sensor in a backpack and counted people walking by the store on the pavement (3m wide approximately) using a mobile phone.
 The sensor was kept as close to the store window as possible, and the manual count was done as a cordon count in front of the store.
+
+The analysis and use of this dataset is 
 
 \subsection{Summary and Discussion}
