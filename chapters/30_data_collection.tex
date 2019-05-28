@@ -1,9 +1,13 @@
+%==============================================================================%
 \chapter{Collecting Wi-Fi Data}
+%==============================================================================%
 
 From the literature review in Chapter \ref{chapter:literature}, we observed that  out of all the technologies discussed, Wi-Fi seems to be the most promising one.
 We observed the advantages of Wi-Fi based data collection as,
 
 \begin{itemize}
+  \setlength{\itemindent}{2em}
+  \itemsep-0.25em
   \item Universality as a standard technology globally,
   \item Independence from other types of data sources or infrastructure,
   \item High level of granularity both spatially and temporally,
@@ -21,39 +25,85 @@ We explore these datasets briefly to understand the usefulness of each set of in
 We also introduce `Smart Street Sensor' project - a national scale effort for collecting Wi-Fi data at high streets across United Kingdom.
 Finally we summarise the data collection procedure with a detailed look at the each set of uncertainty in these datasets and draw conclusions on further lines of research into alleviating the uncertainty and noise so that they can be used to estimate human activity with confidence.
 
+%------------------------------------------------------------------------------%
 \section{Wi-Fi as a Source of Data} \label{wifi-as-source-of-data}
+%------------------------------------------------------------------------------%
 
-Wi-Fi is ubiquitous.
-The smart-phone adoption rates are growing.
-All smart-phones try to connect to internet.
-In addition to mobile networks, Wi-Fi is the second most common way they connect to internet.
-Most places provide Wi-Fi as the way to connect to internet.
-Unlike mobile networks Wi-Fi is a general purpose service.
-There are multiple networks across locations hence the phones are made to be able to move across networks seamlessly.
-The mobile phone initiates the contact.
-It sends a special signal called - Probe Requests.
-This has information about the mobile device.
-The router replies with a signal called Probe response.
-This forms a digital handshake between these devices.
-The devices then carry on with authentication and talking to each other.
-After authentication the connection is encrypted and private.
-But the probe request process is unencrypted and open.
-The probe request is sequential signal which is defined in IEEE standards.
-The table shows All possible information that can be included in a probe request.
-The figure shows the structure of a probe request.
-This is a stream of data broadcast over air from all the phones around a area. 
+Since the formation of `Wi-Fi alliance' in 1999 to hold the trademark, Wi-Fi (Wireless Fidelity) has become synonymous to the IEEE 802.11 standard based internet connectivity.
+Today almost almost all devices use this standard to create and connect to local area networks wirelessly.
+Due to its high fidelity and immense throughput up to 1 Gigabits per second, Wi-Fi has become the choice of technology for wirelessly transferring large amount data through networks.
+The adoption of `smart' mobile devices - Smartphones, across the world has further cemented its position as on of the most ubiquitous technology which every one uses every day.
+In developed economies such as UK this has never been more true and having an infrastructure to serve and receive Wi-Fi signal greatly affects the ability to connect to internet in many areas.
+With close to 87\%\cite{deloitte2018} of the population carrying one or more of these smart devices with Wi-Fi capability, provision of Wi-Fi as a service has become essential for any place making Wi-Fi one of the most used technology to access internet along with mobile networks.
 
-The probe request frame is the signal sent by a WiFi capable device when it needs to obtain information from another WiFi device.
-For example, a smartphone would send a probe request to determine which WiFi access points are within range and suitable for connection.
-On receipt of a probe request, an access point sends a probe response frame which contains its capability information, supported data rates, etc.
-This ‘request-response’ interaction forms the first step in the connection process between these devices.
-The structure of a probe request is shown in Figure 3.3.
-We can observe that the request frame has two parts, a MAC header part which identifies the source device and frame body part that contains the information about the source device.
-The information that can be included in a probe request shown in Table 3.2.
-As mentioned earlier, the SmartStreetSensor collects some of the information present in probe request frame relayed by mobile devices, along with the time interval at which the request was collected and the number of such requests collected during that interval.
-The actual information present in the data collected by the SmartStreetSensor is shown in the Table 3.3.
+Though the end goal of internet connectivity is the same, Wi-Fi greatly differs from internet connectivity through mobile networks such 3G/4G.
+The first difference is the range of the network, unlike mobile infrastructure where single tower can serve mobile phones for miles, Wi-Fi is designed to be and extension of the wired networking creating short range network with a range up to 20 meters.
+Due to this low-range and high throughput property, Wi-Fi is used primarily as a distributed infrastructure operated by owners of premises as a means to provide high speed connectivity to the users of these buildings unlike the large, national level, monolithic infrastructure that runs the mobile network.
+This creates a situation where urban areas are population by hundreds and thousands of these small area networks to which any mobile device can connect to.
+Unlike the mobile service providers and its customers, these Wi-Fi networks and mobile devices don't trust each other with specialised hardware.
+This creates a need for an introduction procedure - a sort of handshake between them where they exchange information about themselves. 
+Moreover since these mobile devices constantly move across these Wi-Fi networks, it became necessary for them to carry out these `handshake' process regularly and frequently so that they can traverse between the networks without loss of connectivity.
+This need for constant look out for new networks is solved by the `Probe requests'.
 
+
+\subsection{Probe requests}
+%------------------------------------------------------------------------------%
+
+There are numerous iterations and versions of the IEEE 802.11 standards but essentially all of them operate by exchanging packets of information called `datagrams' or `frames'.
+These frames have the information that is being exchanged along with the meta data about the information and information on the device that is sending them.
+Some of these frames have special purposes and one such purpose is the 'network discovery'.
+The frames used for this purpose by the mobile device and the Access Point (AP) are called the 'probe request' and `probe response' respectively.
+Though the actual information exchanged between these devices are usually encrypted, these probe requests are unencrypted and are accessible to any device which is listening.
+The structure of a probe request is shown in Figure \ref{figure:collection:proberequest}.
+
+We can observe that the fixed part of the frames which has to be present in all of them are in the front showing the identity of the mobile device generating the frame along with one which is receiving the frame.
+There are additional meta data such as sequence number of the frame, controls denoting where the frame starts and ends.
+There is also a dearth of variable information which can be used to transfer data.
+For probe requests the destination device is set as `broadcast' and the variable part usually contains the payload but for probe request frames, this contains `information elements' which has data regarding the capabilities of the device organised in units known as 'tags' or 'parameter sets'.
+The significant information present in a probe request is detailed in Table \ref{table:collection:proberequest} and full list of information available from a probe request is shown in the form of a sample probe request in appendix \ref{appendix:sampleprobe}
+
+\begin{table}
+  \footnotesize
+  \begin{center}
+    \begin{tabular}{lp{7.5cm}}
+      \toprule
+        Field & Notes\\
+      \midrule
+        Source Address & Media Access Control (MAC) address\\
+        Time stamp & Precise time at which the frame is received\\
+        Signal Strength (RSSI) & The strength of the received signal\\
+        Length of the frame & Total length of the frame in bytes\\
+        Duration of transmission & Time it took to transmit the frame in milliseconds\\
+        Information Elements & List of various information about the device\\
+        Known SSIDs & Networks that are already known to the device\\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Significant information included in a probe request}
+  \label{table:collection:proberequest}
+\end{table}
+
+Essentially the above information is sent over and over by the mobile device expecting a reply from the APs around it so that it can keep a list of networks it can connect to.
+This process is usually carried out even when the Wi-Fi is switched off in the operating system so that the connection times are faster once it is switched on.
+Moreover operating systems use the replies they get for these probe requests and triangulate the device location with respect to the APs with known location information thus acting as a quick and easy localisation solution which along with the above makes this probing process almost non-stop. 
+
+\begin{figure}
+  \includegraphics{images/probe-request-structure.png}
+  \caption{Structure of a probe request frame. \textit{Source: IEEE 802.11 specification}}
+  \label{figure:collection:proberequest}
+\end{figure}
+
+
+\subsection{MAC address}
+%------------------------------------------------------------------------------%
+
+Mac address - types - parts. \lipsum[1-2]
+
+%==============================================================================%
 \input{chapters/31__initial_experiments.tex}
+\pagebreak
 \input{chapters/32__pilot_study.tex}
+\pagebreak
 \input{chapters/33__smart_street_sensor.tex}
+\pagebreak
 \input{chapters/34__discussion.tex}

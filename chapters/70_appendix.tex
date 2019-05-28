@@ -1,37 +1,45 @@
 \chapter{Appendix}
 
-
-%-------------------------------------------------------------------------------
-% All Code 
-%-------------------------------------------------------------------------------
-\section{Code used in the research}
+%==============================================================================%
+\section{Benchmarking Data Tookit} \label{appendix:benchmark}
+%==============================================================================%
 
 This section documents all the code that has been used in the research.
 The programming languages used are including but not limited to R, Bash, JavaScript and SQL.
 
 %-------------------------------------------------------------------------------
-\subsection{Benchmarking the Data Toolkit} \label{appendix:benchmark}
-
-\vspace{1.5em}\noindent\textit{Implementation in R}\vspace{0.5em}
-
+\subsection{Simple implementation in R}
+%-------------------------------------------------------------------------------
 This R script lists all files in a given folder, parses them as JSON data serially, aggregates the records for each time interval and finally writes it to disk as a CSV file.
 \vspace{1em}
 \inputminted{R}{analysis/data-toolkit/old-toolkit.r}
 
-\vspace{1.5em}\noindent\textit{Serial implementation in bash}\vspace{0.5em}
-
+%-------------------------------------------------------------------------------
+\subsection{Serial implementation in bash}
+%-------------------------------------------------------------------------------
 This bash script lists all the files in a given folder, parses them into JSON data \textit{serially}, aggregates the resulting records for each time interval and finally writes it to disk as a CSV file.
 \vspace{1em}
 \inputminted{bash}{analysis/data-toolkit/new-toolkit.sh}
 
-\vspace{1.5em}\noindent\textit{Parallel implementation in bash}\vspace{0.5em}
+%-------------------------------------------------------------------------------
+\subsection{Parallel implementation in bash}
+%-------------------------------------------------------------------------------
 
 This bash script lists all the files in a given folder, parses them into JSON data \textit{in parallel}, aggregates the resulting records for each time interval and finally writes it to disk as a CSV file.
 \vspace{1em}
 \inputminted{bash}{analysis/data-toolkit/new-toolkit-parallel.sh}
 
-%-------------------------------------------------------------------------------
-\subsection{Wi-Fi Sensor}
+%===============================================================================
+\section{Sample Probe Request} \label{appendix:sampleprobe}
+%===============================================================================
+This is a sample probe request captured using tshark and saved in the JSON format.
 
-%-------------------------------------------------------------------------------
-\subsection{Data Processing Pipeline}
+\vspace{1em}
+\inputminted{javascript}{analysis/data-collection/samplepacket.json}
+
+
+%===============================================================================
+\section{IJGIS - Estimating real-time high street footfall from Wi-Fi probe requests} \label{appendix:ijgis-paper}
+%===============================================================================
+\lipsum[1]
+\includepdf[pages=1-15]{documents/ijgis-paper.pdf}

@@ -6,7 +6,7 @@ Lines|Words|Characters|File
 167|2680|20529|chapters/21__research_themes.tex
 177|3170|24551|chapters/22__technologies.tex
 139|1312|9786|chapters/23__research_gaps.tex
-59|701|4594|chapters/30_data_collection.tex
+109|1252|9023|chapters/30_data_collection.tex
 96|911|5902|chapters/31__initial_experiments.tex
 68|445|3279|chapters/32__pilot_study.tex
 53|649|4298|chapters/33__smart_street_sensor.tex
@@ -17,5 +17,5 @@ Lines|Words|Characters|File
 0|0|0|chapters/43__cleaning_and_aggregation.tex
 7|9|126|chapters/50_applications.tex
 2|3|38|chapters/60_conclusions.tex
-37|173|1802|chapters/70_appendix.tex
-2285|28409|202222|total
+45|202|2557|chapters/70_appendix.tex
+2343|28989|207406|total

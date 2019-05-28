@@ -11,16 +11,15 @@ p <- data %>% ggplot() +
   geom_bar(aes(time %>% ceiling_date('minute')),
            fill="#E68E22", color = "#E68E22", width = 30, show.legend = FALSE) +
   ylab("No. of probes") + xlab("") +
-  # coord_cartesian(clip = 'off') +
+  scale_y_continuous(breaks = c(0,40,80)) +
   theme(text = element_text(family = "Helvetica"),
         panel.background = element_blank(),
-        # plot.margin = margin(1,12,1,1),
         axis.text = element_text(size = 10, color = "black"),
         axis.ticks.y = element_blank(),
-        # axis.title.y = element_text(size=10, color="black",margin=margin(0,10,0,0)),
-        # axis.title.x = element_text(size=10, color="black",margin=margin(10,0,0,0)),
+        axis.title.y = element_text(size=10, color="black",margin=margin(0,5,0,0)),
+        axis.text.x = element_text(size=8, color="black",margin=margin(0,0,-15,0)),
         axis.line.x = element_line(color= "black", size = 0.1))
 
-ggsave("../../images/home-total-count.png", plot=p, height=2.5, width=2.5,units="in")
+ggsave("../../images/home-total-count.png", plot=p, height=1, width=2.5,units="in")
 
 
