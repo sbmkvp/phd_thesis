@@ -69,9 +69,9 @@ Bibliography
 
 85
 
-95
+97
 
-111
+113
 
 37
 
@@ -105,16 +105,16 @@ and manage the Wi-Fi probe requests data
 43
 3.4 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
 and manage the Wi-Fi probe requests data
-44
+43
 3.5 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
 and manage the Wi-Fi probe requests data
 45
 3.6 The decay of signal strength (RSSI) with respect to distance.
-48
+47
 3.7 Increase in the share of randomised MAC addresses compared to nonrandomised original ones over the years.
-49
+48
 3.8 Smartphone penetration by age group in United Kingdom (2012-18)
-50
+48
 4.1 Comparison of volumes of datasets across various disciplines.
 57
 4.2 Missing data from five locations at Tottenham Court Road, London on 15
@@ -151,9 +151,9 @@ data collection.
 34
 3.1 Significant information included in a probe request
 3.2 Locations of installed sensors
-44
+43
 3.3 Summary of the collected data-sets.
-47
+46
 
 39
 
@@ -1653,29 +1653,47 @@ probe request frame. Source:
 IEEE 802.11 specification
 
 3.1.2 MAC address
-Mac address - types - parts. Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris. Nam arcu libero, nonummy eget, consectetuer
-id, vulputate a, magna. Donec vehicula augue eu neque. Pellentesque habitant
-morbi tristique senectus et netus et malesuada fames ac turpis egestas. Mauris
-ut leo. Cras viverra metus rhoncus sem. Nulla et lectus vestibulum urna
-fringilla ultrices. Phasellus eu tellus sit amet tortor gravida placerat. Integer
-sapien est, iaculis in, pretium quis, viverra ac, nunc. Praesent eget sem vel
-leo ultrices bibendum. Aenean faucibus. Morbi dolor nulla, malesuada eu,
-pulvinar at, mollis ac, nulla. Curabitur auctor semper nulla. Donec varius orci
-eget risus. Duis nibh mi, congue eu, accumsan eleifend, sagittis quis, diam.
-Duis eget orci sit amet orci dignissim rutrum.
+Media Access Control (MAC) address is a 12bit unique identifier assigned
+to a device in a network, it is similar to the Internet Protocol (IP) address
+but is assigned at the interface controller level and are usually assigned by
+the manufacturer of the device. Although the IP address of a mobile device
+might change regularly, the MAC address may remain just the same even
+for its life time making it akin to a unique identifier of a device and much
+more significant. It has two parts the first 6bits are known as Organisationally
+Unique Identifier (OUI) and gives us information about the manufacturer of
+the network card. Organisations need to register with IEEE to be assigned an
+OUI which they can use to generate a full MAC address. The second 6bit is
+the device part of the MAC address which is unique for the device from the
+manufacturer. Together both form the full MAC address which is unique to
+every device globally.
 
 40
 
 estimating footfall from passive wifi signals
 
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
-auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies
-et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
-magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis.
-Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque
-penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam
-tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus
-luctus mauris.
+The biggest draw for using Wi-Fi for mobility analysis comes from the fact
+that this globally unique ID is sent out regularly by mobile devices and can
+be collected passively through probe requests. As we saw in our literature
+review, this also creates an immense risk in terms of infringement of privacy
+both for the manufacturer and the user. Manufacturers of critical hardware
+components who do not want their unique MAC address to be publicised
+usually opt for registering a ‘private’ OUI which will not be given out to other
+manufacturers and will not be published publicly. Users (their mobile devices)
+who don’t want to be tracked using their MAC addresses use a temporary
+MAC address which is unique only to the local network - ‘local’ OUI rather
+than using a ‘global’ OUI for unencrypted communications and switch to their
+original MAC address when a trusted encrypted connect has been established.
+This lack of uniqueness can be inferred from the second character of the MAC
+address being E, A, 2 or 6. Though this provides reasonably better privacy to
+the mobile users it also limits our ability to just use the MAC address from
+the probe requests as previous studies conducted with Wi-Fi.
+To summarise, MAC addresses are two types based on whether it has a
+public OUI or a private OUI. This distinction does not affect their uniqueness
+or usefulness in mobility research but hinders us from knowing about the
+device from the MAC address. MAC addresses are also of two types based on
+them being unique globally or just in the local network. This distinction affects
+the feasibility of using them for device tracking or for studying movement of
+the users.
 
 3.2
 
@@ -1697,17 +1715,19 @@ uncertainties and opportunities present in them. The objectives here are,
 4. Analyse the probe requests to extract useful information.
 
 3.2.1 Experiment Design
+Gerald Combs and Contributors. Wireshark - network protocol analyzer.
+3
+
+https://www.wireshark.
+org/about.html, 2018
+
 The first step was to design a simple method to collect Wi-Fi probe requests.
 We accomplish by utilising the application - tshark 3 on a regular laptop. First
 we put the Wi-Fi module of the laptop in ‘Monitor mode’ where it behaves as
 a wireless access point. Then we run tshark to collect the data in CSV format
 using the following command under a shell.
 
-Gerald Combs and Contributors. Wireshark - network protocol analyzer.
-3
-
-https://www.wireshark.
-org/about.html, 2018
+collecting wi-fi data
 
 1
 
@@ -1757,19 +1777,15 @@ tshark \
 
 -e wlan.tag.length \
 
-14
-
--e wlan.ssid \
-
 9
 
+14
 15
 
-type mgt subtype probe-req and broadcast
-
-collecting wi-fi data
-
 41
+
+-e wlan.ssid \
+type mgt subtype probe-req and broadcast
 
 The fields marked with -e correspond to time stamp when the packet was
 received, total length of the packet, reported signal strength, duration for
@@ -1802,6 +1818,16 @@ We need to see the variation and usefulness of length, so need more data.
 This was conducted to examine the previous results in a larger set of data
 in a real world setting. Conducted in one of the main corridors - Southern
 cloisters of UCL with lot of pedestrian traffic. There were also seating areas
+
+Figure 3.2: Number of
+probe requests collected
+every minute on 15 October
+2017
+
+42
+
+estimating footfall from passive wifi signals
+
 across the corridor where students work with their computers. The area is
 also used heavily for lunch for large contingent of visitors. Collected around
 14750 probe requests collected and 652 users were counted walking around
@@ -1817,16 +1843,6 @@ classification of signal strengths as ’low’ and ’high’ in order to filte
 background noise. The data was collected at Oxford Street, London on 20
 December 2017 from 12:30 to 13:00 hrs, Wi-Fi probe requests were collected
 using the sensor described in Section and pedestrian footfall was manually
-
-Figure 3.2: Number of
-probe requests collected
-every minute on 15 October
-2017
-
-42
-
-estimating footfall from passive wifi signals
-
 recorded using the Android app - Clicker bala2018clicker. Being located at
 one of the busiest retail locations in the United Kingdom, the Wi-Fi sensor
 captured approximately 60,000 probe requests during the half hour period;
@@ -1840,11 +1856,10 @@ The analysis and use of this dataset is
 
 3.2.5 Summary and Discussion
 
-collecting wi-fi data
+3.3
 
-43
+Pilot Study
 
-3.3 Pilot Study
 The ai
 
 3.3.1 Methodology
@@ -1858,17 +1873,20 @@ We finally evaluated the effectiveness of the processes with the Mean Absolute
 Percentage Error (MAPE) at the locations and report our findings below.
 
 3.3.2 Locations
-
-Figure 3.3: Outline of
-the ‘Medium data toolkit’
-devised to collect, process,
-visualise and manage the
-Wi-Fi probe requests data
-
 Locations where sensors were installed, volume and speed of probe requests
 collected by the sensor and total pedestrians manually counted. The data
 occupies around 1.8 GB on disk when encoded in text format. The locations
 at which the data were collected are shown in Table . The locations were
+
+collecting wi-fi data
+
+43
+
+Figure 3.3: Outline of the
+‘Medium data toolkit’ devised to collect, process,
+visualise and manage the
+Wi-Fi probe requests data
+
 chosen for their diverse site conditions and unique sources of noise around the
 potential location of the sensors. The position of the sensor at these locations
 with respect to the context is shown the Figure We can see that Location 5
@@ -1879,12 +1897,6 @@ manual counts were conducted in these locations in half hour sessions on at
 least two different days. For the purposes of comparing with ground truth, we
 considered the data from sensors which correspond to the 12 sets of available
 manual counts. The schedule of data collection is shown in Figure .
-
-3.3.3 Data Collection
-
-44
-
-estimating footfall from passive wifi signals
 
 Location
 
@@ -1964,19 +1976,25 @@ door
 
 ID
 
-3.4
-
 Figure 3.4: Outline of
 the ‘Medium data toolkit’
-Table
-3.2:toLocations
-of
-devised
-collect, process,
+devised to collect, process,
+visualise and manage the
+Table 3.2:
+Locations
+Wi-Fi
+probe
+requestsof
+data
 installed sensors
-visualise
-and manage the
-Wi-Fi probe requests data
+
+44
+
+estimating footfall from passive wifi signals
+
+3.3.3 Data Collection
+
+3.4
 
 Smart Street Sensor Project
 
@@ -2004,11 +2022,6 @@ include a wide geographical spread, different demographic characteristics and
 range of retail centre profiles. A custom footfall counting technology using
 WiFi based sensors was also designed, developed by LDC and the sensors were
 installed the identified locations. The sensor monitors and records signals
-
-collecting wi-fi data
-
-45
-
 sent by WiFi enabled mobile devices present in its range. In addition, the
 number of people walking by the sensor was counted manually for short
 time periods during the installation. The project aims to combine these two
@@ -2019,7 +2032,6 @@ for storage. This data is then retrieved securely for the preparation of the
 commercial dashboards by LDC and for research purposes by CDRC users.
 The project began on July 2015 with the first sensor installation and has grown
 to an average of 450 daily active sensors as of January 2017.
-
 The data is collected through set of SmartStreetSensors (shown in Figure
 3.1), a WiFi based sensor which when installed acts as a WiFi access point and
 collects specific type of packets (probe requests) relayed by mobile devices
@@ -2030,8 +2042,25 @@ The installation and calibration of device with respect to the shop window
 and the pavement is illustrated in Figure 3.2. There is also a small percentage
 (3%) of the devices which are installed within large shops to monitor internal
 footfall. Each device collects data independently and uploads the collected
-data to a central container at regular interval 5 minutes through a dedicated
-3G mobile data connection. The sensor hardware has been improved over the
+
+collecting wi-fi data
+
+Figure 3.5: Outline of the
+‘Medium data toolkit’ devised
+collect, process,
+data
+to atocentral
+container at regular interval 5 minutes through a dedicated
+visualise and manage the
+3G
+mobile
+connection.
+The sensor hardware has been improved over the
+Wi-Fi
+probedata
+requests
+data
+
 course of the project and currently has built in failure prevention mechanisms
 such as, backup battery for power failures, automatic reboot capabilities
 and in-device memory for holding data when internet is not available. The
@@ -2041,23 +2070,8 @@ smartstreetsensor - figure. system architecture - figure.
 3.4.2 Locations
 locations - map locations - table
 
-Figure 3.5: Outline of
-the ‘Medium data toolkit’
-devised to collect, process,
-visualise and manage the
-Wi-Fi probe requests data
-
-46
-
-estimating footfall from passive wifi signals
-
 3.4.3 Data Description
-
 data description - table. sample probe request - code. installation of sensors figure. descriptive statistics - table.
-
-collecting wi-fi data
-
-47
 
 3.5 Discussion
 In the previous sections we designed and implemented data collection processes to arrive at 3 different datasets - Small experiments, Pilot Study and
@@ -2072,6 +2086,15 @@ which collects very small focussed set of data at a national level for very long
 periods of time. These datasets give us a well rounded set of data to set up
 our toolkit and devise out methodologies. The summary of the datasets in
 terms of their characteristics is show in table 3.3.
+
+*approximate
+
+45
+
+46
+
+estimating footfall from passive wifi signals
+
 Dataset
 
 Locations
@@ -2113,6 +2136,9 @@ Low
 
 Real world insights
 
+Table 3.3: Summary of the
+collected data-sets.
+
 Before we move on to develop methods to process the data into information
 on footfall in these locations, the crucial action is to look at the possible
 biases and uncertainties in these datasets arising due to the data collection
@@ -2139,15 +2165,6 @@ the method cannot block out all the signals and will leave some uncertainty
 about where the probe requests are coming from. Moreover, strength of the
 signal received from a mobile device by the Wi-Fi access point depends on
 numerous factors such as,
-
-Table 3.3: Summary of the
-collected data-sets.
-*approximate
-
-48
-
-estimating footfall from passive wifi signals
-
 1.
 2.
 3.
@@ -2184,6 +2201,10 @@ log10 d =
 
 (3.1)
 
+collecting wi-fi data
+
+47
+
 Where,
 d = distance - Sensitivity of the receiver
 Fm = Fade Margin - Sensitivity of the receiver
@@ -2192,11 +2213,6 @@ Po = Signal power (dBm) at zero distance - Measured by testing
 Pr = Signal power (dBm) at distance - Measured by testing
 f = signal frequency in MHz - Specific to the hardware
 
-Figure 3.6: The decay of
-signal strength (RSSI)
-with respect to distance.
-Source: Wi-Fi LocationBased Services, Cisco
-
 All these factors vary widely in real world conditions at each location
 depending on where and how the sensors are installed. They also vary widely
 over time due to changes in the context and vary across different directions at
@@ -2204,6 +2220,12 @@ each location as well. This makes it extremely difficult to model the distance
 between mobile device and the access point as a function of the received signal
 strength. The equation 3.1 can be approximated and simplified as,
 R = (−10 × log10 d) + A
+
+Figure 3.6: The decay of
+signal strength (RSSI)
+with respect to distance.
+Source: Wi-Fi Location-Based
+Services, Cisco
 
 (3.2)
 
@@ -2224,11 +2246,6 @@ changes in the context.
 The second uncertainty we face is the frequency at which mobile devices
 generated the probe requests which varies wildly. The number of probe
 requests generated from a mobile device depends on,
-
-collecting wi-fi data
-
-49
-
 1. Manufacturer of the device. E.g. Samsung vs Apple
 2. Version of the software running on the device. E.g iOS 7 vs iOS 8
 3. State of the device. E.g. If it is already connected to internet? Has the
@@ -2242,13 +2259,6 @@ on the number of access points known to the device. It is also seen from our
 initial experiments that these probe requests are generated in short bursts
 rather than being generated at regular intervals. This makes predicting a base
 factor for calculating a number of mobile devices based on the number of
-probe requests received much more complex. The variety of device models
-available and the pace of change in software that run these models further
-complicates this. Though we can simply aggregate these probe requests based
-on the unique information on them, in absence of such information it becomes
-extremely critical. We to consider this uncertainty in detail while making any
-simple assumptions on the relationship between number of probe requests
-and the number of mobile devices that generated them.
 
 Julien Freudiger. How
 talkative is your mobile
@@ -2268,7 +2278,27 @@ URL http://doi.acm.org/
 
 10.1145/2766498.2766517
 
+48
+
+estimating footfall from passive wifi signals
+
+probe requests received much more complex. The variety of device models
+available and the pace of change in software that run these models further
+complicates this. Though we can simply aggregate these probe requests based
+on the unique information on them, in absence of such information it becomes
+extremely critical. We to consider this uncertainty in detail while making any
+simple assumptions on the relationship between number of probe requests
+and the number of mobile devices that generated them.
+
 3.5.3 MAC address randomisation
+
+Figure 3.7: Increase in the
+share of randomised MAC
+addresses compared to
+non-randomised original
+ones over the years.
+From data collected at Regent Street, Cambridge.
+
 Randomisation of MAC address is one of the recent uncertainty introduced
 in the data. As we saw in section 3.1 MAC address is the unique identifier
 for each mobile device and we aggregate the footfall numbers based on this.
@@ -2294,19 +2324,6 @@ research on human mobility using Wi-Fi data.
 One of the major external bias in all the datasets collected from mobile devices
 is the overall volume and nature of the ownership of these devices. The
 ownership of mobile devices, specifically Wi-Fi enabled ones, have been on
-
-Figure 3.7: Increase in the
-share of randomised MAC
-addresses compared to
-non-randomised original
-ones over the years.
-From data collected at Regent
-Street, Cambridge.
-
-50
-
-estimating footfall from passive wifi signals
-
 the rise since 2005. Though mobile ownership has reached unprecedented
 level in recent years, there is still an underlying increasing trend present in
 the ownership of these devices which manifests itself in the collected data.
@@ -2319,15 +2336,15 @@ addition to this, the overall upward trend needs to be adjusted assuming 1%
 increase monthly and 0.2% weekly when using this data across long periods
 of time.
 
-3.5.5
 Figure 3.8: Smartphone
 penetration by age group in
 United Kingdom (2012-18)
-Source: UK edition, Deloitte
-Global Mobile Consumer Survey,
 
-Missing Data
+collecting wi-fi data
 
+49
+
+3.5.5 Missing Data
 Being collected by distributed set of sensors located in busy real-world scenarios, the data has a large number of gaps as well. These gaps are caused by
 various reasons such as, failure of the sensor hardware and software, failure
 in internet connectivity to send the data back, External factors such as store
@@ -2344,14 +2361,6 @@ a measure for aggregating the counts across locations which removes the bias
 introduced by long term gaps in data.
 
 3.5.6 MAC address collisions
-
-6
-mikeazo and poncho.
-Formula for the number of
-expected collisions. URL
-
-https://bit.ly/2YS6zYl
-
 Finally, from the initial analysis we have observed that there are few instances
 of collisions occurring in the hashed MAC addresses. This has been observed
 as unique hashed MAC addresses appear at different locations within a short
@@ -2370,7 +2379,14 @@ algorithm. Though these collisions might cause issues in granular mobility
 models, for long term and broad studies where we don’t track individual
 devices, they can be safely ignored.
 
-4
+mikeazo and poncho.
+Formula for the number of
+expected collisions. URL
+6
+
+https://bit.ly/2YS6zYl
+
+4
 Processing the Data into Footfall
 
 processing the data into footfall
@@ -4517,11 +4533,10 @@ jq_string=".[] | \
 
 7
 
-| @csv";
-
 10
 11
 
+| @csv";
 cmd="jq -r '$jq_string' $folder{}/*.pd \
 
 12
@@ -4549,9 +4564,19 @@ echo "$sensors" \
 
 > output-new-parallel.csv
 
-7.2 Sample Probe Request
+87
+
+88
+
+estimating footfall from passive wifi signals
+
+7.2
+
+Sample Probe Request
+
 This is a sample probe request captured using tshark and saved in the JSON
 format.
+
 1
 2
 3
@@ -4592,11 +4617,11 @@ format.
 8
 9
 
-13
-14
-
 "frame.time": "Nov 15, 2017 18:46:56.155602000 GMT",
 "frame.offset_shift": "0.000000000",
+
+13
+14
 
 17
 
@@ -4657,17 +4682,12 @@ format.
 
 "radiotap.present": {
 
-87
-
-88
-
-estimating footfall from passive wifi signals
+31
+32
 
 "radiotap.present.word": "0x0000086f",
 "radiotap.present.word_tree": {
 
-31
-32
 33
 
 "radiotap.present.tsft": "1",
@@ -4692,22 +4712,27 @@ estimating footfall from passive wifi signals
 
 38
 39
+40
+41
 
 "radiotap.present.lock_quality": "0",
 "radiotap.present.tx_attenuation": "0",
 
-40
-41
+43
 
 "radiotap.present.db_tx_attenuation": "0",
 "radiotap.present.dbm_tx_power": "0",
 
+44
+
+"radiotap.present.antenna": "1",
+
 42
-43
+
+appendix
 
 46
 
-"radiotap.present.antenna": "1",
 "radiotap.present.db_antsignal": "0",
 "radiotap.present.db_antnoise": "0",
 
@@ -4745,7 +4770,6 @@ estimating footfall from passive wifi signals
 
 "radiotap.present.vendor_ns": "0",
 
-44
 45
 
 "radiotap.present.ext": "0"
@@ -4796,9 +4820,11 @@ estimating footfall from passive wifi signals
 68
 
 "radiotap.flags.badfcs": "0",
-"radiotap.flags.shortgi": "0"
 
 69
+
+"radiotap.flags.shortgi": "0"
+
 70
 
 },
@@ -4836,8 +4862,6 @@ estimating footfall from passive wifi signals
 79
 
 "radiotap.channel.flags.5ghz": "1",
-
-appendix
 
 80
 
@@ -4885,30 +4909,46 @@ estimating footfall from passive wifi signals
 91
 92
 93
-94
-95
-96
-97
-98
-99
-100
-101
-102
-103
 
 },
 "wlan_radio": {
 "wlan_radio.phy": "5",
+
+89
+
+90
+
+estimating footfall from passive wifi signals
+
 "wlan_radio.11a.turbo_type": "0",
 "wlan_radio.data_rate": "6",
+
+94
+95
+
 "wlan_radio.channel": "36",
 "wlan_radio.frequency": "5180",
+
+96
+97
+
 "wlan_radio.signal_dbm": "-76",
 "wlan_radio.noise_dbm": "-96",
+
+98
+99
+
 "wlan_radio.timestamp": "836459236",
 "wlan_radio.duration": "180",
+
+100
+101
+
 "wlan_radio.duration_tree": {
 "wlan_radio.preamble": "20",
+
+102
+103
 
 105
 
@@ -4921,10 +4961,9 @@ estimating footfall from passive wifi signals
 
 104
 
-107
-
 }
 
+107
 108
 
 },
@@ -5001,12 +5040,6 @@ estimating footfall from passive wifi signals
 
 },
 
-89
-
-90
-
-estimating footfall from passive wifi signals
-
 129
 
 "wlan.duration": "0",
@@ -5017,49 +5050,45 @@ estimating footfall from passive wifi signals
 "wlan.ra_resolved": "Broadcast",
 
 131
+132
+133
+134
+135
+136
+137
+138
+139
 
 "wlan.da": "ff:ff:ff:ff:ff:ff",
 "wlan.da_resolved": "Broadcast",
-
-132
-133
-
 "wlan.ta": "94:b1:0a:79:15:9b",
 "wlan.ta_resolved": "SamsungE_79:15:9b",
-
-134
-135
-
 "wlan.sa": "94:b1:0a:79:15:9b",
 "wlan.sa_resolved": "SamsungE_79:15:9b",
-
-136
-137
-
 "wlan.bssid": "ff:ff:ff:ff:ff:ff",
 "wlan.bssid_resolved": "Broadcast",
 
-138
-139
+141
 
 "wlan.addr": "ff:ff:ff:ff:ff:ff",
 "wlan.addr_resolved": "Broadcast",
 
-140
-141
+142
 
 "wlan.addr": "94:b1:0a:79:15:9b",
-"wlan.addr_resolved": "SamsungE_79:15:9b",
 
-142
+140
+
+appendix
+
 143
+
+"wlan.addr_resolved": "SamsungE_79:15:9b",
 
 145
 
 "wlan.addr": "ff:ff:ff:ff:ff:ff",
 "wlan.addr_resolved": "Broadcast",
-
-144
 
 146
 
@@ -5076,6 +5105,8 @@ estimating footfall from passive wifi signals
 149
 
 "wlan.fcs.status": "1"
+
+144
 
 150
 
@@ -5171,8 +5202,6 @@ estimating footfall from passive wifi signals
 
 "wlan.ht.capabilities.sm": "0x00000000",
 
-appendix
-
 178
 
 "wlan.ht.capabilities.green": "0",
@@ -5227,6 +5256,13 @@ estimating footfall from passive wifi signals
 "wlan.ht.ampduparam_tree": {
 
 191
+
+91
+
+92
+
+estimating footfall from passive wifi signals
+
 192
 
 "wlan.ht.ampduparam.maxlength": "0x00000003",
@@ -5304,9 +5340,11 @@ estimating footfall from passive wifi signals
 211
 
 "wlan.ht.mcsset.txmaxss": "0x00000000",
-"wlan.ht.mcsset.txunequalmod": "0"
 
 212
+
+"wlan.ht.mcsset.txunequalmod": "0"
+
 213
 
 },
@@ -5332,9 +5370,11 @@ estimating footfall from passive wifi signals
 219
 
 "wlan.htex.capabilities.htc": "0",
-"wlan.htex.capabilities.rdresponder": "0"
 
 220
+
+"wlan.htex.capabilities.rdresponder": "0"
+
 221
 
 },
@@ -5356,12 +5396,6 @@ estimating footfall from passive wifi signals
 226
 
 "wlan.txbf.txss": "0",
-
-91
-
-92
-
-estimating footfall from passive wifi signals
 
 227
 
@@ -5418,6 +5452,8 @@ estimating footfall from passive wifi signals
 240
 
 "wlan.txbf.fm.compressed.maxant": "0x00000000",
+
+appendix
 
 241
 
@@ -5524,9 +5560,11 @@ estimating footfall from passive wifi signals
 268
 
 "wlan.extcap.b6": "0",
-"wlan.extcap.b7": "0"
 
 269
+
+"wlan.extcap.b7": "0"
+
 270
 
 },
@@ -5548,8 +5586,6 @@ estimating footfall from passive wifi signals
 275
 
 "wlan.extcap.b10": "0",
-
-appendix
 
 276
 
@@ -5605,9 +5641,16 @@ estimating footfall from passive wifi signals
 
 "wlan.extcap.b21": "0",
 
-290
+93
+
+94
+
+estimating footfall from passive wifi signals
 
 "wlan.extcap.b22": "0",
+
+290
+
 "wlan.extcap.b23": "0"
 
 291
@@ -5690,11 +5733,9 @@ estimating footfall from passive wifi signals
 312
 
 "wlan.extcap.b38": "0",
-
-313
-
 "wlan.extcap.b39": "0"
 
+313
 314
 
 },
@@ -5735,13 +5776,6 @@ estimating footfall from passive wifi signals
 324
 
 "wlan.extcap": "0x00000000",
-
-93
-
-94
-
-estimating footfall from passive wifi signals
-
 "wlan.extcap_tree": {
 
 325
@@ -5792,6 +5826,8 @@ estimating footfall from passive wifi signals
 338
 
 "wlan.tag.number": "107",
+
+appendix
 
 339
 
@@ -5872,9 +5908,11 @@ estimating footfall from passive wifi signals
 360
 
 "wlan.tag.vendor.oui.type": "8",
-"wlan.wfa.ie.type": "0x00000008"
 
 361
+
+"wlan.wfa.ie.type": "0x00000008"
+
 362
 
 },
@@ -5898,10 +5936,10 @@ estimating footfall from passive wifi signals
 367
 
 "wlan.tag.vendor.oui.type": "2",
+"wlan.tag.vendor.data": "02:00:00:10:00:00"
 
 368
 
-"wlan.tag.vendor.data": "02:00:00:10:00:00"
 }
 
 369
@@ -5909,27 +5947,10 @@ estimating footfall from passive wifi signals
 
 } } } } }
 
-8
+95
+
+8
 Research Article
-Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Ut purus elit, vestibulum ut, placerat ac, adipiscing vitae, felis. Curabitur dictum gravida mauris.
-Nam arcu libero, nonummy eget, consectetuer id, vulputate a, magna. Donec
-vehicula augue eu neque. Pellentesque habitant morbi tristique senectus et
-netus et malesuada fames ac turpis egestas. Mauris ut leo. Cras viverra metus
-rhoncus sem. Nulla et lectus vestibulum urna fringilla ultrices. Phasellus eu
-tellus sit amet tortor gravida placerat. Integer sapien est, iaculis in, pretium
-quis, viverra ac, nunc. Praesent eget sem vel leo ultrices bibendum. Aenean
-faucibus. Morbi dolor nulla, malesuada eu, pulvinar at, mollis ac, nulla.
-Curabitur auctor semper nulla. Donec varius orci eget risus. Duis nibh mi,
-congue eu, accumsan eleifend, sagittis quis, diam. Duis eget orci sit amet orci
-dignissim rutrum.
-Nam dui ligula, fringilla a, euismod sodales, sollicitudin vel, wisi. Morbi
-auctor lorem non justo. Nam lacus libero, pretium at, lobortis vitae, ultricies
-et, tellus. Donec aliquet, tortor sed accumsan bibendum, erat ligula aliquet
-magna, vitae ornare odio metus a mi. Morbi ac orci et nisl hendrerit mollis.
-Suspendisse ut massa. Cras nec ante. Pellentesque a nulla. Cum sociis natoque
-penatibus et magnis dis parturient montes, nascetur ridiculus mus. Aliquam
-tincidunt urna. Nulla ullamcorper vestibulum turpis. Pellentesque cursus
-luctus mauris.
 
 INTERNATIONAL JOURNAL OF GEOGRAPHICAL INFORMATION SCIENCE
 https://doi.org/10.1080/13658816.2019.1587616
@@ -6708,7 +6729,7 @@ Alexander Amini, Kevin Kung, Chaogui Kang, Stanislav Sobolevsky, and
 Carlo Ratti. The impact of social segregation on human mobility in developing and industrialized regions. EPJ Data Science, 3(1):1, 2014. ISSN
 2193-1127.
 
-112
+114
 
 estimating footfall from passive wifi signals
 
@@ -6798,9 +6819,9 @@ Landscan. Geoinformatics, 5(2):34–37, 2002.
 Budhendra Bhaduri, Eddie Bright, and Phil Coleman. Development of a
 high resolution population dynamics model. Geocomputation 2005, 2005.
 
-113
+115
 
-114
+116
 
 estimating footfall from passive wifi signals
 
@@ -6887,9 +6908,9 @@ from hidden information in wlans. In Military Communications Conference,
 Peng Cheng, Zhijun Qiu, and Bin Ran. Particle filter based traffic state estimation using cell phone network data. In 2006 IEEE Intelligent Transportation
 Systems Conference, pages 1047–1052. IEEE, 2006. ISBN 1424400937.
 
-115
+117
 
-116
+118
 
 estimating footfall from passive wifi signals
 
@@ -6972,9 +6993,9 @@ ISSN 03405443. doi: 10.1007/s00265-009-0739-0.
 Nature Editorial. A flood of hard data. Nature, 435:698, 2008. ISSN 0028-0836.
 doi: 10.1038/453698a.
 
-117
+119
 
-118
+120
 
 estimating footfall from passive wifi signals
 
@@ -7064,9 +7085,9 @@ http://www.nature.com/nature/journal/v453/n7196/full/nature06958.
 html{%}5Cnhttp://www.nature.com/nature/journal/v453/n7196/pdf/
 nature06958.pdf.
 
-119
+121
 
-120
+122
 
 estimating footfall from passive wifi signals
 
@@ -7155,9 +7176,9 @@ ISSN 0968090X. doi: 10.1016/j.trc.2014.01.002.
 Chris Jacobs-Crisioni, Piet Rietveld, Eric Koomen, and Emmanouil Tranos. Evaluating the impact of land-use density and mix on spatiotemporal
 urban activity patterns: An exploratory study using mobile phone data.
 
-121
+123
 
-122
+124
 
 estimating footfall from passive wifi signals
 
@@ -7241,9 +7262,9 @@ labs: A framework for computational urban planning and civic technology
 innovation. SSRN Electronic Journal, 0(0):1–18, 2015. ISSN 1556-5068. doi:
 10.2139/ssrn.2659896. URL http://papers.ssrn.com/abstract=2659896.
 
-123
+125
 
-124
+126
 
 estimating footfall from passive wifi signals
 
@@ -7325,9 +7346,9 @@ patterns from their digital traces. Computers, Environment and Urban Systems,
 Alyson Lloyd and James Cheshire. Detecting address uncertainty in loyalty card data. Applied Spatial Analysis and Policy, Jan 2018. ISSN 18744621. doi: 10.1007/s12061-018-9250-1. URL https://doi.org/10.1007/
 s12061-018-9250-1.
 
-125
+127
 
-126
+128
 
 estimating footfall from passive wifi signals
 
@@ -7415,9 +7436,9 @@ E Mellegard, S Moritz, and M Zahoor. Origin/destination-estimation using
 cellular network data. In 2011 IEEE 11th International Conference on Data
 Mining Workshops, pages 891–896, 2011. doi: 10.1109/ICDMW.2011.132.
 
-127
+129
 
-128
+130
 
 estimating footfall from passive wifi signals
 
@@ -7502,9 +7523,9 @@ Luca Pappalardo, Filippo Simini, Salvatore Rinzivillo, Dino Pedreschi,
 Fosca Giannotti, and Albert-László Barabási. Returners and explorers
 dichotomy in human mobility. Nature Communications, 6:8166, 2015.
 
-129
+131
 
-130
+132
 
 estimating footfall from passive wifi signals
 
@@ -7594,9 +7615,9 @@ Saskia Sassen. The global city: New York, London, Tokyo, volume 15. 2001.
 ISBN 9780691070636. doi: 10.2307/2152688. URL http://books.google.
 com/books?id=PTAiHWK2BYIC.
 
-131
+133
 
-132
+134
 
 estimating footfall from passive wifi signals
 
@@ -7684,9 +7705,9 @@ Ole Tange. GNU Parallel 2018. Ole Tange, March 2018. ISBN 9781387509881.
 doi: 10.5281/zenodo.1146014. URL https://doi.org/10.5281/zenodo.
 1146014.
 
-133
+135
 
-134
+136
 
 estimating footfall from passive wifi signals
 
@@ -7775,9 +7796,9 @@ Caroline O Buckee. The impact of biases in mobile phone ownership on
 estimates of human mobility. Journal of the Royal Society Interface, 10(81):
 20120986, 2013. ISSN 1742-5689.
 
-135
+137
 
-136
+138
 
 estimating footfall from passive wifi signals
 
@@ -7851,6 +7872,6 @@ Enwei Zhu, Maham Khan, Philipp Kats, Shreya Santosh Bamne, and Stanislav
 Sobolevsky. Digital urban sensing: A multi-layered approach. arXiv preprint
 arXiv:1809.01280, 2018.
 
-137
+139
 
 

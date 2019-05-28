@@ -5,13 +5,14 @@ font_add('Futura', '/usr/share/fonts/TTF/futura-poster-light.ttf')
 
 
 data <- read.csv("../../data/pilot-study/01-home-sensor.csv") %>%
-  mutate(time = as.POSIXct(time, "%Y-%m-%d %H:%M:%S"))
+  mutate(time = as.POSIXct(time, "%Y-%m-%d %H:%M:%S") %>% ceiling_date('minute')) %>%
+  group_by(time) %>% summarise(count = length(unique(mac)))
 
 p <- data %>% ggplot() + 
-  geom_bar(aes(time %>% ceiling_date('minute')),
-           fill="#E68E22", color = "#E68E22", width = 30, show.legend = FALSE) +
+  geom_bar(aes(time, count ), stat = "identity",
+           fill="#E68E22", color = "#E68E22", size =0.12, show.legend = FALSE) +
   ylab("No. of probes") + xlab("") +
-  scale_y_continuous(breaks = c(0,40,80)) +
+  # scale_y_continuous(breaks = c(0,40,80)) +
   theme(text = element_text(family = "Helvetica"),
         panel.background = element_blank(),
         axis.text = element_text(size = 10, color = "black"),
