@@ -102,19 +102,24 @@ It has two parts the first 6bits are known as Organisationally Unique Identifier
 Organisations need to register with IEEE to be assigned an OUI which they can use to generate a full MAC address.
 The second 6bit is the device part of the MAC address which is unique for the device from the manufacturer.
 Together both form the full MAC address which is unique to every device globally.
-
 The biggest draw for using Wi-Fi for mobility analysis comes from the fact that this globally unique ID is sent out regularly by mobile devices and can be collected passively through probe requests.
+
 As we saw in our literature review, this also creates an immense risk in terms of infringement of privacy both for the manufacturer and the user.
 Manufacturers of critical hardware components who do not want their unique MAC address to be publicised usually opt for registering a `private' OUI which will not be given out to other manufacturers and will not be published publicly.
 Users (their mobile devices) who don't want to be tracked using their MAC addresses use a temporary MAC address which is unique only to the local network - `local' OUI rather than using a `global' OUI for unencrypted communications and switch to their original MAC address when a trusted encrypted connect has been established.
 This lack of uniqueness can be inferred from the second character of the MAC address being E, A, 2 or 6.
 Though this provides reasonably better privacy to the mobile users it also limits our ability to just use the MAC address from the probe requests as previous studies conducted with Wi-Fi.
+It is important to note that this is not a security measure rather an exception made available by IEEE 802.11 for assigning temporary addresses in ad hoc networks which has been used by most modern operating systems.
 
-To summarise, MAC addresses are two types based on whether it has a public OUI or a private OUI.
+Essentially, there are two types of MAC addresses based on whether they have a public OUI or a private OUI.
 This distinction does not affect their uniqueness or usefulness in mobility research but hinders us from knowing about the device from the MAC address.
-MAC addresses are also of two types based on them being unique globally or just in the local network.
+There are also two types of MAC addresses based on them being unique globally or just in the local network.
 This distinction affects the feasibility of using them for device tracking or for studying movement of the users.
 
+To summarise the above, we looked at the IEEE 802.11 standard to examine the significance and nature of the `probe requests' which are broadcast by mobile devices constantly.
+We identified information present in these probe requests which are relevant to our study and examined the uniquely identifier MAC address field in detail.
+We see that though MAC address provides a way to globally identify a mobile device from probe requests it generates, this field can be often masked by using locally assigned addresses.
+We also observe that there are other relevant information which when combined can provide us an alternative to just using the MAC addresses.
 
 %==============================================================================%
 \input{chapters/31__initial_experiments.tex}
