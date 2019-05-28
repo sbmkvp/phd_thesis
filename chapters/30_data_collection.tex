@@ -96,14 +96,28 @@ Moreover operating systems use the replies they get for these probe requests and
 
 \subsection{MAC address}
 %------------------------------------------------------------------------------%
+Media Access Control (MAC) address is a 12bit unique identifier assigned to a device in a network, it is similar to the Internet Protocol (IP) address but is assigned at the interface controller level and are usually assigned by the manufacturer of the device.
+Although the IP address of a mobile device might change regularly, the MAC address may remain just the same even for its life time making it akin to a unique identifier of a device and much more significant.
+It has two parts the first 6bits are known as Organisationally Unique Identifier (OUI) and gives us information about the manufacturer of the network card.
+Organisations need to register with IEEE to be assigned an OUI which they can use to generate a full MAC address.
+The second 6bit is the device part of the MAC address which is unique for the device from the manufacturer.
+Together both form the full MAC address which is unique to every device globally.
 
-Mac address - types - parts. \lipsum[1-2]
+The biggest draw for using Wi-Fi for mobility analysis comes from the fact that this globally unique ID is sent out regularly by mobile devices and can be collected passively through probe requests.
+As we saw in our literature review, this also creates an immense risk in terms of infringement of privacy both for the manufacturer and the user.
+Manufacturers of critical hardware components who do not want their unique MAC address to be publicised usually opt for registering a `private' OUI which will not be given out to other manufacturers and will not be published publicly.
+Users (their mobile devices) who don't want to be tracked using their MAC addresses use a temporary MAC address which is unique only to the local network - `local' OUI rather than using a `global' OUI for unencrypted communications and switch to their original MAC address when a trusted encrypted connect has been established.
+This lack of uniqueness can be inferred from the second character of the MAC address being E, A, 2 or 6.
+Though this provides reasonably better privacy to the mobile users it also limits our ability to just use the MAC address from the probe requests as previous studies conducted with Wi-Fi.
+
+To summarise, MAC addresses are two types based on whether it has a public OUI or a private OUI.
+This distinction does not affect their uniqueness or usefulness in mobility research but hinders us from knowing about the device from the MAC address.
+MAC addresses are also of two types based on them being unique globally or just in the local network.
+This distinction affects the feasibility of using them for device tracking or for studying movement of the users.
+
 
 %==============================================================================%
 \input{chapters/31__initial_experiments.tex}
-\pagebreak
 \input{chapters/32__pilot_study.tex}
-\pagebreak
 \input{chapters/33__smart_street_sensor.tex}
-\pagebreak
 \input{chapters/34__discussion.tex}
