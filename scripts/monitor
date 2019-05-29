@@ -1,14 +1,13 @@
 #! /bin/bash
 
-COMMAND="pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
+COMMAND="pdflatex -halt-on-error -interaction=nonstopmode --interaction=batchmode --shell-escape thesis.tex && \
+    echo '--------------------------------------------------' &&\
     bibtex thesis && \
-    makeindex thesis && \
-    pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
-    bibtex thesis && \
-    pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
-    bibtex thesis && \
-    pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
-    ./scripts/status > word-count.md"
+    echo '--------------------------------------------------' &&\
+    pdflatex -halt-on-error -interaction=nonstopmode --interaction=batchmode --shell-escape thesis.tex %%
+    echo '==================================================' &&\
+    echo ''"
 
-find . -path './data' -prune -o -path './.git' -prune -o -print -regex ".*\.\(cls\|tex\|bib\)" \
+find . -path './data' -prune -o -path './.git' -prune -o -print \
+    | grep '\.tex$\|\.cls$\|\.bib$' \
     | entr bash -c "$COMMAND"
