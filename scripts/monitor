@@ -5,6 +5,7 @@ COMMAND="pdflatex -halt-on-error -interaction=nonstopmode --interaction=batchmod
     bibtex thesis && \
     echo '--------------------------------------------------' &&\
     pdflatex -halt-on-error -interaction=nonstopmode --interaction=batchmode --shell-escape thesis.tex %%
+    echo '' &&\
     echo '==================================================' &&\
     echo ''"
 
