@@ -79,7 +79,7 @@ We need to find a way to look at the
 We need to look at signal strength which can show how far the device is.
 we look at the compression ration of MAC vs probes which shows the amount of randomisation.
 Since we hashed the mac address there is no way of finding out. we need to keep the OUI part which is independent from vendor. Not all local OUIs are private.
-compex google and local addresses are randomising.
+Compex, Google and local addresses are randomising.
 Samsung is tricky since we know that samsung phones don't randomise. we need to look into this more to see if it is randomisation.
 nvidia, amazon, azurewav does not randomise.
 
@@ -99,8 +99,8 @@ nvidia, amazon, azurewav does not randomise.
   CompexPt &   75 &  28 & -88.17 &   3 &   3 &   5 &  29 &  74 \\ 
   CompexUs &    4 &   1 & -87.25 &   3 &   3 &   3 &   4 &   4 \\ 
   Dedicate &    2 &   1 & -92.50 &   1 &   1 &   1 &   1 &   2 \\ 
-  Fn-LinkT &   64 &   1 & -60.58 &   2 &   2 &   6 &   1 &  64 \\ 
-  Google   & 1347 &  76 & -69.14 &   4 &   5 &  41 &   6 & 1157 \\ 
+  Fn-LinkT &   64 &   1 & \textcolor{red}{-60.58} &   2 &   2 &   6 &   1 &  64 \\ 
+  Google   & 1347 &  76 & \textcolor{red}{-69.14} &   4 &   5 &  41 &   6 & 1157 \\ 
   HuaweiTe &   11 &   3 & -87.91 &   3 &   3 &   3 &   1 &  11 \\ 
   IntelCor &   25 &   2 & -84.04 &   3 &   3 &   4 &   3 &  25 \\ 
   LenovoMo &    1 &   1 & -93.00 &   1 &   1 &   1 &   1 &   1 \\ 
@@ -137,11 +137,8 @@ The logic behind this is that since the phones are essentially sending the same 
 We also see that duration of the transfer being a function of the length of the packet almost same as unique as the length.
 We can say there is no additional information encoded within the duration more than the length of the packet.
 Tags and SSIDs though looked promising, doesn't give us enough unique finger print for the device.
-Tags don't have much uniqueness devicewise and SSIDs are sparse.
+Tags don't have much uniqueness device-wise and SSID information is sparse.
 This is because of most of the devices don't have this field 66\% of local OUIs , 50\% of Google and 38\% of samsung probes dont have any SSID information.
-
-Finally the sequence numbers are the most interesting part of the data collected. Though they don't uniquely identify the devices directly, along with timestamps they form visually discernible, unique patterns.
-Figure \ref{} we have isolated the two vendors and the probes with more than -70dBm and plotted their sequence numbers along with time. We can clearly see two devices which were present in the room. This shows the usefulness of the sequence number as the measure of 
 
 \begin{figure}
   \includegraphics{images/home-sequence-time.png}
@@ -149,18 +146,43 @@ Figure \ref{} we have isolated the two vendors and the probes with more than -70
   \label{figure:collection:home:sequence}
 \end{figure}
 
+Finally the sequence numbers are the most interesting part of the data collected. Though they don't uniquely identify the devices directly, along with timestamps they form visually discernible, unique patterns.
+Figure \ref{figure:collection:home:sequence} we have isolated the two vendors and the probes with more than -70dBm and plotted their sequence numbers along with time. We can clearly see two devices which were present in the room. This shows the usefulness of the sequence number in estimating the actual devices around the sensors.
+rotation of sequence numbers at 4096. This needs to be considered .
+Figure \ref{figure:collection:home:samsung} shows a similar exploration of Samsung devices.
+Though from the table \ref{table:collection:proberequest} it looked as if Samsung devices are randomising their MAC addresses, we can clearly that the diversity of MAC addresses are indeed unique devices which were far away from the sensor.
+Though the results of this exploratory analysis has been positive the main challenge is to make sure these methods are feasible when dealing with more real-time, real world data.
+We need to devise a more real world experiment to see frame lengths and signal strength work in a bigger data set for filtering out the noise. 
+
+\begin{marginfigure}[-4cm]
+  \forcerectofloat
+  \includegraphics{images/home-samsung-google.png}
+  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \label{figure:collection:home:samsung}
+\end{marginfigure}
+\marginnote{\textit{The colors show unique MAC addresses.} }
 
 %------------------------------------------------------------------------------%
 \subsection{University Hall}
 %------------------------------------------------------------------------------%
-This was conducted to examine the previous results in a larger set of data in a real world setting.
+This experiment was conducted to examine the previous results in a larger set of data in a more `real world' setting.
+The specific goals are to validate the finding on signal strength corresponding to the distance from the sensor and to further examine the usefulness of the length parameter before collecting data on a busy retail setting.
 Conducted in one of the main corridors - Southern cloisters of UCL with lot of pedestrian traffic.
 There were also seating areas across the corridor where students work with their computers.
 The area is also used heavily for lunch for large contingent of visitors.
 Collected around 14750 probe requests collected and 652 users were counted walking around the sensors manually.
 
+\begin{marginfigure}
+  \forceversofloat
+  \includegraphics[trim={5 5 5 5},clip]{images/south-cloisters.png}
+  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \label{figure:collection:ucl:config}
+\end{marginfigure}
+\marginnote{\textit{* Not to scale.} }
+
 Major conclusion is that confirmation that Signal strength is still useful.
 Length information is not that useful in certain standardised manufacturers.
+At larger scales the manual counting is not possible without errors need to make a better alternative.
 
 %------------------------------------------------------------------------------%
 \subsection{Oxford Street}
@@ -168,7 +190,7 @@ Length information is not that useful in certain standardised manufacturers.
 
 Aim is to validate the filtering and clustering methodology against the scale and complexity of data collected in an open public area such as a retail high street.
 We also aimed to find the algorithm which was best suited for the classification of signal strengths as 'low' and 'high' in order to filter out the background noise.
-The data was collected at Oxford Street, London on 20 December 2017 from 12:30 to 13:00 hrs, Wi-Fi probe requests were collected using the sensor described in Section and pedestrian footfall was manually recorded using the Android app - Clicker bala2018clicker.
+The data was collected at Oxford Street, London on 20 December 2017 from 12:30 to 13:00 hrs, Wi-Fi probe requests were collected using the sensor described in Section and pedestrian footfall was manually recorded using node-js based software, included in appendix.
 Being located at one of the busiest retail locations in the United Kingdom, the Wi-Fi sensor captured approximately 60,000 probe requests during the half hour period; 3,722 people were manually recorded walking on the pavement during that time.
 The surveyor positioned himself at the front of a store while carrying the sensor in a backpack and counted people walking by the store on the pavement (3m wide approximately) using a mobile phone.
 The sensor was kept as close to the store window as possible, and the manual count was done as a cordon count in front of the store.
@@ -176,8 +198,16 @@ The sensor was kept as close to the store window as possible, and the manual cou
 The analysis and use of this dataset is 
 
 %------------------------------------------------------------------------------%
-\subsection{Summary and Discussion}
+\subsection{Outputs from the experiments}
 %------------------------------------------------------------------------------%
 
+Probe requests are source of easy to collect rich information.
+We identified list of useful information we can get from them.
+We collected data in three phases starting from small isolated study, more footfall and real world retail location.
+The first experiment showed that MAC address is not enough. Local mac addressed can be publicly registered as well.
+Signal strength is crucial.
+The broader UCL experiment in UCL corridor showed that though length information looked useful, it fails with apple devices since they are very similar to each other and lack any information elements. 
+This gave us a good idea of what to collect in a field study. 
+We collected data at Oxford street as a dataset for to be used as a starting point for any methodology we develop further.
 
 %==============================================================================%

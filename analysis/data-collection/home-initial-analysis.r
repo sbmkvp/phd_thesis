@@ -59,3 +59,23 @@ sequenceplot <- data %>%
         axis.line.x = element_line(color= "black", size = 0.1))
 
 ggsave("../../images/home-sequence-time.png", plot=sequenceplot, height=3, width=6,units="in")
+
+samsungvsgoogle <- data %>%
+  filter(vendor %in% c("SamsungE")) %>%
+  ggplot() +
+  # geom_point(data = data, aes(time, sequence),size = 0.2,color="darkgrey") +
+  geom_point(aes(time,sequence,color=as.character(mac))) + 
+  ylab("Sequence Number") + xlab("") +
+  theme(text = element_text(family = "Helvetica"),
+        legend.position = "none",
+        legend.title = element_blank(),
+        legend.key = element_blank(),
+        panel.background = element_blank(),
+        axis.text = element_text(size = 10, color = "black"),
+        axis.ticks.y = element_blank(),
+        axis.title.y = element_text(size=10, color="black",margin=margin(0,5,0,0)),
+        axis.text.x = element_text(size=8, color="black",margin=margin(0,0,-15,0)),
+        axis.text.y = element_blank(),
+        axis.line.x = element_line(color= "black", size = 0.1))
+
+ggsave("../../images/home-samsung-google.png", plot=samsungvsgoogle, height=2, width=2.5,units="in")

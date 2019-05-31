@@ -67,19 +67,19 @@ Bibliography
 
 19
 
-85
+87
 
-97
+99
 
-113
+115
 
 37
 
-51
-
-81
+53
 
 83
+
+85
 
 List of Figures
 
@@ -100,49 +100,52 @@ and manage the Wi-Fi probe requests data
 3.1 Structure of a probe request frame. Source: IEEE 802.11 specification
 3.2 Number of probe requests collected every minute on 15 October 2017
 41
-3.3 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
-and manage the Wi-Fi probe requests data
+3.3 Tree-map showing the volume of research conducted under each major
+themes and their sub-themes.
 43
 3.4 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
 and manage the Wi-Fi probe requests data
-43
+45
 3.5 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
 and manage the Wi-Fi probe requests data
 45
-3.6 The decay of signal strength (RSSI) with respect to distance.
+3.6 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
+and manage the Wi-Fi probe requests data
 47
-3.7 Increase in the share of randomised MAC addresses compared to nonrandomised original ones over the years.
-48
-3.8 Smartphone penetration by age group in United Kingdom (2012-18)
-48
+3.7 The decay of signal strength (RSSI) with respect to distance.
+49
+3.8 Increase in the share of randomised MAC addresses compared to nonrandomised original ones over the years.
+50
+3.9 Smartphone penetration by age group in United Kingdom (2012-18)
+51
 4.1 Comparison of volumes of datasets across various disciplines.
-57
+59
 4.2 Missing data from five locations at Tottenham Court Road, London on 15
 January 2018 demonstrating the veracity of the data.
-58
+60
 4.3 Number of probe requests collected for every five minute interval at
 Tottenham Court Road, London on the year 2018 showing the visual
 complexity of data in the time dimension.
-59
+61
 4.4 Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions
-60
+62
 4.5 Characteristics of types of Wi-Fi data collection tools at each end of the
 spectrum compared to an ideal candidate
-61
-4.6 Exponential increase in the processing time when using traditional methods.
 63
+4.6 Exponential increase in the processing time when using traditional methods.
+65
 4.7 The increase in processing time with the Unix pipeline is linear thus
 improves the scalability compared to R based processing
-65
-4.8 The scalability of the processing pipeline could be further improved with
-parallelising it.
-65
+67
 
 8
 
+4.8 The scalability of the processing pipeline could be further improved with
+parallelising it.
+67
 4.9 Outline of the ‘Medium data toolkit’ devised to collect, process, visualise
 and manage the Wi-Fi probe requests data
-67
+69
 
 List of Tables
 
@@ -150,34 +153,35 @@ and manage the Wi-Fi probe requests data
 data collection.
 34
 3.1 Significant information included in a probe request
-3.2 Locations of installed sensors
-43
-3.3 Summary of the collected data-sets.
-46
-
 39
-
+3.2 Number of unique values present in each field captured from the probe
+requests for each Vendor OUI
+42
+3.3 Locations of installed sensors
+46
+3.4 Summary of the collected data-sets.
+48
+58
 4.1 Comparison of volume or size of the datasets of Wi-Fi probe requests.
-56
 4.2 Comparison of velocity or speed of the datasets of Wi-Fi probe requests.
-57
+59
 4.3 Examples of different types of Wi-Fi based data collection solutions.
-61
-4.4 Various data storage approaches and their characteristics.
 63
+4.4 Various data storage approaches and their characteristics.
+65
 4.5 Various types of big data processing tools and corresponding examples.
-64
+66
 4.6 Tasks in the processing pipeline, corresponding R libraries and equivalent
 Unix tools
-65
+67
 4.7 Comparison of clustering algorithms with a sample of 40000 probe requests
-74
+76
 4.8 Locations where sensors were installs, volume and speed of probe requests collected by the sendor and total pedestrians manually counted.
 The data occupies around 1.8 GB on disk when encoded in text format.
-76
+78
 4.9 Results of footfall estimation at each location as Mean Absolute Percentage
 Error (MAPE) after each step of the filtering process
-78
+80
 
 Outputs From The Research
 Publications
@@ -798,7 +802,7 @@ distribution and movement at a granular level.
 When we look at the literature from the technology perspective, we observe
 that over the years, the research continuously picks up and applies recent
 technological developments in the pursuit of understanding the distribution
-of human activity and population. Figure 3.5 shows the distribution of the
+of human activity and population. Figure 3.6 shows the distribution of the
 research in terms of the main technique/ technology used over the past 50
 years. We observe that the earliest attempts started from the exploration of
 using interpolation and modelling techniques on a broader dataset. As the
@@ -1039,7 +1043,7 @@ location based service application for the collection of data [Ratti et al., 200
 Jiang and Yao, 2006, Ahas and Mark, 2005].
 The accuracy, convenience and being designed for navigation makes GPS
 one of the most used technologies for mobility studies 16 . It has been used to
-analyse and understand individual mobility patterns [Neuhaus, 2009, Shin
+analyse and understand individual mobility patterns [Neuhaus, 2010, Shin
 et al., 2010], which have been shown to have a high order of regularity in spite
 of the complexity [Brockmann et al., 2006, Song et al., 2010a]. There have been
 efforts to use this regularity to predict the future location of people [Monreale
@@ -1613,7 +1617,7 @@ is set as ‘broadcast’ and the variable part usually contains the payload but
 for probe request frames, this contains ‘information elements’ which has data
 regarding the capabilities of the device organised in units known as ’tags’ or
 ’parameter sets’. The significant information present in a probe request is
-detailed in Table 3.1 and full list of information available from a probe request
+detailed in Table 3.2 and full list of information available from a probe request
 is shown in the form of a sample probe request in appendix 7.2
 Field
 
@@ -1665,35 +1669,47 @@ the network card. Organisations need to register with IEEE to be assigned an
 OUI which they can use to generate a full MAC address. The second 6bit is
 the device part of the MAC address which is unique for the device from the
 manufacturer. Together both form the full MAC address which is unique to
-every device globally.
+every device globally. The biggest draw for using Wi-Fi for mobility analysis
 
 40
 
 estimating footfall from passive wifi signals
 
-The biggest draw for using Wi-Fi for mobility analysis comes from the fact
-that this globally unique ID is sent out regularly by mobile devices and can
-be collected passively through probe requests. As we saw in our literature
-review, this also creates an immense risk in terms of infringement of privacy
-both for the manufacturer and the user. Manufacturers of critical hardware
-components who do not want their unique MAC address to be publicised
-usually opt for registering a ‘private’ OUI which will not be given out to other
-manufacturers and will not be published publicly. Users (their mobile devices)
-who don’t want to be tracked using their MAC addresses use a temporary
-MAC address which is unique only to the local network - ‘local’ OUI rather
-than using a ‘global’ OUI for unencrypted communications and switch to their
-original MAC address when a trusted encrypted connect has been established.
-This lack of uniqueness can be inferred from the second character of the MAC
-address being E, A, 2 or 6. Though this provides reasonably better privacy to
-the mobile users it also limits our ability to just use the MAC address from
-the probe requests as previous studies conducted with Wi-Fi.
-To summarise, MAC addresses are two types based on whether it has a
-public OUI or a private OUI. This distinction does not affect their uniqueness
-or usefulness in mobility research but hinders us from knowing about the
-device from the MAC address. MAC addresses are also of two types based on
-them being unique globally or just in the local network. This distinction affects
-the feasibility of using them for device tracking or for studying movement of
-the users.
+comes from the fact that this globally unique ID is sent out regularly by mobile
+devices and can be collected passively through probe requests.
+As we saw in our literature review, this also creates an immense risk in
+terms of infringement of privacy both for the manufacturer and the user.
+Manufacturers of critical hardware components who do not want their unique
+MAC address to be publicised usually opt for registering a ‘private’ OUI
+which will not be given out to other manufacturers and will not be published
+publicly. Users (their mobile devices) who don’t want to be tracked using their
+MAC addresses use a temporary MAC address which is unique only to the
+local network - ‘local’ OUI rather than using a ‘global’ OUI for unencrypted
+communications and switch to their original MAC address when a trusted
+encrypted connect has been established. This lack of uniqueness can be
+inferred from the second character of the MAC address being E, A, 2 or 6.
+Though this provides reasonably better privacy to the mobile users it also
+limits our ability to just use the MAC address from the probe requests as
+previous studies conducted with Wi-Fi. It is important to note that this is
+not a security measure rather an exception made available by IEEE 802.11 for
+assigning temporary addresses in ad hoc networks which has been used by
+most modern operating systems.
+Essentially, there are two types of MAC addresses based on whether they
+have a public OUI or a private OUI. This distinction does not affect their
+uniqueness or usefulness in mobility research but hinders us from knowing
+about the device from the MAC address. There are also two types of MAC
+addresses based on them being unique globally or just in the local network.
+This distinction affects the feasibility of using them for device tracking or for
+studying movement of the users.
+To summarise the above, we looked at the IEEE 802.11 standard to examine
+the significance and nature of the ‘probe requests’ which are broadcast by
+mobile devices constantly. We identified information present in these probe
+requests which are relevant to our study and examined the uniquely identifier
+MAC address field in detail. We see that though MAC address provides a way
+to globally identify a mobile device from probe requests it generates, this field
+can be often masked by using locally assigned addresses. We also observe
+that there are other relevant information which when combined can provide
+us an alternative to just using the MAC addresses.
 
 3.2
 
@@ -1709,26 +1725,22 @@ them to footfall counts and compare them with the real-world counts to get
 a overall idea of how well they translate into real counts. The aim of these
 experiments to know more about the probe requests data and pick out the
 uncertainties and opportunities present in them. The objectives here are,
+
+collecting wi-fi data
+
+41
+
 1. Design a simple method to collect probe requests.
 2. Select locations with different levels of complexity.
 3. Collect real-world data through manual counting.
 4. Analyse the probe requests to extract useful information.
 
 3.2.1 Experiment Design
-Gerald Combs and Contributors. Wireshark - network protocol analyzer.
-3
-
-https://www.wireshark.
-org/about.html, 2018
-
 The first step was to design a simple method to collect Wi-Fi probe requests.
 We accomplish by utilising the application - tshark 3 on a regular laptop. First
 we put the Wi-Fi module of the laptop in ‘Monitor mode’ where it behaves as
 a wireless access point. Then we run tshark to collect the data in CSV format
 using the following command under a shell.
-
-collecting wi-fi data
-
 1
 
 #! /bin/bash
@@ -1777,14 +1789,20 @@ tshark \
 
 -e wlan.tag.length \
 
-9
-
 14
-15
-
-41
 
 -e wlan.ssid \
+
+9
+
+15
+
+Gerald Combs and Contributors. Wireshark network protocol analyzer.
+3
+
+https://www.wireshark.
+org/about.html, 2018
+
 type mgt subtype probe-req and broadcast
 
 The fields marked with -e correspond to time stamp when the packet was
@@ -1798,26 +1816,14 @@ sensor were counted manually by the surveyor.
 
 3.2.2 Living room
 The first set of experiment was conducted with the laptop in the researcher’s
-living room. The room was known to have 2 phones and an Android TV
-device and the whole house had an occupancy of 3. Probe requests were
-collected on 15 Nov 2015 from 19:44 to 21:15 with a gap of 15 minutes in
-between. We collected around 3000 probe requests at the rate of 38 requests
-per minute. The total number of probe requests collected every minute is
-shown in Figure 3.2.
-The first thing we looked to convert this to footfall is the mac address along
-with OUIs. Initial thoughts on this. We found that it is not enough. Strong
-evidence that mac address randomisation is affecting the numbers.
-Other information that can help here - Signal strength, tags, SSID, length,
-sequence numbers and duration. Signal strength shows promise! Length
-seems useful as it give uniqueness! Duration and length are directly related
-and gives no extra information. SSID and tags have very low or varied data
-they have no use. Sequence numbers are interesting and shows most promise.
-We need to see the variation and usefulness of length, so need more data.
-
-3.2.3 University Hall
-This was conducted to examine the previous results in a larger set of data
-in a real world setting. Conducted in one of the main corridors - Southern
-cloisters of UCL with lot of pedestrian traffic. There were also seating areas
+living room. The primary aim of this experiment to collect an initial set of
+probe requests to understand the information in them. The living room had 2
+Wi-Fi enabled device - a motorola phone and an android tv The house had 2
+more phones - iPhone and a Samsung phone. Probe requests were collected
+on 15 Nov 2015 from 19:44 to 21:15 with a gap of 15 minutes in between. We
+collected around 3000 probe requests at the rate of 38 requests per minute.
+The first step was to look to convert these probe requests to number of
+devices by aggregating by the MAC addresses. This results are shown in
 
 Figure 3.2: Number of
 probe requests collected
@@ -1828,10 +1834,344 @@ every minute on 15 October
 
 estimating footfall from passive wifi signals
 
+Figure 3.2 which shows the number of unique MAC addresses detected every
+minute. We see that aggregating by MAC addresses shows around 7 devices
+on average every minute around the sensor. Though this might be true when
+considering noise from outside the room, it also reports around 211 unique
+MAC addresses overall these cannot be possibly generated by unique devices.
+These unique addresses must have been caused by the randomisation process
+thus confirming that MAC addresses alone is not enough to convert the probe
+requests in to unique devices.
+After this we looked at the resolved OUIs from the data. There are 24
+different vendors. This is more than what we expected showing that these
+ones must be clearly coming from outside the room / house. We need to
+find a way to look at the We need to look at signal strength which can show
+how far the device is. we look at the compression ration of MAC vs probes
+which shows the amount of randomisation. Since we hashed the mac address
+there is no way of finding out. we need to keep the OUI part which is
+independent from vendor. Not all local OUIs are private. compex google
+and local addresses are randomising. Samsung is tricky since we know that
+samsung phones don’t randomise. we need to look into this more to see if it
+is randomisation. nvidia, amazon, azurewav does not randomise.
+Table 3.2: Number of
+unique values present
+in each field captured
+from the probe requests
+for each Vendor OUI
+
+Vendor
+AmazonTe
+Apple
+ArrisGro
+Azurewav
+CompexPt
+CompexUs
+Dedicate
+Fn-LinkT
+Google
+HuaweiTe
+IntelCor
+LenovoMo
+LgElectr
+Microsof
+Nvidia
+OneplusT
+Pepwave
+Sagemcom
+SamsungE
+SonyMobi
+TctMobil
+Tp-LinkT
+Wisol
+XiaomiCo
+Unknown
+
+Probe
+request
+
+MAC
+address
+
+Signal
+strength
+
+Frame
+length
+
+Duration
+
+Tags
+
+SSID
+
+Sequence
+numbers
+
+101
+77
+7
+215
+75
+4
+2
+64
+1347
+11
+25
+1
+1
+3
+65
+3
+4
+3
+655
+56
+1
+31
+143
+3
+110
+
+1
+7
+1
+4
+28
+1
+1
+1
+76
+3
+2
+1
+1
+1
+1
+1
+4
+1
+27
+2
+1
+1
+3
+2
+40
+
+-80.53
+-86.29
+-91.71
+-87.82
+-88.17
+-87.25
+-92.50
+-60.58
+-69.14
+-87.91
+-84.04
+-93.00
+-90.00
+-90.00
+-82.91
+-86.67
+-90.00
+-88.67
+-83.81
+-78.66
+-90.00
+-86.16
+-71.91
+-88.67
+-88.86
+
+4
+4
+1
+3
+3
+3
+1
+2
+4
+3
+3
+1
+1
+1
+2
+2
+1
+1
+26
+2
+1
+1
+4
+2
+19
+
+4
+4
+1
+3
+3
+3
+1
+2
+5
+3
+3
+1
+1
+1
+2
+2
+1
+1
+26
+2
+1
+1
+5
+2
+18
+
+5
+9
+1
+12
+5
+3
+1
+6
+41
+3
+4
+1
+1
+1
+4
+2
+1
+1
+54
+2
+1
+3
+6
+3
+21
+
+3
+4
+1
+10
+29
+4
+1
+1
+6
+1
+3
+1
+1
+2
+2
+2
+1
+1
+23
+1
+1
+1
+3
+2
+5
+
+101
+77
+7
+213
+74
+4
+2
+64
+1157
+11
+25
+1
+1
+3
+65
+3
+4
+3
+621
+56
+1
+31
+142
+3
+90
+
+We then look at the average signal strength. Only two of the vendors have
+averages less than 70 showing the only two devices that are in the room. Rest
+of the devices are more than 80. Showing the exponential decay of the signal
+strength as we cross walls. Signal strength can be a good indicator to isolate
+devices based on their distance from the sensor. Figure shows the distribution
+of the signal strengths, we can clearly see inside and outside the room from
+the distribution. We found that it is not enough.
+We then look at all the other information we collected from the probe
+
+collecting wi-fi data
+
+43
+
+requests and see how they compare to the MAC address for aggregating. We
+see length, duration provides provides better aggregation fields than MAC
+whent he addresses are randomised. The logic behind this is that since the
+phones are essentially sending the same information over and over with just
+changed MAC addresses (which is of fixed length) same phones should be
+sending packets of same length. We also see that duration of the transfer being
+a function of the length of the packet almost same as unique as the length.
+We can say there is no additional information encoded within the duration
+more than the length of the packet. Tags and SSIDs though looked promising,
+doesn’t give us enough unique finger print for the device. Tags don’t have
+much uniqueness devicewise and SSIDs are sparse. This is because of most of
+the devices don’t have this field 66% of local OUIs , 50% of Google and 38%
+of samsung probes dont have any SSID information.
+Figure 3.3: Tree-map
+showing the volume of
+research conducted under
+each major themes and
+their sub-themes.
+
+Finally the sequence numbers are the most interesting part of the data
+collected. Though they don’t uniquely identify the devices directly, along
+with timestamps they form visually discernible, unique patterns. Figure 3.3
+we have isolated the two vendors and the probes with more than -70dBm
+and plotted their sequence numbers along with time. We can clearly see two
+devices which were present in the room. This shows the usefulness of the
+sequence number in estimating the actual devices around the sensors. Though
+the results of this exploratory analysis has been positive the main challenge is
+to make sure these methods are feasible when dealing with more real-time,
+real world data. We need to devise a more real world experiment to see frame
+lengths and signal strength work in a bigger data set for filtering out the noise.
+
+3.2.3 University Hall
+This was conducted to examine the previous results in a larger set of data
+in a real world setting. Conducted in one of the main corridors - Southern
+cloisters of UCL with lot of pedestrian traffic. There were also seating areas
 across the corridor where students work with their computers. The area is
 also used heavily for lunch for large contingent of visitors. Collected around
 14750 probe requests collected and 652 users were counted walking around
 the sensors manually.
+
+44
+
+estimating footfall from passive wifi signals
+
 Major conclusion is that confirmation that Signal strength is still useful.
 Length information is not that useful in certain standardised manufacturers.
 
@@ -1855,6 +2195,17 @@ as a cordon count in front of the store.
 The analysis and use of this dataset is
 
 3.2.5 Summary and Discussion
+Probe requests are source of easy to collect rich information. We identified
+list of useful information we can get from them. We collected data in three
+phases starting from small isolated study, more footfall and real world retail
+location. The first experiment showed that MAC address is not enough. Local
+mac addressed can be publicly registered as well. Signal strength is crucial.
+The broader UCL experiment in UCL corridor showed that though length
+information looked useful, it fails with apple devices since they are very
+similar to each other and lack any information elements. This gave us a good
+idea of what to collect in a field study. We collected data at Oxford street as
+a dataset for to be used as a starting point for any methodology we develop
+further.
 
 3.3
 
@@ -1862,31 +2213,35 @@ Pilot Study
 
 The ai
 
-3.3.1 Methodology
+3.3.1
+
+Methodology
+
 The methodology set out above was implemented in five different Central
 London locations at different times. % Sensors were installed and data
 collected for extended periods of time. Sensors were installed and data
 collected for extended periods of time.
 We then applied the methodologies discussed earlier to arrive at estimated
 pedestrian footfall and compared them with the corresponding manual counts.
+
+collecting wi-fi data
+
+45
+
 We finally evaluated the effectiveness of the processes with the Mean Absolute
 Percentage Error (MAPE) at the locations and report our findings below.
 
 3.3.2 Locations
+Figure 3.4: Outline of
+the ‘Medium data toolkit’
+devised to collect, process,
+visualise and manage the
+Wi-Fi probe requests data
+
 Locations where sensors were installed, volume and speed of probe requests
 collected by the sensor and total pedestrians manually counted. The data
 occupies around 1.8 GB on disk when encoded in text format. The locations
 at which the data were collected are shown in Table . The locations were
-
-collecting wi-fi data
-
-43
-
-Figure 3.3: Outline of the
-‘Medium data toolkit’ devised to collect, process,
-visualise and manage the
-Wi-Fi probe requests data
-
 chosen for their diverse site conditions and unique sources of noise around the
 potential location of the sensors. The position of the sensor at these locations
 with respect to the context is shown the Figure We can see that Location 5
@@ -1898,6 +2253,22 @@ least two different days. For the purposes of comparing with ground truth, we
 considered the data from sensors which correspond to the 12 sets of available
 manual counts. The schedule of data collection is shown in Figure .
 
+3.3.3 Data Collection
+
+3.4 Smart Street Sensor Project
+The Smart Street Sensor project is one of the most comprehensive study carried
+out on consumer volume and characteristics in retail areas across UK. The
+
+Figure 3.5: Outline of
+the ‘Medium data toolkit’
+devised to collect, process,
+visualise and manage the
+Wi-Fi probe requests data
+
+46
+
+estimating footfall from passive wifi signals
+
 Location
 
 Type
@@ -1906,9 +2277,6 @@ Installation notes
 
 Probe
 Requests
-
-Counted
-Footfall
 
 1
 
@@ -1976,30 +2344,12 @@ door
 
 ID
 
-Figure 3.4: Outline of
-the ‘Medium data toolkit’
-devised to collect, process,
-visualise and manage the
-Table 3.2:
-Locations
-Wi-Fi
-probe
-requestsof
-data
+Counted
+Footfall
+
+Table 3.3: Locations of
 installed sensors
 
-44
-
-estimating footfall from passive wifi signals
-
-3.3.3 Data Collection
-
-3.4
-
-Smart Street Sensor Project
-
-The Smart Street Sensor project is one of the most comprehensive study carried
-out on consumer volume and characteristics in retail areas across UK. The
 project has been organised as a collaboration between Local Data Company
 (LDC) and Consumer Data Research Centre, University College London
 (CDRC, UCL). The data for the study is generated independently within
@@ -2034,33 +2384,33 @@ The project began on July 2015 with the first sensor installation and has grown
 to an average of 450 daily active sensors as of January 2017.
 The data is collected through set of SmartStreetSensors (shown in Figure
 3.1), a WiFi based sensor which when installed acts as a WiFi access point and
-collects specific type of packets (probe requests) relayed by mobile devices
-which are which are within the device’s signal range and are searching for
+
+collecting wi-fi data
+
+Figure 3.6: Outline of the
+‘Medium data toolkit’ devised to
+collect, process,
+collects
+specific
+type of packets
+visualise and manage the
+which
+are
+which
+within the
+Wi-Fi probe requestsare
+data
+
+(probe requests) relayed by mobile devices
+device’s signal range and are searching for
 available access points. The sensor is usually installed on partnering retailer’s
 shop windows so that its range covers the pavement in front of the shops.
 The installation and calibration of device with respect to the shop window
 and the pavement is illustrated in Figure 3.2. There is also a small percentage
 (3%) of the devices which are installed within large shops to monitor internal
 footfall. Each device collects data independently and uploads the collected
-
-collecting wi-fi data
-
-Figure 3.5: Outline of the
-‘Medium data toolkit’ devised
-collect, process,
-data
-to atocentral
-container at regular interval 5 minutes through a dedicated
-visualise and manage the
-3G
-mobile
-connection.
-The sensor hardware has been improved over the
-Wi-Fi
-probedata
-requests
-data
-
+data to a central container at regular interval 5 minutes through a dedicated
+3G mobile data connection. The sensor hardware has been improved over the
 course of the project and currently has built in failure prevention mechanisms
 such as, backup battery for power failures, automatic reboot capabilities
 and in-device memory for holding data when internet is not available. The
@@ -2079,21 +2429,23 @@ Smart Street Sensor project. The small experiments were designed as way to
 collect as much data as possible from the probe requests for short periods
 of time aiming to collect small sets of comprehensive data under controlled
 conditions for exploratory purposes. The pilot study extended this further by
+
+47
+
+48
+
+estimating footfall from passive wifi signals
+
 collecting data for a longer time in real world conditions aiming to validate
 the insights collected with the experiments and the methodologies we devise
 for the research. The Smart Street Sensor is the most comprehensive study
 which collects very small focussed set of data at a national level for very long
 periods of time. These datasets give us a well rounded set of data to set up
 our toolkit and devise out methodologies. The summary of the datasets in
-terms of their characteristics is show in table 3.3.
-
+terms of their characteristics is show in table 3.4.
+Table 3.4: Summary of
+the collected data-sets.
 *approximate
-
-45
-
-46
-
-estimating footfall from passive wifi signals
 
 Dataset
 
@@ -2136,9 +2488,6 @@ Low
 
 Real world insights
 
-Table 3.3: Summary of the
-collected data-sets.
-
 Before we move on to develop methods to process the data into information
 on footfall in these locations, the crucial action is to look at the possible
 biases and uncertainties in these datasets arising due to the data collection
@@ -2173,13 +2522,6 @@ numerous factors such as,
 6.
 7.
 
-4
-
-Zengrzengr, Andy, and
-Cabral. Calculate distance from rssi. URL
-
-https://bit.ly/2Ohskf9
-
 Distance between the mobile device and the Access Point.
 Thickness of the objects present in between them.
 Nature of obstructions such for e.g. metal vs glass
@@ -2188,8 +2530,10 @@ Power level of the transponder of the Access Point.
 Power level of the transponder of the Mobile device.
 Even atmospheric conditions such as humidity, temperature etc.
 
+collecting wi-fi data
+
 The signal strength drops non-linearly when moving away from the access
-point as shown in Figure 3.6 and there is a close-range non-monotonicity as well
+point as shown in Figure 3.7 and there is a close-range non-monotonicity as well
 - where within 10 feet, A closer device can report lower signal strength than
 a farther one [Cisco, 2008]. The relationship between the two is given by the
 equation 4 ,
@@ -2199,11 +2543,17 @@ log10 d =
 ( Po − Fm − Pr − (10 × n × log10 f ) + (30 × n − 32.44))
 10 × n
 
+49
+
+Zengrzengr, Andy, and
+Cabral. Calculate distance
+from rssi, 2017. URL
+
+4
+
+https://bit.ly/2Ohskf9
+
 (3.1)
-
-collecting wi-fi data
-
-47
 
 Where,
 d = distance - Sensitivity of the receiver
@@ -2220,12 +2570,6 @@ each location as well. This makes it extremely difficult to model the distance
 between mobile device and the access point as a function of the received signal
 strength. The equation 3.1 can be approximated and simplified as,
 R = (−10 × log10 d) + A
-
-Figure 3.6: The decay of
-signal strength (RSSI)
-with respect to distance.
-Source: Wi-Fi Location-Based
-Services, Cisco
 
 (3.2)
 
@@ -2251,6 +2595,17 @@ requests generated from a mobile device depends on,
 3. State of the device. E.g. If it is already connected to internet? Has the
 location services been switched off?
 4. The number of access points already known to the device.
+
+Figure 3.7: The decay of
+signal strength (RSSI)
+with respect to distance.
+Source: Wi-Fi Location-Based
+Services, Cisco
+
+50
+
+estimating footfall from passive wifi signals
+
 Studies done by Freudiger [2015]5 has shown that the number of probe
 requests generated by a mobile device vary widely across manufacturers such
 as Samsung, Apple and LG, across different state the devices are in such as
@@ -2259,29 +2614,6 @@ on the number of access points known to the device. It is also seen from our
 initial experiments that these probe requests are generated in short bursts
 rather than being generated at regular intervals. This makes predicting a base
 factor for calculating a number of mobile devices based on the number of
-
-Julien Freudiger. How
-talkative is your mobile
-device?: An experimental
-study of Wi-Fi probe
-requests. In Proceedings
-of the 8th ACM Conference
-on Security & Privacy
-in Wireless and Mobile
-Networks, WiSec ’15, pages
-8:1–8:6, New York, NY,
-USA, 2015. ACM. ISBN
-978-1-4503-3623-9. doi:
-10.1145/2766498.2766517.
-URL http://doi.acm.org/
-5
-
-10.1145/2766498.2766517
-
-48
-
-estimating footfall from passive wifi signals
-
 probe requests received much more complex. The variety of device models
 available and the pace of change in software that run these models further
 complicates this. Though we can simply aggregate these probe requests based
@@ -2292,7 +2624,7 @@ and the number of mobile devices that generated them.
 
 3.5.3 MAC address randomisation
 
-Figure 3.7: Increase in the
+Figure 3.8: Increase in the
 share of randomised MAC
 addresses compared to
 non-randomised original
@@ -2311,7 +2643,7 @@ The method of randomisation and the frequency varies widely between
 device manufacturers and also changes as new versions of the software are
 released. This seriously affects the usefulness of the data long term where
 methods designed to overcome this randomisation can be rendered inefficient
-in the future. Figure 3.7 shows the increase in the share of randomised MAC
+in the future. Figure 3.8 shows the increase in the share of randomised MAC
 addresses since 2015. We can observe that in addition to the overall upward
 trend there are bursts of increase around late 2016 and 2017 which coincides
 with the release of new mobile operating systems. This makes it necessary
@@ -2328,21 +2660,35 @@ the rise since 2005. Though mobile ownership has reached unprecedented
 level in recent years, there is still an underlying increasing trend present in
 the ownership of these devices which manifests itself in the collected data.
 Moreover the mobile ownership varies widely between demography of age
-and geography as well. Figure 3.8 shows the mobile ownership across age
+and geography as well. Figure 3.9 shows the mobile ownership across age
 groups in UK from 2012 to 2018. We can observe that the older age groups
+
+Julien Fr
+talkative
+device?: An
+study of W
+quests. In Pr
+8th ACM Con
+rity & Privacy
+Mobile Netwo
+pages 8:1–
+NY, USA, 201
+978-1-450
+10.1145/27
+URL http:/
+5
+
+10.1145/27
+
+collecting wi-fi data
+
+51
+
 are under-represented in our data. This needs to be taken into consideration
 while using this data for extrapolating demographic conclusions out of it. In
 addition to this, the overall upward trend needs to be adjusted assuming 1%
 increase monthly and 0.2% weekly when using this data across long periods
 of time.
-
-Figure 3.8: Smartphone
-penetration by age group in
-United Kingdom (2012-18)
-
-collecting wi-fi data
-
-49
 
 3.5.5 Missing Data
 Being collected by distributed set of sensors located in busy real-world scenarios, the data has a large number of gaps as well. These gaps are caused by
@@ -2359,6 +2705,12 @@ data across locations. We need to implement a methodology to fill in these
 gaps which considers the periodic patterns in the data. We also need to devise
 a measure for aggregating the counts across locations which removes the bias
 introduced by long term gaps in data.
+
+Figure 3.9: Smartphone
+penetration by age group in
+United Kingdom (2012-18)
+Source: UK edition, Deloitte
+Global Mobile Consumer Survey,
 
 3.5.6 MAC address collisions
 Finally, from the initial analysis we have observed that there are few instances
@@ -2381,17 +2733,18 @@ devices, they can be safely ignored.
 
 mikeazo and poncho.
 Formula for the number of
-expected collisions. URL
+expected collisions, 2015.
+URL https://bit.ly/
 6
 
-https://bit.ly/2YS6zYl
+2YS6zYl
 
 4
 Processing the Data into Footfall
 
 processing the data into footfall
 
-53
+55
 
 4.1 Data Toolkit
 Big data and its analytics promises huge benefits in terms of value
@@ -2465,7 +2818,7 @@ Big Data & Society, 1(1):
 2053951714528481, 2014
 3
 
-54
+56
 
 estimating footfall from passive wifi signals
 
@@ -2588,7 +2941,7 @@ collected as described in chapter on data collection using the 5Vs big data
 framework. Our aim is to understand the nature of the data in each dimension
 and thus evaluate the challenges we face in that specific dimension leading to
 
-55
+57
 
 HV Jagadish, Johannes
 Gehrke, Alexandros Labrinidis, Yannis Papakonstantinou, Jignesh M Patel,
@@ -2599,7 +2952,7 @@ Communications of the ACM,
 57(7):86–94, 2014
 7
 
-56
+58
 
 estimating footfall from passive wifi signals
 
@@ -2680,7 +3033,7 @@ we can confidently say that the probe request datasets are ‘Medium Data’ esp
 
 processing the data into footfall
 
-57
+59
 
 has potential to scale into a truly big dataset, for the purposes of this research
 we can classify it as ‘Medium data’ in the volume dimension.
@@ -2776,7 +3129,7 @@ Measured/ Estimated for
 920 locations in Millions of
 requests per 5 minutes
 
-58
+60
 
 estimating footfall from passive wifi signals
 
@@ -2890,7 +3243,7 @@ requests dataset shows ‘Big data’ characteristics in terms of its veracity a
 requires appropriate tools and methods when aggregating, analysing and
 modelling it.
 
-59
+61
 
 Karlo Lugomer, Balamurugan Soundararaj,
 Roberto Murcio, James
@@ -2930,7 +3283,7 @@ Road, London on the year
 complexity of data in the
 time dimension.
 
-60
+62
 
 estimating footfall from passive wifi signals
 
@@ -2985,7 +3338,7 @@ doesn’t require lesser effort but costs considerably more. The key is finding 
 
 processing the data into footfall
 
-61
+63
 
 balance between both while satisfying the requirements of the project. Since
 the Wi-Fi data is medium sized in terms of volume and velocity, we can deal
@@ -3063,7 +3416,7 @@ Contributors. Wireshark network protocol analyzer.
 https://www.wireshark.
 org/about.html, 2018
 
-62
+64
 
 estimating footfall from passive wifi signals
 
@@ -3151,7 +3504,7 @@ large, the advantages gained usually do not justify the overheads introduced.
 
 processing the data into footfall
 
-63
+65
 
 Table 4.4 summarises the above discussion along with relevant examples.
 Approach
@@ -3276,7 +3629,7 @@ day at each location and aggregating them as number of probes
 requests received in every five
 minute intervals.
 
-64
+66
 
 estimating footfall from passive wifi signals
 
@@ -3301,11 +3654,11 @@ specialities and corresponding big data tools is shown in Table 4.5.
 Table 4.5: Various types
 of big data processing tools and corresponding examples.
 
-Command-line tools
-can be 235x faster than
-your hadoop cluster, Jan 2014. URL
 16
 
+Adam Drake. Commandline tools can be 235x
+faster than your hadoop
+cluster, Jan 2014. URL
 https://bit.ly/2s2XZYI
 
 Malcolm D McIlroy,
@@ -3356,7 +3709,7 @@ formats. Don’t insist on interactive input.
 
 processing the data into footfall
 
-65
+67
 
 early, ideally within weeks. Don’t hesitate to throw away the clumsy
 parts and rebuild them.
@@ -3465,7 +3818,7 @@ of the processing pipeline
 could be further improved
 with parallelising it.
 
-66
+68
 
 estimating footfall from passive wifi signals
 
@@ -3548,7 +3901,7 @@ framework and found that the data, though posed significant challenges with
 
 processing the data into footfall
 
-67
+69
 
 traditional data processing techniques, do not exhibit ‘big data’ properties in
 all its dimensions. Only veracity of the data was found to have any meaningful
@@ -3628,9 +3981,9 @@ predicting which of them are most likely to meet again [Cunche et al., 2012].
 Using the semantic information present in these probe requests it even is
 possible to understand the nature of population at a large scale [Di Luzio
 
-69
+71
 
-70
+72
 
 estimating footfall from passive wifi signals
 
@@ -3727,9 +4080,9 @@ as ‘management’, and subtype ‘probe requests’. The MAC address in these
 probe requests is obfuscated at the device level using a cryptographic hashing
 algorithm and transmitted through 3G connection to a central database via
 
-71
+73
 
-72
+74
 
 estimating footfall from passive wifi signals
 
@@ -3825,9 +4178,9 @@ rules:
 • A link could go from low to high sequence numbers.
 • A link could exist between nodes with a maximum time difference of α time threshold.
 
-73
+75
 
-74
+76
 
 estimating footfall from passive wifi signals
 
@@ -3947,9 +4300,9 @@ threshold for time and sequence numbers at which the algorithm clusters the
 reference device properly without over clustering the other probe requests.
 This process is shown in Figure ??. We observed that the threshold for time
 
-75
+77
 
-76
+78
 
 estimating footfall from passive wifi signals
 
@@ -4117,9 +4470,9 @@ the sensors with people moving right next to them tend to under-count with
 our methodology, while sensors with seating next to them tend to over-count
 significantly. However, using the filtering process, we can reduce the error to
 
-77
+79
 
-78
+80
 
 estimating footfall from passive wifi signals
 
@@ -4268,7 +4621,7 @@ for bikeshare and other public transport modes. Our own investigations will
 consider these and other challenges to understanding the functioning of the
 sentient city.
 
-79
+81
 
 5
 Visualisations and Applications
@@ -4384,7 +4737,7 @@ time <- append(time, t);
 
 location <- append(location, l);
 
-86
+88
 
 estimating footfall from passive wifi signals
 
@@ -4564,9 +4917,9 @@ echo "$sensors" \
 
 > output-new-parallel.csv
 
-87
+89
 
-88
+90
 
 estimating footfall from passive wifi signals
 
@@ -4914,9 +5267,9 @@ format.
 "wlan_radio": {
 "wlan_radio.phy": "5",
 
-89
+91
 
-90
+92
 
 estimating footfall from passive wifi signals
 
@@ -5257,9 +5610,9 @@ estimating footfall from passive wifi signals
 
 191
 
-91
+93
 
-92
+94
 
 estimating footfall from passive wifi signals
 
@@ -5641,9 +5994,9 @@ estimating footfall from passive wifi signals
 
 "wlan.extcap.b21": "0",
 
-93
+95
 
-94
+96
 
 estimating footfall from passive wifi signals
 
@@ -5947,7 +6300,7 @@ estimating footfall from passive wifi signals
 
 } } } } }
 
-95
+97
 
 8
 Research Article
@@ -6695,8 +7048,6 @@ Figure 8. A week of pedestrian footfall at the Strand, London collected by the m
 counts are aggregated for 5-minute intervals.
 
 Bibliography
-Command-line tools can be 235x faster than your hadoop cluster, Jan 2014.
-URL https://bit.ly/2s2XZYI.
 Michael Abbott-Jard, Harpal Shah, and Ashish Bhaskar. Empirical evaluation
 of bluetooth and wifi scanning for road transport. In Australasian Transport
 Research Forum (ATRF), 36th, 2013, Brisbane, Queensland, Australia, page 14,
@@ -6707,8 +7058,8 @@ Research Forum (ATRF), 36th, 2013, Brisbane, Queensland, Australia, page 14,
 2013b.
 Naeim Abedi, Ashish Bhaskar, and Edward Chung. Bluetooth and wi-fi mac
 address based crowd data collection and monitoring : Benefits , challenges
-and enhancement. Australasian Transport Research Forum 2013 Proceedings 2,
-(October):1–17, 2013. URL http://www.patrec.org/atrf.aspx.
+and enhancement. In Australasian Transport Research Forum 2013 Proceedings
+2, pages 1–17, 2013. URL http://www.patrec.org/atrf.aspx.
 John M Abowd, John Haltiwanger, and Julia Lane. Integrated longitudinal
 employer-employee data for the united states. The American Economic Review,
 94(2):224–229, 2004. ISSN 0002-8282.
@@ -6728,13 +7079,13 @@ University Press on Demand, 2002. ISBN 0195218388.
 Alexander Amini, Kevin Kung, Chaogui Kang, Stanislav Sobolevsky, and
 Carlo Ratti. The impact of social segregation on human mobility in developing and industrialized regions. EPJ Data Science, 3(1):1, 2014. ISSN
 2193-1127.
+Aleksandar Antonic, Ivana Podnar Zarko, and Domagoj Jakobovic. Inferring
+presence status on smartphones: The big data perspective. In Proceedings
 
-114
+116
 
 estimating footfall from passive wifi signals
 
-Aleksandar Antonic, Ivana Podnar Zarko, and Domagoj Jakobovic. Inferring
-presence status on smartphones: The big data perspective. In Proceedings
 - International Symposium on Computers and Communications, pages 600–605,
 2013. ISBN 9781479937554. doi: 10.1109/ISCC.2013.6755013.
 Irina Arhipova, Gundars Berzins, Edgars Brekis, Martins Opmanis, Juris
@@ -6747,7 +7098,8 @@ Efficient people tracking in laser range data using a multi-hypothesis legtracke
 2008. ICRA 2008. IEEE International Conference on, pages 1710–1715. IEEE,
 2008. ISBN 1424416469.
 Dani Arribas-Bel and Emmanouil Tranos. New approaches to measure the
-spatial structure (s) of cities. 2015.
+spatial structure (s) of cities. In Proceedings of GISRUK 2015. GIS Research
+UK (GISRUK), 2015.
 Daniel Arribas-Bel. Accidental, open and everywhere: Emerging data sources
 for the understanding of cities. Applied Geography, 49:45–53, 2014. ISSN
 01436228. doi: 10.1016/j.apgeog.2013.09.012.
@@ -6819,9 +7171,9 @@ Landscan. Geoinformatics, 5(2):34–37, 2002.
 Budhendra Bhaduri, Eddie Bright, and Phil Coleman. Development of a
 high resolution population dynamics model. Geocomputation 2005, 2005.
 
-115
+117
 
-116
+118
 
 estimating footfall from passive wifi signals
 
@@ -6883,9 +7235,12 @@ human dynamics from mobile phone records. J. Phys. A: Math. Theor, 41(22):
 224015–11, 2008. ISSN 1751-8113. doi: 10.1088/1751-8113/41/22/224015.
 M Castells. Grassrooting the space of flows. i wheeler, aoyama and warf
 [eds.] cities in the telecommunications age, 2000.
-M Castells. The Rise of the Network Society, volume I. 2010. ISBN
-9781405196864. doi: 10.2307/1252090. URL http://www.lavoisier.fr/
-livre/notice.asp?depuis=e.lavoisier.fr{&}id=9781405196864.
+M Castells.
+The Rise of the Network Society, volume I.
+Massachusetts: Blackwell Publishing, 2010. ISBN 9781405196864. doi:
+10.2307/1252090.
+URL http://www.lavoisier.fr/livre/notice.asp?
+depuis=e.lavoisier.fr{&}id=9781405196864.
 CDRC. Smart street sensor project. goo.gl/E4tR8o, 2016. [Online; accessed
 31-January-2018].
 Junghoon Chae, Dennis Thom, Harald Bosch, Yun Jang, Ross Maciejewski,
@@ -6908,9 +7263,9 @@ from hidden information in wlans. In Military Communications Conference,
 Peng Cheng, Zhijun Qiu, and Bin Ran. Particle filter based traffic state estimation using cell phone network data. In 2006 IEEE Intelligent Transportation
 Systems Conference, pages 1047–1052. IEEE, 2006. ISBN 1424400937.
 
-117
+119
 
-118
+120
 
 estimating footfall from passive wifi signals
 
@@ -6985,20 +7340,23 @@ and Brian A Worley. Landscan: a global population database for estimating
 populations at risk. Photogrammetric engineering and remote sensing, 66(7):
 849–857, 2000. ISSN 0099-1112.
 Jerome E Dobson, Eddie A Bright, Phil R Coleman, and Budhendra L Bhaduri.
-Landscan2000: A new global population geography. Technical report, 2003.
+Landscan2000: A new global population geography. Technical report, Oak
+Ridge National Lab.(ORNL), 2003.
+Adam Drake. Command-line tools can be 235x faster than your hadoop
+cluster, Jan 2014. URL https://bit.ly/2s2XZYI.
 Matt Duckham and Lars Kulik. Location privacy and location-aware computing. Dynamic & mobile GIS: investigating change in space and time, 3:35–51,
 2006.
 Nathan Eagle and Alex Sandy Pentland. Eigenbehaviors: Identifying structure in routine. Behavioral Ecology and Sociobiology, 63(7):1057–1066, 2009.
 ISSN 03405443. doi: 10.1007/s00265-009-0739-0.
-Nature Editorial. A flood of hard data. Nature, 435:698, 2008. ISSN 0028-0836.
-doi: 10.1038/453698a.
 
-119
+121
 
-120
+122
 
 estimating footfall from passive wifi signals
 
+Nature Editorial. A flood of hard data. Nature, 435:698, 2008. ISSN 0028-0836.
+doi: 10.1038/453698a.
 A Elgohary.
 On detecting device-free entities using wifi signals.
 ece.uwaterloo.ca, 2013.
@@ -7085,9 +7443,9 @@ http://www.nature.com/nature/journal/v453/n7196/full/nature06958.
 html{%}5Cnhttp://www.nature.com/nature/journal/v453/n7196/pdf/
 nature06958.pdf.
 
-121
+123
 
-122
+124
 
 estimating footfall from passive wifi signals
 
@@ -7099,16 +7457,16 @@ Stephen Graham and Patsy Healey. Relational concepts of space and place
 : Issues for planning theory and practice. European Planning Studies, 7(5):
 623–646, 1999. ISSN 0965-4313. doi: 10.1080/09654319908720542. URL
 http://www.tandfonline.com/doi/abs/10.1080/09654319908720542.
-Stephen Graham and Simon Marvin. Splintering Urbanism. 2001. ISBN
-0203452208. doi: 10.4324/9780203452202. URL http://books.google.com/
-books?id=6IdAAY9xqlgC{&}pgis=1.
+Stephen Graham and Simon Marvin. Splintering Urbanism. Psychology
+Press, 2001. ISBN 0203452208. doi: 10.4324/9780203452202. URL http:
+//books.google.com/books?id=6IdAAY9xqlgC{&}pgis=1.
 Steve Graham and Simon Marvin. Telecommunications and the city: Electronic
 spaces, urban places. Routledge, 2002. ISBN 1134813937.
 Sebastian Grauwin, Stanislav Sobolevsky, Simon Moritz, István Gódor, and
 Carlo Ratti. Towards a comparative science of cities: Using mobile traffic
 records in new york, london, and hong kong. In Computational Approaches
-for Urban Environments, pages 363–387. 2015. ISBN 9783319114699. doi:
-10.1007/978-3-319-11469-9_15.
+for Urban Environments, pages 363–387. Springer, 2015. ISBN 9783319114699.
+doi: 10.1007/978-3-319-11469-9_15.
 Ben Greenstein, Damon McCoy, Jeffrey Pang, Tadayoshi Kohno, Srinivasan
 Seshan, and David Wetherall. Improving wireless privacy with an identifierfree link layer protocol. In Proceedings of the 6th international conference on
 Mobile systems, applications, and services, pages 40–53. ACM, 2008. ISBN
@@ -7123,7 +7481,7 @@ database recovery. ACM Comput. Surv., 15(4):287–317, December 1983. ISSN
 Ali Haghani, Masoud Hamedi, Kaveh Sadabadi, Stanley Young, and Philip
 Tarnoff. Data collection of freeway travel time ground truth with bluetooth
 sensors. Transportation Research Record: Journal of the Transportation Research
-Board, (2160):60–68, 2010. ISSN 0361-1981.
+Board, 2160(1):60–68, 2010. ISSN 0361-1981.
 Jan Erik Håkegård, Tor Andre Myrvoll, and Tor Rune Skoglund. Statistical
 modelling for estimation of od matrices for public transport using wi-fi and
 apc data. In 2018 21st International Conference on Intelligent Transportation
@@ -7176,9 +7534,9 @@ ISSN 0968090X. doi: 10.1016/j.trc.2014.01.002.
 Chris Jacobs-Crisioni, Piet Rietveld, Eric Koomen, and Emmanouil Tranos. Evaluating the impact of land-use density and mix on spatiotemporal
 urban activity patterns: An exploratory study using mobile phone data.
 
-123
+125
 
-124
+126
 
 estimating footfall from passive wifi signals
 
@@ -7234,10 +7592,9 @@ Mechanics and its Applications, 391(4):1702–1717, 2012. ISSN 0378-4371.
 Nobuo Kawaguchi. Wifi location information system for both indoors and
 outdoors. In International Work-Conference on Artificial Neural Networks, pages
 638–645. Springer, 2009.
-E.-K Kim and Am MacEachren.
-An index for characterizing spatial bursts of movements: A case study with geo-located twitter data.
-Sites.Utexas.Edu, (1), 2014. URL http://sites.utexas.edu/amd2014/files/
-2014/02/2014{_}GIScienceWorkshop{_}final{_}ekamm.pdf.
+EK Kim and AM MacEachren. An index for characterizing spatial bursts of
+movements: A case study with geo-located twitter data. In GIScience 2014
+Workshop on Analysis of Movement Data, 2014.
 Minkyong Kim, David Kotz, Songkuk Kim, Kim Minkyong, David Kotz,
 and Kim Songkuk. Extracting a mobility model from real user traces. In
 INFOCOM, volume 6, pages 1–13, 2006. ISBN 1424402212. doi: 10.1109/INFOCOM.2006.173.
@@ -7261,15 +7618,15 @@ Constantine E Kontokosta. The quantified community and neighborhood
 labs: A framework for computational urban planning and civic technology
 innovation. SSRN Electronic Journal, 0(0):1–18, 2015. ISSN 1556-5068. doi:
 10.2139/ssrn.2659896. URL http://papers.ssrn.com/abstract=2659896.
+Constantine E Kontokosta and Nicholas Johnson. Urban phenology: Toward
+a real-time census of the city. Social Science Research Network, 2016.
 
-125
+127
 
-126
+128
 
 estimating footfall from passive wifi signals
 
-Constantine E Kontokosta and Nicholas Johnson. Urban phenology: Toward
-a real-time census of the city. 2016.
 Constantine E Kontokosta and Nicholas Johnson. Urban phenology: Toward
 a real-time census of the city using Wi-Fi data. Computers, Environment and
 Urban Systems, 64:144–153, 2017.
@@ -7305,11 +7662,11 @@ Press, 2014. ISBN 1316094456.
 Nicholas D Lane, Emiliano Miluzzo, Hong Lu, Daniel Peebles, Tanzeem
 Choudhury, and Andrew T Campbell. A survey of mobile phone sensing.
 IEEE Communications magazine, 48(9), 2010.
+Doug Laney. 3d data management: Controlling data volume, velocity and
+variety. META group research note, 6(70):1, 2001.
 
 bibliography
 
-Doug Laney. 3d data management: Controlling data volume, velocity and
-variety. META group research note, 6(70):1, 2001.
 Guy Lansley and Paul Longley. Deriving age and gender from forenames
 for consumer analytics. Journal of Retailing and Consumer Services, 30:271–278,
 2016a.
@@ -7317,7 +7674,7 @@ Guy Lansley and Paul A Longley. The geography of twitter topics in london.
 Computers, Environment and Urban Systems, 58:85–96, 2016b. ISSN 0198-9715.
 Juha K Laurila, Daniel Gatica-Perez, Imad Aad, Olivier Bornet, Trinh-MinhTri Do, Olivier Dousse, Julien Eberle, Markus Miettinen, and Others. The
 mobile data challenge: Big data for mobile computing research. In Pervasive
-Computing, number EPFL-CONF-192489, 2012.
+Computing, 2012.
 Bumsoo Lee. "edge"or "edgless" cities? urban spatial structure in u.s.
 metropolitan areas, 1980 to 2000*. Journal of Regional Science, 47(3):479–515,
 2007. ISSN 00224146. doi: 10.1111/j.1467-9787.2007.00517.x.
@@ -7346,9 +7703,9 @@ patterns from their digital traces. Computers, Environment and Urban Systems,
 Alyson Lloyd and James Cheshire. Detecting address uncertainty in loyalty card data. Applied Spatial Analysis and Policy, Jan 2018. ISSN 18744621. doi: 10.1007/s12061-018-9250-1. URL https://doi.org/10.1007/
 s12061-018-9250-1.
 
-127
+129
 
-128
+130
 
 estimating footfall from passive wifi signals
 
@@ -7356,7 +7713,7 @@ Amy Lobben. Classification and application of cartographic animation. The
 Professional Geographer, 55(3):318–328, 2003. ISSN 0033-0124.
 Sriganesh Lokanathan and Roshanthi Lucas Gunaratne. Mobile network
 big data for development: Demystifying the uses and challenges. Digiworld
-Economic Journal, (97):75–94, 2015. ISSN 11578637.
+Economic Journal, 97:75–94, 2015. ISSN 11578637.
 Ying Long and Jean-Claude Claude Thill. Combining smart card data and
 household travel survey to analyze jobs-housing relationships in beijing.
 Computers, Environment and Urban Systems, 53:19–35, 2015. ISSN 01989715.
@@ -7436,9 +7793,9 @@ E Mellegard, S Moritz, and M Zahoor. Origin/destination-estimation using
 cellular network data. In 2011 IEEE 11th International Conference on Data
 Mining Workshops, pages 891–896, 2011. doi: 10.1109/ICDMW.2011.132.
 
-129
+131
 
-130
+132
 
 estimating footfall from passive wifi signals
 
@@ -7447,8 +7804,8 @@ mapping. The Professional Geographer, 55(1):31–42, 2003. ISSN 0033-0124.
 Jeremy Mennis and Torrin Hultgren. Intelligent dasymetric mapping and
 its application to areal interpolation. Cartography and Geographic Information
 Science, 33(3):179–194, 2006. ISSN 1523-0406.
-mikeazo and poncho. Formula for the number of expected collisions. URL
-https://bit.ly/2YS6zYl.
+mikeazo and poncho. Formula for the number of expected collisions, 2015.
+URL https://bit.ly/2YS6zYl.
 Harvey J. Miller. The data avalanche is here. shouldn’t we be digging? Journal
 of Regional Science, 50(1):181–201, 2010. ISSN 00224146. doi: 10.1111/j.14679787.2009.00641.x.
 Prashanth Mohan, Venkata N Padmanabhan, and Ramachandran Ramjee.
@@ -7485,7 +7842,9 @@ Geographers, 104(1):80–95, 2014. ISSN 0004-5608.
 Taewoo Nam and Theresa A Pardo. Conceptualizing smart city with dimensions of technology, people, and institutions. In Proceedings of the 12th annual
 international digital government research conference: digital government innovation
 in challenging times, pages 282–291. ACM, 2011.
-F Neuhaus. Urbandiary-a tracking project. 2009. ISSN 1467-1298.
+Fabian Neuhaus. Urbandiary-a tracking project capturing the beat and
+rhythm of the city: Using gps devices to visualise individual and collective
+routines within central london. The Journal of Space Syntax, 1(2):336, 2010.
 Yibin Ng, Yingchi Pei, and Yunye Jin. Footfall count estimation techniques
 using mobile data. In 2017 18th IEEE International Conference on Mobile Data
 Management (MDM), pages 307–314. IEEE, 2017.
@@ -7519,22 +7878,17 @@ The case for confidential service discovery. In HotNets, volume 2, page 1,
 Luca Pappalardo, Salvatore Rinzivillo, Zehui Qu, Dino Pedreschi, and Fosca
 Giannotti. Understanding the patterns of car travel. The European Physical
 Journal Special Topics, 215(1):61–73, 2013. ISSN 1951-6355.
-Luca Pappalardo, Filippo Simini, Salvatore Rinzivillo, Dino Pedreschi,
-Fosca Giannotti, and Albert-László Barabási. Returners and explorers
-dichotomy in human mobility. Nature Communications, 6:8166, 2015.
 
-131
+133
 
-132
+134
 
 estimating footfall from passive wifi signals
 
-ISSN 2041-1723.
-
-doi: 10.1038/ncomms9166.
-
-URL http://www.nature.
-
+Luca Pappalardo, Filippo Simini, Salvatore Rinzivillo, Dino Pedreschi,
+Fosca Giannotti, and Albert-László Barabási. Returners and explorers
+dichotomy in human mobility. Nature Communications, 6:8166, 2015.
+ISSN 2041-1723. doi: 10.1038/ncomms9166. URL http://www.nature.
 com/ncomms/2015/150908/ncomms9166/full/ncomms9166.html{%}5Cnhttp:
 //www.nature.com/doifinder/10.1038/ncomms9166.
 
@@ -7573,13 +7927,13 @@ data prospective. International Journal of Distributed Sensor Networks, 2013,
 2013. ISSN 15501477. doi: 10.1155/2013/927940.
 John N K Rao and Isabel Molina. Small area estimation. John Wiley & Sons,
 2015. ISBN 1118735722.
+
+bibliography
+
 Carlo Ratti, Dennis Frenchman, Riccardo Maria Pulselli, and Sarah Williams.
 Mobile landscapes: Using location data from cell phones for urban analysis.
 Environment and Planning B: Planning and Design, 33(5):727–748, 2006. ISSN
 02658135. doi: 10.1068/b32047.
-
-bibliography
-
 Jonathan Reades, Francesco Calabrese, Andres Sevtsuk, and Carlo Ratti. Cellular census: Explorations in urban data collection. IEEE Pervasive Computing,
 6(3):30–38, 2007. ISSN 15361268. doi: 10.1109/MPRV.2007.53.
 Jonathan Reades, Francesco Calabrese, and Carlo Ratti. Eigenplaces:
@@ -7611,16 +7965,16 @@ Tracking human mobility using wifi signals. PloS one, 10(7):e0130824, 2015.
 ISSN 1932-6203. doi: 10.1371/journal.pone.0130824. URL http://journals.
 plos.org/plosone/article?id=10.1371/journal.pone.0130824.
 T Scott Saponas, Jonathan Lester, Carl Hartung, Sameer Agarwal, and Tadayoshi Kohno. Devices that tell on you: Privacy trends in consumer ubiquitous computing. In Usenix Security, volume 3, page 3, 2007.
-Saskia Sassen. The global city: New York, London, Tokyo, volume 15. 2001.
-ISBN 9780691070636. doi: 10.2307/2152688. URL http://books.google.
-com/books?id=PTAiHWK2BYIC.
 
-133
+135
 
-134
+136
 
 estimating footfall from passive wifi signals
 
+Saskia Sassen. The global city: New York, London, Tokyo, volume 15. Princeton
+University Press, 2001. ISBN 9780691070636. doi: 10.2307/2152688. URL
+http://books.google.com/books?id=PTAiHWK2BYIC.
 Marco Luca Sbodio, Francesco Calabrese, Michele Berlingerio, Rahul Nair,
 and Fabio Pinelli. All aboard: visual exploration of cellphone mobility data
 to optimise public transport. In Proceedings of the 19th international conference
@@ -7643,7 +7997,7 @@ In 2019 International Conference on Artificial Intelligence in Information and
 Communication (ICAIIC), pages 143–148. IEEE, 2019.
 Masamichi Shimosaka, Takuhiro Kaneko, Kentaro Nishi, Masamichi Shimosaka, Kentaro Nishi, Junichi Sato, and Hirokatsu Kataoka. Extracting
 land-use patterns using location data from smartphones. The 1st International
-Conference on IoT in Urban Space, (Iv):1694–1700, 2014. doi: 10.4108/icst.urbiot.2014.257220.
+Conference on IoT in Urban Space, IV:1694–1700, 2014. doi: 10.4108/icst.urbiot.2014.257220.
 Dongyoun Shin, Sofia Georagakopoulou, Daniel Zünd, and Gerhard Schmitt.
 Crowdsourcing urban sensing: Mobile phone for urban data collection. In
 2nd International Hybrid City Conference, pages 25–28, 2013. ISBN 978-96099791-1-5.
@@ -7656,12 +8010,12 @@ When mobile crowd sensing meets traditional industry. IEEE Access, 5:
 Filippo Simini, Marta C González, Amos Maritan, and Albert-László Barabási.
 A universal model for mobility and migration patterns. Nature, 484(7392):
 96–100, 2012. ISSN 0028-0836.
-Alex David Singleton and Paul Longley. The internal structure of greater
-london: a comparison of national and regional geodemographic models. Geo:
-Geography and Environment, 2(1):69–87, 2015. ISSN 2054-4049.
 
 bibliography
 
+Alex David Singleton and Paul Longley. The internal structure of greater
+london: a comparison of national and regional geodemographic models. Geo:
+Geography and Environment, 2(1):69–87, 2015. ISSN 2054-4049.
 Alan Smith, David Martin, and Samantha Cockings. Spatio-temporal population modelling for enhanced assessment of urban exposure to flood risk.
 Applied Spatial Analysis and Policy, 9(2):145–163, 2016. ISSN 1874-463X.
 Edward Soja. Postmodern geographies, 1989. URL http://books.google.
@@ -7701,16 +8055,16 @@ people in their place: an anonymous and privacy-sensitive approach to
 collecting sensed data in location-based applications. In Proceedings of the
 SIGCHI conference on human factors in computing systems, pages 93–102. ACM,
 2006.
-Ole Tange. GNU Parallel 2018. Ole Tange, March 2018. ISBN 9781387509881.
-doi: 10.5281/zenodo.1146014. URL https://doi.org/10.5281/zenodo.
-1146014.
 
-135
+137
 
-136
+138
 
 estimating footfall from passive wifi signals
 
+Ole Tange. GNU Parallel 2018. Ole Tange, March 2018. ISBN 9781387509881.
+doi: 10.5281/zenodo.1146014. URL https://doi.org/10.5281/zenodo.
+1146014.
 Anna F Tapp. Areal interpolation and dasymetric mapping methods using
 local ancillary data sources. Cartography and Geographic Information Science,
 37(3):215–228, 2010. ISSN 1523-0406.
@@ -7744,13 +8098,13 @@ Emmanouil Tranos and Peter Nijkamp. Mobile phone usage in complex
 urban systems: a space- time, aggregated human activity study. Journal of Geographical Systems, 17(2):157–185, 2015. ISSN 14355949. doi: 10.1007/s10109015-0211-9.
 Emmanouil Tranos, John Steenbruggen, and Peter Nijkamp. 8 mobile phone
 operators, their (big) data and urban analysis. A Research Agenda for Regeneration Economies: Reading City-Regions, page 140, 2018.
+
+bibliography
+
 Toivo Vajakas, Tanel Kiis, Amnir Hadachi, and Eero Vainikko. Mobility
 episode discovery in the mobile networks based on enhanced switching
 kalman filter. In 2018 10th International Congress on Ultra Modern Telecommunications and Control Systems and Workshops (ICUMT), pages 1–7. IEEE,
 2018.
-
-bibliography
-
 Mathy Vanhoef, Célestin Matte, Mathieu Cunche, Leonardo S Cardoso, Frank
 Piessens, and Piessens Frank. Why mac address randomization is not enough:
 An analysis of wi-fi network discovery mechanisms. In Proceedings of the
@@ -7788,6 +8142,13 @@ Yan Wang, Jie Yang, Hongbo Liu, and Yingying Chen. Measuring
 human queues using wifi signals. In Proceedings of the 19th annual
 international conference on Mobile computing & networking, pages 235–
 237, 2013. ISBN 9781450319997. doi: 10.1145/2500423.2504584. URL
+
+139
+
+140
+
+estimating footfall from passive wifi signals
+
 http://dl.acm.org/citation.cfm?doid=2500423.2504584{%}5Cnhttp:
 //dl.acm.org/citation.cfm?id=2504584.
 
@@ -7795,13 +8156,6 @@ Amy Wesolowski, Nathan Eagle, Abdisalan M Noor, Robert W Snow, and
 Caroline O Buckee. The impact of biases in mobile phone ownership on
 estimates of human mobility. Journal of the Royal Society Interface, 10(81):
 20120986, 2013. ISSN 1742-5689.
-
-137
-
-138
-
-estimating footfall from passive wifi signals
-
 Martin Wirz, Tobias Franke, Daniel Roggen, Eve Mitleton-Kelly, Paul Lukowicz, and Gerhard Tröster. Inferring crowd conditions from pedestrians’ location traces for real-time crowd monitoring during city-scale mass gatherings.
 In Enabling Technologies: Infrastructure for Collaborative Enterprises (WETICE),
 2012 IEEE 21st International Workshop on, pages 367–372. IEEE, 2012. ISBN
@@ -7818,7 +8172,7 @@ Wireless & Mobile Networks, 5(4):17, 2013.
 Yingxiang Yang, David Gerstle, Peter Widhalm, Dietmar Bauer, and Marta
 Gonzalez. Potential of low-frequency automated vehicle location data for
 monitoring and control of bus performance. Transportation Research Record:
-Journal of the Transportation Research Board, (2351):54–64, 2013. ISSN 0361-1981.
+Journal of the Transportation Research Board, 2351:54–64, 2013. ISSN 0361-1981.
 Yew Yuan, Richard M Smith, and W Fredrick Limp. Remodeling census
 population with spatial information from landsat tm imagery. Computers,
 Environment and Urban Systems, 21(3):245–258, 1997. ISSN 0198-9715.
@@ -7835,6 +8189,9 @@ Yang Yue, Han-dong Wang, Bo Hu, Qing-quan Li, Yu-guang Li, and Anthony
 G O Yeh. Exploratory calibration of a spatial interaction model using taxi
 gps trajectories. Computers, Environment and Urban Systems, 36(2):140–153,
 2012. ISSN 0198-9715.
+
+bibliography
+
 Robbert Zandvliet and Martin Dijst. Short-term dynamics in the use of
 places: A space-time typology of visitor populations in the netherlands.
 Urban Studies, 43(7):1159–1176, 2006.
@@ -7842,11 +8199,8 @@ Vasileios Zarimpas, Bahram Honary, and Mike Darnell. Indoor 802.1 x
 based location determination and real-time tracking. In Wireless, Mobile and
 Multimedia Networks, 2006 IET International Conference on, pages 1–4. IET, 2006.
 ISBN 0863416446.
-
-bibliography
-
-Zengrzengr, Andy, and Cabral. Calculate distance from rssi. URL https:
-//bit.ly/2Ohskf9.
+Zengrzengr, Andy, and Cabral. Calculate distance from rssi, 2017. URL
+https://bit.ly/2Ohskf9.
 Desheng Zhang, Jun Huang, Ye Li, Fan Zhang, Chengzhong Xu, and Tian
 He. Exploring human mobility with multi-source data at extremely large
 metropolitan scales. Proceedings of the 20th annual international conference
@@ -7872,6 +8226,6 @@ Enwei Zhu, Maham Khan, Philipp Kats, Shreya Santosh Bamne, and Stanislav
 Sobolevsky. Digital urban sensing: A multi-layered approach. arXiv preprint
 arXiv:1809.01280, 2018.
 
-139
+141
 
 
