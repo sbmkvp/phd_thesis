@@ -168,6 +168,9 @@ We then plotted their sequence numbers against the precise time stamps when they
 We can clearly see two devices which were present in the room and demonstrates the usefulness of sequence number in estimating the actual devices around the sensors.
 We need to devise a method for isolating this `tracks' left by the devices in terms of their sequence numbers over time.
 We can also observe the rotation of sequence numbers at 4096 for the Fn\_LinkT device which needs to be considered while devising such method.
+Figure \ref{figure:collection:home:samsung} shows a similar exploration of Samsung devices.
+Though from the table \ref{table:collection:proberequest} it looked as if Samsung devices are randomising their MAC addresses, we can clearly see in the figure that there are only two devices which were present for long time around the sensor and both did not randomise their addresses.
+The diversity of MAC addresses were indeed unique devices which must be present far from the sensor.
 
 \begin{marginfigure}
   \forcerectofloat
@@ -177,8 +180,6 @@ We can also observe the rotation of sequence numbers at 4096 for the Fn\_LinkT d
 \end{marginfigure}
 \marginnote{\textit{The colors show unique MAC addresses.} }
 
-Figure \ref{figure:collection:home:samsung} shows a similar exploration of Samsung devices.
-Though from the table \ref{table:collection:proberequest} it looked as if Samsung devices are randomising their MAC addresses, we can clearly that the diversity of MAC addresses are indeed unique devices which were far away from the sensor.
 Though the results of this exploratory analysis has been positive the main challenge is to make sure these methods are feasible when dealing with more real-time, real world data.
 We need to devise a more real world experiment to see frame lengths and signal strength work in a bigger data set for filtering out the noise. 
 
@@ -207,7 +208,6 @@ Since this time we kept the OUI information, we can look in to the local MAC add
 Tree map showing only google randomises mac and others are unknown.
 Unusual number of global MAC share (82\%)- might be due to the Wi-Fi being available.
 
-\lipsum[1]
 \begin{figure}
   \includegraphics{images/ucl-local-treemap.png}
   \caption{Number of probe requests collected every minute on 15 October 2017}
@@ -230,7 +230,6 @@ Just by filtering to -70dBm reduces MAPE to \%.
   \label{figure:collection:ucl:config}
 \end{figure*}
 
-
 Major conclusion is that confirmation that Signal strength is still useful.
 The signal number is just arbitrary. We need a way to calculate this.
 fig \ref{} shows the distribution of signal along with breaks calculated by kmeans.
@@ -240,17 +239,23 @@ eg of randomised mac addresses and apple addresses.
 This data set is ruined by the student bias, we need to have more real life data for actual analysis.
 At larger scales the manual counting is not possible without errors need to make a better alternative.
 
-\begin{marginfigure}
+\begin{figure}
 \includegraphics[trim={5 5 5 5},clip]{images/ucl-signal-dist.png}
   \caption{Number of probe requests collected every minute on 15 October 2017}
   \label{figure:collection:ucl:signal}
-\end{marginfigure}
+\end{figure}
 \marginnote{\textit{} }
-
 
 %------------------------------------------------------------------------------%
 \subsection{Oxford Street}
 %------------------------------------------------------------------------------%
+
+\begin{marginfigure}
+  \includegraphics[trim={0 0 0 0},clip]{images/oxst-map.png}
+  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \label{figure:collection:ucl:config}
+\end{marginfigure}
+
 From the learnings from the previous two experiments we need to devise a final `real world' experiment which collects high density data at a high street.
 the Aim is to generate a dataset which can be used to test and validate signal strength based filtering and sequence number based clustering methodology against the scale and complexity of a busy, open public area such as a retail high street.
 The location chosen was Oxford street, London - one of the busiest retail streets in the world.
@@ -262,7 +267,6 @@ The application is detailed in section \ref{appendix:manualcount} which counts t
 This has an additional advantage as the phone used is kept unconnected to any Wi-Fi and with the screen on for counting, emits probe requests at regular intervals.
 
 \begin{marginfigure}
-  \forceversofloat
   \includegraphics[trim={0 0 0 0},clip]{images/oxst-counts.png}
   \caption{Number of probe requests collected every minute on 15 October 2017}
   \label{figure:collection:ucl:config}
@@ -276,7 +280,6 @@ This dataset is extensively used in the development of the filtering and cleanin
 %------------------------------------------------------------------------------%
 \subsection{Discussion}
 %------------------------------------------------------------------------------%
-
 Probe requests are source of easy to collect rich information.
 We identified list of useful information we can get from them.
 We collected data in three phases starting from small isolated study, more footfall and real world retail location.

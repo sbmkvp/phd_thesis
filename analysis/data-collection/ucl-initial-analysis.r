@@ -81,7 +81,7 @@ local_tree <- data %>%
   geom_treemap_subgroup_text(place = "bottomleft", alpha = 0.75, size = 17.5, # 
                              colour =  "white", family="Futura",
                              padding.x = unit(3, "mm"), padding.y = unit(10, "mm") ) +
-  geom_treemap_text(colour = "black", place = "bottomright",
+  geom_treemap_text(colour = "white", place = "bottomright",
                     reflow = T, size = 10, family = "Helvetica",
                     padding.x = unit(2.5, "mm"), padding.y = unit(2.5, "mm")) +
   theme(legend.position = "none")
@@ -92,8 +92,10 @@ breaks <- classIntervals(data$signal,4,"kmeans")$brks
 signal_dist <- data %>%
   ggplot() +
   geom_density(aes(signal),fill="blue",alpha = 0.2,size=0,adjust=0.8) +
+  geom_text(data=data.frame(breaks=breaks[2:(length(breaks)-1)]),aes(breaks-2,0.01,label=breaks),
+            size=2,hjust=-1,color="red") +
   geom_vline(xintercept=breaks[2:(length(breaks)-1)],color="red",linetype="dashed",size=0.25) +
   scale_y_continuous(limits = c(0,0.042),expand=c(0,0)) +
   theme1 + theme(axis.text.y = element_blank())
 
-ggsave("../../images/ucl-signal-dist.png", plot=signal_dist, height=2.5, width=3,units="in")
+# ggsave("../../images/ucl-signal-dist.png", plot=signal_dist, height=1.5, width=5,units="in")
