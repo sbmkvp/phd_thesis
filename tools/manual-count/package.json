@@ -1,0 +1,16 @@
+{
+  "name": "manualcount",
+  "version": "1.0.0",
+  "description": "Manual counting software",
+  "main": "manualcount.js",
+  "dependencies": {
+    "keypress": "^0.2.1",
+    "moment": "^2.20.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC"
+}

@@ -1,0 +1,140 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{k+kn}{package} \PYG{n+nn}{com.bala.manualcount}\PYG{o}{;}
+
+\PYG{k+kn}{import} \PYG{n+nn}{android.app.Activity}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.app.ActionBar}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.content.Context}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.content.Intent}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.view.View}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.os.Bundle}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.os.Environment}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.widget.TextView}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.widget.LinearLayout}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.widget.Toast}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.widget.Button}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{android.net.Uri}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.Random}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.Calendar}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.text.DateFormat}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.text.SimpleDateFormat}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.util.Date}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.io.File}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.io.IOException}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.io.FileOutputStream}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.io.FileWriter}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.io.BufferedWriter}\PYG{o}{;}
+\PYG{k+kn}{import} \PYG{n+nn}{java.io.OutputStreamWriter}\PYG{o}{;}
+
+\PYG{k+kd}{public} \PYG{k+kd}{class} \PYG{n+nc}{MainActivity} \PYG{k+kd}{extends} \PYG{n}{Activity} \PYG{o}{\PYGZob{}}
+\PYG{n+nd}{@Override}
+\PYG{k+kd}{protected} \PYG{k+kt}{void} \PYG{n+nf}{onCreate}\PYG{o}{(}\PYG{n}{Bundle} \PYG{n}{savedInstanceState}\PYG{o}{)} \PYG{o}{\PYGZob{}}
+\PYG{n}{ActionBar} \PYG{n}{actionBar} \PYG{o}{=} \PYG{n}{getActionBar}\PYG{o}{();}
+\PYG{n}{actionBar}\PYG{o}{.}\PYG{n+na}{hide}\PYG{o}{();}
+  \PYG{k+kd}{super}\PYG{o}{.}\PYG{n+na}{onCreate}\PYG{o}{(}\PYG{n}{savedInstanceState}\PYG{o}{);}
+  \PYG{n}{setContentView}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{layout}\PYG{o}{.}\PYG{n+na}{activity\PYGZus{}main}\PYG{o}{);}
+  \PYG{n}{TextView} \PYG{n}{text} \PYG{o}{=} \PYG{o}{(}\PYG{n}{TextView}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{my\PYGZus{}text}\PYG{o}{);}
+\PYG{n}{text}\PYG{o}{.}\PYG{n+na}{setText}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}0\PYGZdq{}}\PYG{o}{);}
+\PYG{n}{File} \PYG{n}{root} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{Environment}\PYG{o}{.}\PYG{n+na}{getExternalStorageDirectory}\PYG{o}{(),}
+    \PYG{l+s}{\PYGZdq{}ManualCounts\PYGZdq{}}\PYG{o}{);}
+\PYG{k}{if} \PYG{o}{(!}\PYG{n}{root}\PYG{o}{.}\PYG{n+na}{exists}\PYG{o}{())} \PYG{o}{\PYGZob{}} \PYG{n}{root}\PYG{o}{.}\PYG{n+na}{mkdirs}\PYG{o}{();} \PYG{o}{\PYGZcb{}}
+\PYG{n}{Button} \PYG{n}{left} \PYG{o}{=} \PYG{o}{(}\PYG{n}{Button}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{b\PYGZus{}left}\PYG{o}{);}
+\PYG{n}{left}\PYG{o}{.}\PYG{n+na}{setOnClickListener}\PYG{o}{(}\PYG{k}{new} \PYG{n}{View}\PYG{o}{.}\PYG{n+na}{OnClickListener}\PYG{o}{()\PYGZob{}}
+  \PYG{n+nd}{@Override}
+  \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{onClick}\PYG{o}{(}\PYG{n}{View} \PYG{n}{view}\PYG{o}{)} \PYG{o}{\PYGZob{}} \PYG{k}{try} \PYG{o}{\PYGZob{}}
+    \PYG{n}{Date} \PYG{n}{date} \PYG{o}{=} \PYG{n}{Calendar}\PYG{o}{.}\PYG{n+na}{getInstance}\PYG{o}{().}\PYG{n+na}{getTime}\PYG{o}{();}
+    \PYG{n}{DateFormat} \PYG{n}{preciseTime} \PYG{o}{=} 
+       \PYG{k}{new} \PYG{n}{SimpleDateFormat}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}yyyy\PYGZhy{}MM\PYGZhy{}dd hh:mm:ss.SSS\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{DateFormat} \PYG{n}{justDate} \PYG{o}{=} \PYG{k}{new} \PYG{n}{SimpleDateFormat}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}yyyy\PYGZhy{}MM\PYGZhy{}dd\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{File} \PYG{n}{root} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{Environment}\PYG{o}{.}\PYG{n+na}{getExternalStorageDirectory}\PYG{o}{(),} 
+        \PYG{l+s}{\PYGZdq{}ManualCounts\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{File} \PYG{n}{csvfile} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{root}\PYG{o}{,}\PYG{n}{justDate}\PYG{o}{.}\PYG{n+na}{format}\PYG{o}{(}\PYG{n}{date}\PYG{o}{)+}\PYG{l+s}{\PYGZdq{}.csv\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{FileWriter} \PYG{n}{fwriter} \PYG{o}{=} \PYG{k}{new} \PYG{n}{FileWriter}\PYG{o}{(}\PYG{n}{csvfile}\PYG{o}{,}\PYG{k+kc}{true}\PYG{o}{);}
+    \PYG{n}{BufferedWriter} \PYG{n}{writer} \PYG{o}{=} \PYG{k}{new} \PYG{n}{BufferedWriter}\PYG{o}{(}\PYG{n}{fwriter}\PYG{o}{);}
+    \PYG{n}{String} \PYG{n}{strDate} \PYG{o}{=} \PYG{n}{preciseTime}\PYG{o}{.}\PYG{n+na}{format}\PYG{o}{(}\PYG{n}{date}\PYG{o}{);}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{append}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZdq{}\PYGZdq{}}\PYG{o}{+}\PYG{n}{strDate}\PYG{o}{+}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}left\PYGZbs{}\PYGZdq{}\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{newLine}\PYG{o}{();}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{close}\PYG{o}{();}
+        \PYG{n}{TextView} \PYG{n}{text} \PYG{o}{=} \PYG{o}{(}\PYG{n}{TextView}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{my\PYGZus{}text}\PYG{o}{);}
+    \PYG{k+kt}{int} \PYG{n}{count} \PYG{o}{=} \PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{parseInt}\PYG{o}{(}\PYG{n}{text}\PYG{o}{.}\PYG{n+na}{getText}\PYG{o}{().}\PYG{n+na}{toString}\PYG{o}{());}
+    \PYG{n}{text}\PYG{o}{.}\PYG{n+na}{setText}\PYG{o}{(}\PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{toString}\PYG{o}{(}\PYG{n}{count}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{));}
+    \PYG{n}{Button} \PYG{n}{left} \PYG{o}{=} \PYG{o}{(}\PYG{n}{Button}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{b\PYGZus{}left}\PYG{o}{);}
+    \PYG{k+kt}{int} \PYG{n}{countleft} \PYG{o}{=} \PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{parseInt}\PYG{o}{(}\PYG{n}{left}\PYG{o}{.}\PYG{n+na}{getText}\PYG{o}{().}\PYG{n+na}{toString}\PYG{o}{());}
+    \PYG{n}{left}\PYG{o}{.}\PYG{n+na}{setText}\PYG{o}{(}\PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{toString}\PYG{o}{(}\PYG{n}{countleft}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{));}
+    \PYG{o}{\PYGZcb{}} \PYG{k}{catch} \PYG{o}{(}\PYG{n}{IOException} \PYG{n}{e}\PYG{o}{)} \PYG{o}{\PYGZob{}}
+    \PYG{n}{e}\PYG{o}{.}\PYG{n+na}{printStackTrace}\PYG{o}{();}
+    \PYG{n}{Context} \PYG{n}{context} \PYG{o}{=} \PYG{n}{getApplicationContext}\PYG{o}{();}
+    \PYG{n}{Toast}\PYG{o}{.}\PYG{n+na}{makeText}\PYG{o}{(}\PYG{n}{context}\PYG{o}{,} \PYG{l+s}{\PYGZdq{}error\PYGZdq{}}\PYG{o}{,} \PYG{n}{Toast}\PYG{o}{.}\PYG{n+na}{LENGTH\PYGZus{}SHORT}\PYG{o}{).}\PYG{n+na}{show}\PYG{o}{();}
+    \PYG{o}{\PYGZcb{}} \PYG{o}{\PYGZcb{}} \PYG{o}{\PYGZcb{});}
+\PYG{n}{Button} \PYG{n}{right} \PYG{o}{=} \PYG{o}{(}\PYG{n}{Button}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{b\PYGZus{}right}\PYG{o}{);}
+\PYG{n}{right}\PYG{o}{.}\PYG{n+na}{setOnClickListener}\PYG{o}{(}\PYG{k}{new} \PYG{n}{View}\PYG{o}{.}\PYG{n+na}{OnClickListener}\PYG{o}{()\PYGZob{}}
+  \PYG{n+nd}{@Override}
+  \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{onClick}\PYG{o}{(}\PYG{n}{View} \PYG{n}{view}\PYG{o}{)} \PYG{o}{\PYGZob{}} \PYG{k}{try} \PYG{o}{\PYGZob{}}
+    \PYG{n}{Date} \PYG{n}{date} \PYG{o}{=} \PYG{n}{Calendar}\PYG{o}{.}\PYG{n+na}{getInstance}\PYG{o}{().}\PYG{n+na}{getTime}\PYG{o}{();}
+    \PYG{n}{DateFormat} \PYG{n}{preciseTime} \PYG{o}{=} 
+      \PYG{k}{new} \PYG{n}{SimpleDateFormat}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}yyyy\PYGZhy{}MM\PYGZhy{}dd hh:mm:ss.SSS\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{DateFormat} \PYG{n}{justDate} \PYG{o}{=} \PYG{k}{new} \PYG{n}{SimpleDateFormat}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}yyyy\PYGZhy{}MM\PYGZhy{}dd\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{File} \PYG{n}{root} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{Environment}\PYG{o}{.}\PYG{n+na}{getExternalStorageDirectory}\PYG{o}{(),} 
+        \PYG{l+s}{\PYGZdq{}ManualCounts\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{File} \PYG{n}{csvfile} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{root}\PYG{o}{,}\PYG{n}{justDate}\PYG{o}{.}\PYG{n+na}{format}\PYG{o}{(}\PYG{n}{date}\PYG{o}{)+}\PYG{l+s}{\PYGZdq{}.csv\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{FileWriter} \PYG{n}{fwriter} \PYG{o}{=} \PYG{k}{new} \PYG{n}{FileWriter}\PYG{o}{(}\PYG{n}{csvfile}\PYG{o}{,}\PYG{k+kc}{true}\PYG{o}{);}
+    \PYG{n}{BufferedWriter} \PYG{n}{writer} \PYG{o}{=} \PYG{k}{new} \PYG{n}{BufferedWriter}\PYG{o}{(}\PYG{n}{fwriter}\PYG{o}{);}
+    \PYG{n}{String} \PYG{n}{strDate} \PYG{o}{=} \PYG{n}{preciseTime}\PYG{o}{.}\PYG{n+na}{format}\PYG{o}{(}\PYG{n}{date}\PYG{o}{);}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{append}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZdq{}\PYGZdq{}}\PYG{o}{+}\PYG{n}{strDate}\PYG{o}{+}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}right\PYGZbs{}\PYGZdq{}\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{newLine}\PYG{o}{();}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{close}\PYG{o}{();}
+        \PYG{n}{TextView} \PYG{n}{text} \PYG{o}{=} \PYG{o}{(}\PYG{n}{TextView}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{my\PYGZus{}text}\PYG{o}{);}
+    \PYG{k+kt}{int} \PYG{n}{count} \PYG{o}{=} \PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{parseInt}\PYG{o}{(}\PYG{n}{text}\PYG{o}{.}\PYG{n+na}{getText}\PYG{o}{().}\PYG{n+na}{toString}\PYG{o}{());}
+    \PYG{n}{text}\PYG{o}{.}\PYG{n+na}{setText}\PYG{o}{(}\PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{toString}\PYG{o}{(}\PYG{n}{count}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{));}
+    \PYG{n}{Button} \PYG{n}{right} \PYG{o}{=} \PYG{o}{(}\PYG{n}{Button}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{b\PYGZus{}right}\PYG{o}{);}
+    \PYG{k+kt}{int} \PYG{n}{countright} \PYG{o}{=} \PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{parseInt}\PYG{o}{(}\PYG{n}{right}\PYG{o}{.}\PYG{n+na}{getText}\PYG{o}{().}\PYG{n+na}{toString}\PYG{o}{());}
+    \PYG{n}{right}\PYG{o}{.}\PYG{n+na}{setText}\PYG{o}{(}\PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{toString}\PYG{o}{(}\PYG{n}{countright}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{));}
+    \PYG{o}{\PYGZcb{}} \PYG{k}{catch} \PYG{o}{(}\PYG{n}{IOException} \PYG{n}{e}\PYG{o}{)} \PYG{o}{\PYGZob{}}
+    \PYG{n}{e}\PYG{o}{.}\PYG{n+na}{printStackTrace}\PYG{o}{();}
+    \PYG{n}{Context} \PYG{n}{context} \PYG{o}{=} \PYG{n}{getApplicationContext}\PYG{o}{();}
+    \PYG{n}{Toast}\PYG{o}{.}\PYG{n+na}{makeText}\PYG{o}{(}\PYG{n}{context}\PYG{o}{,} \PYG{l+s}{\PYGZdq{}error\PYGZdq{}}\PYG{o}{,} \PYG{n}{Toast}\PYG{o}{.}\PYG{n+na}{LENGTH\PYGZus{}SHORT}\PYG{o}{).}\PYG{n+na}{show}\PYG{o}{();}
+    \PYG{o}{\PYGZcb{}} \PYG{o}{\PYGZcb{}} \PYG{o}{\PYGZcb{});}
+\PYG{n}{LinearLayout} \PYG{n}{layOut} \PYG{o}{=} \PYG{o}{(}\PYG{n}{LinearLayout}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{lay}\PYG{o}{);}
+\PYG{n}{layOut}\PYG{o}{.}\PYG{n+na}{setOnClickListener}\PYG{o}{(}\PYG{k}{new} \PYG{n}{View}\PYG{o}{.}\PYG{n+na}{OnClickListener}\PYG{o}{()\PYGZob{}}
+  \PYG{n+nd}{@Override}
+  \PYG{k+kd}{public} \PYG{k+kt}{void} \PYG{n+nf}{onClick}\PYG{o}{(}\PYG{n}{View} \PYG{n}{view}\PYG{o}{)} \PYG{o}{\PYGZob{}} \PYG{k}{try} \PYG{o}{\PYGZob{}}
+    \PYG{n}{Date} \PYG{n}{date} \PYG{o}{=} \PYG{n}{Calendar}\PYG{o}{.}\PYG{n+na}{getInstance}\PYG{o}{().}\PYG{n+na}{getTime}\PYG{o}{();}
+    \PYG{n}{DateFormat} \PYG{n}{preciseTime} \PYG{o}{=} 
+      \PYG{k}{new} \PYG{n}{SimpleDateFormat}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}yyyy\PYGZhy{}MM\PYGZhy{}dd hh:mm:ss.SSS\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{DateFormat} \PYG{n}{justDate} \PYG{o}{=} \PYG{k}{new} \PYG{n}{SimpleDateFormat}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}yyyy\PYGZhy{}MM\PYGZhy{}dd\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{File} \PYG{n}{root} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{Environment}\PYG{o}{.}\PYG{n+na}{getExternalStorageDirectory}\PYG{o}{(),}
+        \PYG{l+s}{\PYGZdq{}ManualCounts\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{File} \PYG{n}{csvfile} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{root}\PYG{o}{,}\PYG{n}{justDate}\PYG{o}{.}\PYG{n+na}{format}\PYG{o}{(}\PYG{n}{date}\PYG{o}{)+}\PYG{l+s}{\PYGZdq{}.csv\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{FileWriter} \PYG{n}{fwriter} \PYG{o}{=} \PYG{k}{new} \PYG{n}{FileWriter}\PYG{o}{(}\PYG{n}{csvfile}\PYG{o}{,}\PYG{k+kc}{true}\PYG{o}{);}
+    \PYG{n}{BufferedWriter} \PYG{n}{writer} \PYG{o}{=} \PYG{k}{new} \PYG{n}{BufferedWriter}\PYG{o}{(}\PYG{n}{fwriter}\PYG{o}{);}
+    \PYG{n}{String} \PYG{n}{strDate} \PYG{o}{=} \PYG{n}{preciseTime}\PYG{o}{.}\PYG{n+na}{format}\PYG{o}{(}\PYG{n}{date}\PYG{o}{);}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{append}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZdq{}\PYGZdq{}}\PYG{o}{+}\PYG{n}{strDate}\PYG{o}{+}\PYG{l+s}{\PYGZdq{}\PYGZbs{}\PYGZdq{},\PYGZbs{}\PYGZdq{}other\PYGZbs{}\PYGZdq{}\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{newLine}\PYG{o}{();}
+    \PYG{n}{writer}\PYG{o}{.}\PYG{n+na}{close}\PYG{o}{();}
+        \PYG{n}{TextView} \PYG{n}{text} \PYG{o}{=} \PYG{o}{(}\PYG{n}{TextView}\PYG{o}{)}\PYG{n}{findViewById}\PYG{o}{(}\PYG{n}{R}\PYG{o}{.}\PYG{n+na}{id}\PYG{o}{.}\PYG{n+na}{my\PYGZus{}text}\PYG{o}{);}
+    \PYG{k+kt}{int} \PYG{n}{count} \PYG{o}{=} \PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{parseInt}\PYG{o}{(}\PYG{n}{text}\PYG{o}{.}\PYG{n+na}{getText}\PYG{o}{().}\PYG{n+na}{toString}\PYG{o}{());}
+    \PYG{n}{text}\PYG{o}{.}\PYG{n+na}{setText}\PYG{o}{(}\PYG{n}{Integer}\PYG{o}{.}\PYG{n+na}{toString}\PYG{o}{(}\PYG{n}{count}\PYG{o}{+}\PYG{l+m+mi}{1}\PYG{o}{));}
+    \PYG{o}{\PYGZcb{}} \PYG{k}{catch} \PYG{o}{(}\PYG{n}{IOException} \PYG{n}{e}\PYG{o}{)} \PYG{o}{\PYGZob{}}
+    \PYG{n}{e}\PYG{o}{.}\PYG{n+na}{printStackTrace}\PYG{o}{();}
+    \PYG{n}{Context} \PYG{n}{context} \PYG{o}{=} \PYG{n}{getApplicationContext}\PYG{o}{();}
+    \PYG{n}{Toast}\PYG{o}{.}\PYG{n+na}{makeText}\PYG{o}{(}\PYG{n}{context}\PYG{o}{,} \PYG{l+s}{\PYGZdq{}error\PYGZdq{}}\PYG{o}{,} \PYG{n}{Toast}\PYG{o}{.}\PYG{n+na}{LENGTH\PYGZus{}SHORT}\PYG{o}{).}\PYG{n+na}{show}\PYG{o}{();}
+    \PYG{o}{\PYGZcb{}} \PYG{o}{\PYGZcb{}} \PYG{o}{\PYGZcb{});}
+\PYG{n}{layOut}\PYG{o}{.}\PYG{n+na}{setOnLongClickListener}\PYG{o}{(}\PYG{k}{new} \PYG{n}{View}\PYG{o}{.}\PYG{n+na}{OnLongClickListener}\PYG{o}{()\PYGZob{}}
+  \PYG{n+nd}{@Override}
+  \PYG{k+kd}{public} \PYG{k+kt}{boolean}  \PYG{n+nf}{onLongClick}\PYG{o}{(}\PYG{n}{View} \PYG{n}{view}\PYG{o}{)} \PYG{o}{\PYGZob{}}
+    \PYG{n}{Context} \PYG{n}{context} \PYG{o}{=} \PYG{n}{getApplicationContext}\PYG{o}{();}
+    \PYG{n}{Toast}\PYG{o}{.}\PYG{n+na}{makeText}\PYG{o}{(}\PYG{n}{context}\PYG{o}{,}\PYG{l+s}{\PYGZdq{}Sending data\PYGZdq{}}\PYG{o}{,}\PYG{n}{Toast}\PYG{o}{.}\PYG{n+na}{LENGTH\PYGZus{}SHORT}\PYG{o}{).}\PYG{n+na}{show}\PYG{o}{();}
+    \PYG{n}{Intent} \PYG{n}{intentShareFile} \PYG{o}{=} \PYG{k}{new} \PYG{n}{Intent}\PYG{o}{(}\PYG{n}{Intent}\PYG{o}{.}\PYG{n+na}{ACTION\PYGZus{}SEND}\PYG{o}{);}
+    \PYG{n}{Date} \PYG{n}{date} \PYG{o}{=} \PYG{n}{Calendar}\PYG{o}{.}\PYG{n+na}{getInstance}\PYG{o}{().}\PYG{n+na}{getTime}\PYG{o}{();}
+    \PYG{n}{DateFormat} \PYG{n}{justDate} \PYG{o}{=} \PYG{k}{new} \PYG{n}{SimpleDateFormat}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}yyyy\PYGZhy{}MM\PYGZhy{}dd\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{File} \PYG{n}{root} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{Environment}\PYG{o}{.}\PYG{n+na}{getExternalStorageDirectory}\PYG{o}{(),}
+        \PYG{l+s}{\PYGZdq{}ManualCounts\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{File} \PYG{n}{csvfile} \PYG{o}{=} \PYG{k}{new} \PYG{n}{File}\PYG{o}{(}\PYG{n}{root}\PYG{o}{,}\PYG{n}{justDate}\PYG{o}{.}\PYG{n+na}{format}\PYG{o}{(}\PYG{n}{date}\PYG{o}{)+}\PYG{l+s}{\PYGZdq{}.csv\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{intentShareFile}\PYG{o}{.}\PYG{n+na}{setType}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}text/*\PYGZdq{}}\PYG{o}{);}
+    \PYG{n}{intentShareFile}\PYG{o}{.}\PYG{n+na}{putExtra}\PYG{o}{(}\PYG{n}{Intent}\PYG{o}{.}\PYG{n+na}{EXTRA\PYGZus{}STREAM}\PYG{o}{,} 
+        \PYG{n}{Uri}\PYG{o}{.}\PYG{n+na}{parse}\PYG{o}{(}\PYG{l+s}{\PYGZdq{}file://\PYGZdq{}}\PYG{o}{+}\PYG{n}{csvfile}\PYG{o}{.}\PYG{n+na}{toString}\PYG{o}{()));}
+    \PYG{n}{startActivity}\PYG{o}{(}\PYG{n}{Intent}\PYG{o}{.}\PYG{n+na}{createChooser}\PYG{o}{(}\PYG{n}{intentShareFile}\PYG{o}{,} 
+          \PYG{l+s}{\PYGZdq{}Share File\PYGZdq{}}\PYG{o}{));}
+    \PYG{k}{return} \PYG{k+kc}{true}\PYG{o}{;}
+  \PYG{o}{\PYGZcb{}}
+\PYG{o}{\PYGZcb{});} \PYG{o}{\PYGZcb{}} \PYG{o}{\PYGZcb{}}
+\end{Verbatim}

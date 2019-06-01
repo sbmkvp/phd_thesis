@@ -13,6 +13,13 @@ The project aims to facilitate decision making by stakeholders in addition to th
 
 \subsection{Methodology}
 
+\begin{marginfigure}[2cm]
+  \includegraphics{images/sss-hardware.jpg}
+  \caption{Hardware setup used to collect data in the pilot studies.}
+  \label{figure:collection:pilot:hardware}
+\end{marginfigure}
+
+
 As a first step, various locations for the study were identified by CDRC to include a wide geographical spread, different demographic characteristics and range of retail centre profiles.
 A custom footfall counting technology using WiFi based sensors was also designed, developed by LDC and the sensors were installed the identified locations.
 The sensor monitors and records signals sent by WiFi enabled mobile devices present in its range.
@@ -22,13 +29,6 @@ The potentially identifiable information collected on the mobile devices is hash
 This data is then retrieved securely for the preparation of the commercial dashboards by LDC and for research purposes by CDRC users.
 The project began on July 2015 with the first sensor installation and has grown to an average of 450 daily active sensors as of January 2017.
 
-\begin{figure*}
-  \includegraphics{images/sss.png}
-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
-  \label{figure:literature:tech:timeline}
-\end{figure*}
-
-
 The data is collected through set of SmartStreetSensors (shown in Figure 3.1), a WiFi based sensor which when installed acts as a WiFi access point and collects specific type of packets (probe requests) relayed by mobile devices which are which are within the device’s signal range and are searching for available access points.
 The sensor is usually installed on partnering retailer's shop windows so that its range covers the pavement in front of the shops.
 The installation and calibration of device with respect to the shop window and the pavement is illustrated in Figure 3.2.
@@ -36,18 +36,39 @@ There is also a small percentage (3\%) of the devices which are installed within
 Each device collects data independently and uploads the collected data to a central container at regular interval 5 minutes through a dedicated 3G mobile data connection.
 The sensor hardware has been improved over the course of the project and currently has built in failure prevention mechanisms such as, backup battery for power failures, automatic reboot capabilities and in-device memory for holding data when internet is not available.
 The hardware versions and the corresponding features are detailed in Table 3.1.
+
+\begin{figure*}
+  \includegraphics{images/sss.png}
+  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
+  \label{figure:literature:tech:timeline}
+\end{figure*}
+
+\lipsum[1-2]
+
 %+200 words
-smartstreetsensor - figure.
 system architecture - figure.
 
 \subsection{Locations}
 %(300 words)
-locations - map
+\begin{marginfigure}[8cm]
+  \includegraphics[trim = {0 20 0 0}, clip]{images/sss-locations.png}
+  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
+  \label{figure:literature:tech:timeline}
+\end{marginfigure}
+
+\lipsum[1]
 locations - table
 
 \subsection{Data Description}
-%(300 words)
-data description - table.
-sample probe request - code.
-installation of sensors - figure.
-descriptive statistics - table.
+
+% data description - table.
+% sample probe request - code.
+% installation of sensors - figure.
+% descriptive statistics - table.
+
+\lipsum[1-3]
+
+
+
+\pagebreak
+

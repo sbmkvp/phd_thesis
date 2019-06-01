@@ -1,6 +1,32 @@
 \chapter{Appendix}
 
 %==============================================================================%
+\section{Manual Counting}
+%==============================================================================%
+
+%-------------------------------------------------------------------------------
+\subsection{Node.js App} \label{appendix:manualcount}
+%-------------------------------------------------------------------------------
+\vspace{1em}
+\inputminted{javascript}{tools/manual-count/package.json}
+\inputminted{javascript}{tools/manual-count/manualcount.js}
+
+%-------------------------------------------------------------------------------
+\subsection{Android App} \label{appendix:clicker}
+%-------------------------------------------------------------------------------
+\vspace{1em}
+The Android manifest which defines the whole application along with the permissions it needs to function.
+\inputminted{xml}{tools/clicker/manifest.xml}
+\vspace{1em}
+The layout of the app.
+\inputminted{xml}{tools/clicker/layout.xml}
+\vspace{1em}
+The main logic of the app.
+\inputminted{java}{tools/clicker/activity.java}
+\pagebreak
+
+
+%==============================================================================%
 \section{Benchmarking Data Tookit} \label{appendix:benchmark}
 %==============================================================================%
 
@@ -28,8 +54,9 @@ This bash script lists all the files in a given folder, parses them into JSON da
 This bash script lists all the files in a given folder, parses them into JSON data \textit{in parallel}, aggregates the resulting records for each time interval and finally writes it to disk as a CSV file.
 \vspace{1em}
 \inputminted{bash}{analysis/data-toolkit/new-toolkit-parallel.sh}
-
 \pagebreak
+
+
 %===============================================================================
 \section{Sample Probe Request} \label{appendix:sampleprobe}
 %===============================================================================

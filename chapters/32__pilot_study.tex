@@ -4,6 +4,12 @@ The ai
 
 \subsection{Methodology}
 
+\begin{marginfigure}[2cm]
+  \includegraphics{images/pilot-hardware.png}
+  \caption{Hardware setup used to collect data in the pilot studies.}
+  \label{figure:collection:pilot:hardware}
+\end{marginfigure}
+
 The methodology set out above was implemented in five different Central London locations at different times.
 \% Sensors were installed and data collected for extended periods of time.
 Sensors were installed and data collected for extended periods of time.
@@ -11,14 +17,7 @@ Sensors were installed and data collected for extended periods of time.
 We then applied the methodologies discussed earlier to arrive at estimated pedestrian footfall and compared them with the corresponding manual counts.
 We finally evaluated the effectiveness of the processes with the Mean Absolute Percentage Error (MAPE) at the locations and report our findings below.
 
-
 \subsection{Locations}
-
-\begin{figure}
-  \includegraphics[trim={20 20 20 20},clip]{images/pilot-study-locations.png}
-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
-  \label{figure:literature:tech:timeline}
-\end{figure}
 
 Locations where sensors were installed, volume and speed of probe requests collected by the sensor and total pedestrians manually counted.
 The data occupies around 1.8 GB on disk when encoded in text format.
@@ -30,31 +29,33 @@ The sensors were operational through out February and March, while manual counts
 For the purposes of comparing with ground truth, we considered the data from sensors which correspond to the 12 sets of available manual counts.
 The schedule of data collection is shown in Figure .
 
-\begin{figure*}
-  \includegraphics{images/pilot-study-schedule.png}
+\begin{figure}
+  \centering
+  \includegraphics[trim={20 20 20 20},clip, width=\textwidth]{images/pilot-study-locations.png}
   \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
   \label{figure:literature:tech:timeline}
-\end{figure*}
+\end{figure}
 
+\lipsum[1]
 
 \begin{table}
   \footnotesize
   \begin{center}
-    \begin{tabular}{cm{2.5cm}lm{2.3cm}m{1.5cm}m{1.5cm}}
+    \begin{tabular}{clllrr}
       \toprule
-        ID & Location & Type & Installation notes & Probe Requests & Counted Footfall\\
+        Id & Location & Type & Installation notes & Probes\textsuperscript{*} & Footfall\textsuperscript{**}\\
       \midrule
-        \addlinespace[0.4cm]
-        1 & Camden High Street & Phone Shop & Bus stop in front & 9.9 (297) & 3683 (33)\\
         \addlinespace[0.2cm]
-        2 & Central St.Giles & Restaurant & Seating area on both sides & 3.9 (169) & 0346 (05)\\
-        \addlinespace[0.2cm]
-        3 & Holborn Station & Info. Kiosk & Overlooks station entrance & 4.3 (303) & 2956 (46)\\
-        \addlinespace[0.2cm]
-        4 & Brunswick Center & Fast Food & Has seating area on one side & 3.4 (210) & 0960 (12)\\
-        \addlinespace[0.2cm]
-        5 & The Strand & Tea Shop & Phone shop next door & 8.4 (382) & 1969 (21)\\
+        1 & Camden St. & Phone Shop & Bus stop in front & 9.9 (297) & 3683 (33)\\
         \addlinespace[0.1cm]
+        2 & St.Giles & Restaurant & Seating on both sides & 3.9 (169) & 0346 (05)\\
+        \addlinespace[0.1cm]
+        3 & Holborn Stn. & Info. Kiosk & Front of station entrance & 4.3 (303) & 2956 (46)\\
+        \addlinespace[0.1cm]
+        4 & Brunswick & Fast Food & Seating  on one side & 3.4 (210) & 0960 (12)\\
+        \addlinespace[0.1cm]
+        5 & The Strand & Tea Shop & Phone shop next door & 8.4 (382) & 1969 (21)\\
+        \addlinespace[0.05cm]
       \bottomrule
     \end{tabular}
   \end{center}
@@ -64,5 +65,12 @@ The schedule of data collection is shown in Figure .
 
 \subsection{Data Collection}
 
-
+\lipsum[1]
+\begin{figure*}
+  \includegraphics{images/pilot-study-schedule.png}
+  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
+  \label{figure:literature:tech:timeline}
+\end{figure*}
+\lipsum[2]
+\lipsum[3]
 
