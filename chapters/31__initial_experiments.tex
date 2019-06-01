@@ -22,9 +22,10 @@ The objectives here are,
 %------------------------------------------------------------------------------%
 
 The first step was to design a simple method to collect Wi-Fi probe requests.
-We accomplish by utilising the application - \textit{tshark} \cite{wireshark2} on a regular laptop.
-First we put the Wi-Fi module of the laptop in `Monitor mode' where it behaves as a wireless access point.
-Then we run tshark to collect the data in CSV format using the following command under a shell.
+We accomplished this by using the open source, free software - \textit{tshark} \cite{wireshark2} on a regular laptop.
+First we put the Wi-Fi module of the laptop in `Monitor mode' where it behaves as a wireless access point rather than a receiver.
+Then we invoke the command line interface of the Wireshark programme - tshark to collect the Wi-Fi probe requests received by the laptop in Character Separated File (CSV) format. 
+The full shell script which collects the data is given below,
 
 \begin{minted}{bash}
 #! /bin/bash
@@ -44,19 +45,33 @@ tshark \
   type mgt subtype probe-req and broadcast
 \end{minted}
 
-The fields marked with \textit{-e} correspond to time stamp when the packet was received, total length of the packet, reported signal strength, duration for which the packet was transmitted, the MAC address of the source device, sequence number of the packet assigned by the source device, length of the tags attached to the packet and the network for which the probe request is being sent for.
-The manufacturer information is extracted from the \textit{wlan.sa\_resolved} field into a separate column and the original field is hashed using the SHA256 algorithm implemented in R.
+It is important to note that this script collects only particular data from the probe requests which we found to be relevant to us. 
+The fields marked with \textit{-e} are the ones which were collected and the correspond to the information in the probe requests as follows,
+
+\begin{enumerate}[rightmargin = 2em, leftmargin = 2em]
+  \itemsep-0.25em
+  \item \textit{frame.time} - Time stamp when the packet was received in microseconds.
+  \item \textit{frame.len} - Total length of the packet in bytes.
+  \item \textit{wlan\_radio.signal\_dbm} - Strength of the signal which delivered the probe request in dBm.
+  \item \textit{wlan\_radio.duration} - The duration for which the signal has been transmitted.
+  \item \textit{wlan.sa\_resolved} - The MAC address of the source device where the first part is resolved into a vendor name concatenated with 6 characters of the device part.
+  \item \textit{wlan.seq} - Sequence number of the packet assigned by the source device.
+  \item \textit{wlan.tag.length} - A list of lengths of the tags attached to the packet this acts a signature of the information contained within those tags and
+  \item \textit{wlan.ssid} - The network for which the probe request is being sent for. This information is optional.
+\end{enumerate}
+
+The name of the manufacturer/ vendor of the Wi-Fi module  is extracted from the \textit{wlan.sa\_resolved} field into a separate column and the original field is hashed using the SHA256 algorithm implemented in R.
 In addition to this, the pedestrians next to the sensor were counted manually by the surveyor.
 
 %------------------------------------------------------------------------------%
 \subsection{Living room}
 %------------------------------------------------------------------------------%
 The first set of experiment was conducted with the laptop in the researcher's living room.
-The primary aim of this experiment to collect an initial set of probe requests to understand the information in them.
-The living room had 2 Wi-Fi enabled device - a motorola phone and an android tv 
-The house had 2 more phones - iPhone and a Samsung phone.
-Probe requests were collected on 15 Nov 2015 from 19:44 to 21:15 with a gap of 15 minutes in between.
-We collected around 3000 probe requests at the rate of 38 requests per minute.
+The primary aim of this experiment to collect an initial set of probe requests to understand the information present in them in detail.
+The living room had 2 Wi-Fi enabled device - an Android phone manufactured by Motorola and an Android TV box manufactured by Remix.
+The house had 2 more phones - iPhone from Apple running iOS9 and an Android phone from Samsung in the rooms next door.
+The script was left running in the laptop on 15 Nov 2015 from 19:44 to 21:15 with an unexpected failure of 15 minutes in between from 19:55 to 20:10 approximately.
+In this duration, we collected around 3000 probe requests at the rate of 38 requests per minute.
 
 \begin{marginfigure}
   \includegraphics{images/home-total-count.png}
@@ -64,20 +79,32 @@ We collected around 3000 probe requests at the rate of 38 requests per minute.
   \label{figure:collection:home:total}
 \end{marginfigure}
 
-The first step was to look to convert these probe requests to number of devices by aggregating by the MAC addresses.
-This results are shown in Figure \ref{figure:collection:home:total} which shows the number of unique MAC addresses detected every minute.
-We see that aggregating by MAC addresses shows around 7 devices on average every minute around the sensor.
-Though this might be true when considering noise from outside the room, it also reports around 211 unique MAC addresses overall these cannot be possibly generated by unique devices.
-These unique addresses must have been caused by the randomisation process thus confirming that MAC addresses alone is not enough to convert the probe requests in to unique devices.
+The first thing we tried with the probe requests is to try and aggregate them based on the MAC addresses.
+Before the mobile devices started randomising their MAC addresses this should have accurately reflected the number of devices around the laptop.
+The data when aggregated showed that there were around 211 unique MAC addresses recorded.
+Being a residential area far away from traffic, these MACs are most likely not from unique devices.
+The high number must be the result of randomisation.
+More over since we know that there are only 2 - 4 devices in the house, there must be noise from significant distances beyond the house.
+The number of unique MACs recorded every minute are shown in Figure \ref{figure:collection:home:total}
+We observe that on average we captured around 7 unique MAC addresses every minute which quite far from the 2-4 range we were looking for.
 
-%:read !tail -n +7 ./analysis/data-collection/vendor-tables.txt | head -n -3
+Having established that just the MAC addresses are not enough to translate the probe requests into number of devices around the sensor, we started to look at other information we collected from the probe requests along with the MAC addresses.
+First we tried to isolate all the randomised, local MAC addresses by looking at the resolved vendor part.
+We aggregated the probe requests based on the vendor name present in the MAC addresses against all the other information present in them.
+The results are shown in Table \ref{table:collection:proberequests}
+We looked how many unique values were present in these fields compared to the total number of probe requests. 
+Initially we assumed that the randomised one won't have OUIs which are public and hence the ones which can be resolved should be the real addresses.
+But when we looked at the probes to MAC ratio of Google and Compex we realised that even the local MAC addresses could be registered public. 
+This showed even when the OUI has been resolved into a vendor name, the original needs to be preserved for analysis.
+Samsung is special case since we know from the specification that their devices do not randomise the addresses yet they have so many unique addresses which needs to be looked in to closely.
+
 \begin{table}
 \footnotesize
 \begin{center}
   \begin{tabular}{lrrrrrrrr}
   \toprule
   Vendor & No. of & MAC & Signal & Frame & Dura-& Tags & SSID & Seq. \\ 
-  & probes & addr. &  & length &  tion &  &  & no. \\ 
+         & probes & addr. & (avg.) & length &  tion &  &  & no. \\ 
   \midrule
   AmazonTe &  101 &   1 & -80.53 &   4 &   4 &   5 &   3 & 101 \\ 
   Apple    &   77 &   7 & -86.29 &   4 &   4 &   9 &   4 &  77 \\ 
@@ -107,60 +134,56 @@ These unique addresses must have been caused by the randomisation process thus c
   \bottomrule
   \end{tabular}
 \end{center}
-\caption{Number of unique values present in each field captured from the probe requests for each Vendor OUI}
-\label{table:collection:proberequest}
+\caption{Number of unique values present in each field captured from the probe requests aggregated by the vendor names}
+\label{table:collection:proberequests}
 \end{table}
 
+We observe 24 different vendors in the data, even if we assume one device per vendor it is impossible for sensor to pick up 24 different devices without a significantly large area of measurement than we expect.
+We need a way to filter out this noise which are generated from the edge of the field of measurement.
+This is where the signal strength shows good promise.
+Looking at the Table \ref{table:collection:proberequests} we can see that two of these vendors show significantly low average signal strength - Google and Fn-LinkT which can easily correspond to the two devices present in the room.
+This can be explained by the decay of the signal as it passes through the walls.
+In our simple example, we can filter almost all the noise with just the signal strength of the probe requests.
 
-After this we looked at the resolved OUIs from the data.
-There are 24 different vendors.
-This is more than what we expected showing that these ones must be clearly coming from outside the room / house.
-We need to find a way to look at the
-We need to look at signal strength which can show how far the device is.
-we look at the compression ration of MAC vs probes which shows the amount of randomisation.
-Since we hashed the mac address there is no way of finding out. we need to keep the OUI part which is independent from vendor. Not all local OUIs are private.
-Compex, Google and local addresses are randomising.
-Samsung is tricky since we know that samsung phones don't randomise. we need to look into this more to see if it is randomisation.
-nvidia, amazon, azurewav does not randomise.
-We then look at the average signal strength.
-Only two of the vendors have averages less than 70 showing the only two devices that are in the room.
-Rest of the devices are more than 80. Showing the exponential decay of the signal strength as we cross walls.
-Signal strength can be a good indicator to isolate devices based on their distance from the sensor.
-Figure shows the distribution of the signal strengths, we can clearly see inside and outside the room from the distribution.
-We found that it is not enough.
+We then look at all the other information we collected from the probe requests and see how they compare to the MAC address for aggregating.
+We observe that frame length and duration provides better aggregation into unique values than MAC address when they were randomised as seen with Compex and Google.
+This can be explained by the argument that since the devices were essentially sending the same information over and over with just changed MAC addresses, which is are of fixed length, same devices should be sending packets of same length.
+We also observe that duration of the transfer, being a function of the length of the signal, has almost the same amount of information in it as the frame length.
+We can confidently pick one of these fields and discard the other for further analysis.
+Though the tag lengths and SSID looked promising way to uniquely fingerprint the devices they don't have enough volume in them to offer substantial advantage.
+The set of tag lengths are not as unique as the lengths or duration while the SSID information is sparse for most of the vendors.
+For example, 66\% of probes with local OUIs, 50\% of the ones with Google and 38\% with Samsung don't have any SSID information in them.
+This makes them very poor candidates for useful information in aid us with finger printing unique devices.
 
 \begin{figure}
-  \includegraphics{images/home-sequence-time.png}
-  \caption{Tree-map showing the volume of research conducted under each major themes and their sub-themes.}
+  \includegraphics[trim = {0 10 0 0}, clip]{images/home-sequence-time.png}
+  \caption{Sequence numbers plotted against timestamps showing clear patterns corresponding to unique devices.}
   \label{figure:collection:home:sequence}
 \end{figure}
 
-We then look at all the other information we collected from the probe requests and see how they compare to the MAC address for aggregating.
-We see length, duration provides provides better aggregation fields than MAC whent he addresses are randomised.
-The logic behind this is that since the phones are essentially sending the same information over and over with just changed MAC addresses (which is of fixed length) same phones should be sending packets of same length.
-We also see that duration of the transfer being a function of the length of the packet almost same as unique as the length.
-We can say there is no additional information encoded within the duration more than the length of the packet.
+Finally we found that the sequence numbers are the most interesting part of the data collected. 
+Though they don't uniquely identify the devices directly through aggregation, along with timestamps they form visually discernible, interesting patterns that correspond to the mobile devices that generated them.
+In Figure \ref{figure:collection:home:sequence} we have isolated the two vendors - Fn\_LinkT and Google identified earlier and filtered only the probes requests with signal strength of more than -70dBm.
+We then plotted their sequence numbers against the precise time stamps when they were received.
+We can clearly see two devices which were present in the room and demonstrates the usefulness of sequence number in estimating the actual devices around the sensors.
+We need to devise a method for isolating this `tracks' left by the devices in terms of their sequence numbers over time.
+We can also observe the rotation of sequence numbers at 4096 for the Fn\_LinkT device which needs to be considered while devising such method.
 
 \begin{marginfigure}
   \forcerectofloat
   \includegraphics{images/home-samsung-google.png}
-  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \caption{Sequence number patters in Samsung devices showing the diversity of MAC addresses showing that they are not randomised.}
   \label{figure:collection:home:samsung}
 \end{marginfigure}
 \marginnote{\textit{The colors show unique MAC addresses.} }
 
-Tags and SSIDs though looked promising, doesn't give us enough unique finger print for the device.
-Tags don't have much uniqueness device-wise and SSID information is sparse.
-This is because of most of the devices don't have this field 66\% of local OUIs , 50\% of Google and 38\% of samsung probes dont have any SSID information.
-Finally the sequence numbers are the most interesting part of the data collected. Though they don't uniquely identify the devices directly, along with timestamps they form visually discernible, unique patterns.
-Figure \ref{figure:collection:home:sequence} we have isolated the two vendors and the probes with more than -70dBm and plotted their sequence numbers along with time. We can clearly see two devices which were present in the room. This shows the usefulness of the sequence number in estimating the actual devices around the sensors.
-rotation of sequence numbers at 4096. This needs to be considered .
 Figure \ref{figure:collection:home:samsung} shows a similar exploration of Samsung devices.
 Though from the table \ref{table:collection:proberequest} it looked as if Samsung devices are randomising their MAC addresses, we can clearly that the diversity of MAC addresses are indeed unique devices which were far away from the sensor.
 Though the results of this exploratory analysis has been positive the main challenge is to make sure these methods are feasible when dealing with more real-time, real world data.
 We need to devise a more real world experiment to see frame lengths and signal strength work in a bigger data set for filtering out the noise. 
+
 %------------------------------------------------------------------------------%
-\subsection{University Hall}
+\subsection{UCL South Cloisters}
 %------------------------------------------------------------------------------%
 This experiment was conducted to examine the previous results in a larger set of data in a more `real world' setting.
 The specific goals are to validate the finding on signal strength corresponding to the distance from the sensor and to further examine the usefulness of the length parameter before collecting data on a busy retail setting.
@@ -171,7 +194,7 @@ The data was collected from 15:37 to 16:20 on 04 December 2017.
 Collected around 14750 probe requests collected and 652 users were counted walking around the sensors manually.
 
 \begin{marginfigure}
-  \forceversofloat
+  \forcerectofloat
   \includegraphics[trim={5 5 5 5},clip]{images/south-cloisters.png}
   \caption{Number of probe requests collected every minute on 15 October 2017}
   \label{figure:collection:ucl:config}
