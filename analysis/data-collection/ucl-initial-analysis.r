@@ -51,13 +51,17 @@ before_signal <- comparison1 %>%
   gather(type,count,-time) %>%
   ggplot() + 
   geom_line(aes(time, count,group=type,color=type ), size = 1.1) +
-  ylab("Counts") + xlab("") + theme1
+  ylab("Counts") + xlab("") + theme1 +
+  theme(legend.position = "bottom",
+        axis.title.y = element_blank())
 
 after_signal <- comparison2 %>%
   gather(type,count,-time) %>%
   ggplot() + 
   geom_line(aes(time, count,group=type,color=type ), size = 1.1) +
-  ylab("Counts") + xlab("") + theme1
+  ylab("Counts") + xlab("") + theme1 +
+  theme(legend.position = "bottom",
+        axis.title.y = element_blank())
 #
 # combined_data <- rbind(
 #   comparison1 %>% gather(type,count,-time) %>% mutate(signal="before"),
@@ -69,8 +73,8 @@ after_signal <- comparison2 %>%
 #   geom_line(aes(time, count,group=type,color=type ), size = 1.2) +
 #   ylab("Counts") + xlab("") + facet_grid(signal~.) + theme1
 
-ggsave("../../images/ucl-comparison-before.png", plot=before_signal, height=2, width=10,units="in")
-ggsave("../../images/ucl-comparison-after.png", plot=after_signal, height=2, width=10,units="in")
+ggsave("../../images/ucl-comparison-before.png", plot=before_signal, height=3, width=7,units="in")
+ggsave("../../images/ucl-comparison-after.png", plot=after_signal, height=3, width=7,units="in")
 
 local_tree <- data %>% 
   group_by(type,vendor) %>%
