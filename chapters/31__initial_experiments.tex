@@ -160,6 +160,7 @@ This makes them very poor candidates for useful information in aid us with finge
   \caption{Sequence numbers plotted against timestamps showing clear patterns corresponding to unique devices.}
   \label{figure:collection:home:sequence}
 \end{figure}
+\marginnote{\textit{Grey dots are probe requests with signal strengths lower than -70dBm.} }
 
 Finally we found that the sequence numbers are the most interesting part of the data collected. 
 Though they don't uniquely identify the devices directly through aggregation, along with timestamps they form visually discernible, interesting patterns that correspond to the mobile devices that generated them.
@@ -178,51 +179,68 @@ The diversity of MAC addresses were indeed unique devices which must be present 
   \caption{Sequence number patters in Samsung devices showing the diversity of MAC addresses showing that they are not randomised.}
   \label{figure:collection:home:samsung}
 \end{marginfigure}
-\marginnote{\textit{The colors show unique MAC addresses.} }
+\marginnote{\textit{The colours show unique MAC addresses.} }
 
+To summarise, we found that even when an unique non randomised MAC address is present when collecting Wi-Fi probe requests, we get significant noise from outside the perceived field of measurement.
+We also found that signal strength is a really good clue to filter out this noise.
+The frame length and duration looks proimising for the same purposes but they utlimately have the same information and can be used interchangeable with similar results.
+Finally we found that tag lengths and SSID are not useful information since they are either too varied or too sparse.
 Though the results of this exploratory analysis has been positive the main challenge is to make sure these methods are feasible when dealing with more real-time, real world data.
 We need to devise a more real world experiment to see frame lengths and signal strength work in a bigger data set for filtering out the noise. 
 
 %------------------------------------------------------------------------------%
 \subsection{UCL South Cloisters}
 %------------------------------------------------------------------------------%
-This experiment was conducted to examine the previous results in a larger set of data in a more `real world' setting.
-The specific goals are to validate the finding on signal strength corresponding to the distance from the sensor and to further examine the usefulness of the length parameter before collecting data on a busy retail setting.
-Conducted in one of the main corridors - Southern cloisters of UCL with lot of pedestrian traffic.
-There were also seating areas across the corridor where students work with their computers.
-The area is also used heavily for lunch for large contingent of visitors.
-The data was collected from 15:37 to 16:20 on 04 December 2017.
-Collected around 14750 probe requests collected and 652 users were counted walking around the sensors manually.
 
-\begin{marginfigure}
+\begin{marginfigure}[4.5cm]
   \forcerectofloat
   \includegraphics[trim={5 5 5 5},clip]{images/south-cloisters.png}
-  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \caption{Illustration showing the configuration of the sensor at UCL south cloisters}
   \label{figure:collection:ucl:config}
 \end{marginfigure}
 \marginnote{\textit{* Not to scale.} }
 
-we compare the number of MAC addresses to manual counts.
-We then see the distribution of signal strengths.
-Since this time we kept the OUI information, we can look in to the local MAC addresses in detail.
-Tree map showing only google randomises mac and others are unknown.
-Unusual number of global MAC share (82\%)- might be due to the Wi-Fi being available.
+This experiment was conducted collect a broader dataset from a real world setting so that we can examine the results from the previous experiments with further confidence.
+The specific goals were to validate the findings on signal strengths which correlated nicely to the distance from the sensor in the previous data and to further examine the usefulness of the frame length parameter.
+We also wanted this to be a standard test dataset on which we can test our methodologies before they can be applied to a broader project such as Smart Street Sensors.
+The data collection was conducted at one of the corridors in UCL - Southern cloisters which attracts a lot of pedestrian traffic during term time.
+This corridor also has substantial seating areas along the sides where students usually sit down for long periods of time to work.
+This provides us a source of devices which dwell near the sensors while constantly sending out probe requests.
+This area is also used heavily for lunch and for exhibitions/ events attracting  large of visitors as well making it ideal for `stress testing' our methods for cleaning and aggregation.
+The position of the sensor with respect to building is shown in \ref{figure:collecton:ucl:config}.
+The data was collected from 15:37 to 16:20 on 04 December 2017 and in that duration we collected around 14,750 probe requests using the scripts mentioned earlier and we counted 652 pedestrians walking directly in front of the sensors manually with pen and paper.
+
+Unlike the previously collected data in this experiment we made sure that the OUI information is preserved even after resolving them to vendor names.
+With this information we looked at the second character of the OUI and categorised the probe requests as either 'local' - randomised or 'global' - non randomised.
+We then compared them to the vendor names to find if any manufacturers other than google have registered OUIs in the local range.
+Figure \ref{figure:collection:ucl;treemap} shows the distribution of vendors within both local and global range of OUIs in terms of the number of probe requests collected.
 
 \begin{figure}
   \includegraphics{images/ucl-local-treemap.png}
   \caption{Number of probe requests collected every minute on 15 October 2017}
-  \label{figure:collection:ucl:config}
+  \label{figure:collection:ucl:treemap}
 \end{figure}
 
-The mean average percentage error is \%.
+We observe that Google is the only registered public OUI we find in the public range. 
+We also noticed that the percentage of global MAC addresses collected was unusually large - 82\%.
+This can be explained by the behaviour of the Apple devices while randomising the MAC addresses. 
+Apple phones are known to randomise their addresses while probing for access points only when they are not connected to a Wi-Fi network already as documented by \citet{vanhoef2016}.
+Since most of the members of UCL have access to `eduroam' network and are connected to it at the campus, most of the apple devices we captured haven't randomised their addresses.
+This made this dataset heavily biased and not suitable for testing device finger printing methods but it does give us an opportunity to examine the nature of probe requests generated by Apple devices in particular.
 
 \begin{figure*}
   \includegraphics{images/ucl-comparison-before.png}
   \caption{Number of probe requests collected every minute on 15 October 2017}
-  \label{figure:collection:ucl:config}
+  \label{figure:collection:ucl:before}
 \end{figure*}
 
-Just by filtering to -70dBm reduces MAPE to \%.
+The second step was to see how much the sensor collected counts differ from the manual counts.
+We aggregated the sensor counts for every minute in terms of the number of probe requests, unique MAC addresses and the unique frame lengths and compared them to the manual counts done for each minute.
+The results are shown in Figure \ref{figure:collection:ucl:before}.
+We can observe that the original Mean Average Percentage Error (MAPE) is around -----.
+This was reduced to ----- and ----- when aggregated by MAC address and frame lengths but we see that it not accurate enough on its own.
+
+\lipsum[1] Just by filtering to -70dBm reduces MAPE to \%.
 
 \begin{figure*}
   \includegraphics{images/ucl-comparison-after.png}
@@ -245,6 +263,8 @@ At larger scales the manual counting is not possible without errors need to make
   \label{figure:collection:ucl:signal}
 \end{figure}
 \marginnote{\textit{} }
+
+\lipsum[1]
 
 %------------------------------------------------------------------------------%
 \subsection{Oxford Street}
