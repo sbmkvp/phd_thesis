@@ -1,0 +1,69 @@
+\begin{Verbatim}[commandchars=\\\{\}]
+\PYG{c+c1}{// ===============================================}
+\PYG{c+c1}{// Import the required modules}
+\PYG{c+c1}{// ===============================================}
+\PYG{k+kr}{const} \PYG{n+nx}{http} \PYG{o}{=} \PYG{n+nx}{require}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}http\PYGZsq{}}\PYG{p}{).}\PYG{n+nx}{Server}\PYG{p}{();}
+\PYG{k+kr}{const} \PYG{p}{\PYGZob{}} \PYG{n+nx}{exec} \PYG{p}{\PYGZcb{}} \PYG{o}{=} \PYG{n+nx}{require}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}child\PYGZus{}process\PYGZsq{}}\PYG{p}{);}
+\PYG{k+kr}{const} \PYG{n+nx}{io} \PYG{o}{=} \PYG{n+nx}{require}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}socket.io\PYGZsq{}}\PYG{p}{)(}\PYG{n+nx}{http}\PYG{p}{);}
+\PYG{k+kr}{const} \PYG{n+nx}{zlib} \PYG{o}{=} \PYG{n+nx}{require}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}zlib\PYGZsq{}}\PYG{p}{);}
+\PYG{k+kr}{const} \PYG{n+nx}{sizeof} \PYG{o}{=} \PYG{n+nx}{require}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}object\PYGZhy{}sizeof\PYGZsq{}}\PYG{p}{);}
+\PYG{k+kr}{const} \PYG{n+nx}{moment} \PYG{o}{=} \PYG{n+nx}{require}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}moment\PYGZsq{}}\PYG{p}{);}
+
+\PYG{c+c1}{// ===============================================}
+\PYG{c+c1}{// The function which takes the data received and}
+\PYG{c+c1}{// pushes it to the database.}
+\PYG{c+c1}{// ===============================================}
+
+\PYG{k+kd}{function} \PYG{n+nx}{store\PYGZus{}data}\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+  \PYG{k+kd}{var} \PYG{n+nx}{cmd} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}echo \PYGZdq{}\PYGZsq{}}\PYG{o}{+}\PYG{n+nx}{data}\PYG{o}{+}
+    \PYG{l+s+s1}{\PYGZsq{}\PYGZdq{} | psql sss \PYGZhy{}U \PYGZsq{}}\PYG{o}{+}\PYG{n+nx}{process}\PYG{p}{.}\PYG{n+nx}{argv}\PYG{p}{[}\PYG{l+m+mi}{3}\PYG{p}{]}\PYG{o}{+}
+    \PYG{l+s+s1}{\PYGZsq{} \PYGZhy{}c \PYGZdq{}copy probes from stdin with delimiter \PYGZbs{}\PYGZsq{},\PYGZbs{}\PYGZsq{};\PYGZdq{}\PYGZsq{}}\PYG{p}{;}
+  \PYG{n+nx}{exec}\PYG{p}{(}\PYG{n+nx}{cmd}\PYG{p}{,(}\PYG{n+nx}{err}\PYG{p}{,}\PYG{n+nx}{stdout}\PYG{p}{,}\PYG{n+nx}{stderr}\PYG{p}{)=\PYGZgt{}\PYGZob{}\PYGZcb{});}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// ===============================================}
+\PYG{c+c1}{// Function to convert the JSON data received into}
+\PYG{c+c1}{// csv string.}
+\PYG{c+c1}{// ===============================================}
+
+\PYG{k+kd}{function} \PYG{n+nx}{format\PYGZus{}data}\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{)\PYGZob{}}
+  \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{zlib}\PYG{p}{.}\PYG{n+nx}{gunzipSync}\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{).}\PYG{n+nx}{toString}\PYG{p}{();}
+  \PYG{n+nx}{data} \PYG{o}{=} \PYG{n+nx}{JSON}\PYG{p}{.}\PYG{n+nx}{parse}\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{);}
+  \PYG{k+kd}{var} \PYG{n+nx}{csv\PYGZus{}string} \PYG{o}{=}\PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}
+  \PYG{k}{for}\PYG{p}{(}\PYG{k+kd}{var} \PYG{n+nx}{i}\PYG{o}{=}\PYG{l+m+mi}{0}\PYG{p}{;} \PYG{n+nx}{i} \PYG{o}{\PYGZlt{}} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{length}\PYG{p}{;} \PYG{n+nx}{i}\PYG{o}{++}\PYG{p}{)} \PYG{p}{\PYGZob{}}
+    \PYG{k+kd}{var} \PYG{n+nx}{line} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}
+    \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{[}\PYG{n+nx}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{]}\PYG{o}{=}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{timestamp}\PYG{o}{+}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{[}\PYG{n+nx}{i}\PYG{p}{][}\PYG{l+m+mi}{0}\PYG{p}{];}
+    \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{[}\PYG{n+nx}{i}\PYG{p}{][}\PYG{l+m+mi}{6}\PYG{p}{]}\PYG{o}{=}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{sensor}\PYG{p}{;}
+    \PYG{k}{for}\PYG{p}{(}\PYG{n+nx}{j} \PYG{k}{in} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{[}\PYG{n+nx}{i}\PYG{p}{])} \PYG{p}{\PYGZob{}}
+      \PYG{n+nx}{line} \PYG{o}{=} \PYG{n+nx}{line}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}\PYGZdq{}\PYGZsq{}}\PYG{o}{+}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{[}\PYG{n+nx}{i}\PYG{p}{][}\PYG{n+nx}{j}\PYG{p}{]}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}\PYGZdq{}\PYGZsq{}}\PYG{p}{;}
+      \PYG{k}{if}\PYG{p}{(}\PYG{n+nx}{j} \PYG{o}{\PYGZlt{}} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{[}\PYG{n+nx}{i}\PYG{p}{].}\PYG{n+nx}{length}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}} \PYG{n+nx}{line} \PYG{o}{=} \PYG{n+nx}{line}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{},\PYGZsq{}}\PYG{p}{;} \PYG{p}{\PYGZcb{}}
+    \PYG{p}{\PYGZcb{}}
+    \PYG{n+nx}{csv\PYGZus{}string} \PYG{o}{=} \PYG{n+nx}{csv\PYGZus{}string}\PYG{o}{+}\PYG{l+s+s1}{\PYGZsq{}\PYGZbs{}n\PYGZsq{}}\PYG{o}{+}\PYG{n+nx}{line}
+    \PYG{k}{if}\PYG{p}{(}\PYG{n+nx}{i}\PYG{o}{\PYGZpc{}}\PYG{l+m+mi}{1000} \PYG{o}{==} \PYG{l+m+mi}{0} \PYG{o}{||} \PYG{n+nx}{i} \PYG{o}{\PYGZgt{}=} \PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{length}\PYG{o}{\PYGZhy{}}\PYG{l+m+mi}{1}\PYG{p}{)\PYGZob{}} 
+      \PYG{n+nx}{store\PYGZus{}data}\PYG{p}{(}\PYG{n+nx}{csv\PYGZus{}string}\PYG{p}{.}\PYG{n+nx}{trim}\PYG{p}{());}
+      \PYG{n+nx}{csv\PYGZus{}string} \PYG{o}{=} \PYG{l+s+s1}{\PYGZsq{}\PYGZsq{}}\PYG{p}{;}
+    \PYG{p}{\PYGZcb{}}
+\PYG{p}{\PYGZcb{}}
+\PYG{n+nx}{console}\PYG{p}{.}\PYG{n+nx}{log}\PYG{p}{(}\PYG{n+nx}{moment}\PYG{p}{().}
+  \PYG{n+nx}{format}\PYG{p}{(}\PYG{l+s+s2}{\PYGZdq{}YYYY\PYGZhy{}MM\PYGZhy{}YY HH:mm\PYGZdq{}}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{} \PYGZhy{} \PYGZdq{}}\PYG{o}{+}\PYG{n+nx}{data}\PYG{p}{.}\PYG{n+nx}{sensor}\PYG{p}{);}
+\PYG{p}{\PYGZcb{}}
+
+\PYG{c+c1}{// ===============================================}
+\PYG{c+c1}{// Setting up the server to use a text parser and}
+\PYG{c+c1}{// configure the route to execute the store\PYGZus{}data }
+\PYG{c+c1}{// function when it receives the data from the sensor}
+\PYG{c+c1}{// ===============================================}
+\PYG{n+nx}{io}\PYG{p}{.}\PYG{n+nx}{on}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}connection\PYGZsq{}}\PYG{p}{,}\PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{socket}\PYG{p}{)\PYGZob{}}
+  \PYG{n+nx}{socket}\PYG{p}{.}\PYG{n+nx}{on}\PYG{p}{(}\PYG{l+s+s1}{\PYGZsq{}data\PYGZsq{}}\PYG{p}{,} \PYG{k+kd}{function}\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{)\PYGZob{}}
+    \PYG{n+nx}{process}\PYG{p}{.}\PYG{n+nx}{stdout}\PYG{p}{.}\PYG{n+nx}{write}\PYG{p}{((}\PYG{n+nx}{sizeof}\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{)}\PYG{o}{/}\PYG{l+m+mi}{1024}\PYG{p}{)}
+      \PYG{p}{.}\PYG{n+nx}{toFixed}\PYG{p}{(}\PYG{l+m+mi}{2}\PYG{p}{)}\PYG{o}{+}\PYG{l+s+s2}{\PYGZdq{} \PYGZhy{} \PYGZdq{}}\PYG{p}{);}
+    \PYG{n+nx}{format\PYGZus{}data}\PYG{p}{(}\PYG{n+nx}{data}\PYG{p}{);}
+  \PYG{p}{\PYGZcb{});}
+\PYG{p}{\PYGZcb{});}
+
+\PYG{c+c1}{// ===============================================}
+\PYG{c+c1}{// The app listens at the port specified as first }
+\PYG{c+c1}{// commanline argument}
+\PYG{c+c1}{// ===============================================}
+\PYG{n+nx}{http}\PYG{p}{.}\PYG{n+nx}{listen}\PYG{p}{(}\PYG{n+nx}{process}\PYG{p}{.}\PYG{n+nx}{argv}\PYG{p}{[}\PYG{l+m+mi}{2}\PYG{p}{]);}
+\end{Verbatim}
