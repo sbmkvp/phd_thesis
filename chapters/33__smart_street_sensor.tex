@@ -1,69 +1,87 @@
 \section{Smart Street Sensor Project}
-
 The Smart Street Sensor project is one of the most comprehensive study carried out on consumer volume and characteristics in retail areas across UK.
-The project has been organised as a collaboration between Local Data Company (LDC) and Consumer Data Research Centre,  University College London (CDRC, UCL).
-The data for the study is generated independently within the project through sensors installed at around 1000 locations across UK.
-When completed, the project will serve as the first and unique comprehensive research into the patterns of retail activity in UK high streets.
+The project has been organised as a collaboration between and Consumer Data Research Centre, University College London (CDRC, UCL) and Local Data Company (LDC).
+The project was designed to serve as the first and unique comprehensive research into the patterns of retail activity in UK high streets by measuring their real-time footfall from collecting Wi-Fi probe requests.
+The data for the project was collected through sensors installed at around 1000 retail locations across UK.
 
 The primary aim of the project is to improve our understanding of the dynamics of the high street retail in UK.
-As we saw in our literature search, unlike online retail, this involves quantification and measurement of human activity at small scales, such as high streets which already the subject of active research.
+As we saw in our literature search, unlike online retail, this involves quantification and measurement of human activity at small scales, such as high streets which is already the subject of active research.
 The key challenge in this area is the collection of data at smallest scales possible with minimal resources while not infringing on people’s privacy.
-This challenge when solved can provide immense value to occupiers, landlords, local authorities, investors and consumers within the retail industry.
-The project aims to facilitate decision making by stakeholders in addition to the tremendous opportunities for academic research.
+This challenge when solved can provide immense value to the occupiers of the retail premises who want to improve revenues, landlords who want to increase the value of the property, local authorities who want to improve the vibrancy of the retail economy and finally investors and consumers within the retail industry.
+The project also aims to facilitate decision making by these stakeholders in addition to the tremendous opportunities for academic research.
+
+\begin{marginfigure}[-2cm]
+  \centering
+  \includegraphics[height=3.5cm]{images/sss-hardware.jpg}
+  \caption{Hardware setup used to collect data in the pilot studies.}
+  \label{figure:collection:sss:hardware}
+\end{marginfigure}
+
 
 \subsection{Methodology}
 
-\begin{marginfigure}[2cm]
-  \includegraphics{images/sss-hardware.jpg}
-  \caption{Hardware setup used to collect data in the pilot studies.}
-  \label{figure:collection:pilot:hardware}
+As a first step, various locations for the study were identified by CDRC to include a wide geographical spread, different demographic characteristics and range of retail centre profiles.
+Figure \ref{figure:collection:sss:locations} shows all the locations in United Kingdom city-wise and Table \ref{table:collection:sss:locations} shows the region-wise distribution of locations.
+
+\begin{table}
+  \footnotesize
+  \begin{center} 
+    \begin{tabular}{lr} 
+      \toprule
+      Region & Locations \\
+      \midrule
+      Greater London & 479 \\
+      Scotland & 118 \\
+      Yorkshire and the Humber & 114 \\
+      South East & 103 \\
+      North West & 98 \\
+      South West & 87 \\
+      East Midlands & 68 \\
+      East Of England & 49 \\
+      West Midlands & 39 \\
+      North East & 26 \\
+      Wales & 17 \\
+      Northern Ireland & 2 \\
+      \bottomrule
+    \end{tabular}
+  \end{center}
+  \caption{Regional distribution of Smart Street Sensor locations across UK}
+  \label{table:collection:sss:locations}
+\end{table}
+
+\begin{marginfigure}[8cm]
+  \includegraphics[trim = {0 20 0 0}, clip]{images/sss-locations.png}
+  \caption{City wise distribution of locations with Smart Street Sensors installed.}
+  \label{figure:collection:sss:locations}
 \end{marginfigure}
 
+We can see that the project has a strong London bias which along with other retail centers in Greater London area accounts for almost half of the locations.
+We also need to note that the locations are retail and any insight from the data needs to be looked at with a retail point of view.
 
-As a first step, various locations for the study were identified by CDRC to include a wide geographical spread, different demographic characteristics and range of retail centre profiles.
-A custom footfall counting technology using WiFi based sensors was also designed, developed by LDC and the sensors were installed the identified locations.
-The sensor monitors and records signals sent by WiFi enabled mobile devices present in its range.
-In addition, the number of people walking by the sensor was counted manually for short time periods during the installation.
-The project aims to combine these two sets of data to use as a proxy for estimating footfall at these locations.
-The potentially identifiable information collected on the mobile devices is hashed at sensor level and the data is sent to central server via encrypted channel for storage.
-This data is then retrieved securely for the preparation of the commercial dashboards by LDC and for research purposes by CDRC users.
-The project began on July 2015 with the first sensor installation and has grown to an average of 450 daily active sensors as of January 2017.
+A custom footfall counting technology using Wi-Fi based sensors (Figure \ref{figure:collection:sss:hardware}) was also designed, developed by LDC and the sensors were installed the identified locations.
+The sensor employs proprietary hardware and software, monitors and records probe requests sent by Wi-Fi enabled mobile devices present in its range.
+In addition to this, the number of people walking by the sensor was counted manually for short time periods during the installation of the sensors at the corresponding locations.
+The project aimed to combine these two sets of data to use as a proxy for estimating footfall at these locations.
+The potentially identifiable information collected on the mobile devices are converted into a unique cryptographic hash at the sensor level and the data is sent to central server via encrypted channel for storage.
+This data is then retrieved securely for the preparation of the commercial dashboards by LDC and for research purposes by CDRC.
 
-The data is collected through set of SmartStreetSensors (shown in Figure 3.1), a WiFi based sensor which when installed acts as a WiFi access point and collects specific type of packets (probe requests) relayed by mobile devices which are which are within the device’s signal range and are searching for available access points.
-The sensor is usually installed on partnering retailer's shop windows so that its range covers the pavement in front of the shops.
-The installation and calibration of device with respect to the shop window and the pavement is illustrated in Figure 3.2.
+The sensors are usually installed on partnering retailer's shop windows so that its range covers the pavement in front of the shops.
+A typical configuration of a sensor at a location with respect to the premise the pavement in front of it is illustrated in Figure \ref{figure:collection:sss:typical}
 There is also a small percentage (3\%) of the devices which are installed within large shops to monitor internal footfall.
-Each device collects data independently and uploads the collected data to a central container at regular interval 5 minutes through a dedicated 3G mobile data connection.
+Each device collects data independently and uploads the collected data to a central Azure container at regular intervals of 5 minutes through a dedicated 3G mobile data connection.
 The sensor hardware has been improved over the course of the project and currently has built in failure prevention mechanisms such as, backup battery for power failures, automatic reboot capabilities and in-device memory for holding data when internet is not available.
-The hardware versions and the corresponding features are detailed in Table 3.1.
+The project began on July 2015 with the first sensor installation and has grown to an average of 650 daily active sensors as of January 2019 with a total of 1200 locations been involved in the project since the beginning.
+We have collected around 2TB of data comprising of around 73 Billion probe requests.
 
 \begin{figure*}
   \includegraphics{images/sss.png}
-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
-  \label{figure:literature:tech:timeline}
+  \caption{Cross section showing a typical installation of Smart Street Sensor in a retail frontage.}
+  \label{figure:collection:sss:typical}
 \end{figure*}
 
-\lipsum[1-2]
-
-%+200 words
-system architecture - figure.
-
-\subsection{Locations}
-%(300 words)
-\begin{marginfigure}[8cm]
-  \includegraphics[trim = {0 20 0 0}, clip]{images/sss-locations.png}
-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
-  \label{figure:literature:tech:timeline}
-\end{marginfigure}
-
-\lipsum[1]
-locations - table
-
-\subsection{Data Description}
-
-% data description - table.
-% sample probe request - code.
-% installation of sensors - figure.
-% descriptive statistics - table.
-
-\lipsum[1-3]
+Due to the scale and the commercial nature of the project the sensors collect fewer than the previous experiments.
+The information collected by the Smart Street Sensors are the 5 minute interval when the probe request was collected, hashed MAC address and signal strength.
+The probe requests are aggregated by the MAC addresses within the same 5 minute intervals and hence the signal strengths are aggregated to the minimum signal strength reported. 
+Due to the longitudinal nature of the project, the data collection methods have changed over time as well.
+The hardware has been upgraded with more capabilities in the early 2016, the interval they reboot has been adjusted several times in 2017 and finally with the MAC randomisation problem accentuated in the later part of 2017 the signal strength aggregation was changed from minimum to maximum in March 2018.
+Essentially, the data has changed over time and we need to consider the changes while devising the methodologies for cleaning the data.
