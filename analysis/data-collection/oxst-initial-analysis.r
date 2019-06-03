@@ -48,4 +48,4 @@ p <- counts %>% left_join(manual) %>%
   xlab("") + ylab("") + 
   theme1
 
-ggsave("../../images/oxst-counts.png", plot=p, height=2.75, width=2.75,units="in")
+ggsave("../../images/oxst-counts.png", plot=p, height=3, width=6,units="in")

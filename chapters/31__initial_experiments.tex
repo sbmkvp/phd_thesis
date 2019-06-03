@@ -11,7 +11,7 @@ The objectives here are,
 \begin{enumerate}
   \setlength{\itemindent}{2em}
   \itemsep-0.25em
-   \item Design a simple method to collect probe requests.
+  \item Design a simple method to collect probe requests.
   \item Select locations with different levels of complexity.
   \item Collect real-world data through manual counting.
   \item Analyse the probe requests to extract useful information.
@@ -160,7 +160,7 @@ This makes them very poor candidates for useful information in aid us with finge
   \caption{Sequence numbers plotted against timestamps showing clear patterns corresponding to unique devices.}
   \label{figure:collection:home:sequence}
 \end{figure}
-\marginnote{\textit{Grey dots are probe requests with signal strengths lower than -70dBm.} }
+\marginnote[-4cm]{\textit{Grey dots are probe requests with signal strengths lower than -70dBm.} }
 
 Finally we found that the sequence numbers are the most interesting part of the data collected. 
 Though they don't uniquely identify the devices directly through aggregation, along with timestamps they form visually discernible, interesting patterns that correspond to the mobile devices that generated them.
@@ -217,11 +217,12 @@ Figure \ref{figure:collection:ucl;treemap} shows the distribution of vendors wit
 
 \begin{figure}
   \includegraphics{images/ucl-local-treemap.png}
-  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \caption{Composition of probe requests in terms of the vendor names and their type}
   \label{figure:collection:ucl:treemap}
 \end{figure}
+\marginnote[-5cm]{\textit{Based on the number of probe requests} }
 
-We observe that Google is the only registered public OUI we find in the public range. 
+We observed that `Google' is the only registered public OUI we find in the public range. 
 We also noticed that the percentage of global MAC addresses collected was unusually large - 82\%.
 This can be explained by the behaviour of the Apple devices while randomising the MAC addresses. 
 Apple phones are known to randomise their addresses while probing for access points only when they are not connected to a Wi-Fi network already as documented by \citet{vanhoef2016}.
@@ -230,7 +231,7 @@ This made this dataset heavily biased and not suitable for testing device finger
 
 \begin{figure}
   \includegraphics{images/ucl-comparison-before.png}
-  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \caption{Comparison between the manual footfall count and aggregated counts from sensor collected data at UCL south cloisters.}
   \label{figure:collection:ucl:before}
 \end{figure}
 
@@ -240,72 +241,81 @@ The results are shown in Figure \ref{figure:collection:ucl:before}.
 We can observe that the original Mean Average Percentage Error (MAPE) when aggregated with MAC addresses is around 736\% showing the immense amount of noise we can experience in a real world environment.
 This was reduced to 643\% and 300\% when aggregated by tag lengths and frame lengths but it is still far from being anywhere near accurate for being able to be used for estimating footfall.
 When we filter the probe requests for just the ones which have signal strengths more than -70dBm - the threshold which we got from the previous experiment, the MAPE for aggregating by MAC addressed, tag lengths and frame lengths is reduced to 80\%, 87\% and 67\% respectively.
+The results after filtering with signal strength are shown in Figure \ref{figure:collection:ucl:after}
 
 \begin{figure}
   \includegraphics{images/ucl-comparison-after.png}
-  \caption{Number of probe requests collected every minute on 15 October 2017}
-  \label{figure:collection:ucl:config}
+  \caption{Comparison between the manual footfall count and aggregated counts from sensor collected data at UCL south cloisters after filtering probes with low signal strength}
+  \label{figure:collection:ucl:after}
 \end{figure}
 
-Major conclusion is that confirmation that Signal strength is still useful.
-The signal number is just arbitrary. We need a way to calculate this.
-fig \ref{} shows the distribution of signal along with breaks calculated by kmeans.
-There is a break point. may be use some one dimensional breaks algorithm to find this dynamically.
-Length information is not that useful in certain standardised manufacturers.
-eg of randomised mac addresses and apple addresses.
-This data set is ruined by the student bias, we need to have more real life data for actual analysis.
-At larger scales the manual counting is not possible without errors need to make a better alternative.
+Though the signal strength filtering works to remove noise, we are still not clear about how this works or what is the most optimum cut off for filtering.
+We looked at the distribution of the signal strengths to find that they do exhibit patterns in terms of concentration around certain cutoffs as shown in Figure \ref{figure:collection:ucl:signal}.
+These cut-offs can be detected dynamically from the data using one dimensional clustering methods such as k-means which are usually used to find the class intervals in one dimensional data.
+Figure \ref{figure:collection:ucl:signal} also shows the results of k-means clustering on the data to divide the data into 4 clusters.
 
 \begin{figure}
 \includegraphics[trim={5 5 5 5},clip]{images/ucl-signal-dist.png}
-  \caption{Number of probe requests collected every minute on 15 October 2017}
+  \caption{Density distribution of the signal strengths of the probe requests collected at UCL south cloisters along with class intervals.}
   \label{figure:collection:ucl:signal}
 \end{figure}
-\marginnote{\textit{} }
+\marginnote[-1.75cm]{\textit{Class intervals calculated using k-means clustering with the number of clusters defined as 4.} }
 
-\lipsum[1]
+To summarise, in this experiment conducted at UCL south cloisters we collected a bigger set of data over a longer period of time to validate the previous finding and serve as test dataset for further research.
+We found that signal strength is one of the key information with which we can remove the external noise from the dataset.
+We also found that the tag lengths and frame lengths though looked promising does not gives us any significant advantages. 
+Unfortunately the data was also found to have major bias towards non-randomised probe requests because of the availability of the campus Wi-Fi.
+This requires us to collect a more representative data set for further research into using sequence numbers to finger print devices.
+Finally we also found that accurate measurement of real footfall is challenging to be done manually we need a better method to collect data for the surveyors to maintain accuracy and precision.
 
 %------------------------------------------------------------------------------%
 \subsection{Oxford Street}
 %------------------------------------------------------------------------------%
 
 \begin{marginfigure}
+  \forceversofloat
   \includegraphics[trim={0 0 0 0},clip]{images/oxst-map.png}
-  \caption{Number of probe requests collected every minute on 15 October 2017}
-  \label{figure:collection:ucl:config}
+  \caption{Location and configuration of Wi-Fi data collection carried out in Oxford Street, London.}
+  \label{figure:collection:oxst:config}
 \end{marginfigure}
 
-From the results of the previous two experiments we need to devise a final `real world' experiment which collects high density data at a high street.
-the Aim is to generate a dataset which can be used to test and validate signal strength based filtering and sequence number based clustering methodology against the scale and complexity of a busy, open public area such as a retail high street.
+From the results of the previous two experiments we arrived at the task of devising a final `real world' experiment collecting probe requests at a high street with high volume of footfall.
+Similar to the previous data, the aim here was to generate a dataset which can be used to test and validate signal strength based filtering and sequence number based clustering methodology against the scale and complexity of a busy, open public area such as a retail high street.
 The location chosen was Oxford street, London - one of the busiest retail streets in the world.
 The data was collected from 12:30 - 13:04 hrs on 20 December 2017 using the same methodology as above from a laptop in a backpack.
 The surveyor positioned himself at the front of a store while carrying the backpack and counted people walking by the store on the pavement (3m wide approximately) using a mobile phone.
 The sensor was kept as close to the store window as possible, and the manual count was done as a cordon count in front of the store.
+The location where the data was collected and the configuration of the sensor with respect to the street is shown in Figure \ref{figure:collection:oxst:config}.
+
+\begin{figure}
+  \includegraphics[trim={0 0 0 0},clip]{images/oxst-counts.png}
+  \caption{Comparison of the counts from aggregated probe requests and MAC addresses with manual counts at Oxford street, London.}
+  \label{figure:collection:oxst:initial}
+\end{figure}
+
 The manual counting was done using a node-js base command line app running under Termux on an android phone.
 The application is detailed in section \ref{appendix:manualcount} which counts the number of times a key has been pressed on the phone.
 This has an additional advantage as the phone used is kept unconnected to any Wi-Fi and with the screen on for counting, emits probe requests at regular intervals.
-
-\begin{marginfigure}
-  \includegraphics[trim={0 0 0 0},clip]{images/oxst-counts.png}
-  \caption{Number of probe requests collected every minute on 15 October 2017}
-  \label{figure:collection:ucl:config}
-\end{marginfigure}
-
 Moreover we know the phone to be of the vendor 'Google' and randomises the MAC address, giving us a good base line to compare our results to.
-The Wi-Fi sensor captured approximately 60,000 probe requests during the half hour period; 3,722 people were manually recorded walking on the pavement during that time.
-Initial exploration showed in Figure \ref{} that the data has large amount of noise and with \% of local mac addresses, it is free from high concentration of global mac addresses as we saw in the data from UCL corridors.
-This dataset is extensively used in the development of the filtering and cleaning methods and which are discussed in detail on Section \ref{}
 
-%------------------------------------------------------------------------------%
-\subsection{Discussion}
-%------------------------------------------------------------------------------%
-Probe requests are source of easy to collect rich information.
-We identified list of useful information we can get from them.
-We collected data in three phases starting from small isolated study, more footfall and real world retail location.
-The first experiment showed that MAC address is not enough. Local mac addressed can be publicly registered as well.
-Signal strength is crucial.
-The broader UCL experiment in UCL corridor showed that though length information looked useful, it fails with apple devices since they are very similar to each other and lack any information elements. 
-This gave us a good idea of what to collect in a field study. 
-We collected data at Oxford street as a dataset for to be used as a starting point for any methodology we develop further.
+The Wi-Fi sensor captured approximately 60,000 probe requests during the half hour period; 3,722 people were manually recorded walking on the pavement during that time.
+Initial exploration of the data showed in Figure \ref{figure:collection:oxst:initial} where we compared the sensor aggregated counts to the manual counts of footfall.
+It shows that the data has large amount of noise giving a suitable candidate for testing. 
+Moreover, with 55\% of local mac addresses, it is free from high concentration of global mac addresses as we saw in the data from UCL corridors.
+This dataset is extensively used in the development of the filtering and cleaning methods and which are discussed in detail on Section \ref{section:device-fingerprinting}
+
+In this section, we saw the design, implementation and initial results of small experiments we conducted to understand the nature of the probe requests and the opportunities they provide us.
+We identified useful information in the probe requests and discarded the ones which were not useful
+The major conclusions arising from these experiments are,
+
+\begin{enumerate}[rightmargin = 2em, leftmargin = 2em]
+  \itemsep-0.25em
+  \item MAC address on its own is not enough to aggregate probe requests into devices or footfall.
+  \item Signal strength is crucial to removing noise from outside the field of measurement
+  \item Sequence number is promising in isolating devices when their MAC addresses are randomised.
+  \item Frame lengths, duration, tag lengths and SSID information do not add additional value in cleaning the data.
+\end{enumerate}
+
+We finally collected a fairly representative Wi-Fi dataset from a high volume retail location for use in further research on methods to clean the data.
 
 %==============================================================================%
