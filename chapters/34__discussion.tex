@@ -8,6 +8,13 @@ The Smart Street Sensor is the most comprehensive study which collects very smal
 These datasets give us a well rounded set of data to set up our toolkit and devise out methodologies.
 The summary of the datasets in terms of their characteristics is show in table \ref{table:collection:discussion:summary}.
 
+Before we move on to develop methods to process the data into information on footfall in these locations, the crucial action is to look at the possible biases and uncertainties in these datasets arising due to the data collection methodology and from the broader context.
+These form the framework on which built our data processing pipeline where we propose to solve each of these uncertainties in each step.
+
+From our understanding of the data, we observe that the major sources of uncertainties are regarding the range of the sensor, the frequency at which mobile devices generate probe requests, the way and rate at which the mobile devices randomise their MAC addresses, the collisions caused due to the hashing of the MAC addresses and finally the gaps introduced by the failure of the sensors.
+There is an inherent bias to these data caused by the mobile phone ownership in the population which varies across time, location and demography.
+We discuss each of these uncertainties and biases in detail below,
+
 \begin{table}
   \footnotesize
   \begin{center}
@@ -28,14 +35,8 @@ The summary of the datasets in terms of their characteristics is show in table \
   \caption{Summary of the collected data-sets.}
   \label{table:collection:discussion:summary}
 \end{table}
-\marginnote[-2cm]{\noindent\fontsize{7}{7}\textit{*approximate}}
+\marginnote[-1cm]{\noindent\fontsize{7}{7}\textit{*approximate}}
 
-Before we move on to develop methods to process the data into information on footfall in these locations, the crucial action is to look at the possible biases and uncertainties in these datasets arising due to the data collection methodology and from the broader context.
-These form the framework on which built our data processing pipeline where we propose to solve each of these uncertainties in each step.
-
-From our understanding of the data, we observe that the major sources of uncertainties are regarding the range of the sensor, the frequency at which mobile devices generate probe requests, the way and rate at which the mobile devices randomise their MAC addresses, the collisions caused due to the hashing of the MAC addresses and finally the gaps introduced by the failure of the sensors.
-There is an inherent bias to these data caused by the mobile phone ownership in the population which varies across time, location and demography.
-We discuss each of these uncertainties and biases in detail below,
 
 %------------------------------------------------------------------------------%
 \subsection{Range of the sensor}
