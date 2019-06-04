@@ -3,8 +3,7 @@
 COMMAND="pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
     bibtex thesis && \
     makeindex thesis && \
-    pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex && \
-    ./scripts/status > word-count.md"
+    pdflatex -halt-on-error -interaction=nonstopmode --shell-escape thesis.tex"
   
 find . -type f \( -name "*.cls" -o -name "*.tex" -o -name "*.bib" -o -name "*.png" \) \
     | entr bash -c "$COMMAND"
