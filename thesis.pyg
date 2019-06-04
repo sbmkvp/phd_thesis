@@ -1,0 +1,15 @@
+#! /bin/bash
+tshark \
+  -I -i en0 \
+  -T fields \
+  -E separator=, \
+  -E quote=d \
+    -e frame.time \
+    -e frame.len \
+    -e wlan_radio.signal_dbm \
+    -e wlan_radio.duration \
+    -e wlan.sa_resolved \
+    -e wlan.seq \
+    -e wlan.tag.length \
+    -e wlan.ssid \
+  type mgt subtype probe-req and broadcast

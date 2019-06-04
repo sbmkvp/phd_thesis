@@ -1,0 +1,15 @@
+{
+  "name": "server",
+  "version": "1.0.0",
+  "description": "Recieving and storing the data",
+  "main": "server.js",
+  "author": "Balamurugan Soundararaj",
+  "license": "ISC",
+  "dependencies": {
+    "csv": "^2.0.0",
+    "moment": "^2.20.1",
+    "object-sizeof": "^1.2.0",
+    "socket.io": "^2.0.4",
+    "zlib": "^1.0.5"
+  }
+}
