@@ -1,6 +1,7 @@
 _minted-thesis/
 config.json
 *.lot
+*.pyg
 *.bbl
 *.blg
 *.aux
