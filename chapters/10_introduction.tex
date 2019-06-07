@@ -60,28 +60,28 @@ Three sets of initial experiments were conducted and results from them were used
 The chapter introduces the `Smart Street Sensors'(SSS) project - a national level collecting Wi-Fi data at large number of retail locations across UK.
 The chapter concludes with a detailed evaluation of all the data collected from these experiments and the SSS project in terms of the bias, noise and uncertainties present in them.
 Chapter \ref{chapter:processing} deals with processing the Wi-Fi data to remove the identified uncertainties to produce `clean' and continuous information on volume of footfall at the corresponding locations.
-While Section \ref{} 
-three major things - data toolkit to deal with the data, methods to solve the uncertainties and finally combining the two a data architecture or pipeline which works with smart street sensor to produce continuous stream of data.
-Chapter \ref{chapter:application} is an assortment of applications and ideas for use of the data we produced. We work within 4 major areas, footfall index, pedestrian flow, event detection and functional hierarchies of places. An finally we conclude with a discussion of the contributions of this work and various ways the research could be taken forward.
+The emphasis on not using personal data or methods that can potentially reveal personal information is firmly held through out the chapter.
+While in section \ref{section:toolkit} a framework for evaluating the `bigness' of the data is discussed and subsequently a `data toolkit' for processing them is devised, in section \ref{section:processing} methods to clean the data into realistic estimate of footfall have been discussed.
+In section \ref{section:pipeline} both the toolkit and methods were put together to architect a `data pipeline' which digests the continuous stream of data from SSS project and outputs meaningful footfall numbers efficiently.
+Chapter \ref{chapter:application} is an assortment ideas and prototypes applying the output of the research where four major themes are discussed - creating an index for footfall across United Kingdom, detecting events occurring in the context using the changes in the volume of footfall, estimating the flow of pedestrian between locations from the changes in footfall volumes and identifying the nature  and relationship between places along with possibilities for further research.
 
 %-------------------------------------------------------------------------------%
 
-The potential of the detailed, long term, national level footfall information produced by this research is immense.
-They are one of the major components in the building of a smart city as detailed, real-time information on the built environment and its use
-They can also help us in our pursuit to accomplish a real-time census of people and their movement in the city.
-They can not only show a snapshot of the state of a city but also help in measuring, modelling and manipulating it in real-time as a dynamic system which responds to interventions.
-We can even link this footfall information to other sources of data such as consumer datasets and public transport statistics to build a comprehensive picture on how the city works.
-The insights we can derive by linking this footfall information with other similar information usually results in knowledge that is more than the sum of their parts. 
-This can revolutionise research methodology in fields such as urban planning, public policy and  urban management.
-Though the research doesn't tries to explore the applications of the outputs in detail, it aims to serve as a basic step for other studies which will the use of this information as data for further research.
-Availability of national level footfall information can also have massive impact in industries such as retail, transportation and technology.
-The toolkit can be transferred to other fields, the methods can be applied to different sets of data the output data can itself used in various fields by various stakeholders in the retail industry,
-\begin{enumerate}[leftmargin=2em, rightmargin=2em]
-  \item \textit{Retailers} can get fine grained information on when their customers user the shop leading better business optimisations.
-  \item \textit{Customers} can get information on popularity of the places and average crowd information.
-  \item \textit{Landlords} can get a way to objectively evaluate their property values based on location and also time.
-  \item \textit{Local Authorities} can be enabled to monitor and maintain the health of their retail areas over long periods of time. 
+The potential of creating such detailed, long term, national level footfall volumes produced by this research is immense.
+Such information can be of the major components in building a `smart city' where  availability of detailed, real-time data on the state built environment and its use is vital.
+It can also help us in our pursuit to accomplish a real-time census of people and their movement in the city.
+It can not only provide us with snapshots of the state of a retail areas but also help in measuring, modelling and manipulating them in real-time as a dynamic systems which respond to interventions.
+We can even link these footfall volumes to other sources of data such as commercial consumer datasets and public transport statistics to build a comprehensive picture on the health and efficiency of the city systems.
+Availability of such dataset can revolutionise academic research in fields such as urban planning, public policy and urban management where the effect of interventions could be objectively measured and analysed.
+Though this research did not try to explore the applications of this footfall data in detail, it hopes to serve as a solid basis for further studies in a various academic disciplines such as geography, business management, risk management, spatial analysis and computer science which can employ the data to either derive insights about the locations and context or use them as a reference/training dataset source for validating methods and tools.
+Availability of such national level data on footfall volumes spanning continuously over years can also have massive impact in industries such as retail, transportation, real estate and information technology.
+As this research has a significant bias towards retail locations, the outputs can be especially of massive value for various stakeholders in the retail industry,
+\begin{enumerate}[leftmargin=2em, rightmargin=0.5em]
+  \itemsep-0.25em
+  \item \textit{Retailers} can get detailed information on when and where their customers shop which can lead to more efficient business operations.
+  \item \textit{Customers} can be informed on the popularity of places and when  to visit them.
+  \item \textit{Landlords} can achieve a way to objectively evaluate their properties' values based on their location and also time.
+  \item \textit{Local Authorities} can be enabled to monitor and manage the health of their retail areas over longer periods of time. 
 \end{enumerate}
-It also has immense value in multiple disciplines of research in addition to human geography such as urban planning, emergency management, etc.
 
 %-------------------------------------------------------------------------------%
