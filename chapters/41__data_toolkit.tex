@@ -157,7 +157,7 @@ Though it has potential to scale into a truly big dataset, for the purposes of t
 \begin{marginfigure}
   \forcerectofloat
   \includegraphics{images/data-size-comparison.png}
-  \caption{Comparison of volumes of datasets across various disciplines.}
+  \caption{Comparison of volumes of data across various disciplines.}
   \label{figure:toolkit:volume}
 \end{marginfigure}
 
@@ -236,7 +236,6 @@ Veracity is defined as the amount of abnormality present in the data in the form
 Similar to variety, veracity is hard to quantify hence required a subjective evaluation.
 Being sensor collected data, veracity is the dimension where the data exhibits most `big data' properties.
 
-
 \begin{marginfigure}
   \includegraphics{images/data-veracity-gaps.png}
   \caption{Missing data from five locations at Tottenham Court Road, London on 15 January 2018 demonstrating the veracity of the data.}
@@ -270,12 +269,6 @@ Summarising from the above, we can confidently conclude that Wi-Fi probe request
 
 \vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
-\begin{figure*}
-  \includegraphics{images/data-visualisation-challenge.png}
-  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.}
-  \label{figure:toolkit:visualisation}
-\end{figure*}
-
 Visualisation is closely related to volume, velocity and variety of the data.
 The Wi-Fi data due to its non-trivial volume and velocity, exhibits similar characteristics and challenges in terms of visualisation.
 Since there is not much variety in the dataset, when we process the raw data into footfall counts we are left with just the time, location and footfall count for each data point.
@@ -289,6 +282,12 @@ There is also need for multiple linked dynamic visualisation platform for separa
 Figure \ref{figure:toolkit:visualisation} demonstrates the illegibility of simple visualisations of the data due to granularity, variability and veracity.
 We can safely say that the Wi-Fi probe requests dataset is at best `Medium' in the visualisation dimension.
 
+\begin{figure*}
+  \includegraphics{images/data-visualisation-challenge.png}
+  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.}
+  \label{figure:toolkit:visualisation}
+\end{figure*}
+
 Summarising the above discussion, we can conclude that the datasets collected from Wi-Fi probe requests are at best of 'medium'.
 They show the most big data characteristics in terms of their veracity.
 In rest of the dimensions the datasets are not truly big data and we need to look at tools and methods appropriate to their size.
@@ -296,7 +295,7 @@ The toolkit we devise need to be able to deal with their mid-size volume, veloci
 Figure \ref{figure:toolkit:spider} illustrates the summary our discussion.
 This leads us to devise a `medium data toolkit' which can be used without incurring the extra cost and complexity introduced by big data tools while be able to handle the data at hand.
 
-\begin{marginfigure}
+\begin{marginfigure}[4cm]
   \includegraphics[trim={2.1cm 0 0 0},clip]{images/data-toolkit-spider.png}
   \caption{Big data characteristics of the Wi-Fi probe request datasets in their corresponding dimensions}
   \label{figure:toolkit:spider}
@@ -399,22 +398,11 @@ This is the primary reason why database management systems are developed on top 
 Database systems can be broadly divided into relational and document based.
 The relational databases are optimised to deal with relational data and usually enforce strict structure for the data
 In general they can handle large number of rows and are designed to scale vertically.
-Most relational database systems try to guarantee ACID \sidenote[][-7cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \cite[-5cm]{Haerder1983}.
+Most relational database systems try to guarantee ACID \sidenote[][-1cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \citep{Haerder1983}.
 The document based databases are optimised to deal with unstructured data and can doesn't need a strictly defined scheme.
 In general they can handle large number of columns and are designed to be distributed and scaled horizontally.
-Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-3cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
+Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-1cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
 There a numerous databases systems which prioritise different things and the right solution depends on the properties of the data and the requirements of the project.
-
-Since the publication of the paper on `Google file system' by google \cite{sanjay2003}.
-There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
-These systems are designed to be distributed and optimised for high throughput for queries on them.
-Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
-There are numerous cloud based, third-party solutions built with these file systems making them easy to use.
-There are also numerous tools, libraries and frameworks which emulate the features of database systems on these distributed file systems making them easier to use further.
-The primary advantage of these systems is the sheer scalability they provide when it comes to data volume.
-The primary disadvantage is the associated overheads in terms of cost and time incurred in learning, designing and implementing them.
-Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.
-Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.
 
 \begin{table}[h]
   \footnotesize
@@ -458,6 +446,17 @@ Table \ref{table:toolkit:storage} summarises the above discussion along with rel
   \caption{Various data storage approaches and their characteristics.}
   \label{table:toolkit:storage}
 \end{table}
+
+Since the publication of the paper on `Google file system' by google \cite{sanjay2003}.
+There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
+These systems are designed to be distributed and optimised for high throughput for queries on them.
+Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
+There are numerous cloud based, third-party solutions built with these file systems making them easy to use.
+There are also numerous tools, libraries and frameworks which emulate the features of database systems on these distributed file systems making them easier to use further.
+The primary advantage of these systems is the sheer scalability they provide when it comes to data volume.
+The primary disadvantage is the associated overheads in terms of cost and time incurred in learning, designing and implementing them.
+Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.
+Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.
 
 We saw that the Wi-Fi probe request datasets are `Medium' sized hence we can safely eliminate distributed file systems for storing them.
 Though the smart street Sensor project uses Azure Blob Storage, when the data is downloaded to the local servers at the university, we can just store them in the file system because of their size (2TB approx.) and the hierarchical nature.
@@ -624,16 +623,16 @@ Though these big data tools promise huge improvements in processing capabilities
 Thus we need a framework to examine and understand the scale of the data that is being used so that we use the right tools for the right purposes and the 5Vs of `Big data' - Volume, Velocity, Veracity, Variety and Visualisation provides us with such frame work.
 Every dimension of big data poses unique set of challenges and we need make right decisions in choosing specialised tools and methods to overcome them.
 
-We then closely examined the Wi-Fi probes data we collected with this framework and found that the data, though posed significant challenges with traditional data processing techniques, do not exhibit `big data' properties in all its dimensions. 
-Only veracity of the data was found to have any meaningful big data properties, while volume and velocity was found to be 'medium' at best. 
-The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.
-Thus we arrived at the requirements for a bespoke `medium data toolkit' which is able to deal with these challenges.
-
 \begin{figure}
   \includegraphics{images/toolkit.png}
   \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
   \label{figure:toolkit}
 \end{figure}
+
+We then closely examined the Wi-Fi probes data we collected with this framework and found that the data, though posed significant challenges with traditional data processing techniques, do not exhibit `big data' properties in all its dimensions. 
+Only veracity of the data was found to have any meaningful big data properties, while volume and velocity was found to be 'medium' at best. 
+The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.
+Thus we arrived at the requirements for a bespoke `medium data toolkit' which is able to deal with these challenges.
 
 We undertook a brief survey of tools available for collecting, storing, processing and visualising the Wi-Fi probe request data and with the understanding of the data from the previous analysis chose the ones which are perfect for the datasets.
 For collecting Wi-Fi probes data in a scalable way, we chose a general purpose single board computers such as Raspberry-Pi along with open source tools such as tcpdump and tshark in a Linux environment.

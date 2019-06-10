@@ -129,17 +129,18 @@ We to consider this uncertainty in detail while making any simple assumptions on
 %------------------------------------------------------------------------------%
 \subsection{MAC address randomisation}
 %------------------------------------------------------------------------------%
-Randomisation of MAC address is one of the recent uncertainty introduced in the data.
-As we saw in section \ref{wifi-as-source-of-data} MAC address is the unique identifier for each mobile device and we aggregate the footfall numbers based on this.
-Since the probe requests are transmitted unencrypted and can be received by any access point, this is one of the biggest leak of personal data which occurs in the Wi-Fi based communications.
-Modern mobile devices solve this problem by using a randomised MAC address for the probe requests which can result in large over estimation of number of mobile devices in the vicinity.
 
-\begin{marginfigure}
+\begin{marginfigure}[4cm]
   \includegraphics{images/mac-randomisation.png}
   \caption{Increase in the share of randomised MAC addresses compared to non-randomised original ones over the years.}
   \label{figure:collection:macrandom}
 \end{marginfigure}
 \marginnote{\fontsize{7}{7}\textit{From data collected at Regent Street, Cambridge.}}
+
+Randomisation of MAC address is one of the recent uncertainty introduced in the data.
+As we saw in section \ref{wifi-as-source-of-data} MAC address is the unique identifier for each mobile device and we aggregate the footfall numbers based on this.
+Since the probe requests are transmitted unencrypted and can be received by any access point, this is one of the biggest leak of personal data which occurs in the Wi-Fi based communications.
+Modern mobile devices solve this problem by using a randomised MAC address for the probe requests which can result in large over estimation of number of mobile devices in the vicinity.
 
 The method of randomisation and the frequency varies widely between device manufacturers and also changes as new versions of the software are released.
 This seriously affects the usefulness of the data long term where methods designed to overcome this randomisation can be rendered inefficient in the future.
@@ -161,12 +162,12 @@ This needs to be taken into consideration while using this data for extrapolatin
 In addition to this, the overall upward trend needs to be adjusted assuming 1\% increase monthly and 0.2\% weekly when using this data across long periods of time.
 
 \begin{marginfigure}
+  \forceversofloat
   \includegraphics{images/mobile-ownership.png}
-  \caption{Smartphone penetration by age group in United Kingdom (2012-18)}
+  \caption{Smartphone penetration by age group in United Kingdom.}
   \label{figure:collection:ownership}
 \end{marginfigure}
 \marginnote{\fontsize{7}{7}\textit{Source: UK edition, Deloitte Global Mobile Consumer Survey, }}
-
 
 
 %------------------------------------------------------------------------------%

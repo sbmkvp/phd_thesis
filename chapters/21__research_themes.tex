@@ -73,7 +73,7 @@ Research in this are focused around 5 major topics,
 Localisation of mobile devices without the use of expensive additional infrastructure such as GPS is one of the earliest ideas pursued in this aspect \citep{bulusu2000, he2003, moore2004, lamarca2005}.
 This research, when reversed, could also lead to the tracking of these devices in space without the aforementioned infrastructure thus providing a inexpensive, easy way to collect mobility data.
 The sensors which are already present in the phones such as Bluetooth \citep{bandara2004}, Wi-Fi \citep{zarim2006}, cellular radio \citep{dil2011, ahas2005} etc. have been considered to be used for localisation of the devices.
-This has been particularly important in the field of indoor localisation where GPS doesn't usually work \cite{kawaguchi2009}.
+This has been particularly important in the field of indoor localisation where GPS doesn't usually work \cite[-2cm]{kawaguchi2009}.
 When seen from the other perspective the same technologies and methods can enable us to collect presence and movement data on people indoors \citep{roy2018a, roy2018b, jia2019, nikitin2019, kulshrestha2019, deng2018}.
 
 The identification of data sources started with looking at the 'real time' city examining the digital landscape created by the citizens their electronic devices \citep{townsend2000}.
@@ -109,18 +109,16 @@ With the ability to collect and analyse of data on large complex systems in real
 With the population getting more and more connected \citep{castells2010}, the nature of space/place is being dynamically defined by the population themselves \citep{giuliano1991} and vice versa \citep{zandvliet2006}.
 This flood of hard data \cite[-1cm]{nature2008} was accompanied not only by optimism in its potential \citep{thomas2001} but also by the questions raised on the challenges in handling the diverse, large scale, non standardised data it produces and the usefulness or representativeness of the resulting analysis \citep{miller2010, arribas-bel2014a}.
 
-However, availability of such data has impressive uses in urban studies \cite{bettencourt2014} especially with advancement of new technologies \citep{steenbruggen2013} and possibility of distributed, crowdsourced data collection \citep{lokanathan2015}.
+However, availability of such data has impressive uses in urban studies \citep{bettencourt2014} especially with advancement of new technologies \citep{steenbruggen2013} and possibility of distributed, crowdsourced data collection \citep{lokanathan2015}.
 
 %------------------------------------------------------------------------------%
 \subsection{Privacy}
 %------------------------------------------------------------------------------%
 
 The ubiquity of personal devices and digitisation of day to day activities through these mobile devices \citep{mcmeel2018} has provided many opportunities for researchers and industry for collecting, analysing and deriving inputs from them.
-However at the same this also increased the risk of infringement on privacy of the users whose data is being collected \cite{saponas2007, krumm2009}.
+However at the same this also increased the risk of infringement on privacy of the users whose data is being collected \cite[-2cm]{saponas2007, krumm2009}.
 There is immense value in uniquely identifying and profiling information on people for specialised purposes such as security \citep{cutter2006} and law enforcement \citep{dobson2003} but also has extreme risks associated when not handled with care \citep{vanwey2005}.
-
-Strictly protecting personal information while ensuring the information is usable for research by maintaining the uniqueness in the data is the major concern which was addressed by devising frameworks for secure practices in confidentially collecting and using the location data \citep{duckham2006, tang2006, lane2014}.
-Some efforts sought to accomplish this task through cryptographic hashing algorithms (Pang, 2007) while others aimed to thwart identification and tracking at the device level by techniques such as MAC randomisation \citep{gruteser2005, greenstein2008}.
+Strictly protecting personal information while ensuring the information is usable for research by maintaining the uniqueness in the data is the major concern which was addressed by devising frameworks for secure practices in confidentially collecting and using the location data \citep{duckham2006, tang2006, lane2014}.  Some efforts sought to accomplish this task through cryptographic hashing algorithms (Pang, 2007) while others aimed to thwart identification and tracking at the device level by techniques such as MAC randomisation \citep{gruteser2005, greenstein2008}.
 Finally though getting consent of users for the collection and use of such information from their mobile devices is challenging, there is a significantly improved acceptance when the process offers value in return such as discounts and monetary benefits \citep{kobsa2014}.
 
 There is opportunity in this area for research in applying the cryptographic solutions along with the privacy preserving frameworks to arrive at methods which can extract useful information out of large personal data while obscuring or anonymising them.
@@ -128,6 +126,12 @@ There is opportunity in this area for research in applying the cryptographic sol
 %==============================================================================%
 \section{Research Trends}
 %==============================================================================%
+
+\begin{figure*}
+  \includegraphics{images/literature-themes-timeline.png}
+  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
+  \label{figure:literature:themes:timeline}
+\end{figure*}
 
 Figure \ref{figure:literature:themes:timeline} shows the volume of research done in this topic since 1980 categorised based on their major themes discussed earlier.
 We can observe that there are distinct trends in the research over time, which evolved around the development of technology in the last two decades.
@@ -137,21 +141,13 @@ We can categorise this as the `mobile era' where carrying mobile devices become 
 This explosion of research coincided with mobile phones becoming more popular and ubiquitous with population in urban areas and was around development of methods and techniques to utilise the data generated from them.
 There were also extensive studies in using the datasets to understand human mobility along with a rising concern in the privacy of the users who's data which are being used for these studies.
 
-%------------------------------------------------------------------------------%
-
-\begin{figure*}
-  \includegraphics{images/literature-themes-timeline.png}
-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
-  \label{figure:literature:themes:timeline}
-\end{figure*}
-
-%------------------------------------------------------------------------------%
-
-
 The release of iPhone in 2008 and the increase in the share of 'smartphones' in the next 10 years sparked the `smartphone' era. 
 The change made sure that all the mobile devices gaining numerous capabilities such as internet connectivity over Wi-Fi and mobile network, location awareness with global positioning system, movement recognition with accelerometers and connectivity other `wearable' devices through Bluetooth.
 This also lead to the digitisation of lifestyle where every aspect of the life being done through these devices over internet while generating huge amount of data on these activities.
 This sparked the large volume of research on the form and function of space by studying this data and on the dynamics of human population in space and time in the next 5 years.
+
+%------------------------------------------------------------------------------%
+
 These research were particularly centered around tracking the trajectory of people using the mobile devices they carry with them as the smartphones made it easier to collect the necessary data directly from them rather than depending on a centrally collected datasets from mobile carriers. 
 With the theoretical limit to predictability in human mobility quantified by \citet{song2010}, the focus on urban mobility has been declining in the past few years which has led to a renewed interest in population studies at a local-local level in real-time.
 In addition to using the data from the mobile devices, these studies have also been exploring the use of large assemblages of consumer data that are being generated in this connected mobile environment and linking them together to create a fuller picture \cite{cdrc2018}

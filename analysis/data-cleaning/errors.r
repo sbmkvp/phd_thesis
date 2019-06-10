@@ -1,4 +1,5 @@
 library(tidyverse)
+library(ggplot2)
 library(RJSONIO)
 library(RPostgreSQL)
 library(showtext)
@@ -86,3 +87,33 @@ p <- macs %>%
 ggsave("../../images/processing-error-randomisation.png", plot=p, height=2, width=7,units="in")
 
 dbDisconnect(con)
+
+#
+# load("../../data/other/processing-data.rdata")
+# rm(probes_all,probes_all_raw,probes_manual_raw, query)
+# counts <- source("aggregate_counts.r")$value(probes_manual)
+#
+# counts_plot <- counts %>% 
+#   arrange(count_type, location, interval) %>%
+#   group_by(paste(count_type,location,date(interval))) %>%
+#   mutate(int = 1:length(interval)) %>%
+#   ggplot() +
+# 	geom_line(aes(int,
+# 				  footfall,
+# 				  color=type,
+# 				  group=type),
+# 			  stat="identity") + 
+# 	facet_grid(paste(location,date(interval))~.,scale="free") +
+# 	theme(legend.position = "bottom") +
+#   ylab("") + xlab("") +
+# 	# scale_fill_continuous(name = "Type of Counts")
+#   theme(text = element_text(family = "Helvetica Neue"),
+#         panel.background = element_blank(),
+#         axis.text = element_text(size = 5, color = "black"),
+#         axis.ticks.y = element_blank(),
+#         axis.title.y = element_text(size=3, color="black",margin=margin(0,0,0,0)),
+#         axis.title.x = element_text(size=10, color="black",margin=margin(0,0,0,0)),
+#         axis.line.x = element_line(color= "black", size = 0.1))
+#
+# ggsave("../../images/processing-sss-comparison.png", plot=counts_plot, height=7, width=7,units="in")
+#
