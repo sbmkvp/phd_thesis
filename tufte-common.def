@@ -1598,8 +1598,8 @@
   \titlecontents{chapter}%
     [0em] % distance from left margin
     {\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)
-    {\hspace*{0em}\contentslabel{2em}} % before w/label (label = ``2'')
-    {\hspace*{0em}} % before w/o label
+    {\hspace*{2em}\contentslabel{2em}} % before w/label (label = ``2'')
+    {\hspace*{2em}} % before w/o label
     {\rmfamily\upshape\qquad\thecontentspage\vspace{0.25em}} % filler + page (leaders and page num)
     [\end{fullwidth}] % after
   \titlecontents{section}% FIXME
@@ -1656,10 +1656,10 @@
   \@afterindenttrue
   \interlinepenalty\@M
   \leavevmode
-  \@tempdima 2.0em
+  \@tempdima 2.5em
   \advance\leftskip\@tempdima
   \null\nobreak\hskip -\leftskip
-  {#1}\nobreak\qquad\nobreak#2%
+  {#1}\qquad#2%
   \par%
 }
 
