@@ -49,7 +49,7 @@ Moreover it is not possible that that the overall increase in the unique MAC add
 
 In addition to causing problems generally in the data for longitudinal analysis, randomisation also causes issues at specific locations which have potential for large amount of devices to dwell around them.
 For example, seating areas in cafes/ restaurants, bus stops, phone shops around the sensors causes huge overestimation of footfall when aggregated by unique MAC addresses.
-It is imperative that the method we device should take both these cases in to consideration.
+It is imperative that the method we devise should take both these cases in to consideration.
 
 %-------------------------------------------------------------------------------%
 \subsection{Methodology}
@@ -333,35 +333,53 @@ The number of probe requests and unique MAC addresses nearly tripled in one week
 The methodologies discussed above would be perfect for the SSS project and when implemented it could improved the project's long term feasibility immensely.
 However, being designed from a commercial point of view by the data partner, the SSS project's implementation poses significant challenges in adapting the methods as well.
 
-\begin{itemize}[rightmargin=2em,leftmargin=2em]
+\begin{itemize}
   \item \textit{Lack of data} - The data collected by the SSS project is optimised for transferring large amount of data with the least possible cost and hence the project collects only the fields which are extremely important. For example, sequence number, Information elements, SSID, etc. are not available in the dataset.
   \item \textit{Aggregation} - To further optimise the size of the data transfer the data points are aggregated at the device level every five minutes. Hence the time information has a resolution of 5 minutes and the signal strength of packets with same MAC addresses were summarised to either the maximum or minimum values observed in that interval.
   \item \textit{Cost} - When changing the design of the project and the major challenge faced the cost that was associated with every change. For example, due to the size of the project, changing the amount of data transferred even marginally translates into a significant cost in terms of internet bandwidth or when introducing a large change in the project also involves cost in terms of development, testing, deployment and testing.
 \end{itemize}
 
 The above challenges make the sequence number based clustering impossible with the data available through SSS sensors and only the signal strength based filtering could be applied. 
-Even the signal strengths do not have the same granular information in them as the pilot study which greatly affects output of the k-means algorithm as shown in Figure \ref{figure:processing:sss:signals}
+Even the signal strengths do not have the same granular information in them as the pilot study which may greatly affects output of the k-means algorithm.
 Nevertheless, an attempt was made to use the signal strength based filtering of the data generated from the SSS sensors.
 The data collected at the location where the pilot studies were conducted along with manual counting were extracted out of the SSS project and the filtering methodology is applied to them.
 Since we only have the minimum signal strength for all the probe requests that were compressed, they were weighted using the total number of probes that constitute the aggregated packet.
-%200 words about the signal comparison
+Figure \ref{figure:processing:sss:signals} shows that difference between the signal strength distribution measured by the sensors used in the pilot study and corresponding sensors from Smart Street Sensor project.
+It can be observed that the pilot study sensors have collected data which shows sharp change in the number of signal strengths after -70dBm comprising mostly of local MAC addresses while the smart street sensors show a much more even distribution in both local and global MAC addresses.
+Location 4 and 3 are brilliant examples for this difference in distribution where the signal strengths of randomised probes are more normally distributed in the Smart Street Sensors than their counterpart
+This was expected to pose a significant challenge to our filtering methodology especially in locations with configurations similar to 4 and 3.
 
 \begin{figure}
-  \includegraphics[trim={5 5 5 5}, clip]{images/processing-sss-signals.png}
+  \includegraphics[trim={5 5 5 5}, clip]{images/processing-sss-signalsnew.png}
   \caption{Comparison of the filtering process with the ground truth in all the locations.}
   \label{figure:processing:sss:signals}
 \end{figure}
 
-%200 words about the counts comparison and how our methodology fails 
-These filtered data were then aggregated by MAC addresses and compared to other counts as shown in Figure \ref{figure:processing:sss:comparison}. 
+In spite of the expectation that the change in the distribution might cause vast differences in the results from these two exercises, when the probe requests collected by Smart Street Sensors are subject to filtering using k-means algorithm, ones with low signal strength were removed and aggregated based on the MAC addresses, the results are surprisingly close to what was reported by the pilot studies.
+Figure \ref{figure:processing:sss:comparison} shows the results of the attempt to clean the smart street sensor data using the signal strength filtering technique and compares them with the results of the pilot study.
+It is important to note that the sequence number based clustering has not been carried out in both the data-sets since the sequence number is not available in the Smart Street Sensor data.
+In general, it was observed that the results from the pilot study and the Smart street sensor were close compared to the manual counts after the signal strength based filtering.
+At location 1, the pilot study sensor was massively over counting on Feb 12 which could be attributed to a bug in the hardware where the additional Wi-Fi module which was installed for troubleshooting was generating probe requests in large amounts from very strong strength.
+This was fixed later and the next manual count done on Feb. 21 reflects the fixed sensor.
+At location 2, the pilot study sensor resemble reality are much more than the smart street sensors but both footfall at this location is very low to begin with and both series show similar trends and could be adjusted with a simple factor.
+It was also observed that similar to the results of the pilot study, location 3 lead to under-counting while location 4 lead to over-counting while location 5 showed the best results owing to the clean configuration of the sensor in relation to the surroundings.
+Though the results are similar, they are still far from real counts due to the MAC randomisation process and are vulnerable to long term changes as shown in Figure \ref{figure:processing:error:random} which necessitates an alternative to the sequence number clustering for Smart street sensor data.
 
 \begin{figure*}
-  \includegraphics[trim={10 10 33 10}, clip]{images/processing-sss-comparison.png}
+  \includegraphics[trim={15 5 5 5}, clip]{images/processing-sss-compare.png}
   \caption{Comparison of the filtering process with the ground truth in all the locations.}
   \label{figure:processing:sss:comparison}
 \end{figure*}
 
-\vspace{1.5em}\noindent\textit{A simple \& effective solution}\vspace{0.5em}
+\vspace{1.5em}\noindent\textit{Device to Probes Ratio}\vspace{0.5em}
+
+While searching for an alternative to the sequence number algorithm with the limited data offered by the Smart street sensor, a much more simpler approach was discovered where the relationship between
+
+\begin{figure*}
+  \includegraphics{images/processing-sss-final.png}
+  \caption{Comparison of the filtering process with the ground truth in all the locations.}
+  \label{figure:processing:sss:final}
+\end{figure*}
 
 %-------------------------------------------------------------------------------%
 \subsection{Discussion}
