@@ -40,7 +40,7 @@ The problem intensified massively in 2017 which could be attributed to the chang
 
 \begin{figure*}
   \includegraphics[trim={0 0 0 0},clip]{images/processing-error-randomisation.png}
-  \caption{The share of noise present in the data from outside the field of measurement in the initial experiment.}
+  \caption{The long term effect of MAC randomisation on average weekly footfall estimated at sensors in Cardiff.}
   \label{figure:processing:error:random}
 \end{figure*}
 
@@ -61,7 +61,7 @@ The first method uses signal strengths to filter out the noise originating from 
 
 \begin{marginfigure}
   \includegraphics[trim={5 5 5 5},clip]{images/processing-method-signal.jpg}
-  \caption{}
+  \caption{Thematic diagram showing the idea behind filtering using signal strength distribution.}
   \label{figure:processing:method:signal}
 \end{marginfigure}
 
@@ -120,7 +120,7 @@ There needs to be a more general approach which was independent of the device mo
 
 \begin{marginfigure}
   \includegraphics[trim={5 5 5 5}, clip]{images/processing-method-sequence.jpg}
-  \caption{}
+  \caption{Thematic diagram showing the idea behind grouping sensors using their sequence numbers.}
   \label{figure:processing:method:sequence}
 \end{marginfigure}
 
@@ -217,7 +217,7 @@ These concerns need to be addressed with a larger survey with multiple locations
 
 \begin{figure*}
   \includegraphics[trim={1 1 1 1},clip]{images/processing-oxst-clusters.jpg}
-  \caption{}
+  \caption{Finding the optimum time threshold $\alpha$ and sequence threshold $\alpha$ through trial and error.}
   \label{figure:processing:oxst:clusters}
 \end{figure*}
 
@@ -230,7 +230,7 @@ It was also known that the OUI of the device corresponds to the vendor - 'Google
 
 \begin{figure}
   \includegraphics[trim={3 3 3 3},clip]{images/processing-oxst-fingerprinting.jpg}
-  \caption{test}
+  \caption{Sample showing the result of sequence numbers based clustering algorithm on data collected at Oxford Circus, London.}
   \label{figure:processing:oxst:fingerprinting}
 \end{figure}
 
@@ -247,7 +247,7 @@ A comparison of minute by minute counts resulting from different filtering proce
 
 \begin{figure}
   \includegraphics[trim={3 3 3 3},clip]{images/processing-oxst-results.jpg}
-  \caption{test}
+  \caption{A comparison of estimated footfall at Oxford Circus during various stages of filtering with the actual manual counts.}
   \label{figure:processing:oxst:results}
 \end{figure}
 
@@ -274,7 +274,7 @@ In this exercise probe requests with MAC addresses which were repeating within a
 
 \begin{figure*}
   \includegraphics{images/processing-pilot-signal.png}
-  \caption{}
+  \caption{Distribution of signal strengths at locations covered under the pilot studies along with the corresponding configurations of the sensors.}
   \label{figure:processing:pilot:signal}
 \end{figure*}
 
@@ -287,7 +287,7 @@ We can observe that the filtering needs to be less aggressive in locations witho
 \begin{centering}
 \begin{table}
 \footnotesize
-\caption{Results of footfall estimation at each location as Mean Absolute Percentage Error (MAPE) after each step of the filtering process}
+\caption{Results of footfall estimation at each location as Mean Absolute Percentage Error (MAPE) after each step of the filtering process.}
 {\begin{tabular}{ccccccc} 
 \toprule
 & Signal    & Adjustment & MAPE      & MAPE      & MAPE       & MAPE final \\
@@ -321,7 +321,7 @@ However, the study also proved that through whole process of cleaning the errors
 
 \begin{figure*}
   \includegraphics[trim=6 6 6 6, clip]{images/processing-pilot-results.jpg}
-  \caption{Comparison of the filtering process with the ground truth in all the locations.}
+  \caption{A comparison of estimated footfall at pilot study locations during various stages of filtering with the actual manual counts.}
   \label{figure:processing:pilot:final}
 \end{figure*}
 
@@ -351,7 +351,7 @@ This was expected to pose a significant challenge to our filtering methodology e
 
 \begin{figure}
   \includegraphics[trim={5 5 5 5}, clip]{images/processing-sss-signalsnew.png}
-  \caption{Comparison of the filtering process with the ground truth in all the locations.}
+  \caption{Comparison between distribution of signal strengths in probe requests collected by }
   \label{figure:processing:sss:signals}
 \end{figure}
 
@@ -367,21 +367,58 @@ Though the results are similar, they are still far from real counts due to the M
 
 \begin{figure*}
   \includegraphics[trim={15 5 5 5}, clip]{images/processing-sss-compare.png}
-  \caption{Comparison of the filtering process with the ground truth in all the locations.}
+  \caption{Comparison between the footfall estimates from Smart street sensor and pilot study after filtering probe requests of low signal strength along with manual footfall counts.}
   \label{figure:processing:sss:comparison}
 \end{figure*}
 
 \vspace{1.5em}\noindent\textit{Device to Probes Ratio}\vspace{0.5em}
 
-While searching for an alternative to the sequence number algorithm with the limited data offered by the Smart street sensor, a much more simpler approach was discovered where the relationship between
+While searching for an alternative to the sequence number algorithm with the limited data offered by the Smart street sensor, a much more simpler approach was discovered where the relationship between the number of probe requests generated by devices which doesn't randomise their MAC address can be used to estimate the devices which randomise them for a specific interval.
+Assuming that on average all devices emit certain number of probe requests in a given time interval we can estimate the number of devices that are randomising as below,
+
+\[Randomising\ devices = \frac{Non\ randomising\ devices}{Non\ randomised\ probes}\times{Randomised\ probes}\]
+
+Though previous work on probe request frequencies of different mobile devices demands scepticism over how well this method may work, the results were found to be encouraging.
+In real world data the though the rate of generation of probe requests between various mobile devices were not constant, by encapsulating the problem in a small time interval - 5 minutes and looking at corresponding non-randomising mobile phones the behaviour of the randomising phones can be confidently estimated.
+Moreover if the randomisation techniques change in the future, the non-randomising phones should change as well making such approach robust against changes in the future such as the one that happened in September 2017.
+Figure \ref{figure:processing:sss:final} shows the methodology applied for data from locations across Cardiff.
+The chart shows average weekly footfall estimated at each location before and after adjusting the number of randomised MAC addresses using the `compression' ratio described above.
 
 \begin{figure*}
   \includegraphics{images/processing-sss-final.png}
-  \caption{Comparison of the filtering process with the ground truth in all the locations.}
+  \caption{The result of the adjustment using device to probes ratio in non-randomising devices shown through average weekly footfall estimates for locations in Cardiff.}
   \label{figure:processing:sss:final}
 \end{figure*}
 
-%-------------------------------------------------------------------------------%
-\subsection{Discussion}
-%-------------------------------------------------------------------------------%
+It was observed that the resulting long term trend, when adjusted, not only avoided the huge inflation experienced by the unadjusted estimate but also preserved the relative changes and trends and even showed seasonal variations.
+The only expected disadvantage of this methods is the adoption of randomisation techniques by manufacturers over the time.
+Since the method depends on the number of devices that do not randomise their MAC address, when their share goes down sufficiently, the method will fail.
+But for the time being for the near future and for the data which have been collected over the past 3.5 years, this method when combined with filtering using signal strength and other adjustment methods described in section \ref{section-pipeline}, solves the uncertainties sufficiently and potentially provides us with a reliable and sufficiently accurate estimation of footfall from the data collected by the Smart Street Sensors
 
+%-------------------------------------------------------------------------------%
+\subsection{Conclusions}
+%-------------------------------------------------------------------------------%
+In this section the uncertainties in the data collected through Wi-Fi - the ambiguity of the field of measurement and anonymisation of devices using MAC address randomisation were discussed along with the extent to which the affect the datasets.
+Two techniques were also proposed were proposed to tackle these sources of errors.
+The first where the strength of the signal reported in the probe requests were used to cluster them into `high' and `low' dynamically with the help of one dimensional clustering algorithms. 
+The second where the sequence numbers of the probe requests were used to group together probes generated by the same mobile devices using a graph based clustering algorithm.
+The effectiveness of both these techniques were tested against the data that were gather in \ref{chapter:collection}.
+
+The data collected from the initial experiment at Oxford street, London showed that filtering the probe requests using the signal strengths works really well.
+In this case it reduced the MAPE from 435\% to 20\%.
+This case study showed that k-means is the most suitable method of doing the clustering while the threshold for this specific dataset is  -70dBm similar to the others collected through initial experiments.
+The case study also showed that fingerprinting unique mobile devices using sequence numbers is possible even in real world scenarios.
+Through trial and error and a reference device the ideal values for the parameters for the algorithm - time threshold($\alpha$) and sequence threshold($\beta$) are 60 and 16 respectively.
+
+With the help of the pilot studies it was also showed that the signal strength based filtering do not always work as efficiently everywhere.
+The distribution of signal strengths were found to vary widely when the sensors where installed in different configurations.
+The counts were found to suffer a lot over counting when there are multiple sources of noise located close to the sensors and they also under count considerably when used in a location where there are no significant source of noise.
+This emphasized the need for evaluating the site conditions and manual calibration when deploying these techniques in real data.
+The sequence number based fingerprinting was also demonstrated to work in all these locations.
+This along with signal strength and manual counts reduced the error in the estimation from 470 to 10 in a `clean' location with proper sensor configuration.
+
+Though data from Smart street sensor was found to be insufficient to be able to utilize these techniques as they were focused, aggregated and prohibitively expensive to change.
+Surprisingly the signal strength data which have been aggregated for five minutes for each MAC address by the minimum value works as well the detailed per packet data collected in the pilot study.
+Though this along with manual counting can help in reducing the error, it does not solve the problems introduced by MAC randomisation especially the changes in the long term trend.
+A alternate method using the ratio of probes and devices of the non-randomising devices was proposed and was found to be extremely efficient in eliminating the noise created by the randomisation.
+The sample data from the city of Cardiff showed that this method not only removes the massive increase in footfall estimates experienced in September 2017, it also preserves the seasonal variations in the data thus enabling the data to be used for research into long term phenomena.
