@@ -1,0 +1,65 @@
+day,date,team1,st1,st2,pt1,pt2,team2,group,venue,time,duration
+Thursday,2018-06-14,Russia,5,0,,,Saudi Arabia,Group A,Moscow,04:00 pm,2
+Friday,2018-06-15,Egypt,0,1,,,Uruguay,Group A,Ekaterinburg,01:00 pm,2
+Friday,2018-06-15,Morocco,0,1,,,Iran,Group B,St Petersburg,04:00 pm,2
+Friday,2018-06-15,Portugal,3,3,,,Spain,Group B,Sochi,07:00 pm,2
+Saturday,2018-06-16,France,2,1,,,Australia,Group C,Kazan,11:00 am,2
+Saturday,2018-06-16,Argentina,1,1,,,Iceland,Group D,Moscow,02:00 pm,2
+Saturday,2018-06-16,Peru,0,1,,,Denmark,Group C,Saransk,05:00 pm,2
+Saturday,2018-06-16,Croatia,2,0,,,Nigeria,Group D,Kaliningrad,08:00 pm,2
+Sunday,2018-06-17,Costa Rica,0,1,,,Serbia,Group E,Samara,01:00 pm,2
+Sunday,2018-06-17,Germany,0,1,,,Mexico,Group F,Moscow,04:00 pm,2
+Sunday,2018-06-17,Brazil,1,1,,,Switzerland,Group E,Rostov-on-Don,07:00 pm,2
+Monday,2018-06-18,Sweden,1,0,,,South Korea,Group F,Nizhny Novgorod,01:00 pm,2
+Monday,2018-06-18,Belgium,3,0,,,Panama,Group G,Sochi,04:00 pm,2
+Monday,2018-06-18,Tunisia,1,2,,,England,Group G,Volgograd,07:00 pm,2
+Tuesday,2018-06-19,Colombia,1,2,,,Japan,Group H,Saransk,01:00 pm,2
+Tuesday,2018-06-19,Poland,1,2,,,Senegal,Group H,Moscow,04:00 pm,2
+Tuesday,2018-06-19,Russia,3,1,,,Egypt,Group A,St Petersburg,07:00 pm,2
+Wednesday,2018-06-20,Portugal,1,0,,,Morocco,Group B,Moscow,01:00 pm,2
+Wednesday,2018-06-20,Uruguay,1,0,,,Saudi Arabia,Group A,Rostov-on-Don,04:00 pm,2
+Wednesday,2018-06-20,Iran,0,1,,,Spain,Group B,Kazan,07:00 pm,2
+Thursday,2018-06-21,Denmark,1,1,,,Australia,Group C,Samara,01:00 pm,2
+Thursday,2018-06-21,France,1,0,,,Peru,Group C,Ekaterinburg,04:00 pm,2
+Thursday,2018-06-21,Argentina,0,3,,,Croatia,Group D,Nizhny Novgorod,07:00 pm,2
+Friday,2018-06-22,Brazil,2,1,,,Costa Rica,Group E,St Petersburg,01:00 pm,2
+Friday,2018-06-22,Nigeria,2,0,,,Iceland,Group D,Volgograd,04:00 pm,2
+Friday,2018-06-22,Serbia,1,2,,,Switzerland,Group E,Kaliningrad,07:00 pm,2
+Saturday,2018-06-23,Belgium,5,2,,,Tunisia,Group G,Moscow,01:00 pm,2
+Saturday,2018-06-23,South Korea,1,2,,,Mexico,Group F,Rostov-on-Don,04:00 pm,2
+Saturday,2018-06-23,Germany,2,1,,,Sweden,Group F,Sochi,07:00 pm,2
+Sunday,2018-06-24,England,6,1,,,Panama,Group G,Nizhny Novgorod,01:00 pm,2
+Sunday,2018-06-24,Japan,2,2,,,Senegal,Group H,Ekaterinburg,04:00 pm,2
+Sunday,2018-06-24,Poland,0,3,,,Colombia,Group H,Kazan,07:00 pm,2
+Monday,2018-06-25,Uruguay,3,0,,,Russia,Group A,Samara,03:00 pm,2
+Monday,2018-06-25,Saudi Arabia,2,1,,,Egypt,Group A,Volgograd,03:00 pm,2
+Monday,2018-06-25,Spain,2,2,,,Morocco,Group B,Kaliningrad,07:00 pm,2
+Monday,2018-06-25,Iran,1,1,,,Portugal,Group B,Saransk,07:00 pm,2
+Tuesday,2018-06-26,Denmark,0,0,,,France,Group C,Moscow,03:00 pm,2
+Tuesday,2018-06-26,Australia,0,2,,,Peru,Group C,Sochi,03:00 pm,2
+Tuesday,2018-06-26,Nigeria,1,2,,,Argentina,Group D,St Petersburg,07:00 pm,2
+Tuesday,2018-06-26,Iceland,1,2,,,Croatia,Group D,Rostov-on-Don,07:00 pm,2
+Wednesday,2018-06-27,South Korea,2,0,,,Germany,Group F,Kazan,03:00 pm,2
+Wednesday,2018-06-27,Mexico,0,3,,,Sweden,Group F,Ekaterinburg,03:00 pm,2
+Wednesday,2018-06-27,Serbia,0,2,,,Brazil,Group E,Moscow,07:00 pm,2
+Wednesday,2018-06-27,Switzerland,2,2,,,Costa Rica,Group E,Nizhny Novgorod,07:00 pm,2
+Thursday,2018-06-28,Japan,0,1,,,Poland,Group H,Volgograd,03:00 pm,2
+Thursday,2018-06-28,Senegal,0,1,,,Colombia,Group H,Samara,03:00 pm,2
+Thursday,2018-06-28,England,0,1,,,Belgium,Group G,Kaliningrad,07:00 pm,2
+Thursday,2018-06-28,Panama,1,2,,,Tunisia,Group G,Saransk,07:00 pm,2
+Saturday,2018-06-30,France,4,3,,,Argentina,Last 16,Kazan,03:00 pm,2
+Saturday,2018-06-30,Uruguay,2,1,,,Portugal,Last 16,Sochi,07:00 pm,2
+Sunday,2018-07-01,Spain,1,1,3,4,Russia,Last 16,Moscow,03:00 pm,3
+Sunday,2018-07-01,Croatia,1,1,3,2,Denmark,Last 16,Nizhny Novgorod,07:00 pm,3
+Monday,2018-07-02,Brazil,2,0,,,Mexico,Last 16,Samara,03:00 pm,2
+Monday,2018-07-02,Belgium,3,2,,,Japan,Last 16,Rostov-on-Don,07:00 pm,2
+Tuesday,2018-07-03,Sweden,1,0,,,Switzerland,Last 16,St Petersburg,03:00 pm,2
+Tuesday,2018-07-03,Colombia,1,1,3,4,England,Last 16,Moscow,07:00 pm,3
+Friday,2018-07-06,Uruguay,0,2,,,France,Quarter Final,Nizhny Novgorod,03:00 pm,2
+Friday,2018-07-06,Brazil,1,2,,,Belgium,Quarter Final,Kazan,07:00 pm,2
+Saturday,2018-07-07,Sweden,0,2,,,England,Quarter Final,Samara,03:00 pm,2
+Saturday,2018-07-07,Russia,2,2,3,4,Croatia,Quarter Final,Sochi,07:00 pm,3
+Tuesday,2018-07-10,France,1,0,,,Belgium,Semi Final,St Petersburg,07:00 pm,2
+Wednesday,2018-07-11,Croatia,2,1,,,England,Semi Final,Moscow,07:00 pm,2.5
+Saturday,2018-07-14,Belgium,2,0,,,England,Third Place,St Petersburg,03:00 pm,2
+Sunday,2018-07-15,France,4,2,,,Croatia,Final,Moscow,04:00 pm,2

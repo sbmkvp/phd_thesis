@@ -106,3 +106,8 @@
 
 % \onehalfspacing
 % \renewcommand{\cftchapafterpnum}{\vspace{10pt}}
+
+\newcommand*\cleartoleftpage{%
+  \clearpage
+  \ifodd\value{page}\hbox{}\newpage\fi
+}
