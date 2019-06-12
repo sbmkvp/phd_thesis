@@ -1,17 +1,19 @@
+%===============================================================================%
 \chapter{Processing the Data into Footfall} \label{chapter:processing}
+%===============================================================================%
 
-%200 words
-At the end of the last chapter we were left with 3 sets of data.
-we also discussed the uncertainties present in them which need to be eliminated for converting to footfall.
-This chapter we would look at the process of converting the data into
-%250 words
-first we look at the nature of the data and appropriate tools.
+Chapter \ref{chapter:collection} explains the collection of 3 distinct Wi-Fi probes based datasets ranging from small controlled experiments to comprehensive national level project.
+It also details the various uncertainties, biases and challenges that are present in these datasets and possible approaches to solve them.
+Having established these, this chapter aims to device the toolkits and methods and combine them into a data processing pipeline to go through the data and convert them to estimation of ambient population or footfall at the locations they were collected.
 
-%300 words
-Then we look at methods to convert data into footfall.
+As the amount of data collected with Smart street sensor project is large from a conventional computing point of view, Section \ref{section:toolkit} starts with a review of `big data' and tries to set up a framework of evaluating the datasets from a `big data' perspective.
+Above 3 datasets were evaluated in each of their dimensions to understand their nature and the challenges posed in these dimensions.
+After evaluating the datasets, it goes on to a detailed review of tools and methods to deal with data of such size and picks out the ones which are relevant and feasible for this research.
+It concludes by putting together a complete bespoke toolkit which combines all the individual tools so that it can process the data in the most efficient way.
 
-%250 words
-Then we put both together to create a data pipeline which processes the raw data from SSS project into footfalls continuously.
+Section \ref{section:processing} explores the methods that can be used to 
+
+Finally in section \ref{section:pipeline}
 
 \cleardoublepage
 \input{chapters/41__data_toolkit}
