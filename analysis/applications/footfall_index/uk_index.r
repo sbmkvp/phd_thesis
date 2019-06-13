@@ -4,10 +4,8 @@ library(ggplot2)
 library(showtext)
 library(RPostgreSQL)
 library(RJSONIO)
-
 font_add('Helvetica', '/usr/share/fonts/OTF/Helvetica-Light.otf')
 font_add('Futura', '/usr/share/fonts/TTF/futura-poster-light.ttf')
-
 config <- fromJSON("../../config.json", simplify = FALSE)
 con <- dbConnect(dbDriver('PostgreSQL'),
                  dbname = config$dbname,
