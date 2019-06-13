@@ -24,3 +24,4 @@ data/
 thesis.pdf
 .~lock.*
 _minted-thesis/
+.DS_Store
