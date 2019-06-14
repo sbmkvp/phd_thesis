@@ -1,15 +1,15 @@
-%===============================================================================%
+%==============================================================================%
 \chapter{Applications and Visualisations} \label{chapter:application}
-%===============================================================================%
+%==============================================================================%
 
 This chapter serves as a gallery of possible applications that can arise from the data generated from the Smart street sensor project.
 As we saw in the chapter \ref{chapter:literature} availability of such granular, longitudinal data on movement and distribution of people at such spatial extent has numerous uses in various fields of study.
 In this chapter we first start by looking at the use of the data in understanding the broad footfall landscape of the United Kingdom deriving sample insights on how retail footfall in UK has been performing for the past couple of years.
 The sample analysis were done on various levels from National index to individual locations.
 
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 \section{Footfall Landscape of United Kingdom}
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 Figure \ref{figure:applications:footfall:index} shows the weekly footfall index of UK through 2017 to 2018 which in addition to showing larger trends also shows sudden short term changes such as week during the storm in Feb 2018. Figure \ref{figure:applications:cities:change} shows the spatial distribution of the footfall change in UK between these two years across cities showing the growth and decline of retail in the cities of West Bromwich and Ipswich. These changes could be further looked at in detail temporally as shown in figure \ref{figure:applications:cities:month}. The difference in even smaller intra day patterns showing the nature of the economies of cities can also be inferred by their data profiles as shown in figure \ref{figure:applications:cities:month}.
 
 \begin{figure*}
@@ -18,7 +18,7 @@ Figure \ref{figure:applications:footfall:index} shows the weekly footfall index 
   \label{figure:applications:footfall:index}
 \end{figure*}
 
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 \cleartoleftpage
 \begin{figure*}
   \forceversofloat
@@ -41,7 +41,7 @@ Figure \ref{figure:applications:footfall:index} shows the weekly footfall index 
   \label{figure:applications:cities:month}
 \end{figure*}
 
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 \cleartoleftpage
 \newgeometry{
   left=20mm,
@@ -64,7 +64,7 @@ Figure \ref{figure:applications:footfall:index} shows the weekly footfall index 
 \end{figure*}
 \restoregeometry
 \clearpage
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 
 \begin{figure*}
   \includegraphics[trim={0 10 0 0},clip]{images/applications-location-profiles.png}
@@ -72,9 +72,9 @@ Figure \ref{figure:applications:footfall:index} shows the weekly footfall index 
   \label{}
 \end{figure*}
 
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 \section{Event Detection}
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 
 When we look at the footfall longitudinally across locations we can uncover wide range of information about the context which resulted in the patterns in the footfall.
 Figure \ref{figure:applications:cardiff} shows the normalised weekly footfall of 10 different locations across Cardiff for two years 2017 and 2018.
@@ -109,9 +109,9 @@ These examples show the importance of footfall data in detecting events. Even a 
 \end{figure}
 
 
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 \section{Pedestrian Flows}
-%-------------------------------------------------------------------------------%
+%------------------------------------------------------------------------------%
 Detecting general trends in flow of people between spatial locations is neither obvious nor an trivial task due the high cost of capturing these movements without compromising the privacy of the users since the primary way to collect such detailed data involves handling data of their precise locations.
 This project specifically removes any such information because of MAC randomisation and hashing and hence seems like it might not be suitable for such studies on human mobility.
 Alternatively, this problem can be solved by examining the movement of people in a Smart Street Sensors network at a fine spatial and temporal resolution using a novel methodology to the field of Big Data using mathematical models from information theory  - Transfer Entropy.
