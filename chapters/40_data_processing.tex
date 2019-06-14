@@ -2,18 +2,32 @@
 \chapter{Processing the Data into Footfall} \label{chapter:processing}
 %===============================================================================%
 
-Chapter \ref{chapter:collection} explains the collection of 3 distinct Wi-Fi probes based datasets ranging from small controlled experiments to comprehensive national level project.
-It also details the various uncertainties, biases and challenges that are present in these datasets and possible approaches to solve them.
-Having established these, this chapter aims to device the toolkits and methods and combine them into a data processing pipeline to go through the data and convert them to estimation of ambient population or footfall at the locations they were collected.
+Chapter \ref{chapter:collection} detailed the procedure through which three distinct Wi-Fi probes based datasets were collected ranging from small controlled experiments to comprehensive national level project.
+It also detailed the various uncertainties, biases and challenges that are present in these datasets and possible approaches to solve them.
+Having established these, this chapter aims to devise the toolkits and methods to deal with the datasets and combine them into a data processing pipeline which can to go through the data and convert them to estimation of ambient population or footfall at the locations they were collected.
 
 As the amount of data collected with Smart street sensor project is large from a conventional computing point of view, Section \ref{section:toolkit} starts with a review of `big data' and tries to set up a framework of evaluating the datasets from a `big data' perspective.
-Above 3 datasets were evaluated in each of their dimensions to understand their nature and the challenges posed in these dimensions.
-After evaluating the datasets, it goes on to a detailed review of tools and methods to deal with data of such size and picks out the ones which are relevant and feasible for this research.
-It concludes by putting together a complete bespoke toolkit which combines all the individual tools so that it can process the data in the most efficient way.
+A brief review was conducted on the topic of 'big data and big data tools' which established a framework for investigating datasets and measuring the extent of 
+`bigness' in them.
+Using this framework, the datasets were evaluated in each of their 5 dimensions to understand their nature and the challenges posed in these dimensions.
+We find that the Wi-Fi based datasets are 'medium data' which can benefit from customised toolkits which increases the efficiency.
+After evaluating the datasets, a detailed review of tools and methods to deal with big data was conducted and the ones which are relevant and feasible for further research were picked out.
+Finally a complete bespoke `toolkit' was created by pulling together and connecting all the individual tools so the data can be processed in the most efficient way.
 
-Section \ref{section:processing} explores the methods that can be used to 
+Having designed a toolkit, Section \ref{section:processing} explores the methods that can be used by this toolkit to clean and process the data.
+The major uncertainties in these datasets which were identified in the last chapter were looked in to further with the specific focus on how much they affect the datasets.
+We identify - the uncertain field of measurement and MAC randomisation as the biggest sources of data.
+We discussed the ways in which these problems could be solved and design methods to solved them.
+We propose signal strength and its analysis as solution for enforcing the field of measurement and sequence numbers and their analysis as solution for figuring out unique devices even when they were randomised. 
+We formalise these ideas into algorithms and use these on the datasets one by one to find which ones are feasible and eliminating the ones that cannot help.
+Both the methods are tested extensively on the data collected from the initial survey and the pilot studies and the corresponding effectiveness in reducing errors were measured.
+Finally, an alternative method to adjust long term errors quickly and efficiently in large projects such as Smart street sensors was devised and tested to provide us with footfall estimations of sufficient quality.
 
-Finally in section \ref{section:pipeline}
+Finally in section \ref{section:pipeline} we combine these tools and method together to make a data pipeline which takes in the large amount of the continuous inflow of data from the smart street sensor.
+This pipeline downloads, cleans, processes and stores the data.
+It also post-processes the data into footfall for further analysis.
+The performance and the efficiency of the pipeline is briefly discussed and compared with traditional methods.
+Thus completing our journey from raw Wi-Fi probe requests data to an informed estimate of footfall at retail location all around UK.
 
 \cleardoublepage
 \input{chapters/41__data_toolkit}
