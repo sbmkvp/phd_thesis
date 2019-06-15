@@ -2,7 +2,7 @@
 \chapter{Collecting Wi-Fi Data}\label{chapter:collection}
 %==============================================================================%
 
-From the literature review in Chapter \ref{chapter:literature}, we observed that  out of all the technologies discussed, Wi-Fi seems to be the most promising one.
+From the literature review in Chapter \ref{chapter:literature}, we observed that  of all the technologies discussed, Wi-Fi seems to be the most promising one.
 We observed the advantages of Wi-Fi based data collection as,
 
 \begin{itemize}[rightmargin=2em, leftmargin=2em]
@@ -15,51 +15,52 @@ We observed the advantages of Wi-Fi based data collection as,
   \item Scalability to cover study large areas.
 \end{itemize}
 
-Though it has its pitfalls in terms of intrusiveness resulting in risk to the privacy of the users, bias and uncertainty, Wi-Fi provides us with a strong base framework for fulfilling the opportunity to design and collect a large, long term and granular dataset which can be used for studying human activity.
+Though it has its pitfalls in terms of intrusiveness resulting in risk to the privacy of the users, as well as bias and uncertainty, Wi-Fi provides us with a strong base framework for fulfilling the opportunity to design and collect a large, long-term and granular dataset which can be used for studying human activity.
 
 In this chapter, we continue our research by looking at Wi-Fi technology closely to understand how it can be used to achieve the aforementioned goal.
 We start by looking at the Wi-Fi specification \cite{ieee2016} and focus on the information available within the Wi-Fi probe requests.
 We then design and implement a series of data collection exercises which collect probe requests in various location with increasing level of complexity for analysis.
 We explore these datasets briefly to understand the usefulness of each set of information present in the probe requests along with the uncertainties in them.
-We also introduce `Smart Street Sensor' project - a national scale effort for collecting Wi-Fi data at high streets across United Kingdom.
-Finally we summarise the data collection procedure with a detailed look at the each set of uncertainty in these datasets and draw conclusions on further lines of research into alleviating the uncertainty and noise so that they can be used to estimate human activity with confidence.
+We also introduce the `Smart Street Sensor' project - a national scale effort for collecting Wi-Fi data at high streets across the United Kingdom.
+Finally we summarise the data collection procedure with a detailed look at the each set of uncertainty in these datasets and draw conclusions for further lines of research into alleviating the uncertainty and noise so that the datasets can be used to estimate human activity with confidence.
 
 %------------------------------------------------------------------------------%
 \section{Wi-Fi as a Source of Data} \label{wifi-as-source-of-data}
 %------------------------------------------------------------------------------%
 
-Since the formation of `Wi-Fi alliance' in 1999 to hold the trademark, Wi-Fi (Wireless Fidelity) has become synonymous to the IEEE 802.11 standard based internet connectivity.
+Since the formation of `Wi-Fi alliance' in 1999 to hold the trademark, Wi-Fi (Wireless Fidelity) has become synonymous with the IEEE 802.11 standard based internet connectivity.
 Today almost almost all devices use this standard to create and connect to local area networks wirelessly.
 Due to its high fidelity and immense throughput up to 1 Gigabits per second, Wi-Fi has become the choice of technology for wirelessly transferring large amount data through networks.
-The adoption of `smart' mobile devices - Smartphones, across the world has further cemented its position as on of the most ubiquitous technology which every one uses every day.
-In developed economies such as UK this has never been more true and having an infrastructure to serve and receive Wi-Fi signal greatly affects the ability to connect to internet in many areas.
-With close to 87\%\cite{deloitte2018} of the population carrying one or more of these smart devices with Wi-Fi capability, provision of Wi-Fi as a service has become essential for any place making Wi-Fi one of the most used technology to access internet along with mobile networks.
+The adoption of `smart' mobile devices Smartphones across the world has further cemented Wi-Fi's position as one of the most ubiquitous technologies which many people use every day.
+In developed economies such as the UK, this has never been more true and having an infrastructure to serve and receive Wi-Fi signals greatly affects the ability to connect to the internet in many areas.
+With close to 87\%\cite{deloitte2018} of the population carrying one or more of these smart devices with Wi-Fi capability, provision of Wi-Fi as a service has become essential for any place, thus making Wi-Fi (alongside mobile networks) one of the most used technologies to access the internet.
 
 Though the end goal of internet connectivity is the same, Wi-Fi greatly differs from internet connectivity through mobile networks such 3G/4G.
-The first difference is the range of the network, unlike mobile infrastructure where single tower can serve mobile phones for miles, Wi-Fi is designed to be and extension of the wired networking creating short range network with a range up to 20 meters.
-Due to this low-range and high throughput property, Wi-Fi is used primarily as a distributed infrastructure operated by owners of premises as a means to provide high speed connectivity to the users of these buildings unlike the large, national level, monolithic infrastructure that runs the mobile network.
-This creates a situation where urban areas are population by hundreds and thousands of these small area networks to which any mobile device can connect to.
-Unlike the mobile service providers and its customers, these Wi-Fi networks and mobile devices don't trust each other with specialised hardware.
-This creates a need for an introduction procedure - a sort of handshake between them where they exchange information about themselves. 
-Moreover since these mobile devices constantly move across these Wi-Fi networks, it became necessary for them to carry out these `handshake' process regularly and frequently so that they can traverse between the networks without loss of connectivity.
-This need for constant look out for new networks is solved by the `Probe requests'.
+The first difference is the range of the network: unlike mobile infrastructure where a single tower can serve mobile phones for miles, Wi-Fi is designed to be and extension of the wired networking, thus creating short range network with a range of 20 meters.
+Due to this low-range and high throughput property, Wi-Fi is used primarily as a distributed infrastructure operated by owners of premises as a means to provide high speed connectivity to the users of these buildings as opposed to the large, national level, monolithic infrastructure that runs the mobile network.
+This creates a situation where urban areas are populated by hundreds and thousands of these small area networks to which any mobile device can connect to.
+Unlike the mobile service providers and their customers, these Wi-Fi networks and mobile devices don't trust each other with specialised hardware.
+This creates a need for an introduction procedure - a sort of handshake between them - whereby they exchange information about themselves. 
+Moreover since these mobile devices constantly move across these Wi-Fi networks, it becomes necessary for them to carry out these `handshake' processes regularly and frequently so that they can traverse between the networks without loss of connectivity.
+This need for constant lookouts for new networks is solved by the `Probe requests'.
 
-
+%------------------------------------------------------------------------------%
 \subsection{Probe requests}
 %------------------------------------------------------------------------------%
 
-There are numerous iterations and versions of the IEEE 802.11 standards but essentially all of them operate by exchanging packets of information called `datagrams' or `frames'.
-These frames have the information that is being exchanged along with the meta data about the information and information on the device that is sending them.
-Some of these frames have special purposes and one such purpose is the 'network discovery'.
+There have been numerous iterations and versions of the IEEE 802.11 standards but essentially all of them operate by exchanging packets of information called `datagrams' or `frames'.
+These frames have the information that is being exchanged along with the meta data about information and information on the device that is sending them.
+Some of these frames have special purposes: one such purpose is the `network discovery'.
 The frames used for this purpose by the mobile device and the Access Point (AP) are called the 'probe request' and `probe response' respectively.
 Though the actual information exchanged between these devices are usually encrypted, these probe requests are unencrypted and are accessible to any device which is listening.
 The structure of a probe request is shown in Figure \ref{figure:collection:proberequest}.
 
-We can observe that the fixed part of the frames which has to be present in all of them are in the front showing the identity of the mobile device generating the frame along with one which is receiving the frame.
-There are additional meta data such as sequence number of the frame, controls denoting where the frame starts and ends.
+We can observe that the fixed part of the mandatory frames are in the front; these show the identity of the mobile device generating the frame along with the identity of the AP that is receiving the frame.
+There are additional meta data such as the sequence number of the frame, and controls denoting where the frame starts and ends.
 There is also a dearth of variable information which can be used to transfer data.
-For probe requests the destination device is set as `broadcast' and the variable part usually contains the payload but for probe request frames, this contains `information elements' which has data regarding the capabilities of the device organised in units known as 'tags' or 'parameter sets'.
-The significant information present in a probe request is detailed in Table \ref{table:collection:proberequest} and full list of information available from a probe request is shown in the form of a sample probe request in appendix \ref{appendix:sampleprobe}
+For probe requests, the destination device is set as `broadcast' and the variable part usually contains the payload.
+For probe request frames, this payload consists of `information elements' which has data regarding the capabilities of the device organised in units known as 'tags' or 'parameter sets'.
+The significant information present in a probe request is detailed in Table \ref{table:collection:proberequest} and a full list of information available from a probe request is shown in the form of a sample probe request in appendix \ref{appendix:sampleprobe}
 
 \begin{table}
   \footnotesize
@@ -90,7 +91,7 @@ The significant information present in a probe request is detailed in Table \ref
   \label{table:collection:proberequest}
 \end{table}
 
-Essentially the above information is sent over and over by the mobile device expecting a reply from the APs around it so that it can keep a list of networks it can connect to.
+Essentially the above information is sent over and over by the mobile device which expects a reply from nearby APs so that it can keep a list of networks it can connect to.
 This process is usually carried out even when the Wi-Fi is switched off in the operating system so that the connection times are faster once it is switched on.
 Moreover operating systems use the replies they get for these probe requests and triangulate the device location with respect to the APs with known location information thus acting as a quick and easy localisation solution which along with the above makes this probing process almost non-stop. 
 
@@ -101,33 +102,34 @@ Moreover operating systems use the replies they get for these probe requests and
 \end{figure*}
 \marginnote[0.75cm]{\textit{Source: IEEE 802.11 specification}}
 
-
+%------------------------------------------------------------------------
 \subsection{MAC address}
 %------------------------------------------------------------------------------%
-Media Access Control (MAC) address is a 12bit unique identifier assigned to a device in a network, it is similar to the Internet Protocol (IP) address but is assigned at the interface controller level and are usually assigned by the manufacturer of the device.
-Although the IP address of a mobile device might change regularly, the MAC address may remain just the same even for its life time making it akin to a unique identifier of a device and much more significant.
-It has two parts the first 6bits are known as Organisationally Unique Identifier (OUI) and gives us information about the manufacturer of the network card.
-Organisations need to register with IEEE to be assigned an OUI which they can use to generate a full MAC address.
-The second 6bit is the device part of the MAC address which is unique for the device from the manufacturer.
+Media Access Control (MAC) address is a 12bit unique identifier assigned to a device on a network.
+It is similar to the Internet Protocol (IP) address but assigned at the interface controller level by the manufacturer of the device.
+Although the IP address of a mobile device might change regularly, the MAC address usually remains the same for the lifetime of the device making it akin to a unique identifier of a device and therefore highly significant.
+The MAC address has two parts: the first 6bits are known as the Organisationally Unique Identifier (OUI) and gives us information about the manufacturer of the network card.
+Organisations need to register with IEEE to be assigned an OUI which they can use to generate a full MAC address;
+the second 6bits are unique to device itself.
 Together both form the full MAC address which is unique to every device globally.
-The biggest draw for using Wi-Fi for mobility analysis comes from the fact that this globally unique ID is sent out regularly by mobile devices and can be collected passively through probe requests.
+The biggest draw for using Wi-Fi for mobility analysis comes from the fact that this globally unique identification is sent out regularly by mobile devices and can be collected passively through probe requests.
 
 As we saw in our literature review, this also creates an immense risk in terms of infringement of privacy both for the manufacturer and the user.
-Manufacturers of critical hardware components who do not want their unique MAC address to be publicised usually opt for registering a `private' OUI which will not be given out to other manufacturers and will not be published publicly.
-Users (their mobile devices) who don't want to be tracked using their MAC addresses use a temporary MAC address which is unique only to the local network - `local' OUI rather than using a `global' OUI for unencrypted communications and switch to their original MAC address when a trusted encrypted connect has been established.
+Manufacturers of critical hardware components who do not want their unique MAC address to be publicised usually opt for registering a `private' OUI which will be neither given out to other manufacturers nor published publicly.
+Users (their mobile devices) who don't want to be tracked using their MAC addresses use a temporary MAC address which is unique only to the local network - a `local' OUI rather than using a `global' OUI for unencrypted communications and switch to their original MAC address when a trusted encrypted connect has been established.
 This lack of uniqueness can be inferred from the second character of the MAC address being E, A, 2 or 6.
-Though this provides reasonably better privacy to the mobile users it also limits our ability to just use the MAC address from the probe requests as previous studies conducted with Wi-Fi.
-It is important to note that this is not a security measure rather an exception made available by IEEE 802.11 for assigning temporary addresses in ad hoc networks which has been used by most modern operating systems.
+Though this provides reasonably better privacy to the mobile users it also limits our ability to use the MAC address from the probe requests as in previous studies conducted with Wi-Fi.
+It is important to note that this is not a security measure, but rather an exception made available by IEEE 802.11 for assigning temporary addresses in ad-hoc networks which has been used by most modern operating systems.
 
 Essentially, there are two types of MAC addresses based on whether they have a public OUI or a private OUI.
 This distinction does not affect their uniqueness or usefulness in mobility research but hinders us from knowing about the device from the MAC address.
 There are also two types of MAC addresses based on them being unique globally or just in the local network.
-This distinction affects the feasibility of using them for device tracking or for studying movement of the users.
+This distinction affects the feasibility of using the MAC addresses for device tracking or for studying movement of the users.
 
-To summarise the above, we looked at the IEEE 802.11 standard to examine the significance and nature of the `probe requests' which are broadcast by mobile devices constantly.
-We identified information present in these probe requests which are relevant to our study and examined the uniquely identifier MAC address field in detail.
-We see that though MAC address provides a way to globally identify a mobile device from probe requests it generates, this field can be often masked by using locally assigned addresses.
-We also observe that there are other relevant information which when combined can provide us an alternative to just using the MAC addresses.
+To summarise the above, we looked at the IEEE 802.11 standard to examine the significance and nature of the `probe requests' which are constantly broadcast by mobile devices.
+We identified information present in these probe requests which is relevant to our study and examined the uniquely identifiable MAC address field in detail.
+We found that though a MAC address provides a way to globally identify a mobile device from the probe requests it generates, this field can often be masked by using locally assigned addresses.
+We also observe that there is other relevant information which, when combined, can provide us with an alternative to solely using MAC addresses.
 
 %==============================================================================%
 \input{chapters/31__initial_experiments.tex}
