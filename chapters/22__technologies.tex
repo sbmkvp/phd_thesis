@@ -86,7 +86,7 @@ This makes collection of data directly from the devices using the sensors on the
 \subsection{Mobile Sensors}
 %------------------------------------------------------------------------------%
 
-The most prominent sensors and capabilities present in mobile devices that can be used for distributed urban sensing are Cellular radio, Bluetooth, Wi-Fi, GPS, accelerometer and compass \cite{lane2010, zhu2018}.
+The most prominent sensors and capabilities present in mobile devices that can be used for distributed urban sensing are Cellular radio, Bluetooth, Wi-Fi, GPS, accelerometer and compass \cite[-5cm]{lane2010, zhu2018}.
 Since cellular radio is managed by the cellular network and covered in mobile network data, we explore the research done with other sensors.
 In contrast to planned actively collected data, data passively collected via a distributed network of general purpose devices tends to be larger and more temporally dynamic.
 For example, an organised survey conducted every month to understand interpersonal communications between people in a team of 50 will result in a 2500 records a month.
@@ -160,11 +160,11 @@ Because of the security and privacy risks posed by the Wi-Fi protocol’s use of
 The randomisation of MAC addresses has become more mainstream in mobile devices with the introduction of it as a default operating system behaviour in iOS 8 by Apple Inc.
 Since MAC randomisation is not a perfect solution \citep{mathieucunche2016} there have been numerous attempts to fingerprint unique devices from the randomised anonymous information present in the probe request frames for the purposes of trajectory tracking and access point security.
 The methods used are decomposition of OUIs where detailed device model information is estimated by analysing an already known dataset of OUIs \citep{martin2016}; Scrambler attack where a small part of the physical layer specification for Wi-Fi is used \citep{bloessl2015}; and finally, the timing attack where the packet sequence information present in the probe request frame is used \citep{matte2016, cheng2016}.
-A combination of these methodologies has been proven to produce de-anonymised unique device information from randomised MAC addresses \citep{vanhoef2016}.
+A combination of these methodologies has been proven to de-anonymise randomised MAC addresses \citep{vanhoef2016}.
 In addition to tracking, Wi-Fi probe requests can be aggregated to uncover the urban wireless landscape \citep{rose2010} and used to reveal human activity at large scales \citep{qin2013}, pedestrian numbers in crowds \citep{schauer2014, fukuzaki2015} and also counting people in hyper local scales such as queues \citep{wang2013}.
 With enough infrastructure we can aim to generate a real-time census of the city \citep{kontokosta2016} and also predict the amount of time a device will spend around the sensor as well \citep{manweiler2013}.
 Similar to GPS data this can be used as an additional control layer for interpolation techniques such as map merging \citep{erinc2013}.
-A comparison of various approaches was done by \cite[-3cm]{pinelli2015} where through experiments on a telecom operator dataset, it was showed that using network-driven mobile phone location data is more advantageous compared to the widely used event-driven ones.
+A comparison of various approaches was done through experiments on a telecom operator dataset, where it was showed that using network-driven mobile phone location data is more advantageous compared to the widely used event-driven ones\cite[-3cm]{pinelli2015}.
 
 %------------------------------------------------------------------------------%
 \subsection{Consumer data}
