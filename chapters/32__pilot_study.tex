@@ -55,13 +55,6 @@ Five retail locations were chosen in consultation with the data partner for the 
 The sensors were installed at the locations in a phased manner and multiple manual counts were conducted at each location for 30 minute intervals.
 The locations and their descriptions are summarised in Table \ref{table:collection:pilot:locations}.
 
-\begin{figure*}
-  \centering
-  \includegraphics[trim={20 20 20 20},clip, width=\textwidth]{images/pilot-study-locations.png}
-  \caption{Pilot study locations in London along with their corresponding sensor installation configurations.}
-  \label{figure:collection:pilot:locations}
-\end{figure*}
-
 \begin{itemize}
   \item \textit{Location 1} is at the Camden high street in front of a mobile shop behind a bus stop. This location was chosen specifically because of the large amount of dwelling population at the bus stop and the stationary mobile devices inside the shop which is expected to create a large amount of noise along with the high footfall in the high street. The challenge here is to isolate the footfall from two sources of noises which are at equal distance from the sensor.
   \item \textit{Location 2} is at a square with a very low footfall but has a large amount of seating of the restaurant all around it. The challenge here is similar to that of the previous location but just that the volume of footfall is low which makes it one of the hardest locations for accurately estimating footfall.
@@ -71,19 +64,25 @@ The locations and their descriptions are summarised in Table \ref{table:collecti
 \end{itemize}
 
 \begin{figure*}
+  \centering
+  \includegraphics[trim={20 20 20 20},clip, width=\textwidth]{images/pilot-study-locations.png}
+  \caption{Pilot study locations in London along with their corresponding sensor installation configurations.}
+  \label{figure:collection:pilot:locations}
+\end{figure*}
+
+The sensors were operational through out February and March, while manual counts were conducted in these locations in half hour sessions on at least two different days.
+The schedule of the data collection and the days at which the manual counting were done are shown in Figure \ref{figure:collection:pilot:schedule}.
+The survey was conducted for almost 2.5 months and about 33.5 million records were recorded which takes up to 1.8 GB of space on disk when encoded as text.
+During the manual counts around 10,000 people were counted walking past these sensors.
+
+\begin{figure*}
   \includegraphics{images/pilot-study-schedule.png}
   \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
   \label{figure:collection:pilot:schedule}
 \end{figure*}
 
-The sensors were operational through out February and March, while manual counts were conducted in these locations in half hour sessions on at least two different days.
-The schedule of the data collection and the days at which the manual counting were done are shown in Figure \ref{figure:collection:pilot:schedule}.
-
-The survey was conducted for almost 2.5 months and about 33.5 million records were recorded which takes up to 1.8 GB of space on disk when encoded as text.
-During the manual counts around 10,000 people were counted walking past these sensors.
 A detailed account of the volume and velocity of data collected at these locations were given in Table \ref{table:collection:pilot:locations}.
-The dataset collected was used extensively to develop and test the signal strength based filtering and sequence number based clustering methodology which are detailed in the Section \ref{section:device-fingerprinting}.
-
+The dataset collected was used extensively to develop and test the signal strength based filtering and sequence number based clustering methodology which are detailed in the Section \ref{section:processing}.
 \begin{table} \footnotesize
 \begin{center} \begin{tabular}{clllrr} \toprule
 Id & Location & Type & Installation notes & Probes\textsuperscript{*} & Footfall\textsuperscript{**}\\

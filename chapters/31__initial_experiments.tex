@@ -8,8 +8,7 @@ We then look at the collected probe requests, examine them in detail to look at 
 The aim of these experiments is to know more about the probe requests data and pick out the uncertainties and opportunities present in them.
 The objectives here are,
 
-\begin{enumerate}
-  \setlength{\itemindent}{2em}
+\begin{enumerate}[leftmargin = 2em, rightmargin=2em]
   \itemsep-0.25em
   \item Design a simple method to collect probe requests.
   \item Select locations with different levels of complexity.
@@ -48,7 +47,7 @@ tshark \
 It is important to note that this script only collects the particular data from the probe requests which we found to be relevant to our needs. 
 The fields marked with \textit{-e} are the ones which were collected and they correspond to the information in the probe requests as follows,
 
-\begin{enumerate}[rightmargin = 2em, leftmargin = 2em]
+\begin{enumerate}[rightmargin = 0.5em, leftmargin = 0.5em]
   \itemsep-0.25em
   \item \textit{frame.time} - Time stamp when the packet was received in microseconds.
   \item \textit{frame.len} - Total length of the packet in bytes.
@@ -73,7 +72,7 @@ The other rooms in the house had an iPhone from Apple running iOS9 and an Androi
 The script was left running on the laptop on 15 Nov 2015 from 19:44 to 21:15 with an unexpected failure of approximately 15 minutes in between from 19:55 to 20:10 approximately.
 In this duration, we collected around 3000 probe requests at the rate of 38 requests per minute.
 
-\begin{marginfigure}
+\begin{marginfigure}[-5cm]
   \includegraphics{images/home-total-count.png}
   \caption{Number of probe requests collected every minute on 15 October 2017}
   \label{figure:collection:home:total}
@@ -97,6 +96,13 @@ Initially we assumed that the randomised probe requests won't have public OUIs w
 But when we looked at the probes to MAC ratio of Google and Compex we realised that even the local MAC addresses could be registered public. 
 This showed even when the OUI has been resolved into a vendor name, the original needs to be preserved for analysis.
 Samsung is a special case since we know from the specification that whilst their devices do not randomise the addresses, they also have many unique addresses which need to be taken into account.
+
+We observe 24 different vendors in the data. Even if we assume one device per vendor, it is impossible for the sensor to pick up 24 different devices without a significantly larger area of measurement than we expected.
+We need a way to filter out this noise which is generated from the edge of the field of measurement.
+This is where the signal strength shows good promise.
+Looking at the Table \ref{table:collection:proberequests} we can see that two of these vendors show significantly low average signal strength - Google and Fn-LinkT, which can easily correspond to the two devices present in the room.
+This can be explained by the decay of the signal as it passes through the walls.
+In our simple example, we can filter out almost all the noise just by using the signal strength of the probe requests.
 
 \begin{table}
 \footnotesize
@@ -137,13 +143,6 @@ Samsung is a special case since we know from the specification that whilst their
 \caption{Number of unique values present in each field captured from the probe requests aggregated by the vendor names}
 \label{table:collection:proberequests}
 \end{table}
-
-We observe 24 different vendors in the data. Even if we assume one device per vendor, it is impossible for the sensor to pick up 24 different devices without a significantly larger area of measurement than we expected.
-We need a way to filter out this noise which is generated from the edge of the field of measurement.
-This is where the signal strength shows good promise.
-Looking at the Table \ref{table:collection:proberequests} we can see that two of these vendors show significantly low average signal strength - Google and Fn-LinkT, which can easily correspond to the two devices present in the room.
-This can be explained by the decay of the signal as it passes through the walls.
-In our simple example, we can filter out almost all the noise just by using the signal strength of the probe requests.
 
 We then look at all the other information we collected from the probe requests and see how they compare to the MAC address for aggregating.
 We observe that frame length and duration provides better aggregation into unique values than MAC address when they are randomised, as seen with Compex and Google.
@@ -215,6 +214,11 @@ With this information we looked at the second character of the OUI and categoris
 We then compared them to the vendor names to find out if any manufacturers other than Google have registered OUIs in the local range.
 Figure \ref{figure:collection:ucl:treemap} shows the distribution of vendors within both the local and global range of OUIs in terms of the number of probe requests collected.
 
+We observed that `Google' is the only registered public OUI found in the public range. 
+We also noticed that the percentage of global MAC addresses collected was unusually large - 82\%.
+This can be explained by the behaviour of the Apple devices while randomising the MAC addresses. 
+Apple phones are known to randomise their addresses while probing for access points only when they are not connected to a Wi-Fi network already as documented by \citet{vanhoef2016}.
+
 \begin{figure}
   \includegraphics{images/ucl-local-treemap.png}
   \caption{Composition of probe requests in terms of the vendor names and their type}
@@ -222,10 +226,6 @@ Figure \ref{figure:collection:ucl:treemap} shows the distribution of vendors wit
 \end{figure}
 \marginnote[-5cm]{\textit{Based on the number of probe requests} }
 
-We observed that `Google' is the only registered public OUI found in the public range. 
-We also noticed that the percentage of global MAC addresses collected was unusually large - 82\%.
-This can be explained by the behaviour of the Apple devices while randomising the MAC addresses. 
-Apple phones are known to randomise their addresses while probing for access points only when they are not connected to a Wi-Fi network already as documented by \citet{vanhoef2016}.
 Since most of the members of UCL have access to the `eduroam' network and are connected to it whilst on the campus, most of the Apple devices we captured haven't randomised their addresses.
 This made this dataset heavily biased and not suitable for testing device finger-printing methods, but it does give us an opportunity to examine the nature of probe requests generated by Apple devices in particular.
 
@@ -287,12 +287,6 @@ The surveyor positioned himself at the front of a store while carrying the backp
 The sensor was kept as close to the store window as possible, and the manual count was done as a cordon count in front of the store.
 The location where the data was collected and the configuration of the sensor with respect to the street is shown in Figure \ref{figure:collection:oxst:config}.
 
-\begin{figure}
-  \includegraphics[trim={0 0 0 0},clip]{images/oxst-counts.png}
-  \caption{Comparison of the counts from aggregated probe requests and MAC addresses with manual counts at Oxford street, London.}
-  \label{figure:collection:oxst:initial}
-\end{figure}
-
 The manual counting was done using a node-js base command line app running under Termux on an Android phone.
 The application is detailed in section \ref{appendix:manualcount} which counts the number of times a key has been pressed on the phone.
 This has an additional advantage as the phone used is kept unconnected to any Wi-Fi and with the screen on for counting, emits probe requests at regular intervals.
@@ -302,7 +296,13 @@ The Wi-Fi sensor captured approximately 60,000 probe requests during the half ho
 Initial exploration of the data is shown in Figure \ref{figure:collection:oxst:initial}, where we compared the sensor aggregated counts to the manual counts of footfall.
 It shows that the data has a large amount of noise making it a suitable candidate for testing. 
 Moreover, with 55\% of local MAC addresses, it is free from a high concentration of global MAC addresses as we saw in the data from UCL corridors.
-This dataset is extensively used in the development of the filtering and cleaning methods and which are discussed in detail in Section \ref{section:device-fingerprinting}.
+This dataset is extensively used in the development of the filtering and cleaning methods and which are discussed in detail in Section \ref{section:processing}.
+
+\begin{figure}
+  \includegraphics[trim={0 0 0 0},clip]{images/oxst-counts.png}
+  \caption{Comparison of the counts from aggregated probe requests and MAC addresses with manual counts at Oxford street, London.}
+  \label{figure:collection:oxst:initial}
+\end{figure}
 
 In this section, we saw the design, implementation and initial results of small experiments we conducted to understand the nature of the probe requests and the opportunities they provide us with.
 We identified useful information in the probe requests and discarded the ones which were not useful
