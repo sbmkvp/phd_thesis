@@ -1,33 +1,48 @@
+%==============================================================================%
 \chapter{Discussion and Conclusions}
+%==============================================================================%
+In the past 30 years there have been an immense change in the way data concerting distribution and dynamics of human population are generated, collected and consumed.
+Rather than being a top-down, structured designed endeavour, data generation and collection has become a bottom-up procedure where data were created as a result of day to day activities of people and are collected, cleaned, and  aggregated into information.
+There have been a significant volume of research on identifying such data sources and use them for various purposes in both academia and industry.
+As these data sources got more distributed and comprehensive, the concern to protect user privacy increased as well.
+This thesis aims to work in between these two the areas of research and the corresponding opportunities present in them.
+This thesis identifies Wi-Fi probe requests as a source of data from which information on ambient population and behaviour - especially footfall - could be extracted, and solves the problem of inferring accurate footfall information without using personally identifiable information of the users.
 
-Sentient technologies make measurement of the human activities that are the life blood of the smart city possible.
-Yet the data that they harvest are frequently relevant only to the sub-groups within society that avail themselves of particular goods and services – such as social media applications, transport modes or retail offers.
-In each of these cases, it is necessary to remember that the resulting data are by-products of consumer transactions, and will as a consequence, only pertain to users of the relevant goods or services.
-If the smart city is to be socially inclusive, it therefore follows that sentient data must represent entire populations, whether by design or by triangulation with external, population wide, sources.
-This is a non-trivial task, since the ebbs and flows of smart device-enabled citizens rarely pertain to any clearly defined population in either administrative or functional terms \citep{massam1975}.
+From the systematic literature review of around 350 academic publications, it was concluded that Wi-Fi is the most suitable candidate for the technology that can be used to collect data on human presence and movement at a national level.
+It was found to be the scalable, cheap, universal, and easy way to collect large amounts of granular such data without depending on any other infrastructure.
+The only shortcomings of projects using Wi-Fi technology are their inherent uncertainties and the leakage of MAC addresses - a globally unique, personally identifiable information which could be related back to the users relatively easily.
+Finally, two potential areas of research with opportunities for further study were identified:  Creating a standardised, cleaned, accurate and reliable footfall or ambient population from the Wi-Fi probe requests, and solving the specific issue of MAC address randomisation while cleaning and filtering Wi-Fi probe requests. 
+After studying the Wi-Fi specification to get a overall outline of the structure of Wi-Fi probe request, a set of small initial experiments were designed and executed to know more about them.
+It was found that the number of probe requests and the unique MAC addresses collected by a Wi-Fi sensor is far greater than the number of mobile devices in the immediate vicinity.
+The signal strength and sequence numbers are some of the important information that are present in the probe requests.
+Alongside these experiments a longer pilot study was also conducted to result in three distinct datasets.
+The small experiments collected in-depth data on probe requests at small areas for short intervals.
+The pilot study covered 5 locations across central London collected data for over two and a half months.
+Finally the Smart Street Sensor project which collected small set of data from probe requests at 1000 locations continuously for over 3.5 years.
 
-Our objective here has been to collect, rather than re-use, data on smart city functioning, by recording Wi-Fi probes and ultimately reconciling them with manual counts in order to infer ambient populations.
-The internal validation methodology set out in the technical sections of this paper, allied to external validation from pedestrian counts, renders the method inclusive and robust when recording activity levels in retail centres in real time.
-We have described the collection and processing of a novel consumer Big Dataset that enables valid measures of levels of footfall activity which has been scaled across a wide network of sensors \citep{cdrc2018}.
- In both conceptual and technical terms, it illustrates the ways in which passively collected consumer data can be ‘hardened’ to render them robust and reliable by using related procedures of internal and external validation.
+Before moving to cleaning and processing the data, this research undertook a comprehensive look at the nature of these datasets within the context of 'Big data and Big data tools' so that a framework for evaluating the 'bigness' of the datasets can be devised.
+With such a framework the Wi-Fi datasets were examined in all of their dimensions and found to be 'Medium data' at best.
+A review of big data tools was also carried out and the tools suitable for the Wi-Fi dataset were picked out and combined together to form a bespoke 'Medium data toolkit' for processing the Wi-Fi data as efficiently as possible.
 
-Internal validation addresses the issues of screening out device probes that do not indicate footfall, and the further screening of device probes to ‘fingerprint’ the effects of MAC randomization.
-It is important to note that the filtering process work based solely on the information present in the probe requests and their temporal distribution.
-This ensures that although the mobile devices were uniquely identified, there was no further personal data generated by linking the probe requests to the users of the mobile devices.
-This method essentially gave us a way to estimate the footfall in real-time without identifying or tracking the mobile devices themselves.
-External validation then entailed reconciling adjusted counts with the footfall observed at sample locations.
-This procedure makes it possible to generalise from locations at which manual footfall surveys are conducted to all others in the system, and to develop a classification of device locations that are more or less susceptible to noise generation.
+From the initial exploration, the major uncertainties identified in the data which needs to be solved by the cleaning and processing procedures are, range of the Wi-Fi sensor, differing frequency at which mobile devices emit probe requests, MAC address randomisation which masks the devices unique identification, increasing mobile devices ownership in the population over long-term, missing data from the failures in the sensors and collisions of MAC addresses when they are anonymised using cryptographic hashing.
+The collisions in hashed MAC addresses were found to be rare and inconsequential.The uncertainty regarding the range of the Wi-Fi sensor was found to cause noise in the data from outside the field of measurement and was solved by filtering out probe requests with low signal strength.
+This definition of 'Low' signal strength could be deduced dynamically for each location at each time interval using one dimensional clustering algorithms.
+The 'k-means' algorithm was found to be best suited for this purpose.
+The randomisation of MAC addresses lead to over-estimation of number of devices from set of probe requests while the uneven frequency of probe requests emitted by the mobile devices prohibit a simple universal factor for converting number of probe requests to number of devices.
+It was found that this uncertainty can be solved using a novel graph based methodology which uses the sequence numbers in the packets rather than the MAC address to uniquely identify the devices.
+When the sequence number is not available the uncertainty can be reduced for an interval by looking at the ratio of number of probe requests to the number of mobile devices in the probe requests without randomised addresses in that interval.
+These methods along with manual calibration were found to reduce the error in the estimation of footfall from Wi-Fi probe requests to almost 10\% at locations with ideal conditions.
 
-This Wi-Fi based footfall counting methodology offers a large number of applications and benefits for real time spatial analysis.
-Since Wi-Fi based sensors are inexpensive and the data model is scalable, it is possible to use this methodology for a large network of sensors to gather granular data on pedestrian footfall.
-A snapshot showing a week’s worth of precise footfall in area around Charring cross, London is shown in Figure \ref{main_study_counts} in order to demonstrate the potential for such a dataset.
-Projects such as SmartStreetSensors \citep{cdrc2018}, may utilise this methodology to overcome the challenges introduced by the implementation of MAC address randomisation.
+In addition to the above data cleaning techniques other processing were done to the probe requests dataset to remove further uncertainties.
+The missing data in the dataset could be interpolated using a Kalman smoothing based method for short term or a seasonally decomposed method for long term.
+Finally, the increasing mobile ownership was adjusted using manual counts for short term intervals and using a weekly adjustment factor 0.2\% for long term.
+Using all these methods for filtering, cleaning and adjusting Wi-Fi data, this thesis finalises a overall data processing pipeline for producing a clean, precise, accurate and continuous data on footfall across retail locations across the UK.
 
-The vicissitudes of MAC randomisation, and the provisions of privacy legislation such as EU General Data Protection Regulations mitigate against tracking individuals across the smart city using this approach.
- This can be modelled using agent-based methods \citep{heppenstall2011}, however.
-In our own research we have also begun to link store time-lagged till receipts to footfall, and have used such data to better understand the dwell times that characterise such different retail uses as stores with window displays and fast food restaurants.
- Such analysis not only provides a more nuanced picture of movement through retail areas, but also enables valorisation of micro sites within retail centres.
-In the UK, for example, this is of immediate practical importance in evaluating business rates on properties, and has still wider implications for the setting of retail unit rental values.
-There are obvious extensions to understanding the ebbs and flows of activities in the 24-hour smart city such as understanding urban mobility \citep{gariazzo2019} and conceptualising them with a people dimension \citep{nam2011}.
+Finally this thesis provides a gallery of examples showing the possible use of such granular and continuous data on footfall on a national level.
+The data were used to devise a 'footfall index' at various levels - national, city, area and micro site locations showing how the retail related footfall have been distributed in the UK and how this distribution has been changing over time in high granularity both spatially and temporally.
+It has been demonstrated that this information on footfall can be used as a clue for knowing the form and function of a place and trace the changes it has undergone over time as well.
+It was also demonstrated two sets of examples, that real-world events could be detected from looking at the anomalies in the footfall volumes at locations.
+Finally, it was also demonstrated that such detailed and continuous footfall volume information at locations could be used to predict or estimate flow of pedestrians between them by just looking at the changes in these volumes thus providing a way to understand the pedestrian flow in cities without actually tracking individuals.
 
-More broadly still, extensions to this strand of smart city research are likely to seek to differentiate the quality of different elements within footfall according to mission e.. travel to adjacent workplace zones, leisure, etc. and personal characteristics such as spending power. In this respect, future research may not only simulate linkage of harmonised footfall counts between sensor locations, but also link these in turn to disaggregate origin-destination matrices for bikeshare and other public transport modes. Our own investigations will consider these and other challenges to understanding the functioning of the sentient city.
+
+

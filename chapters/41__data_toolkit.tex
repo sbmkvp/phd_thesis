@@ -252,7 +252,7 @@ All the above pose immense challenges when we attempt to aggregate the data wher
 
 There is also a lot of variability in the physical location of the sensors and the area of measurement.
 The sensors may report higher or lower count due to their configuration and the context of their location as discussed in chapters pertaining to data cleaning.
-This leads to a situation where the accuracy of the data collection varying quite widely across location and times \cite{lugomer2017}.
+This leads to a situation where the accuracy of the data collection varying quite widely across location and times \cite[-2cm]{lugomer2017}.
 It is often not clear if the change in the data is due to actual changes at the location or just the change in the configuration of the device.
 For example, Opening of a mobile shop next door to the sensor can increase the estimated footfall without any change in actual footfall at the location.
 
@@ -268,6 +268,12 @@ Summarising from the above, we can confidently conclude that Wi-Fi probe request
 
 \vspace{1.5em}\noindent\textit{Visualisation}\vspace{0.5em}
 
+\begin{figure*}
+  \includegraphics{images/data-visualisation-challenge.png}
+  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.}
+  \label{figure:toolkit:visualisation}
+\end{figure*}
+
 Visualisation is closely related to volume, velocity and variety of the data.
 The Wi-Fi data due to its non-trivial volume and velocity, exhibits similar characteristics and challenges in terms of visualisation.
 Since there is not much variety in the dataset, when we process the raw data into footfall counts we are left with just the time, location and footfall count for each data point.
@@ -280,12 +286,6 @@ There is a clear need for always on, interactive, real time dashboards with geog
 There is also need for multiple linked dynamic visualisation platform for separating the scope of the visualisation into manageable units.
 Figure \ref{figure:toolkit:visualisation} demonstrates the illegibility of simple visualisations of the data due to granularity, variability and veracity.
 We can safely say that the Wi-Fi probe requests dataset is at best `Medium' in the visualisation dimension.
-
-\begin{figure*}
-  \includegraphics{images/data-visualisation-challenge.png}
-  \caption{Number of probe requests collected for every five minute interval at Tottenham Court Road, London on the year 2018 showing the visual complexity of data in the time dimension.}
-  \label{figure:toolkit:visualisation}
-\end{figure*}
 
 Summarising the above discussion, we can conclude that the datasets collected from Wi-Fi probe requests are at best of 'medium'.
 They show the most big data characteristics in terms of their veracity.
@@ -446,7 +446,7 @@ There a numerous databases systems which prioritise different things and the rig
   \label{table:toolkit:storage}
 \end{table}
 
-Since the publication of the paper on `Google file system' by Google \cite{sanjay2003}.
+Since the publication of the paper on `Google file system' by Google \cite[-2cm]{sanjay2003}.
 There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
 These systems are designed to be distributed and optimised for high throughput for queries on them.
 Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
@@ -519,7 +519,7 @@ Using any of specialised big data tools is just going to introduce immense overh
 We need something in-between the above two approaches where we is sufficiently fast and flexible for our datasets.
 
 This is where we come across the possibility of using standard Unix tools along with connecting them to create a processing pipeline.
-In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite[-2cm]{adam2014}.
+In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite{adam2014}.
 The command line tools were developed as parts of Unix operating system for processing text. 
 They are developed in line with the Unix philosophy which focuses on modular and minimal software development. 
 The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite{mcilroy1978},
@@ -532,21 +532,6 @@ The core tenants of the Unix philosophy has been summarised by Doug McIlroy as b
 	\item Design and build software, even operating systems, to be tried early, ideally within weeks. Don't hesitate to throw away the clumsy parts and rebuild them.
 	\item Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.
 \end{enumerate}
-
-\begin{marginfigure}
-  \forcerectofloat
-  \includegraphics[trim={0 0 0 0},clip]{images/processing-times-r.png}
-  \caption{The increase in processing time with the Unix pipeline is linear thus improves the scalability compared to R based processing}
-  \label{figure:toolkit:time:new}
-\end{marginfigure}
-
-These principles along with the `pipe' operator gives us necessary tools to build more complex tools.
-We can replace most of the libraries we used in the R implementation of our processing with a corresponding command line tools and connect them together with a text interface to achieve similar pipeline.
-The first advantage of such design is that it is much more efficient than a monolith design.
-These tools being actively developed for since their invention are compiled as native binaries and are usually extremely optimised resulting in a much faster pipeline.
-Because of the design of the pipe operator, the individual parts of the pipeline are executed in parallel as chunks of data are passed through them thus avoiding the need to load entire datasets into memory which results in an exponential increase processing time with the size of the data.
-Being modular, we can even introduce process level parallelism to parts of the pipeline without any major change in the overall design.
-Finally the modular structure also gives us the advantage of using the best tool for any part of the pipeline.
 
 \begin{table}[h]
   \footnotesize
@@ -576,7 +561,23 @@ Finally the modular structure also gives us the advantage of using the best tool
   \label{table:toolkit:tools}
 \end{table}
 
-\begin{marginfigure}[2cm]
+These principles along with the `pipe' operator gives us necessary tools to build more complex tools.
+We can replace most of the libraries we used in the R implementation of our processing with a corresponding command line tools and connect them together with a text interface to achieve similar pipeline.
+The first advantage of such design is that it is much more efficient than a monolith design.
+These tools being actively developed for since their invention are compiled as native binaries and are usually extremely optimised resulting in a much faster pipeline.
+Because of the design of the pipe operator, the individual parts of the pipeline are executed in parallel as chunks of data are passed through them thus avoiding the need to load entire datasets into memory which results in an exponential increase processing time with the size of the data.
+Being modular, we can even introduce process level parallelism to parts of the pipeline without any major change in the overall design.
+Finally the modular structure also gives us the advantage of using the best tool for any part of the pipeline.
+
+\begin{marginfigure}[-5cm]
+  \forcerectofloat
+  \includegraphics[trim={0 0 0 0},clip]{images/processing-times-r.png}
+  \caption{The increase in processing time with the Unix pipeline is linear thus improves the scalability compared to R based processing}
+  \label{figure:toolkit:time:new}
+\end{marginfigure}
+
+
+\begin{marginfigure}[1cm]
   \includegraphics[trim={0 0 0 0},clip]{images/processing-times-parallel.png}
   \caption{The scalability of the processing pipeline could be further improved with parallelising it.}
   \label{figure:toolkit:time:parallel}
@@ -596,7 +597,7 @@ For example, the previous example pipeline can be parallelised by spawning a pip
 This done by utilising every processor cores available in the CPU.
 Figure \ref{figure:toolkit:time:parallel} compares the processing times of the Unix toolkit with a parallelised implementation (The code used to produce these benchmarks are detailed at Section \ref{appendix:benchmark}).
 Finally all the Unix tools discussed in this toolkit are open source and free software which has almost no cost in terms of resources.
-Since these tools are part of the POSIX specification \cite{walli1995} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
+Since these tools are part of the POSIX specification \cite[-2cm]{walli1995} for operating systems, the expertise in their design and use are transferable to and from other disciplines thus reducing researcher time learning and using these tools.
 
 
 %------------------------------------------------------------------------------%

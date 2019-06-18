@@ -3,23 +3,63 @@
 %==============================================================================%
 This chapter serves as a gallery of possible applications that can arise from the data generated from the Smart Street Sensor project. 
 As was  seen in Chapter \ref{chapter:literature}, availability of granular, longitudinal data on the movement and distribution of people at such spatial extent has numerous uses in various fields of study. 
-This chapter first starts by looking at the use of the data in understanding the broad footfall landscape of the United Kingdom (UK), deriving sample insights on how retail footfall in the UK has been performing for the past couple of years. 
-The sample analysis was done on various levels, from the national level to individual locations.
+This chapter first starts by looking at the use of the data in understanding the broad footfall landscape of the United Kingdom (UK), deriving sample insights on how retail footfall in the UK has been performing for the past couple of years along with some sample analysis from the national level to individual locations to understand the nature and change of footfall.
+It then demonstrates couple of ways of detecting events and their effect on places from the change in the footfall volumes.
+Finally the chapter briefly describes a way to calculate the flow of pedestrians between the locations just from the highly granular footfall volume using a probabilistic approach.
 
 %------------------------------------------------------------------------------%
-\section{Footfall Landscape of United Kingdom}
+\section{United Kingdom Footfall Index}
 %------------------------------------------------------------------------------%
-Figure \ref{figure:applications:footfall:index} shows the weekly footfall index of the UK from 2017 to 2018. 
-In addition to showing larger trends, this index also shows sudden short term changes such as during the storm in February 2018. 
-Figure \ref{figure:applications:cities:change} shows the spatial distribution of footfall change in the UK between these two years across cities, showing the growth and decline of retail in the cities of West Bromwich and Ipswich. 
-These changes could be further looked at in temporal detail as shown in Figure \ref{figure:applications:cities:month}. 
-The difference in even smaller intra-day patterns which show the nature of the economies of cities can also be inferred by their data profiles as shown in Figure \ref{figure:applications:cities:profiles}.
+One of the broad questions that arises when such footfall data is available is about the general national trend of footfall on retail high streets.
+This national 'footfall index' is not only important for the retail industry but also for various other purposes such as policy making, economic forecasting, etc.
+Since the footfall has a weekly periodicity, a standardised index could be arrived from sensor based data by aggregate them at a national level and find the average footfall at every location at every week. 
+Although this is a simplistic measure, it does a good job in describing the changes in the retail footfall in the UK as a whole.
+From the last two years, it can be observed that retail footfall in UK started at its lowest in the beginning of the year and increased steadily until spring.
+The high footfall lasted through the summer months before going down steadily towards the end of the year..
+This trend changed around the fall months and the footfall reached the highest in the first two weeks of December and fell back to the lowest in the last two weeks.
+This form the yearly pattern of retail footfall in UK is illustrated in Figure \ref{figure:applications:footfall:index} which shows the weekly footfall index of the UK from 2017 to 2018. 
 
 \begin{figure*}
   \includegraphics[trim={0 25 0 10},clip]{images/applications-footfall-index.png}
   \caption{A weekly footfall index for United Kingdom showing the change in footfall from 2017 to 18}
   \label{figure:applications:footfall:index}
 \end{figure*}
+
+In addition to showing larger trends, this footfall index also showed sudden short term changes. 
+One such as example was the storm in February 2018 which corresponded with some of the lowest footfall experience across the UK.
+This `footfall index' can serve as a measure to give the overall outlook for the 
+retail activity in the country at any given week.
+
+\subsection{City-wise footfall index}
+
+Being derived from location-wise data, the index could be calculated for geographic extents as well.
+For example, Figure \ref{figure:applications:cities:change} shows the spatial distribution of footfall change in the UK towns between 2017 and 2018.
+On a glance, it can be observed that the small southern towns such Ipswich, Staines, Southend by Sea and Plymouth had a good amount of growth in footfall while the towns such as West Bromwich, Derby and Warrington have a decline in footfall.
+In addition to long term changes, from the footfall data, even insights on short term changes could be derived.
+For example, Figure \ref{figure:applications:cities:month} shows the change in footfall from the previous year for towns across UK for just the months of April and May 2019.
+It can be observed that April 2019 has been slower than last year in most towns across UK while May 2019 has been actually better than last year.
+This kind of granular insights into trends in footfall could be valuable for local authorities who can measure and monitor the health of their retail areas closely.
+
+The difference in even smaller intra-day patterns in cities could be derived from footfall data which could show the nature of their economies
+Figure \ref{figure:applications:cities:profiles} shows an average daily footfall pattern for 9 cities in the UK.
+
+\subsection{Location profiles}
+One of the most interesting insights that can be derived from the dataset is the detailed knowledge of the locations themselves.
+The data can not only reveal how popular a location is but also the exact times when the location is popular.
+The patterns in the usage of the locations could also reveal the function of the place giving us the opportunity to measure their change through time as well.
+For example, Figure \ref{figure:applications:location:profiles} shows the daily footfall profile of three locations in London for two weeks in 2019.
+It can be observed that all three locations have completely different patterns of usage.
+Leicester Square was mostly a night time destination where the footfall peaks around evening while Regent street is a mostly office location with three distinct peaks corresponding to morning commute, evening commute and lunch.
+These insights can be crucial for retailers operating in these places for optimising their business operation in terms of store opening times, scheduling shifts etc.
+
+\begin{figure*}
+  \includegraphics[trim={0 10 0 0},clip]{images/applications-location-profiles.png}
+  \caption{The profiles can be tracked longitudinally to reveal nature and change.}
+  \label{figure:applications:location:profiles}
+\end{figure*}
+
+Another way to understand the evolution of a place over time is to look at the patterns of its usage over the corresponding period.
+For example, Figure \ref{figure:applications:footfall:calendar} shows a 'footfall calendar' for Old street, London which traces and visualises the evolution of the place for the first half of 2018.
 
 %------------------------------------------------------------------------------%
 
@@ -57,7 +97,7 @@ The difference in even smaller intra-day patterns which show the nature of the e
   \forceversofloat
   \includegraphics[width=172mm,trim={0 0 1310 -42},clip]{images/applications-footfall-calendar.png}
   \caption{Footfall calendar showing the profiles of daily volumes of footfall at Old Street, London.}
-  \label{}
+  \label{figure:applications:footfall:calendar}
 \end{figure*}
 \clearpage
 \begin{figure*}
@@ -68,13 +108,6 @@ The difference in even smaller intra-day patterns which show the nature of the e
 \end{figure*}
 \restoregeometry
 \clearpage
-%------------------------------------------------------------------------------%
-
-\begin{figure*}
-  \includegraphics[trim={0 10 0 0},clip]{images/applications-location-profiles.png}
-  \caption{The profiles can be tracked longitudinally to reveal nature and change}
-  \label{}
-\end{figure*}
 
 %------------------------------------------------------------------------------%
 \section{Event Detection}
@@ -90,6 +123,12 @@ Finally, it is interesting to see the difference in summertime footfall between 
 This example shows the usefulness of the footfall data to detect real life events from the data in near real time. 
 It can also be used to measure the effect of events on footfall, and hence understand the impact of these events for retail and the  economy more generally.
 
+\begin{figure*}
+  \includegraphics[trim={0 50 0 0},clip]{images/applications-cardiff-footfall.png}
+  \caption{Normalised weekly footfall index at locations across Cardiff from 2017 to 2018}
+  \label{figure:applications:cardiff}
+\end{figure*}
+
 \subsection{Football world cup}
 In addition to long-term changes and events, the footfall data can be used to identify the smaller effects of these events at an area scale.
 Figure \ref{figure:applications:football} shows footfall from two days in Leicester square, London when the quarterfinal and semifinal matches of the 2018 FIFA World Cup took place. 
@@ -98,22 +137,15 @@ The most interesting observation is the effect the outcome of the game had on fo
 On the day of the quarterfinal, the winning result of the English team led to a post-match celebration which pushed the Leicester Square footfall to its day-time highest, unlike the day of the semifinal when the English team lost. 
 This not only shows the usefulness of the data in understanding the effect events have on local footfall, but it also shows how the data can be used by retailers to predict the effect the results of sports events might have on them.
 
-\begin{figure*}
-  \includegraphics[trim={0 50 0 0},clip]{images/applications-cardiff-footfall.png}
-  \caption{Normalised weekly footfall index at locations across Cardiff from 2017 to 2018}
-  \label{figure:applications:cardiff}
-\end{figure*}
+\begin{figure}
+  \includegraphics[trim={0 0 0 0},clip]{images/applications-football-sample.png}
+  \caption{The difference in footfall distribution at Leicester square, London after the FIFA World Cup quarterfinal and semifinal matches. Source: Oliver Uberti and James Cheshire }
+  \label{figure:applications:football}
+\end{figure}
 
 These examples show the importance of footfall data in detecting events. 
 Even a simple visual analytics of the dataset reveal interesting information on events. 
 This would be much more useful when used in tandem with advanced machine learning/data mining techniques, and will predict much better results as more data is collected.
-
-\begin{figure}
-  \forceversofloat
-  \includegraphics[trim={0 0 0 0},clip]{images/applications-football-sample.png}
-  \caption{The difference in footfall distribution at Le- icester square, London af- ter the FIFA World Cup quarterfinal and semifinal matches. Source: Oliver Uberti and James Cheshire }
-  \label{figure:applications:football}
-\end{figure}
 
 %------------------------------------------------------------------------------%
 \section{Pedestrian Flows}
