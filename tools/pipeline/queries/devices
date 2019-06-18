@@ -1,0 +1,11 @@
+select 
+	Devices.Id as id,
+	NfcLink as nfc,
+	HardwareVersions.Name as hardware,
+	SoftwareVersions.Version as software
+from Devices 
+left join HardwareVersions on 
+   Devices.HardwareVersionId=HardwareVersions.Id 
+left join SoftwareVersions on 
+   Devices.SoftwareVersionId=SoftwareVersions.Id;
+

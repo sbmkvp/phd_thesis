@@ -1,0 +1,41 @@
+#! /bin/sh
+
+# -----------------------------------------------
+# Setup the variables from input
+# -----------------------------------------------
+directory=$1
+device=$(echo $1 | awk -F'/' '{print $NF}')
+date=$(echo $1 | awk -F'/' \
+  '{print $(NF-3)"-"$(NF-2)"-"$(NF-1)}')
+
+# -----------------------------------------------
+# Set up jq filter string.
+# Convert the individual json to csv
+# -----------------------------------------------
+jq_string=".[] \
+  | [.VendorMacPart+.MacAddress, \
+  .Signal, .PacketCount,
+	( (input_filename/\"/\" \
+    | .[ .|length-1 ] )/\".\" | .[0]),
+	.VendorMacPart] | @csv"
+
+# -----------------------------------------------
+# Set up the awk print string.
+# Add device and timestamp
+# -----------------------------------------------
+awk_string="{print \"$date \"substr(\$4,2,2)\":\
+  \"substr(\$4,4,2)\":00\",
+	\"$device\",\$1,\$5,\$2,\$3}"
+
+# -----------------------------------------------
+# Set up the shell command.
+# Find all .pd files, run jq on them and run awk
+# on the output
+# -----------------------------------------------
+cmd="jq -r '$jq_string' $directory/*.pd \
+  | awk -F, -v OFS=, '$awk_string'";
+
+# -----------------------------------------------
+# Execute and echo the command.
+# -----------------------------------------------
+echo "$(eval $cmd)";

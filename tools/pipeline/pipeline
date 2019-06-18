@@ -1,0 +1,168 @@
+#! /bin/bash
+
+#------------------------------------------------
+# Print usage information to stdout for help
+#------------------------------------------------
+function usage() {
+	echo "Usage: pipeline [options]";
+	echo "Options:";
+	echo -e "  --help      Display this message.";
+	echo -e "  --date      Date in the format \
+    yyyy/mm/dd. Defaults to today's date";
+	echo -e "  --config    The config file to be \
+    used. Defaults to ./config.json";
+	echo -e "  --meta      Set this to 'false' to \
+    not update meta-data";
+}
+
+#------------------------------------------------
+# Set default variables for the parameters
+#------------------------------------------------
+DATE=`date +'%Y/%m/%d'`
+CONFIG="config.json"
+META="true"
+DOWN="true"
+PROCESS="true"
+
+#------------------------------------------------
+# Read in the named parameters from the commandline
+#------------------------------------------------
+while [ "$1" != "" ]; do
+	PARAM=`echo $1 | awk -F= '{print $1}'`
+	VALUE=`echo $1 | awk -F= '{print $2}'`
+	case $PARAM in
+		--help) usage; exit ;;
+		--date) DATE=$VALUE ;;
+		--config) CONFIG=$VALUE ;;
+		--meta) META=$VALUE ;;
+		--down) DOWN=$VALUE ;;
+		--process) PROCESS=$VALUE ;;
+		*) echo "[$(date +'%Y/%m/%d %H:%M:%S')]: \
+      Option \"$PARAM\" is unknown"; exit 1 ;;
+	esac
+	shift
+done
+
+#------------------------------------------------
+# Check the validity of all parameters 
+#------------------------------------------------
+if [ "$(date +'%Y/%m/%d' -d $DATE 2>/dev/null)"\
+  != $DATE ]; then
+	echo "[$(date +'%Y/%m/%d %H:%M:%S')]:\
+    Date $DATE is invalid"; exit; fi
+if [ ! -f $CONFIG ]; then
+	echo "[$(date +'%Y/%m/%d %H:%M:%S')]:\
+    Cannot find the file $CONFIG"; exit; fi
+
+#------------------------------------------------
+# Setting the values of all the required variable
+# and creating the folders if they don't exist
+#------------------------------------------------
+SASAPI=`cat $CONFIG \
+	| jq -r '.sas_api'`
+SASTOKEN=`cat $CONFIG \
+	| jq -r '.sas_token'`
+RAWLOC=`cat $CONFIG \
+	| jq -r 'if (.raw==null or .raw=="") \
+    then "raw" else .raw end'`
+HASHLOC=`cat $CONFIG \
+	| jq -r 'if (.hashed==null or .hashed=="") \
+    then "probes" else .hashed end'`
+CRYPTLOC=`cat $CONFIG \
+	| jq -r 'if (.encrypted==null or .encrypted=="") \
+    then "encrypted" else .encrypted end'`
+LDCUSER=`cat $CONFIG \
+	| jq -r '.ldc_user'`
+LDCPASS=`cat $CONFIG \
+	| jq -r '.ldc_pass'`
+LDCSERVER=`cat $CONFIG \
+	| jq -r '.ldc_server'`
+VENDORS=`cat $CONFIG \
+	| jq -r '.vendors'`
+PGUSER=`cat $CONFIG \
+	| jq -r '.pg_user'`
+PGPASS=`cat $CONFIG \
+	| jq -r '.pg_pass'`
+SALT=`cat $CONFIG \
+	| jq -r '.salt'`
+
+#------------------------------------------------
+# Setting up the environment variables
+#------------------------------------------------
+export PGPASSWORD=$PGPASS
+RAWLOC=$RAWLOC/$DATE
+HASHLOC=$HASHLOC/$DATE
+CRYPTDIR="$CRYPTLOC/$(echo $DATE | awk -F'/' \
+  '{print $1"/"$2}')"
+CRYPTFILE="$CRYPTDIR/$(echo $DATE | awk -F'/' \
+  '{print $3}').zip"
+if [ ! -d $RAWLOC ]; then mkdir -p $RAWLOC; fi
+if [ ! -d $HASHLOC ]; then mkdir -p $HASHLOC; fi
+if [ ! -d $CRYPTDIR ]; then mkdir -p $CRYPTDIR; fi
+
+#------------------------------------------------
+# Setting up the commands to execute
+#------------------------------------------------
+LOG="date +%Y/%m/%d-%H:%M:%S"
+HASH="./scripts/flatten $RAWLOC/{} \
+	| ./scripts/hash $SALT > $HASHLOC/{}.csv"
+LOCATE="./scripts/locate \"\$(echo {} \
+	| awk -F'.' '{print \$1}')\" $DATE $PGUSER \
+	| awk '{print \$0} END{if(NR==0) print \"0\"}'"
+COUNT="cat $HASHLOC/{} \
+	| ./scripts/count \`$LOCATE\` \
+	| ./scripts/adjust 2> /dev/null \
+	| ./scripts/impute 2> /dev/null \
+	| psql -q footfall -U $PGUSER \
+    -c \"copy counts from stdin with csv\""
+
+#------------------------------------------------
+# Data pipeline.
+# Download > Anonymise > Encrpt > Meta > Count
+#------------------------------------------------
+echo "[`$LOG`]: Pipeline started for $DATE." &&
+
+if [ $DOWN != "false" ]; then
+# Script to download the data--------------------
+{
+	{
+		./scripts/download \
+      $DATE $RAWLOC $SASAPI $SASTOKEN;
+	} || {
+		echo "[`$LOG`]: \
+      Download failed {$DATE:::$SALT}"; exit;
+	} 
+} &&
+if [ "$(ls $RAWLOC | wc -l)" = "0" ]; then 
+	echo "[`$LOG`]: \
+    No files downloaded!! {$DATE:::$SALT}"; exit;
+fi
+echo "[`$LOG`]: Download completed for $DATE." &&
+
+# Hash the MAC addresses-------------------------
+ls "$RAWLOC" | parallel $HASH && 
+echo "[`$LOG`]: Hashing completed for $DATE." &&
+
+# Encrypt the data for transfer------------------
+if [ -f $CRYPTFILE ]; then rm $CRYPTFILE; fi &&
+gpg-zip -e -r ucl-team@cdrc.ac.uk\
+  -o $CRYPTFILE $RAWLOC 2> /dev/null &&
+echo "[`$LOG`]: \
+  Encryption completed for $DATE." &&
+rm -rf $RAWLOC &&
+echo "[`$LOG`]: Raw files deleted for $DATE.";
+fi &&
+
+# Download the meta data-------------------------
+if [ $META != "false" ]; then
+./scripts/meta_data $LDCSERVER $LDCUSER \
+  $LDCPASS $VENDORS $PGUSER &&
+echo "[`$LOG`]: Meta-data downloaded for $DATE.";
+fi &&
+
+#Count the probe requests------------------------
+if [ $PROCESS != "false" ]; then
+ls $HASHLOC | parallel "$COUNT" &&
+echo "[`$LOG`]: Processing completed for $DATE.";
+fi
+unset PGPASSWORD

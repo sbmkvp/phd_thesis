@@ -1,0 +1,15 @@
+#! /bin/bash
+
+#------------------------------------------------
+# Get the variable for the config file and
+# generate a random string
+#------------------------------------------------
+FILE=$1
+SALT="\"$(cat /dev/urandom | tr -dc 'a-zA-Z0-9'\
+  | fold -w 32 | head -n 1)\""
+#------------------------------------------------
+# Change salt in the configuration file with the
+# random string
+#------------------------------------------------
+CONTENT=`jq ". + {salt:$SALT}" $FILE`
+echo $CONTENT | jq '.' > $FILE

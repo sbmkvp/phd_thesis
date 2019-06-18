@@ -1,0 +1,31 @@
+#! /bin/bash
+
+#------------------------------------------------
+# Assigning variables from positional arguments
+#------------------------------------------------
+DATE=$1
+LOCATION=$2
+SASAPI=$3
+SASTOKEN=$4
+
+#------------------------------------------------
+# Getting the SAS URI for the azure blob container
+#------------------------------------------------
+HEADER="Authorization: accessToken $SASTOKEN"
+ACCESSURI=`curl -s --header "$HEADER" $SASAPI \
+  | jq -r '.Data'`
+SOURCE="$(echo $ACCESSURI \
+  | awk -F'?' '{print $1}')"
+SOURCESAS="?$(echo $ACCESSURI \
+  | awk -F'?' '{print $2}')"
+
+#------------------------------------------------
+# Download the container contents for the
+# specified date
+#------------------------------------------------
+azcopy \
+	--source "$SOURCE/$DATE" \
+	--destination "$LOCATION" \
+	--source-sas "$SOURCESAS" \
+	--recursive \
+	--quiet 

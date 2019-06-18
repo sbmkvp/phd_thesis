@@ -1,0 +1,16 @@
+#! /bin/bash
+
+#-------------------------------------------------
+# Assigning variables from positional arguments
+#-------------------------------------------------
+cd /store2/tools
+DATE=`date +'%Y/%m/%d' -d"-1day"`
+
+#-------------------------------------------------
+# Execute the pipeline and log outputs
+#-------------------------------------------------
+
+./pipeline --date=$DATE \
+  --config=./config_daily.json \
+	1>> ../logs/daily.log \
+	2>> ../logs/daily.error 

@@ -1,0 +1,22 @@
+#! /bin/bash
+
+#------------------------------------------------
+# Assigning variables from positional arguments
+#------------------------------------------------
+DEVICE=$1
+DATE="$(date +'%Y-%m-%d' -d$2)"
+PGUSER=$3
+
+#------------------------------------------------
+# Setting up arguments for later use
+#------------------------------------------------
+CONNECT_UCL="psql -q footfall -U $PGUSER"
+QUERY="copy (select location from installs where\
+  device = $DEVICE and start_date <='$DATE' and\
+  (end_date >= '$DATE' or end_date is null))\
+  to stdout with csv"
+
+#------------------------------------------------
+# Update all the tables
+#------------------------------------------------
+$CONNECT_UCL -c "$QUERY"

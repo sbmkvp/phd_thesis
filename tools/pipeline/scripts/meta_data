@@ -1,0 +1,63 @@
+#! /bin/bash
+
+#------------------------------------------------
+# Assigning variables from positional arguments
+#------------------------------------------------
+LDCSERVER=$1
+LDCUSER=$2
+LDCPASS=$3
+VENDORS=$4
+PGUSER=$5
+
+#------------------------------------------------
+CONNECT_LDC="mssql -s $LDCSERVER -u $LDCUSER \
+  -p $LDCPASS -d Footfall -e -f csv"
+CONNECT_UCL="psql -q footfall -U $PGUSER"
+VENDOR_AWK='{if(length($1)==8)
+	{gsub(/:/,"",$1);
+	print "\""$1"\",\""$2"\",\""$3"\""}}'
+VENDOR_SQL='truncate vendors; \
+  copy vendors from stdin with csv'
+LOCATION_AWK='{addr=$2}
+	{if(FNR>1){
+	gsub(/"/,"",addr);
+	split(addr,a," *, *");
+	l=length(a);
+	print $1","$2",\""a[l-2]"\",\""a[l]"\","$3",\
+    "$4","$5","$6}}'
+
+LOCATION_SQL='truncate locations; \
+  copy locations from stdin with csv'
+INSTALL_SQL='truncate installs; \
+  copy installs from stdin with csv header'
+DEVICE_SQL='truncate devices; \
+  copy devices from stdin with csv header'
+CALIB_SQL='truncate calibrations; \
+  copy calibrations from stdin with csv header'
+
+#------------------------------------------------
+# Update all the tables
+#------------------------------------------------
+curl -s "$VENDORS" \
+	| sed 's/"//g' \
+	| awk -F $'\t' "$VENDOR_AWK" \
+	| $CONNECT_UCL -c "$VENDOR_SQL"
+
+$CONNECT_LDC -q "$(cat ./queries/locations)" \
+	| awk -vFPAT='[^,]*|\"[^\"]*\"' \
+    "$LOCATION_AWK" \
+	| sed 's/""//g' \
+	| $CONNECT_UCL -c "$LOCATION_SQL"
+
+$CONNECT_LDC -q "$(cat ./queries/installs)" \
+	| sed 's/""//g' \
+	| $CONNECT_UCL -c "$INSTALL_SQL"
+
+$CONNECT_LDC -q "$(cat ./queries/devices)" \
+	| sed 's/""//g' \
+	| $CONNECT_UCL -c "$DEVICE_SQL"
+
+$CONNECT_LDC \
+  -q "$(cat ./queries/calibrations)" \
+	| sed 's/""//g' \
+	| $CONNECT_UCL -c "$CALIB_SQL"

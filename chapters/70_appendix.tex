@@ -47,6 +47,64 @@ The main logic of the app.
 \inputminted{javascript}{tools/pilot-study/server-server.js}
 
 %==============================================================================%
+\section{Data Pipeline}\label{appendix:data:pipeline}
+%==============================================================================%
+
+\subsection{Sample configuration file } 
+%-------------------------------------------------------------------------------
+\vspace{1em}
+\inputminted{javascript}{tools/pipeline/config_sample.json}
+
+\subsection{Data Pipeline}
+%-------------------------------------------------------------------------------
+\vspace{1em}
+\inputminted{bash}{tools/pipeline/pipeline}
+
+\subsection{Daily Download}
+%-------------------------------------------------------------------------------
+\vspace{1em}
+\inputminted{bash}{tools/pipeline/daily}
+
+\subsection{Batch Download}
+%-------------------------------------------------------------------------------
+\vspace{1em}
+\inputminted{bash}{tools/pipeline/batch}
+
+\subsection{Component Scripts}
+%-------------------------------------------------------------------------------
+\vspace{1em}
+Download the data from Azure data store.
+\inputminted{bash}{tools/pipeline/scripts/download}
+Transform the JSON files to CSV.
+\inputminted{bash}{tools/pipeline/scripts/flatten}
+Hash the MAC address field.
+\inputminted{R}{tools/pipeline/scripts/hash}
+Find the locations of the sensors.
+\inputminted{bash}{tools/pipeline/scripts/locate}
+Aggregate the counts based on MAC addresses.
+\inputminted{R}{tools/pipeline/scripts/count}
+Adjust the local counts based on probes to MAC ratio.
+\inputminted{R}{tools/pipeline/scripts/adjust}
+Impute missing values using Kalman filter.
+\inputminted{R}{tools/pipeline/scripts/impute}
+Download and update meta data.
+\inputminted{bash}{tools/pipeline/scripts/meta_data}
+Rotate the salt value in the configuration file.
+\inputminted{bash}{tools/pipeline/scripts/rotate_salt}
+
+\subsection{SQL queries}
+%-------------------------------------------------------------------------------
+\vspace{1em}
+Manual counts.
+\inputminted{sql}{tools/pipeline/queries/calibrations}
+Device information.
+\inputminted{sql}{tools/pipeline/queries/devices}
+Location information.
+\inputminted{sql}{tools/pipeline/queries/locations}
+Installation notes.
+\inputminted{sql}{tools/pipeline/queries/installs}
+
+%==============================================================================%
 \section{Benchmarking Data Tookit} \label{appendix:benchmark}
 %==============================================================================%
 

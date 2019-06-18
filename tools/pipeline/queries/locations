@@ -1,0 +1,14 @@
+select 
+	DeviceLocations.Id as id,
+	Address as address,
+	Lat as lat ,
+	Lon as lon,
+	DevicePositions.Name as position,
+	DeviceLocationTypes.Name as type
+from DeviceLocations 
+left join LdoPremises 
+	on DeviceLocations.PremiseId = LdoPremises.Id 
+left join DevicePositions 
+	on DeviceLocations.DevicePositionId = DevicePositions.Id
+left join DeviceLocationTypes 
+	on DeviceLocations.DeviceLocationTypeId = DeviceLocationTypes.Id;

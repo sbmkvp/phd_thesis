@@ -1,0 +1,7 @@
+select
+	DeviceId as device,
+	StartTime as start_time,
+	EndTime as end_time,
+	Count as count,
+	Note as note
+from calibrations;

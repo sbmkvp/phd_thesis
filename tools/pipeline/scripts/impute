@@ -1,0 +1,49 @@
+#! /usr/bin/Rscript
+
+# -----------------------------------------------
+# Load tidyverse for pipes and imputeTS for
+# imputing methods
+# -----------------------------------------------
+suppressMessages(library('tidyverse'))
+suppressMessages(library('imputeTS'))
+
+# -----------------------------------------------
+# Read data from the standard input
+# -----------------------------------------------
+data <- read.table(file("stdin"), header = FALSE,
+   sep = ",", quote = "\"", 
+   stringsAsFactors = FALSE)
+names(data) <- c("ts","loc","dev","M1","M2",
+                 "M3","M4","M5","M6","M7")
+
+# -----------------------------------------------
+# Find just the gaps shorter than 30 mins
+# -----------------------------------------------
+find_short <- function(d,n) {
+	d <- data.frame(x = d$M1+d$M2,
+                  g=cumsum(c(1,
+                    diff(d$M1+d$M2) != 0)))
+	d <- d %>% group_by(g) %>% 
+    summarise(c = length(x)) %>% 
+    left_join(d,.,by="g")
+	return(d$x==0 & d$c<=n)}
+model <- find_short(data,6)
+if(nrow(data[model,])>0) { 
+  data[model,][,c(4:10)] <- NA }
+
+# -----------------------------------------------
+# Impute the NA values in each column using 
+# kalman method. Hyndman RJ and Khandakar Y 
+# (2008). "Automatic time series forecasting: the
+# forecast package for R". 
+# Journal of Statistical Software, 26(3).
+# -----------------------------------------------
+data <- data %>% 
+  mutate_at(vars(starts_with("M")),
+            funs(as.integer(na.kalman(.))))
+data[data<0] <- 0
+data$model <- model
+data %>% 
+	mutate_if(is.numeric,as.integer) %>%
+	mutate_if(is.integer,as.character) %>%
+	format_csv(col_names=FALSE) %>% cat

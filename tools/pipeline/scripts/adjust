@@ -1,0 +1,29 @@
+#! /usr/bin/Rscript
+
+# -----------------------------------------------
+# Load tidyverse for pipes 
+# -----------------------------------------------
+suppressMessages(library('tidyverse'))
+
+# -----------------------------------------------
+# Read data from the standard input
+# -----------------------------------------------
+data <- read.table(file("stdin"), 
+    header = FALSE,
+    sep = ",", 
+    quote = "\"",
+    stringsAsFactors = FALSE)
+names(data) <- c("ts","loc","dev","pg",
+    "pl","mg","ml","cg","cl")
+
+# -----------------------------------------------
+# adjusted value based on the "dwellingness" at 
+# the location at that interval which is inferred
+# from the global counts
+# -----------------------------------------------
+data %>% 
+	mutate(adj = as.integer(ifelse(pl==0|ml==0|cl==0,
+          0,ceiling(ifelse(pg>0,cg/pg*pl,cl))))) %>% 
+	mutate_if(is.numeric,as.integer) %>%
+	mutate_if(is.integer,as.character) %>%
+	format_csv(col_names=FALSE) %>% cat

@@ -1,0 +1,152 @@
+#! /usr/bin/Rscript
+
+# -----------------------------------------------
+# Load necessary packages
+# -----------------------------------------------
+suppressMessages(library('tidyverse'))
+suppressMessages(library('lubridate'))
+
+# -----------------------------------------------
+# Common functions
+# -----------------------------------------------
+is_moving <- function(x) { 
+  return( !(((x - (5 * 60)) %in% x) |
+	((x - (10 * 60)) %in% x) |
+	((x - (15 * 60)) %in% x) |
+	((x - (20 * 60)) %in% x) |
+	((x - (25 * 60)) %in% x) |
+	((x - (30 * 60)) %in% x) ) ) }
+
+filter_moving <- function(x) {
+	data_vector <- unlist(x[[1]])
+	logical_vector <- unlist(x[[2]])
+	return( list(data_vector[logical_vector] )) }
+
+flatten_list <- function(x) {
+	return( data.frame(mac = x[[1]],
+		timestamp = x[[2]],
+		vendor = x[[3]],
+		stringsAsFactors = FALSE) ) }
+
+# -----------------------------------------------
+# Read data from standard input
+# -----------------------------------------------
+data_in <- read.table(file("stdin"), 
+                      header = FALSE, sep = ",",
+                      quote = "\"",
+	stringsAsFactors = FALSE)
+names(data_in) <- c("timestamp", "device", "mac",
+                  "vendor", "signal", "packets")
+data_in <- data_in %>%
+	mutate(timestamp = round_date(
+    as.POSIXct(timestamp,tz="UTC"),"5 min"),)
+this_date <- substr(
+    as.character(data_in$timestamp[1]),1,10)
+location <- commandArgs(trailingOnly = TRUE)[1]
+device <- data_in$device[1]
+# -----------------------------------------------
+# Generate overall counts
+# -----------------------------------------------
+counts_overall <- data_in %>%
+	mutate(
+		timestamp = as.character(timestamp),
+		vendor = (vendor %>% 
+              substr(2,2) %>% 
+              tolower()) %in% 
+    c("e","a","2","6")) %>%
+	group_by(timestamp) %>% summarize(
+		probes_global = packets[!vendor] %>% sum,
+		probes_local = packets[vendor] %>% sum,
+		macs_global = mac[!vendor] %>% 
+      unique %>% length,
+		macs_local = mac[vendor] %>% 
+      unique %>% length) %>%
+	data.frame(stringsAsFactors=FALSE)
+
+# -----------------------------------------------
+# Filter the dataset and generate filtered counts
+# -----------------------------------------------
+one_time <- data_in %>%
+	group_by(mac) %>% 
+	filter(n()<2) %>% 
+	select(mac,timestamp,vendor) %>%
+	mutate( timestamp = as.character(timestamp))%>%
+	data.frame
+
+if( (data_in %>% 
+     group_by(mac) %>% 
+     filter(n()>1) %>% nrow) > 0 ) {
+repeated <- data_in %>%
+	group_by(mac) %>% 
+	filter(n()>1) %>% ungroup() %>%
+	select(mac,timestamp,vendor) %>% 
+	group_by(mac) %>% 
+	summarize(
+		timestamps = timestamp %>% list,
+		vendors = vendor %>% list) %>%
+	mutate(is_moving = 
+    lapply(timestamps, is_moving)) %>%
+	mutate(
+		timestamps = apply(.[ ,c(2, 4)], 
+                       1, filter_moving),
+		vendors = apply(.[ , c(3, 4)], 
+                    1, filter_moving)) %>%
+	mutate(
+		timestamps = lapply(timestamps,
+      function(x){return(x[[1]])}),
+		vendors = lapply(vendors,
+      function(x){return(x[[1]])})) %>%
+	select(-is_moving) %>%
+	apply(1, flatten_list) %>%
+    do.call("rbind", .) %>%
+	mutate( timestamp = as.character(timestamp))
+} else {
+repeated <- data_in %>%
+	group_by(mac) %>% 
+	filter(n()>1) %>%
+	mutate(timestamp =
+         as.character(timestamp)) %>%
+	data.frame
+}
+counts_filtered <- rbind(one_time,repeated) %>%
+	mutate(
+		vendor = (vendor %>% substr(2,2) %>% 
+              tolower()) %in% 
+    c("e","a","2","6")) %>%
+	group_by(timestamp) %>% summarize(
+		count_global = mac[!vendor] %>% 
+      unique %>% length,
+		count_local = mac[vendor] %>%
+      unique %>% length ) %>%
+	data.frame
+
+# -----------------------------------------------
+# Write data to standout output
+# -----------------------------------------------
+final_counts <- list(counts_overall, 
+                     counts_filtered) %>% 
+  reduce(left_join, by = "timestamp")
+start_timestamp <- as.POSIXct(
+  paste(this_date,"00:00:00"),tz="UTC")
+end_timestamp <- as.POSIXct(
+  paste(this_date,"23:55:00"),tz="UTC")
+final_counts <- left_join(
+	data.frame(
+		timestamp = seq(start_timestamp, 
+                    end_timestamp, 
+                    by = "5 min") %>%
+			format("%Y-%m-%d %H:%M:%S"),
+		stringsAsFactors=FALSE),
+	final_counts,
+	by="timestamp")
+final_counts[is.na(final_counts)] <- 0
+final_counts$location <- location
+final_counts$device <- device
+final_counts %>% 
+  select(timestamp, location, device,
+         probes_global, probes_local,
+         macs_global, macs_local, 
+         count_global, count_local) %>%
+	mutate_if(is.numeric,as.integer) %>%
+	mutate_if(is.integer,as.character) %>%
+	format_csv(col_names = FALSE) %>% cat

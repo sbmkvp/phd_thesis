@@ -1,0 +1,27 @@
+#! /usr/bin/Rscript
+
+#------------------------------------------------
+# Load required libraries
+#------------------------------------------------
+suppressMessages(library('openssl'))
+suppressMessages(library('tidyverse'))
+
+#------------------------------------------------
+# Get the salt from config file
+#------------------------------------------------
+salt <- commandArgs(trailingOnly = TRUE)[1]
+
+#------------------------------------------------
+# Read from stdin, hash the MAC address using
+# SHA256 and write to stdout
+#------------------------------------------------
+read.table(file('stdin'),
+		   header = FALSE,
+		   sep = ",",
+		   quote = "\"",
+		   stringsAsFactors = FALSE) %>%
+	mutate(V3 = sha256(paste0(V3,salt))) %>%
+	format_csv(col_names = FALSE) %>%
+	cat
+
+#------------------------------------------------

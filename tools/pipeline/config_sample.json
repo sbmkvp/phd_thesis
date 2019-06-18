@@ -1,0 +1,14 @@
+{
+  "sas_api": "url_string",
+  "sas_token": "token_string",
+  "ldc_server": "url_to_the_ldc_database",
+  "ldc_user": "username_for_ldc_database",
+  "ldc_pass": "password_for_ldc_database",
+  "pg_user": "user_name_for_database",
+  "pg_pass": "user_password_for_database",
+  "vendors": "https://code.wireshark.org/...",
+  "raw": "../path/to/raw_data/folder",
+  "hashed": "../path/to/probe_requests/folder",
+  "encrypted": "../path/to/encrypted/folder",
+  "salt": "random_string_here"
+}

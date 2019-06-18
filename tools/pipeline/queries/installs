@@ -1,0 +1,15 @@
+select 
+	DeviceId as device,
+	DeviceLocationId as location,
+	FromDate as start_date,
+	ToDate as end_date,
+	Height as height,
+	Depth as depth,
+	Note as note 
+from DeviceHistories 
+left join DeviceInstallDetails on
+	DeviceHistories.Id = DeviceInstallDetails.DeviceHistoryId 
+left join InstallSignatures on 
+	DeviceHistories.InstallSignatureId = InstallSignatures.Id 
+left join InstallNotes on
+	InstallSignatures.Id = InstallNotes.Id;

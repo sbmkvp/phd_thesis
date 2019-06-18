@@ -1,0 +1,22 @@
+#! /bin/bash
+
+#-------------------------------------------------
+# Assigning variables from positional arguments
+#-------------------------------------------------
+FROM=$1
+TO=`date +'%Y/%m/%d' -d"$2+1day"`
+CONFIG=$3
+META=$4
+
+#-------------------------------------------------
+# Iterate through the date range sequentially and 
+# apply data processing pipeline. parallel is not 
+# used since each individual pipeline is
+# parallelised
+#------------------------------------------------
+while [[ $FROM < $TO ]] ; do 
+	if [ `date +'%u' -d"$FROM"` == 1 ]; 
+  then ./scripts/rotate_salt $CONFIG; fi
+	./pipeline --date=$FROM --config=$CONFIG 
+	FROM=`date +'%Y/%m/%d' -d"$FROM+1day"`; 
+done 
