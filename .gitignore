@@ -24,4 +24,5 @@ data/
 thesis.pdf
 .~lock.*
 _minted-thesis/
+viva_report
 .DS_Store
