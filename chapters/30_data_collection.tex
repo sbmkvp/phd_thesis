@@ -2,7 +2,7 @@
 \chapter{Collecting Wi-Fi Data}\label{chapter:collection}
 %==============================================================================%
 
-From the literature review in Chapter \ref{chapter:literature}, we observed that  of all the technologies discussed, Wi-Fi seems to be the most promising one.
+From the literature review in Chapter \ref{chapter:literature}, we observed that  of all the technologies discussed, Wi-Fi seems to be the most promising one for our purposes.
 We observed the advantages of Wi-Fi based data collection as,
 
 \begin{itemize}[rightmargin=2em, leftmargin=2em]
@@ -22,7 +22,7 @@ We start by looking at the Wi-Fi specification \cite{ieee2016} and focus on the 
 We then design and implement a series of data collection exercises which collect probe requests in various location with increasing level of complexity for analysis.
 We explore these datasets briefly to understand the usefulness of each set of information present in the probe requests along with the uncertainties in them.
 We also introduce the `Smart Street Sensor' project - a national scale effort for collecting Wi-Fi data at high streets across the United Kingdom.
-Finally we summarise the data collection procedure with a detailed look at the each set of uncertainty in these datasets and draw conclusions for further lines of research into alleviating the uncertainty and noise so that the datasets can be used to estimate human activity with confidence.
+Finally we summarise the data collection procedure with a detailed look at the uncertainties in these datasets and draw conclusions for further lines of research into alleviating the uncertainty and noise so that the datasets can be used to estimate human activity with confidence.
 
 %------------------------------------------------------------------------------%
 \section{Wi-Fi as a Source of Data} \label{wifi-as-source-of-data}
@@ -36,7 +36,7 @@ In developed economies such as the UK, this has never been more true and having 
 With close to 87\%\cite{deloitte2018} of the population carrying one or more of these smart devices with Wi-Fi capability, provision of Wi-Fi as a service has become essential for any place, thus making Wi-Fi (alongside mobile networks) one of the most used technologies to access the internet.
 
 Though the end goal of internet connectivity is the same, Wi-Fi greatly differs from internet connectivity through mobile networks such 3G/4G.
-The first difference is the range of the network: unlike mobile infrastructure where a single tower can serve mobile phones for miles, Wi-Fi is designed to be and extension of the wired networking, thus creating short range network with a range of 20 meters.
+The first difference is the range of the network: unlike mobile infrastructure where a single tower can serve mobile phones for miles, Wi-Fi is designed to be an extension of the wired networking, thus creating short range network with a range of 20 meters.
 Due to this low-range and high throughput property, Wi-Fi is used primarily as a distributed infrastructure operated by owners of premises as a means to provide high speed connectivity to the users of these buildings as opposed to the large, national level, monolithic infrastructure that runs the mobile network.
 This creates a situation where urban areas are populated by hundreds and thousands of these small area networks to which any mobile device can connect to.
 Unlike the mobile service providers and their customers, these Wi-Fi networks and mobile devices don't trust each other with specialised hardware.
@@ -55,12 +55,23 @@ The frames used for this purpose by the mobile device and the Access Point (AP) 
 Though the actual information exchanged between these devices are usually encrypted, these probe requests are unencrypted and are accessible to any device which is listening.
 The structure of a probe request is shown in Figure \ref{figure:collection:proberequest}.
 
+\begin{figure*}
+  \includegraphics[width=0.9\textwidth,trim={0 -30 0 -10},clip]{images/probe-request-structure.png}
+  \caption{Structure of a probe request frame. }
+  \label{figure:collection:proberequest}
+\end{figure*}
+\marginnote[0.75cm]{\textit{Source: IEEE 802.11 specification}. DA - Destination Address. SA - Sender Address. BSSID - Broadcast or multicast address. FH - Frequency hopping. OS - Optional. CF - Contention free. DS - Direct Sequnce. }
+
 We can observe that the fixed part of the mandatory frames are in the front; these show the identity of the mobile device generating the frame along with the identity of the AP that is receiving the frame.
 There are additional meta data such as the sequence number of the frame, and controls denoting where the frame starts and ends.
 There is also a dearth of variable information which can be used to transfer data.
 For probe requests, the destination device is set as `broadcast' and the variable part usually contains the payload.
 For probe request frames, this payload consists of `information elements' which has data regarding the capabilities of the device organised in units known as 'tags' or 'parameter sets'.
 The significant information present in a probe request is detailed in Table \ref{table:collection:proberequest} and a full list of information available from a probe request is shown in the form of a sample probe request in appendix \ref{appendix:sampleprobe}
+
+Essentially the above information is sent over and over by the mobile device which expects a reply from nearby APs so that it can keep a list of networks it can connect to.
+This process is usually carried out even when the Wi-Fi is switched off in the operating system so that the connection times are faster once it is switched on.
+Moreover operating systems use the replies they get for these probe requests and triangulate the device location with respect to the APs with location information on AP's collected through surveys or crowdsourcing, thus acting as a quick and easy localisation solution which along with the above makes this probing process almost non-stop. 
 
 \begin{table}
   \footnotesize
@@ -74,7 +85,7 @@ The significant information present in a probe request is detailed in Table \ref
         \addlinespace[0.2cm]
         Time stamp & Precise time at which the frame is received\\
         \addlinespace[0.2cm]
-        Signal Strength (RSSI) & The strength of the received signal\\
+        Received Signal Strength (dBm) & The strength of the received signal\\
         \addlinespace[0.2cm]
         Length of the frame & Total length of the frame in bytes\\
         \addlinespace[0.2cm]
@@ -82,7 +93,7 @@ The significant information present in a probe request is detailed in Table \ref
         \addlinespace[0.2cm]
         Information Elements & List of various information about the device\\
         \addlinespace[0.2cm]
-        Known SSIDs & Networks that are already known to the device\\
+        Known Networks & Name of networks that are already known to the device\\
         \addlinespace[0.1cm]
       \bottomrule
     \end{tabular}
@@ -91,26 +102,16 @@ The significant information present in a probe request is detailed in Table \ref
   \label{table:collection:proberequest}
 \end{table}
 
-Essentially the above information is sent over and over by the mobile device which expects a reply from nearby APs so that it can keep a list of networks it can connect to.
-This process is usually carried out even when the Wi-Fi is switched off in the operating system so that the connection times are faster once it is switched on.
-Moreover operating systems use the replies they get for these probe requests and triangulate the device location with respect to the APs with known location information thus acting as a quick and easy localisation solution which along with the above makes this probing process almost non-stop. 
-
-\begin{figure*}
-  \includegraphics[width=0.9\textwidth,trim={0 -30 0 -10},clip]{images/probe-request-structure.png}
-  \caption{Structure of a probe request frame. }
-  \label{figure:collection:proberequest}
-\end{figure*}
-\marginnote[0.75cm]{\textit{Source: IEEE 802.11 specification}}
 
 %------------------------------------------------------------------------
 \subsection{MAC address}
 %------------------------------------------------------------------------------%
-Media Access Control (MAC) address is a 12bit unique identifier assigned to a device on a network.
+Media Access Control (MAC) address is a 6 byte unique identifier assigned to a device on a network.
 It is similar to the Internet Protocol (IP) address but assigned at the interface controller level by the manufacturer of the device.
 Although the IP address of a mobile device might change regularly, the MAC address usually remains the same for the lifetime of the device making it akin to a unique identifier of a device and therefore highly significant.
-The MAC address has two parts: the first 6bits are known as the Organisationally Unique Identifier (OUI) and gives us information about the manufacturer of the network card.
+The MAC address has two parts: the first 2 bytes are known as the Organisationally Unique Identifier (OUI) and gives us information about the manufacturer of the network card.
 Organisations need to register with IEEE to be assigned an OUI which they can use to generate a full MAC address;
-the second 6bits are unique to device itself.
+the second 2 bytes are unique to device itself.
 Together both form the full MAC address which is unique to every device globally.
 The biggest draw for using Wi-Fi for mobility analysis comes from the fact that this globally unique identification is sent out regularly by mobile devices and can be collected passively through probe requests.
 

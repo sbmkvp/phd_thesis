@@ -23,7 +23,7 @@ The objectives here are,
 The first step was to design a simple method to collect Wi-Fi probe requests.
 We accomplished this by using the open source, free software \textit{tshark} \cite{wireshark2} on a regular laptop.
 First, we put the Wi-Fi module of the laptop in `Monitor mode' where it behaves as a wireless access point rather than a receiver.
-Then we invoke the command line interface of the Wireshark programme tshark to collect the Wi-Fi probe requests received by the laptop in Character Separated File (CSV) format. 
+Then we invoke the command line interface of the Wireshark programme tshark to collect the Wi-Fi probe requests received by the laptop in Character Separated File (CSV) format in the file system. 
 The full shell script which collects the data is given below,
 
 \begin{minted}{bash}
@@ -59,7 +59,7 @@ The fields marked with \textit{-e} are the ones which were collected and they co
   \item \textit{wlan.ssid} - The network for which the probe request is being sent for. This information is optional.
 \end{enumerate}
 
-The name of the manufacturer/ vendor of the Wi-Fi module  is extracted from the \textit{wlan.sa\_resolved} field into a separate column and the original field is hashed using the SHA256 algorithm implemented in R.
+The name of the manufacturer/ vendor of the Wi-Fi module  is extracted from the \textit{wlan.sa\_resolved} field into a separate column and the original field is hashed using the SHA256 algorithm \cite{gueron2011} implemented in R.
 In addition to this, the pedestrians next to the sensor were counted manually by the surveyor.
 
 %------------------------------------------------------------------------------%
@@ -100,7 +100,7 @@ Samsung is a special case since we know from the specification that whilst their
 We observe 24 different vendors in the data. Even if we assume one device per vendor, it is impossible for the sensor to pick up 24 different devices without a significantly larger area of measurement than we expected.
 We need a way to filter out this noise which is generated from the edge of the field of measurement.
 This is where the signal strength shows good promise.
-Looking at the Table \ref{table:collection:proberequests} we can see that two of these vendors show significantly low average signal strength - Google and Fn-LinkT, which can easily correspond to the two devices present in the room.
+Looking at the Table \ref{table:collection:proberequests} we can see that two of these vendors show significantly high average signal strength - Google and Fn-LinkT, which can easily correspond to the two devices present in the room.
 This can be explained by the decay of the signal as it passes through the walls.
 In our simple example, we can filter out almost all the noise just by using the signal strength of the probe requests.
 
@@ -259,7 +259,7 @@ Figure \ref{figure:collection:ucl:signal} also shows the results of k-means clus
   \caption{Density distribution of the signal strengths of the probe requests collected at UCL South Cloisters along with class intervals.}
   \label{figure:collection:ucl:signal}
 \end{figure}
-\marginnote[-1.75cm]{\textit{Class intervals calculated using k-means clustering with the number of clusters defined as 4.} }
+\marginnote[-1.75cm]{\textit{x-axis is measure in dBm as a proxy for distance. The class intervals calculated using k-means clustering with the number of clusters defined as 4.} }
 
 To summarise, in this experiment conducted at UCL South Cloisters we collected a bigger set of data over a longer period of time to validate the previous findings and to serve as test dataset for further research.
 We found that signal strength is one of the key pieces of information with which we can remove the external noise from the dataset.
