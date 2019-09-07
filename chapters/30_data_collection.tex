@@ -49,7 +49,7 @@ This need for constant lookouts for new networks is solved by the `Probe request
 %------------------------------------------------------------------------------%
 
 There have been numerous iterations and versions of the IEEE 802.11 standards but essentially all of them operate by exchanging packets of information called `datagrams' or `frames'.
-These frames have the information that is being exchanged along with the meta data about information and information on the device that is sending them.
+These frames have the information that is being exchanged along with the meta data and information on the device that is sending them.
 Some of these frames have special purposes: one such purpose is the `network discovery'.
 The frames used for this purpose by the mobile device and the Access Point (AP) are called the 'probe request' and `probe response' respectively.
 Though the actual information exchanged between these devices are usually encrypted, these probe requests are unencrypted and are accessible to any device which is listening.
@@ -64,7 +64,7 @@ The structure of a probe request is shown in Figure \ref{figure:collection:probe
 
 We can observe that the fixed part of the mandatory frames are in the front; these show the identity of the mobile device generating the frame along with the identity of the AP that is receiving the frame.
 There are additional meta data such as the sequence number of the frame, and controls denoting where the frame starts and ends.
-There is also a dearth of variable information which can be used to transfer data.
+There are also a number of variable information which can be used to transfer data.
 For probe requests, the destination device is set as `broadcast' and the variable part usually contains the payload.
 For probe request frames, this payload consists of `information elements' which has data regarding the capabilities of the device organised in units known as 'tags' or 'parameter sets'.
 The significant information present in a probe request is detailed in Table \ref{table:collection:proberequest} and a full list of information available from a probe request is shown in the form of a sample probe request in appendix \ref{appendix:sampleprobe}

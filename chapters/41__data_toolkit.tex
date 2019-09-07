@@ -17,7 +17,7 @@ We need to move fast with a pragmatic approach where we look at other discipline
 
 In the previous chapters various methods we devised to collect and process data from Wi-Fi probe requests emitted by phones have been discussed in detail.
 Though we discussed the methods conceptually, we left out the rationale behind choosing the toolkit employed to implement those methods.
-We start by discussing the concept of `Big Data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
+We start by discussing the concept of `big data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
 Then we look at the data-sets we collected through the pilot studies and the `Smart Street Sensor' project and evaluate them in terms of the dimensions of the big data.
 We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
 Finally we put together a toolkit to suit our datasets built from simple small UNIX tools. \sidenote[]{"Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.", Doug McIlroy on UNIX philosophy.}
@@ -26,7 +26,7 @@ Finally we put together a toolkit to suit our datasets built from simple small U
 % Discussion on what is big data
 %------------------------------------------------------------------------------%
 
-\subsection{What is `Big Data'?}
+\subsection{What is `big data'?}
 
 With the proliferation of internet enabled personal devices, we have quickly moved from data sparse environment to a data rich one.
 We can even confidently say that we are in an age of data deluge where the amount of data which are collected and stored are increasing exponentially in a very short period of time \cite{kitchin2014}.
@@ -50,8 +50,8 @@ The nature of data can also be evaluated in various dimensions and can exhibit d
 `Big data' is generally defined within the context of disciplines, as data which cannot be managed with traditional methods and tools in those disciplines and requires substantial change in the approach of the practitioners.
 This approach of looking at 'Big data' is too subjective and falls short of giving us more understanding of `Big data'.
 One of the most quoted definitions pertains to the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite{laney2001}.
-This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation - the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
-There have also been other alternative dimensions proposed such as Cardinality, continuity and complexity \cite{suthaharan2014}.
+This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation \cite{li2016}- the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
+There have also been other alternative dimensions proposed such as cardinality, continuity and complexity \cite{suthaharan2014}.
 However we can consider the core dimensions of data - volume, velocity, variety, veracity and visualisation for evaluating our datasets.
 Since not all data is 'Big' in all these dimensions, we need to evaluate the `bigness' of the data in each dimension and consider the associated challenges and solutions.
 
@@ -59,7 +59,7 @@ Since not all data is 'Big' in all these dimensions, we need to evaluate the `bi
 
 The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation, modelling, analysis, visualisation and interpretation.
 Challenges in each one of these processing activity arises due to the data being big in one or more dimensions.
-The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite{li2016}. 
+The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis. 
 These challenges make traditional methods impractical and introduce the need for distributed, crowdsourced collection of data, heavily parallelised computing and application of functional programming concepts.
 The unstructured nature of the big data also introduces notable biases which mandate careful consideration, proper calibration and weighting during analysis so that we can understand and remove any uncertainties arising from them.
 The data being big in veracity dimension poses significant challenges in its analysis and modelling.
@@ -256,7 +256,7 @@ There is also a lot of variability in the physical location of the sensors and t
 The sensors may report higher or lower count due to their configuration and the context of their location as discussed in chapters pertaining to data cleaning.
 This leads to a situation where the accuracy of the data collection varying quite widely across location and times \cite[-2cm]{lugomer2017}.
 It is often not clear if the change in the data is due to actual changes at the location or just the change in the configuration of the device.
-For example, Opening of a mobile shop next door to the sensor can increase the estimated footfall without any change in actual footfall at the location.
+For example, opening of a mobile shop next door to the sensor can increase the estimated footfall without any change in actual footfall at the location.
 
 Finally we also have to work within the changing mobile landscape.
 Though the Wi-Fi probe requests are standardised by IEEE, the mobile manufacturers have started adopting obfuscation techniques to protect the privacy of the users.
@@ -358,7 +358,7 @@ Essentially, we are looking for a data collection methodology which prioritises 
 
 In terms of hardware, an example of a highly customised solution would be a micro-controller, such as Arduino, coupled with dedicated Wi-Fi module and programmed with custom software to collect the exact data needed.
 Designing and implementing of such system is time consuming, cumbersome and usually involves significant cost but it can also be highly flexible, efficient and cheap to deploy.
-On the other end of this spectrum, we have end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail Next, Pygmalios, etc. where the data is collected through multiple sensors and sources and syndicated into a clean footfall information by a third party service provider.
+On the other end of this spectrum, we have end-to-end solutions such as Blix, Walkbase, Euclid, Retail Next, Pygmalios, etc. where the data is collected through multiple sensors and sources and syndicated into a clean footfall information by a third party service provider.
 These platforms for footfall data collection and analysis have the advantage of being quick and easy to develop and deploy while they can also be highly inflexible for changes and turn out to be costly when scaled up.
 A middle ground here is to use a general purpose hardware such as single board computers or repurposed mobile devices, augment them with additional hardware modules and use general purpose scripting languages to write software for them.
 This way we avoid low level hardware or software design and implementation while maintaining good amount of flexibility.
@@ -481,7 +481,7 @@ We chose PostgreSQL because of the PostGIS extension which gives us flexibility 
 
 We saw that the data is medium in terms of volume and velocity and shows big data properties in terms of veracity.
 Hence we require tools which are capable of dealing with the veracity of the data while being able to manage the volume and velocity.
-The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS packages and process it.
+The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS package and process it.
 The size of the dataset and the lack of meaningful complexity of geography element in the data eliminates the use of GIS packages.
 Scripting languages such as R and Python can deal with the dataset and its requirements but the time taken to do so increases exponentially with the size of the data as the size of objects in memory increases.
 Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple exercise where a day's worth of raw data is parsed and aggregated into number of probe requests per 5 minute intervals 
