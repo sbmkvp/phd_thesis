@@ -17,7 +17,7 @@ We need to move fast with a pragmatic approach where we look at other discipline
 
 In the previous chapters various methods we devised to collect and process data from Wi-Fi probe requests emitted by phones have been discussed in detail.
 Though we discussed the methods conceptually, we left out the rationale behind choosing the toolkit employed to implement those methods.
-We start by discussing the concept of `Big Data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
+We start by discussing the concept of `big data' in general and look at previous literature to understand its definition, nature and the challenges they pose.
 Then we look at the data-sets we collected through the pilot studies and the `Smart Street Sensor' project and evaluate them in terms of the dimensions of the big data.
 We also discuss the challenges faced in dealing with our dataset in detail and try to understand the requirements for devising a toolkit for it.
 Finally we put together a toolkit to suit our datasets built from simple small UNIX tools. \sidenote[]{"Write programs that do one thing and do it well. Write programs to work together. Write programs to handle text streams, because that is a universal interface.", Doug McIlroy on UNIX philosophy.}
@@ -26,7 +26,7 @@ Finally we put together a toolkit to suit our datasets built from simple small U
 % Discussion on what is big data
 %------------------------------------------------------------------------------%
 
-\subsection{What is `Big Data'?}
+\subsection{What is `big data'?}
 
 With the proliferation of internet enabled personal devices, we have quickly moved from data sparse environment to a data rich one.
 We can even confidently say that we are in an age of data deluge where the amount of data which are collected and stored are increasing exponentially in a very short period of time \cite{kitchin2014}.
@@ -50,8 +50,8 @@ The nature of data can also be evaluated in various dimensions and can exhibit d
 `Big data' is generally defined within the context of disciplines, as data which cannot be managed with traditional methods and tools in those disciplines and requires substantial change in the approach of the practitioners.
 This approach of looking at 'Big data' is too subjective and falls short of giving us more understanding of `Big data'.
 One of the most quoted definitions pertains to the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite{laney2001}.
-This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation - the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
-There have also been other alternative dimensions proposed such as Cardinality, continuity and complexity \cite{suthaharan2014}.
+This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation \cite{li2016}- the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
+There have also been other alternative dimensions proposed such as cardinality, continuity and complexity \cite{suthaharan2014}.
 However we can consider the core dimensions of data - volume, velocity, variety, veracity and visualisation for evaluating our datasets.
 Since not all data is 'Big' in all these dimensions, we need to evaluate the `bigness' of the data in each dimension and consider the associated challenges and solutions.
 
@@ -59,7 +59,7 @@ Since not all data is 'Big' in all these dimensions, we need to evaluate the `bi
 
 The second set of challenges arise while we process the big data, its acquisition, storage, extraction, cleaning, annotation, integration, aggregation, modelling, analysis, visualisation and interpretation.
 Challenges in each one of these processing activity arises due to the data being big in one or more dimensions.
-The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite{li2016}. 
+The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis. 
 These challenges make traditional methods impractical and introduce the need for distributed, crowdsourced collection of data, heavily parallelised computing and application of functional programming concepts.
 The unstructured nature of the big data also introduces notable biases which mandate careful consideration, proper calibration and weighting during analysis so that we can understand and remove any uncertainties arising from them.
 The data being big in veracity dimension poses significant challenges in its analysis and modelling.
@@ -124,7 +124,8 @@ It is important to note that this can be reduced many folds by using compression
   \begin{center}
     \begin{tabular}{lcccc}
       \toprule
-      Study & Maximum* & Minimum* & Average* & Total** \\
+      Study & Maximum & Minimum & Average & Total* \\
+            & (GB per year) & (GB per year) & (GB per year) & (TB per year) \\
       \midrule
       Pilot Study & 134 & 3 & 54 & 48.3 \\
       Main Study & 6.1 & 2.4 & 4.42 & 4.1 \\
@@ -136,7 +137,7 @@ It is important to note that this can be reduced many folds by using compression
   \label{table:toolkit:volume}
 \end{table}
 
-\marginnote{\textit{* Measured/ Estimated for each location in gigabytes per year. ** Measured/ Estimated for 920 locations in terabytes per year} }
+\marginnote{\textit{* Estimated for 920 locations} }
 
 We can see that there is a lot of variability in the volume of probe requests generated at a given location.
 This mostly depends on how many mobile devices are present around the location.
@@ -181,7 +182,8 @@ Table \ref{table:toolkit:velocity} compares the datasets we collected on Wi-Fi p
   \begin{center}
     \begin{tabular}{lcccc}
       \toprule
-      Study & Maximum* & Minimum* & Average* & Total** \\
+      Study & Maximum & Minimum & Average & Total* \\
+            & (per 5min) & (per 5min) & (per 5min) & (Mn per 5min)\\
       \midrule
       Pilot Study & 8577 & 188 & 3469 & 3.20 \\
       Main Study & 1362 & 534 & 782 & 0.72 \\
@@ -193,7 +195,7 @@ Table \ref{table:toolkit:velocity} compares the datasets we collected on Wi-Fi p
   \label{table:toolkit:velocity}
 \end{table}
 
-\marginnote{\textit{* Measured/ Estimated for each location in number of requests per 5 minutes. ** Measured/ Estimated for 920 locations in Millions of requests per 5 minutes} }
+\marginnote{\textit{* Estimated for 920 locations} }
 
 We observe that locations can receive up to 8500 requests in 5 minutes or can get no request at all depending on the time and how busy it is.
 But we can see that on average a national scale project with around 900 locations generates around a million requests every 15 mins. 
@@ -215,7 +217,7 @@ This set of fields is the same everywhere across the world and the specification
 Though there is some variability allowed within the specification, being part of a global standard, the data collected is heavily structured in general.
 
 The first set of variety present in the Wi-Fi probes data set arises from the 'information elements' part of the probe request.
-The structure of a probe request is discussed in detail in the data collection chapter and is summarised in Figure ?.
+The structure of a probe request is discussed in detail in the data collection chapter and is summarised in Figure \ref{figure:collection:proberequest}.
 Essentially the information about the capabilities and type of the mobile device is encoded in the information elements part of the probe request and this information is optional and is implemented at the discretion of the manufacturers.
 As this information elements are demonstrated to be useful in successfully fingerprinting the mobile devices \cite{vanhoef2016}, mobile devices increasingly don't include any information in them.
 Emergence of manufacturers with large market share and narrow set of device models such as Apple and Samsung also reduce further variability in them.
@@ -247,14 +249,14 @@ More over the sensors are installed and uninstalled regularly as partners join a
 This results in a data stream which is often erratic and incomplete with large gaps in them.
 In addition to this the sensors need to be rebooted regularly due to issues or updates leading to small gaps as well.
 Since the sensors are part of retail establishments they can be switched on and off regularly in some of them as well.
-Figure \ref{figure:toolkit:veracity:gaps} demonstrates the veracity of the data in terms of missing data for a sample of locations in London.
+Figure \ref{figure:toolkit:veracity:gaps} demonstrates the veracity of the data in terms of missing data for a sample of 5 locations in London.
 All the above pose immense challenges when we attempt to aggregate the data where we have to estimate and fill these gaps.
 
 There is also a lot of variability in the physical location of the sensors and the area of measurement.
 The sensors may report higher or lower count due to their configuration and the context of their location as discussed in chapters pertaining to data cleaning.
 This leads to a situation where the accuracy of the data collection varying quite widely across location and times \cite[-2cm]{lugomer2017}.
 It is often not clear if the change in the data is due to actual changes at the location or just the change in the configuration of the device.
-For example, Opening of a mobile shop next door to the sensor can increase the estimated footfall without any change in actual footfall at the location.
+For example, opening of a mobile shop next door to the sensor can increase the estimated footfall without any change in actual footfall at the location.
 
 Finally we also have to work within the changing mobile landscape.
 Though the Wi-Fi probe requests are standardised by IEEE, the mobile manufacturers have started adopting obfuscation techniques to protect the privacy of the users.
@@ -356,7 +358,7 @@ Essentially, we are looking for a data collection methodology which prioritises 
 
 In terms of hardware, an example of a highly customised solution would be a micro-controller, such as Arduino, coupled with dedicated Wi-Fi module and programmed with custom software to collect the exact data needed.
 Designing and implementing of such system is time consuming, cumbersome and usually involves significant cost but it can also be highly flexible, efficient and cheap to deploy.
-On the other end of this spectrum, we have end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail Next, Pygmalios, etc. where the data is collected through multiple sensors and sources and syndicated into a clean footfall information by a third party service provider.
+On the other end of this spectrum, we have end-to-end solutions such as Blix, Walkbase, Euclid, Retail Next, Pygmalios, etc. where the data is collected through multiple sensors and sources and syndicated into a clean footfall information by a third party service provider.
 These platforms for footfall data collection and analysis have the advantage of being quick and easy to develop and deploy while they can also be highly inflexible for changes and turn out to be costly when scaled up.
 A middle ground here is to use a general purpose hardware such as single board computers or repurposed mobile devices, augment them with additional hardware modules and use general purpose scripting languages to write software for them.
 This way we avoid low level hardware or software design and implementation while maintaining good amount of flexibility.
@@ -396,12 +398,23 @@ This is the primary reason why database management systems are developed on top 
 
 Database systems can be broadly divided into relational and document based.
 The relational databases are optimised to deal with relational data and usually enforce strict structure for the data
-In general they can handle large number of rows and are designed to scale vertically.
+In general they can handle large number of rows and are designed to scale vertically through addition of more resources to the DBMS such as CPU and Memory.
 Most relational database systems try to guarantee ACID \sidenote[][-1cm]{Atomicity, Consistency, Isolation and Durability are properties which make sure that the data in the database is valid even during failures.} compliance and hence used in critical systems such as financial operations, sales etc \citep{Haerder1983}.
 The document based databases are optimised to deal with unstructured data and can doesn't need a strictly defined scheme.
-In general they can handle large number of columns and are designed to be distributed and scaled horizontally.
-Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-1cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
+In general they can handle large number of columns and are designed to be distributed and scaled horizontally by adding more instances of the databases which balance the load and redundancy between them.
+Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-2cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.
 There a numerous databases systems which prioritise different things and the right solution depends on the properties of the data and the requirements of the project.
+
+Since the publication of the paper on `Google file system' by Google \cite[-2cm]{sanjay2003}.
+There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
+These systems are designed to be distributed and optimised for high throughput for queries on them.
+Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
+There are numerous cloud based, third-party solutions built with these file systems making them easy to use.
+There are also numerous tools, libraries and frameworks which emulate the features of database systems on these distributed file systems making them easier to use further.
+The primary advantage of these systems is the sheer scalability they provide when it comes to data volume.
+The primary disadvantage is the associated overheads in terms of cost and time incurred in learning, designing and implementing them.
+Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.
+Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.
 
 \begin{table}[h]
   \footnotesize
@@ -446,16 +459,6 @@ There a numerous databases systems which prioritise different things and the rig
   \label{table:toolkit:storage}
 \end{table}
 
-Since the publication of the paper on `Google file system' by Google \cite[-2cm]{sanjay2003}.
-There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.
-These systems are designed to be distributed and optimised for high throughput for queries on them.
-Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.
-There are numerous cloud based, third-party solutions built with these file systems making them easy to use.
-There are also numerous tools, libraries and frameworks which emulate the features of database systems on these distributed file systems making them easier to use further.
-The primary advantage of these systems is the sheer scalability they provide when it comes to data volume.
-The primary disadvantage is the associated overheads in terms of cost and time incurred in learning, designing and implementing them.
-Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.
-Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.
 
 We saw that the Wi-Fi probe request datasets are `Medium' sized hence we can safely eliminate distributed file systems for storing them.
 Though the smart street Sensor project uses Azure Blob Storage, when the data is downloaded to the local servers at the university, we can just store them in the file system because of their size (2TB approx.) and the hierarchical nature.
@@ -468,7 +471,7 @@ We chose PostgreSQL because of the PostGIS extension which gives us flexibility 
 
 \vspace{1.5em}\noindent\textit{Processing}\vspace{0.5em}
 
-\begin{marginfigure}
+\begin{marginfigure}[-5cm]
   \includegraphics[trim={0 0 0 0},clip]{images/processing-time-old.png}
   \caption{Exponential increase in the processing time when using traditional methods.}
   \label{figure:toolkit:time:old}
@@ -478,7 +481,7 @@ We chose PostgreSQL because of the PostGIS extension which gives us flexibility 
 
 We saw that the data is medium in terms of volume and velocity and shows big data properties in terms of veracity.
 Hence we require tools which are capable of dealing with the veracity of the data while being able to manage the volume and velocity.
-The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS packages and process it.
+The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS package and process it.
 The size of the dataset and the lack of meaningful complexity of geography element in the data eliminates the use of GIS packages.
 Scripting languages such as R and Python can deal with the dataset and its requirements but the time taken to do so increases exponentially with the size of the data as the size of objects in memory increases.
 Figure \ref{figure:toolkit:time:old} illustrates the increase in processing time with respect to number of location for a simple exercise where a day's worth of raw data is parsed and aggregated into number of probe requests per 5 minute intervals 
@@ -489,7 +492,7 @@ It is important to note that data processing is done in two stages - the first s
 The traditional methods are sufficient for the second stage of the processing and the first stage is the one which requires a better solution.
 
 On the other end we have big data analysis tools which are built for dealing with extremely large amount of data.
-Since the publication of the paper on MapReduce, there have been immense developments in the Big data analysis landscape.
+Since the publication of the paper on MapReduce \cite{dean2008}, there have been immense developments in the Big data analysis landscape.
 There numerous distributed programming tools to use the data stored within a distributed storage system each focussing on specific type of data and analysis.
 A concise, non-comprehensive list of types of data or specialities and corresponding big data tools is shown in Table \ref{table:toolkit:processing}.
 
@@ -583,7 +586,7 @@ Finally the modular structure also gives us the advantage of using the best tool
   \label{figure:toolkit:time:parallel}
 \end{marginfigure}
 
-All of the gives us an extremely minimal and efficient toolkit to process the raw Wi-Fi probes data into counts in a scalable way.
+All of this gives us an extremely minimal and efficient toolkit to process the raw Wi-Fi probes data into counts in a scalable way.
 Figure \ref{figure:toolkit:time:new} compares the processing times of such Unix toolkit with the traditional R based toolkit as the data size increases.
 We can see that Unix toolkit performs extremely well and the performance gains are significant as the size of the data increases.
 For example, to process data for 25 locations, R based toolkit takes around 20 minutes while the Unix toolkit gets it done in 20 seconds 
@@ -638,6 +641,6 @@ We undertook a brief survey of tools available for collecting, storing, processi
 For collecting Wi-Fi probes data in a scalable way, we chose a general purpose single board computers such as Raspberry-Pi along with open source tools such as tcpdump and tshark in a Linux environment.
 For data storage we narrowed in on using just the file system for the raw data and relational database management system for the processed counts.
 To process the raw data we chose to devise a processing pipeline using an assortment of standard Unix command line tools linked together using a shell scripting language and parallelised at the process level with gnu-parallel.
-We also demonstrated that this processing pipeline can be 400 times faster than the using a monolithic pipeline even with a small sample of locations.
+We also demonstrated that this processing pipeline can be 400 times faster (20 minutes to 3seconds) than the using a monolithic pipeline even with a small sample of locations.
 For visualisation we chose D3 and DC as the solution for communicating time information legibly.
 Finally we arrive a `medium data toolkit', illustrated in Figure \ref{figure:toolkit}, which is best suited for the Wi-Fi probes dataset which we employ to process and examine the data further.

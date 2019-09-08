@@ -39,7 +39,7 @@ Thus preserving the unmodified information for further investigation, if require
 %------------------------------------------------------------------------------%
 The processing of the data involved the implementation of the methods discussed in Section \ref{section:processing}.
 First the probe requests were separated into global and local based on the OUI present in them. 
-The global probe requests were then aggregated into ambient population estimation employing the following steps,
+The non-randomised, global probe requests were then aggregated into ambient population estimation employing the following steps,
 
 \begin{enumerate}
   \item Signal strength filtering - as discussed in section \ref{section:processing} the probe requests with signal strengths less than the \textit{threshold} (Calculated dynamically from the previous 24 hour period) were filtered out.t
