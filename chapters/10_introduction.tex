@@ -22,6 +22,10 @@ This has vastly increased the capacity of the data collection process, which has
 The above two phenomena – the attempt to model the physical environment as a function of information exchange, and the unprecedented availability of data - has led to a significant volume of research wherein various data sources have been utilised to understand a variety of aspects of the built environment.
 For example, functional regions of a country has been derived from call detail record data \cite{ratti2010}, and population and demography have been studied through social media data such as that derived from Twitter.
 
+%-------------------------------------------------------------------------------%
+\subsection{Challenges}
+%-------------------------------------------------------------------------------%
+
 This frenzy of data generation and use is not without pitfalls.
 One of the major disadvantages in the attempts to repurpose the data is the risk  to the privacy of the users whose data is being collected and analysed.
 With personal mobile devices becoming mainstream, almost every data point generated has a person behind it.
@@ -45,7 +49,19 @@ Hence, it is extremely important to be mindful while adopting the contributions 
 There needs to be careful consideration when choosing or designing the methods, tools and frameworks which are used to address the unique requirements of the new data sources.
 Moreover, there needs to be an inquiry into a framework for how these considerations are identified and addressed.
 
+%------------------------------------------------------------------------------%
+\section{Research Question \& Methodology}
+%------------------------------------------------------------------------------%
+
+The primary research question that was posed for the research is - "Can dynamics of footfall inferred from passively collected big dataset without putting the privacy of users at risk?".
 In this context, the research described in this thesis works on the opportunities and pitfalls presented above in the following ways: by first describing the collection of large volumes of passively generated data, then by solving the uncertainties in the data which arises due to their high variability and the mechanisms designed to protect the privacy of the users, and finally, there is an analysis of the data to produce useful information regarding the distribution and dynamics of footfall in the country.
+Contrary to regular methodology, where the research starts from the question, moves to a literature search, data collection, analysis and finally discussion and conclusions, this research starts from the availability of large comprehensive national level dataset.
+This research starts from this dataset, studies both the data and literature surrounding it in detail, finds gaps, problems and unanswered questions in the field, the tries to solve or answer them. In the pursuit of 
+
+%------------------------------------------------------------------------------%
+\section{Outline}
+%------------------------------------------------------------------------------%
+
 The thesis starts with a broad and systematic literature survey on the topic of `distribution and dynamics of human activity' in Chapter \ref{chapter:literature}.
 In this chapter, major themes of research and their evolution in the past 30 years are identified along with the development of technologies which were employed.
 The literature review resulted in the identification of the best possible data source for further research, along with opportunities available for further research.
@@ -61,6 +77,9 @@ In section \ref{section:processing}, methods to clean the data into a realistic 
 In section \ref{section:pipeline}, both the `data toolkit' and methods are combined to architect a `data pipeline' which digests the continuous stream of data from the SSS project into meaningful footfall numbers efficiently.
 Chapter \ref{chapter:applications} details a variety of applications of the research across four major themes: an index for footfall across United Kingdom, the detection of events using changes in the volume of footfall, an estimation of the flow of pedestrians between locations derived from the changes in footfall volumes, and the identification of the nature and relationship between places along with possibilities for further research.
 
+%------------------------------------------------------------------------------%
+\section{Impacts \& Applications}
+%------------------------------------------------------------------------------%
 The potential of creating such detailed, long-term, national-level footfall data as produced by this research is immense.
 Such information can be one of the major components in building a `smart city', where the availability of detailed, real-time data on the built environment and its use is vital.
 It can also help us in our pursuit to accomplish a real-time census of people and their movement in the city.
