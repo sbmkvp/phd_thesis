@@ -63,32 +63,52 @@
 %-------------------------------------------------------------------------------
 
 \begin{itemize}
-  \item \textbf{Footfall} -
-  \item \textbf{Wi-Fi} -
-  \item \textbf{SmartStreetSensor Project} -
-  \item \textbf{Active vs Passive methods} -
-  \item \textbf{Probe Requets} -
-  \item \textbf{Mobile Device} -
-  \item \textbf{Medium Data} -
-  \item \textbf{Personal/identifiable Information} -
-  \item \textbf{Bluetooth} -
-  \item \textbf{Cellular/Mobile Network} -
-  \item \textbf{Data Partner} -
-  \item \textbf{CDRC} -
-  \item \textbf{High Street} -
-  \item \textbf{Big Data} -
-  \item \textbf{Cryptographic Hashing} -
-  \item \textbf{Encryption} -
-  \item \textbf{anonymisation} -
-  \item \textbf{Real-time} -
-  \item \textbf{Regional/City/Local Level} -
-  \item \textbf{Localisation} -
-  \item \textbf{Positioning} -
-  \item \textbf{Signal, Noise} -
-  \item \textbf{Device Fingerprinting} -
-  \item \textbf{Deanonymisation} -
-  \item \textbf{Sensor Configuration} -
-\end{itemize}
+  \item \textbf{Active vs Passive Collection} - Active collection is where the data collection process involves the active participation from the study subjects. In passive data collection, no such participation is required. For example, a web form based survey is an active data collection process while a script collecting data on user's data on a website is passive. This shall not be confused with primary and secondary data where the difference is mainly due to who collects the data from the source.
+
+  \item \textbf{Anonymisation and Pseudonymisation } - The act of removing personal or identifiable information from the data. For example, removing the names and date of birth of people in a dataset. Anonymisation could be carried out in various ways two most popular approaches are generalisation and perturbation. Pseudonymisation is similar but the personally identifiable data is substituted with artificial identifier. The difference between them is that in anonymisation the personal information is permanently purged and there is no way of getting the information back. De-anonymisation is the reverse process of getting personal identifiable data from anonymised data.
+    
+  \item \textbf{Big Data} - Generally defined as data which could not be handled with regularly used tools and techniques. There are more nuanced definitions of big data depending on the dimension, context and industry. These concepts are discussed in detail in Section \ref{section:toolkit}.
+
+  \item \textbf{Bluetooth} - Short wavelength, low energy, short range wireless technology used for transferring data between electronic devices. They are generally used by mobile devices to connect to peripherals. 
+
+  \item \textbf{CDRC} - The Consumer Data Research Center is an investment from Economic Social Research Center, UK for working with consumer-related organisations to open up their data resources to trusted researchers thus enabling them to carry out important social and economic research.
+
+  \item \textbf{Cellular/Mobile Network} - Terrestrial, long range and wireless network which provides connectivity to mobile devices embedded in them. Most commonly used to denote the networks that provides telephony and internet services to mobile devices using radio waves. 
+
+  \item \textbf{Cryptographic Hashing} - This is the process of transforming a variable set of characters or contents of a file into a fixed length string (checksum). The process is usually one way and is not reversible without a rainbow attack using a database of checksums of all possible values. This is generally used for storing user passwords and to verify the integrity/ authenticity of data. In this thesis hashing functions are used for the purpose of anonymisaiton 
+
+  \item \textbf{Data Partner} - Local Data Company - the organisation which developed the Smart Street Sensor project in conjunction with CDRC. The organisation is solely responsible for the design, manufacture, installation and maintenance of the Smart Street Sensors.
+
+  \item \textbf{Device Fingerprinting} - This is the process of identifying devices through forensic analysis. This commonly used to identify users from data collected by operational websites. This commonly done through identifying unique configurations of the devices such as screen sizes, versions of software installed, etc. In this thesis fingerprinting is used to denote such processes where unique devices are identified from randomised data.
+
+  \item \textbf{Encryption} - This is the process of converting a information into unintelligible format using an algorithm (cipher) to prevent unauthorised access. The process is two way since the resulting cipher-text can be decrypted to restore information. The most common methods used is a public-key based encryption scheme known as 'Diffie Hellman key exchange'.
+    
+  \item \textbf{Footfall} - Number of people at a given location at a give time. In this thesis the term is used synonymous to footfall at a high street - which is only the pedestrians walking along the particular sidewalk of the high street and does not include people on the carriage way in vehicles.
+
+  \item \textbf{High Street} - The primary business street in a town or a local area where most shops and commercial activity are located. This term is often used to contrast and distinguish from 'Shopping centers' which are large designated areas earmarked for retail activity exclusively.
+    
+  \item \textbf{Localisation} - Though localisation could mean both GSM localisation and indoor positioning where the location of a device is indirectly derived from other information, in this thesis localisation is used mainly in the context of indoor positioning of mobile devices using techniques other than GPS. The localisation of objects is often relative to each other or to an object with an established position.
+    
+  \item \textbf{Location, Sensor and Install} - In this thesis and the Smart Street Sensor project, 'location' refers to a physical or geographic location in United Kingdom, 'sensor' denotes the electronic equipment used to collect data and 'install' refers to the time when a particular sensor was operating from a particular location.
+    
+  \item \textbf{Mobile Device} - A portable computing device such as a smartphone or tablet computer. This also includes wearables and other devices which have computing hardware and can operate independently of another device.
+    
+  \item \textbf{Personal/identifiable Information} - 
+    
+  \item \textbf{Positioning} - Positioning is the measurement of the absolute position (coordinates) of an object with reference to the earth. This is usually achieved through the use of Global Positioning System or similar systems.
+
+  \item \textbf{Probe Request} - This is a special signal broadcast by Wi-Fi enabled mobile devices to elicit a response (probe response) from Wi-Fi access points which can receive them. The primary purpose of the probe request is to enumerate the available Wi-Fi networks and there can also be secondary purposes such as indoor positioning.
+
+  \item \textbf{Real-time} - This is highly subjective concept which could be defined as the phenomena which occurs sufficiently immediately. In this thesis real-time is used to describe data which is collected within an hour after the event has occurred.
+
+  \item \textbf{Sensor Configuration} - The way the sensor is installed at a particular location. This includes the this includes the position of the sensor in terms of height and depth, the material of shopfront etc.
+
+  \item \textbf{Signal, Noise} - 'Signal' is used to denote the data received from devices which are within study area and 'Noise' to denote the data from devices outside the study area.
+
+  \item \textbf{Smart Street Sensor Project} - This project is a comprehensive study of live footfall patterns across Great Britain using 1,000 Wi-Fi based sensors located in high streets across 81 towns and cities across the country. Smart Street Sensor is a Raspberry Pi based sensor designed and manufactured by the Data partner which collects data for the project.
+
+  \item \textbf{Wi-Fi} - A family of medium range radio technologies based on the IEEE 802.11 family of standards which are generally used for wireless local area networking between devices.
+
 \end{itemize}
 
 %-------------------------------------------------------------------------------
@@ -159,7 +179,7 @@ They were also presented to the data partner who collaborated with the research 
 
 When dealing with the large and complex Wi-Fi dataset, the research designed and implemented a bespoke toolkit and a data processing pipeline comprising of open-source and free software which could be used by other researchers for use with similar datasets.
 The work on  this `Medium-data toolkit' was presented at the conference \textit{Geographic Information Science Research UK}.
-Moreover the research directly led to the creation and maintenance of the \textit{aggregated footfall} data product disseminated by CDRC\sidenote[][-2cm]{\textit{Local Data Company \& UCL SmartStreetSensor Footfall Data: Research Aggregated data - \url{https://bit.ly/2FNGmo0}}}, and has served as the data source for multiple research projects within and outside CDRC and UCL.
+Moreover the research directly led to the creation and maintenance of the \textit{aggregated footfall} data product disseminated by CDRC\sidenote[][-2cm]{\textit{Local Data Company \& UCL Smart Street Sensor Footfall Data: Research Aggregated data - \url{https://bit.ly/2FNGmo0}}}, and has served as the data source for multiple research projects within and outside CDRC and UCL.
 
 Apart from the technical impact, the primary output of the research - footfall volumes on retail locations - has commercial and policy impact for all the stakeholders involved with the retail industry in the UK.
 From this information comes a variety of insights: retailers can derive insights on the patterns of customer movement around their shops; landlords can find a reliable way to value their properties; local authorities gain a way to quantify and track the vibrancy of their retail centres over long periods of time; and consumers get information on which areas might be crowded at any given time.
