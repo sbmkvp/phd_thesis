@@ -165,7 +165,15 @@ In addition to tracking, Wi-Fi probe requests can be aggregated to uncover the u
 With enough infrastructure we can aim to generate a real-time census of the city \citep{kontokosta2016} and also predict the amount of time a device will spend around the sensor as well \citep{manweiler2013}.
 Similar to GPS data this can be used as an additional control layer for interpolation techniques such as map merging \citep{erinc2013}.
 
-citep{pinelli2015} looks at a comparison of various approaches of collecting and analysing mobile devices data.  was done through experiments on a telecom operator dataset, where it was showed that using network-driven mobile phone location data is more advantageous compared to the widely used event-driven ones.
+\citep{pinelli2015} looks at a comparison of various approaches of collecting and analysing mobile phone location data.
+The research identifies two major approaches in collecting device location data - Event-driven and Network-driven.
+The event-driven approach is centered around the mobile devices generating data 
+through their day to day activities.
+The major sources of event-driven data are Call Detail Records(CDR) and internet use.
+Network-driven approach is centered around the service provision infrastructure such as cellphone towers, Wi-Fi base stations etc.
+The methods used to collect network-driven data are periodic update - where the device sends an update stating the base station it is connected to, handover - where the device information is recorded as they are moving between base stations and location update - where the location of the device is recorded based on the base stations it is connected to.
+
+was done through experiments on a telecom operator dataset, where it was showed that using network-driven mobile phone location data is more advantageous compared to the widely used event-driven ones.
 
 %------------------------------------------------------------------------------%
 \subsection{Consumer data}
