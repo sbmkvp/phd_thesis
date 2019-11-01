@@ -53,8 +53,20 @@ Moreover, there needs to be an inquiry into a framework for how these considerat
 \section{Research Question \& Methodology}
 %------------------------------------------------------------------------------%
 
-The primary research question that was posed for the research is - "Can dynamics of footfall inferred from passively collected big dataset without putting the privacy of users at risk?".
-In this context, the research described in this thesis works on the opportunities and pitfalls presented above in the following ways: by first describing the collection of large volumes of passively generated data, then by solving the uncertainties in the data which arises due to their high variability and the mechanisms designed to protect the privacy of the users, and finally, there is an analysis of the data to produce useful information regarding the distribution and dynamics of footfall in the country.
+The motivation for the research began with the collection of the Wi-Fi probe requests at a national level within the 'Smart Street Sensors' (SSS) project.
+The primary objective of the project was to develop a business venture providing quantitative data on footfall to retailers across the country.
+This research was initially designed to supplement the above project by exploring the possibility of validating the data collection methodology and understanding the uncertainties and biases present in them. 
+It was also designed to explore methods and analyses which provide insights and value to the retailers from the base footfall volumes. 
+As discussed in the previous section, the preliminary analysis of the data collected revealed two major problems areas. 
+First is the need to improve the accuracy of the footfall estimation by circumventing the MAC randomisation process and the second is the need to protect the privacy of user by developing methods that neither reverse engineer nor collect any personal data.
+With these two challenges in mind, the primary question posed for the research is as follows, 
+
+\begin{displayquote}
+  "Can dynamics of footfall inferred from passively collected big dataset without putting the privacy of users at risk?"
+\end{displayquote}
+
+In this context, this thesis works on answering the question while exploiting the  opportunities presented above in the following ways: by first describing the collection of large volumes of passively generated data, then by solving the uncertainties in the data which arises due to their high variability and the mechanisms designed to protect the privacy of the users, and finally, by analysing the data to produce useful information regarding the distribution and dynamics of footfall in the country.
+
 Contrary to regular methodology, where the research starts from the question, moves to a literature search, data collection, analysis and finally discussion and conclusions, this research starts from the availability of large comprehensive national level dataset.
 This research starts from this dataset, studies both the data and literature surrounding it in detail, finds gaps, problems and unanswered questions in the field, the tries to solve or answer them.
 In this pursuit of understanding the nature of the data that were available without using personal data of users, the research also devises and conducts series of controlled experiments which provides valuable insight into improving the method that could be used for improving the estimation of people or footfall around the sensors.
@@ -67,16 +79,19 @@ The effectiveness of the methodology was also tested using various sets of manua
 The thesis starts with a broad and systematic literature survey on the topic of `distribution and dynamics of human activity' in Chapter \ref{chapter:literature}.
 In this chapter, major themes of research and their evolution in the past 30 years are identified along with the development of technologies which were employed.
 The literature review resulted in the identification of the best possible data source for further research, along with opportunities available for further research.
+
 Having identified Wi-Fi as one of the most promising technologies for research, Chapter \ref{chapter:collection} explores Wi-Fi specification in detail, especially the `probe request' mechanism.
 In addition to studying the standards and specification used to identify relevant data, the chapter also discusses the design and implementation of a series of small experiments to capture and analyse data in the real-world.
 Three sets of initial experiments were conducted and results from the experiments were used to conduct a longer and broader `pilot study' which collected data from locations across London.
-The chapter also introduces the `Smart Street Sensors'(SSS) project - a national project which collects Wi-Fi data at a large number of retail locations.
-The chapter concludes with a detailed evaluation of all the data collected from the experiments and the SSS project, in terms of the bias, noise and uncertainties present in them.
+The chapter also introduces the `Smart Street Sensors' project - a national project which collects Wi-Fi data at a large number of retail locations.
+The chapter concludes with a detailed evaluation of all the data collected from the experiments and the Smart Street Sensor project, in terms of the bias, noise and uncertainties present in them.
+
 Chapter \ref{chapter:processing} deals with processing the Wi-Fi data to remove the identified uncertainties in order to produce `clean' and continuous information on the volume of footfall at the corresponding locations.
 The emphasis on not using personal data, or methods which can potentially reveal personal information, is firmly held throughout the chapter.
 In section \ref{section:toolkit}, a framework for evaluating the `bigness' of the data is discussed, and a `data toolkit' for processing them is subsequently devised.
 In section \ref{section:processing}, methods to clean the data into a realistic estimate of footfall are discussed.
 In section \ref{section:pipeline}, both the `data toolkit' and methods are combined to architect a `data pipeline' which digests the continuous stream of data from the SSS project into meaningful footfall numbers efficiently.
+
 Chapter \ref{chapter:applications} details a variety of applications of the research across four major themes: an index for footfall across United Kingdom, the detection of events using changes in the volume of footfall, an estimation of the flow of pedestrians between locations derived from the changes in footfall volumes, and the identification of the nature and relationship between places along with possibilities for further research.
 
 %------------------------------------------------------------------------------%
@@ -88,6 +103,7 @@ It can also help us in our pursuit to accomplish a real-time census of people an
 It can not only provide us with snapshots of the state of  retail areas, but also help in measuring, modelling and manipulating them in real-time as a dynamic system which respond to interventions.
 We can even link these footfall data to other sources of data such as commercial consumer datasets and public transport statistics, in order to build a comprehensive picture on the health and efficiency of city-wide systems.
 Availability of such datasets can revolutionise academic research in fields such as urban planning, public policy and urban management, whereby the effect of interventions could be objectively measured and analysed.
+
 Although this research did not try to explore the applications of this footfall data in detail, it hopes to serve as a solid basis for further studies in a various academic disciplines such as geography, business management, risk management, spatial analysis and computer science, which can employ the data to either derive insights about locations and context, or use the data as a reference/training source for validating methods and tools.
 Availability of such national level data on footfall volumes spanning continuously over years can also have a substantial impact on industries such as retail, transportation, real estate and information technology.
 As this research has a significant bias towards retail locations, the outputs can especially be of immense value for various stakeholders in the retail industry such as \textit{Retailers} who can get detailed information on when and where their customers shop which can lead to more efficient business operations, \textit{Customers} who can be informed on the popularity of places and when to visit them, \textit{Landlords} who can achieve a way to objectively evaluate their properties' values based on their location and also time, and \textit{Local Authorities} who can be enabled to monitor and manage the health of their retail areas over longer periods of time.
