@@ -55,7 +55,10 @@ The potential for research gaps are discussed in detail in the following section
 
 Previous research in this area of study has been limited to either national/ regional level studies using centrally collected residential population data such as censuses or to area level studies conducted with mobile devices based technologies.
 Though there were some efforts in collecting and using mobile phone data at national/ regional level we have never been presented with such unprecedented level of data available now.
-The explosion of consumer data both publicly available and privately held presents previously unseen opportunity and also limited by the privacy concerns that arise with them.
+
+For example, \citep{qin2013} demonstrate that it is possible to detect and quantify human presence at locations using probe requests with a detection rate of 86\%. 
+Along with the evaluation of the various algorithms for channel switching the research also successfully classifies these detected human presence into distinct activities in a non-intrusive way. 
+Though this work predates both the MAC address randomisation and wide spread use of mobile experienced these days, the explosion of consumer data both publicly available and privately held presents previously unseen opportunity and also limited by the privacy concerns that arise with them.
 There is an immense opportunity to collect and standardise a large national level dataset which closely linked to the population distribution and movement in an anonymised way which then can be used to understand the distribution of population and its change.
 There is a need to extend such effort  longitudinally which can give us insights in to the change of such phenomenon in time.
 This has the potential to enable us to ask broad questions such as,
@@ -80,8 +83,11 @@ The privacy concerns about the data collected from personal mobile devices has p
 All the mobility studies recording user trajectories across space and time are rendered infeasible with the cryptographic hashing and randomisation techniques employed by the devices. 
 This along with progressive legislation such as General Data Protection Regulation have severely constrained the data available for mobility research.
 As we see later, even the estimation of ambient population is limited by these developments.
-Though there are prior research in this area, most are conducted from security perspective evaluating the robustness of the randomisation/obfuscation procedure.
-These research focus around de-anonymising the obfuscated data to recreate the personal information from them thus demonstrating vulnerabilities and risks for the users. 
+
+\citep{vanhoef2016} presents several novel methods of abusing the features of the Wi-Fi standards to track mobile devices even when the MAC addresses were randomised. This research shows the possibility of using the information elements present in the probe requests along with the sequence numbers to fingerprint the mobile device which sent the request with an accuracy of the 50\% within a 20 minute interval with a possibility of improvement with known scrambler 'seeds' - the randomisation factor used by popular commercial devices. Though this sounds promising for short intervals, since this research, manufacturers have stopped including non-mandatory information elements which can affect the accuracy significantly. The research also features two other methods to reverse engineer the original MAC addresses from the randomised ones - first where known hotspots were spoofed to trick the mobile devices in revealing their real addresses and the second where a different protocol requests were used. Both these methods cannot be used extensively since the former is not ethically sound and the latter is not widely used by all mobile devices. 
+
+Since the above study and the following ones were conducted from security perspective - evaluating the robustness of the randomisation/ obfuscation procedure,
+they focus on de-anonymising the obfuscated data to recreate the personal information from them while demonstrating vulnerabilities in the standard and associated risks for the users. 
 In this context, there is a clear gap for research in to methods to rather carry out  fingerprinting of these devices using patterns in the data to create useful information from them without actually de-anonymise the data.
 This can lead to production of data-sets and methodologies which will enable us to,
 
@@ -99,7 +105,9 @@ This can lead to production of data-sets and methodologies which will enable us 
 Having granular spatio-temporal data on population at an area level also enables us to look at the activity of people at this scale.
 For example, the spike in Wi-Fi activity at a certain area at a certain time can illuminate us with a specific event that is happening in that area.
 Thought research have been done on this area using social media data, a longitudinal data-set collected using mobile technology can enable us to formalise the models needed to identify anomalies, quantify the causation of such anomalies to real world event.
-The near real-time aspect of such research also provides us opportunities in fields of disaster management, smart cities etc. 
+\citep{kontokosta2016} discuss the use of Wi-Fi data for a 'real-time' census of the city with a case study of New York City's Lower Manhattan neighborhood.
+The research collects around 20 million Wi-Fi data points during 2015 and presents a model to create real-time, on-the-fly population estimates with fine granularity.
+The research demonstrates the feasibility of the pursuit along with the potential significance of such localised population estimates for use within the domains of city operations and policy, strategic long-term planning processes, emergency response etc.
 There are opportunities to ask questions such as,
 
 \marginnote{\textit{\textbf{Opportunity 3:} Developing models and methods to identify anomalies in the data and underlying events causing them } }
@@ -118,6 +126,11 @@ There are opportunities to ask questions such as,
 
 Similar to the device fingerprinting, estimating and understanding pedestrian flow in the street network has immense opportunities since the anonymisation of mobile devices has taken off.
 Even when the problem of the identifying unique fingerprints of users in the data has not been solved, there is a need to understand the overall performance of the street network in terms of pedestrian flow just from the precise, granular data available, especially when the data source is as unstructured and noisy as the Wi-Fi sensors.
+
+\citep{musa2011} use the Wi-Fi probe requests collected in a 12-hour trial on a busy road to describe a passive tracking system for mobile devices.
+The research proposes a trajectory estimation method based on Viterbi's algorithm which estimates the most-likely spatial path taken from the information on when and where they have been detected. 
+Although the research extends this trial into a 9-month deployment and demonstrates trajectory estimates with high accuracy, the problem still remains where we need to extract trajectories of users without actually being able to identify them.
+
 This problem can he approached in two ways,
 
 \marginnote{\textit{\textbf{Opportunity 4:} Estimating flow of pedestrians in the street network from Wi-Fi data } }
