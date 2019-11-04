@@ -49,8 +49,8 @@ What may be `big' in one discipline may not be in another.
 The nature of data can also be evaluated in various dimensions and can exhibit different properties in those dimensions. 
 `Big data' is generally defined within the context of disciplines, as data which cannot be managed with traditional methods and tools in those disciplines and requires substantial change in the approach of the practitioners.
 This approach of looking at 'Big data' is too subjective and falls short of giving us more understanding of `Big data'.
-One of the most quoted definitions pertains to the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite{laney2001}.
-This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation \cite{li2016}- the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
+One of the most quoted definitions pertains to the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite[-4cm]{laney2001}.
+This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation \cite[-2.5cm]{li2016}- the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.
 There have also been other alternative dimensions proposed such as cardinality, continuity and complexity \cite{suthaharan2014}.
 However we can consider the core dimensions of data - volume, velocity, variety, veracity and visualisation for evaluating our datasets.
 Since not all data is 'Big' in all these dimensions, we need to evaluate the `bigness' of the data in each dimension and consider the associated challenges and solutions.
@@ -522,19 +522,10 @@ Using any of specialised big data tools is just going to introduce immense overh
 We need something in-between the above two approaches where we is sufficiently fast and flexible for our datasets.
 
 This is where we come across the possibility of using standard Unix tools along with connecting them to create a processing pipeline.
-In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite{adam2014}.
+In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite[-1.5cm]{adam2014}.
 The command line tools were developed as parts of Unix operating system for processing text. 
 They are developed in line with the Unix philosophy which focuses on modular and minimal software development. 
-The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite{mcilroy1978},
-
-\begin{enumerate}[rightmargin=1cm]
-  \setlength{\itemindent}{2em}
-  \itemsep-0.25em
-	\item Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features".
-	\item Expect the output of every program to become the input to another, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don't insist on interactive input.
-	\item Design and build software, even operating systems, to be tried early, ideally within weeks. Don't hesitate to throw away the clumsy parts and rebuild them.
-	\item Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.
-\end{enumerate}
+The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite[-2cm]{mcilroy1978},
 
 \begin{table}[h]
   \footnotesize
@@ -563,6 +554,16 @@ The core tenants of the Unix philosophy has been summarised by Doug McIlroy as b
   \caption{Tasks in the processing pipeline, corresponding R libraries and equivalent Unix tools}
   \label{table:toolkit:tools}
 \end{table}
+
+
+\begin{enumerate}[rightmargin=1cm]
+  \setlength{\itemindent}{2em}
+  \itemsep-0.25em
+	\item Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new "features".
+	\item Expect the output of every program to become the input to another, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don't insist on interactive input.
+	\item Design and build software, even operating systems, to be tried early, ideally within weeks. Don't hesitate to throw away the clumsy parts and rebuild them.
+	\item Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.
+\end{enumerate}
 
 These principles along with the `pipe' operator gives us necessary tools to build more complex tools.
 We can replace most of the libraries we used in the R implementation of our processing with a corresponding command line tools and connect them together with a text interface to achieve similar pipeline.
@@ -626,16 +627,15 @@ Though these big data tools promise huge improvements in processing capabilities
 Thus we need a framework to examine and understand the scale of the data that is being used so that we use the right tools for the right purposes and the 5Vs of `Big data' - Volume, Velocity, Veracity, Variety and Visualisation provides us with such frame work.
 Every dimension of big data poses unique set of challenges and we need make right decisions in choosing specialised tools and methods to overcome them.
 
+We then closely examined the Wi-Fi probes data we collected with this framework and found that the data, though posed significant challenges with traditional data processing techniques, do not exhibit `big data' properties in all its dimensions. 
+Only veracity of the data was found to have any meaningful big data properties, while volume and velocity was found to be 'medium' at best. 
+The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.
+Thus we arrived at the requirements for a bespoke `medium data toolkit' which is able to deal with these challenges.
 \begin{figure}
   \includegraphics{images/toolkit.png}
   \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}
   \label{figure:toolkit}
 \end{figure}
-
-We then closely examined the Wi-Fi probes data we collected with this framework and found that the data, though posed significant challenges with traditional data processing techniques, do not exhibit `big data' properties in all its dimensions. 
-Only veracity of the data was found to have any meaningful big data properties, while volume and velocity was found to be 'medium' at best. 
-The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.
-Thus we arrived at the requirements for a bespoke `medium data toolkit' which is able to deal with these challenges.
 
 We undertook a brief survey of tools available for collecting, storing, processing and visualising the Wi-Fi probe request data and with the understanding of the data from the previous analysis chose the ones which are perfect for the datasets.
 For collecting Wi-Fi probes data in a scalable way, we chose a general purpose single board computers such as Raspberry-Pi along with open source tools such as tcpdump and tshark in a Linux environment.

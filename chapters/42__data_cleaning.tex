@@ -261,14 +261,14 @@ This resulted in a footfall count with a MAPE of -18\% compared to the manual co
 It is important to notice that this clustering was undertaken on top of the signal strength filtering, and only for the probe requests with randomised MAC addresses.
 A comparison of minute by minute counts resulting from different filtering processes along with the ground truth is shown in Figure \ref{figure:processing:oxst:results}, and illustrates the promising effectiveness of the methods.
 
+To summarise, the data from the initial experiments suggest that both filtering using signal strength and the clustering using sequence numbers worked well on complex, real world data and resulted in fairly accurate pedestrian counts with a MAPE of 20\%.
+It was also found that ‘k-means’ and ‘quantile’ are the best algorithms for clustering signal strengths, and the optimum thresholds for time and sequence numbers for the clustering algorithm were around 16 and 60 respectively.
+
 \begin{figure}
   \includegraphics[trim={3 3 3 3},clip]{images/processing-oxst-results.jpg}
   \caption{A comparison of estimated footfall at Oxford Circus during various stages of filtering with the actual manual counts.}
   \label{figure:processing:oxst:results}
 \end{figure}
-
-To summarise, the data from the initial experiments suggest that both filtering using signal strength and the clustering using sequence numbers worked well on complex, real world data and resulted in fairly accurate pedestrian counts with a MAPE of 20\%.
-It was also found that ‘k-means’ and ‘quantile’ are the best algorithms for clustering signal strengths, and the optimum thresholds for time and sequence numbers for the clustering algorithm were around 16 and 60 respectively.
 
 %------------------------------------------------------------------------------%
 \subsection{Pilot Study}
