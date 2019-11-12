@@ -46,27 +46,45 @@ Finally this research also provides a gallery of examples showing the possible u
 %------------------------------------------------------------------------------%
 \section{Research Question}
 %------------------------------------------------------------------------------%
-Looking back at our research question - "Can dynamics of footfall inferred from passively collected big dataset without putting the privacy of users at risk?"
-we have demonstrated that it is indeed feasible to infer footfall using Wi-Fi even when the identity of the devices were masked using randomisation techniques.
-We have also demonstrated the usefulness and application of such footfall estimate.
+Looking back at our research question - "Can dynamics of footfall inferred from passively collected big dataset without putting the privacy of users at risk?",
+we have demonstrated that the task is indeed feasible, using Wi-Fi probe requests. Even when the identity of the devices were masked using randomisation techniques we have demonstrated that aggregation and estimation could be done without compromising the privacy of the users.
+In addition to this, we have also demonstrated the usefulness and application of such footfall estimate with various examples.
 The footfall estimates derived from the method were used to devise a 'footfall index' at various levels - national, city, area and micro site locations showing how the retail related footfall have been distributed in the UK and how this distribution has been changing over time in high granularity both spatially and temporally.
 It has been demonstrated that this information on footfall can be used as a clue for knowing the form and function of a place and trace the changes it has undergone over time as well.
 It was also demonstrated two sets of examples, that real-world events could be detected from looking at the anomalies in the footfall volumes at locations.
 Finally, it was also demonstrated that such detailed and continuous footfall volume information at locations could be used to predict or estimate flow of pedestrians between them by just looking at the changes in these volumes thus providing a way to understand the pedestrian flow in cities without actually tracking individuals.
 
-As we discussed in Chapter \ref{chapter:introduction}, this research project, unlike traditional ones, starts from the availability of the data and moves back forth in terms of improving the data and producing insights from them to answer our research question - "Can dynamics of footfall inferred from passively collected big dataset without putting the privacy of users at risk?". Through out the research it has been demonstrated that
-
 %------------------------------------------------------------------------------%
 \section{Further Work}
 %------------------------------------------------------------------------------%
 
-New technologies - 5G
-Privacy Research
-Machine learning techniques
-Prediction and estimation
-Applied research on retail, economics, health
-Urban analytics and smart cities - pedestrian flows
-Urban management \& Policy - retail health and vitality.
+As we discussed in the literature review, the research on collecting and using data on population distribution and dynamics have closely followed the advances and changes in the consumer technology. 
+Every new technology adopted for mainstream use spurred new wave of research in using those technology.
+It is also noted that every new technology not only brought many advantages over the previous ones but also introduced unique challenges.
+In this context, the larges opportunity in furthering the research exists in identifying, evaluating and adopting new technologies.
+There is a significant opportunities in applying these new technologies for old challenges and device methods to make them suitable to answer the questions raised by research.
+Few such technologies are detailed below,
 
+\begin{itemize}
+  \item \textbf{5G} is the new generation of technology which aims to bring even higher speeds of data transfer to mobile devices through cellular networks. This may lead to the gradual decline and phasing out of Wi-Fi technology. Though this cellular based technology doesn't provide the similar detail and flexibility offered by Wi-Fi it has the potential to offer much more comprehensive picture of the world if it gets  widely adopted.
+  \item \textbf{Bluetooth Low energy (BLE)} is the upcoming short-range, wireless personal area network technology. With emphasis on being the technology used by the Internet of Things (IOT) devices, this technology has the potential to displace Wi-Fi as the choice of short-range communications. The explosion of wearables and smart devices at home, the amount of data that could be available form this technology could be staggering in the next decade.
+  \item \textbf{Ultra wide band radar} is another short-range technology which has been developed for motion and object detection. Being primarily used to design sensors for proximity and motion detection, this has the potential to become a standard for vehicles. Moreover, with the recent uptick in self driving car research and development, the cost of these devices has gone significantly down thus providing amazing opportunities in creating comprehensive sensor networks similar to Smart Street Sensor project.
+\end{itemize}
 
-%Concluding remarks
+In spite of being developed since 1980s, machine learning techniques have received extraordinary interest in the last decade.
+This interest, along with advancements in the Big data tools and technologies has set up the stage for research by applying supervised and unsupervised machine learning techniques on large scale datasets collected through the above mentioned technologies.
+There is a significant opportunity for applying unsupervised learning techniques such as anomaly detection and neural networks in passively collected digital data to improve data cleaning, interpolation, population estimations and time series based predictions etc.
+
+Research ethics, safety and privacy are going to be the next big areas of concern for advanced machine learning based techniques and big data analysis in the next decade.
+The era of uninhibited large scale production, collection and consumption of personal data through connected devices over internet without oversight is almost over.
+People are increasingly concerned with protecting their privacy and are opposed to the exploitation of their personal data.
+This concern has been addressed by legislation such as GDPR and technologies such as cryptography and randomisation.
+All these developments provide us with various opportunities in further research.
+
+Firstly there is opportunity study the above mentioned technologies form a privacy point of view to evaluate the advantages and risks presented by them and advance the research in terms of both mitigation the risks while maintaining some kind of usefulness.
+These inquiries can not only be done in terms of techniques but also on the lines of legal compliance of such techniques. 
+There is also opportunity for researching on the uncertainties and limits of datasets when subject to robust privacy control methods.
+Secondly the immense research, innovation and advancements made in peer to peer technologies in solving the various trust problems could be applied in the field of sensor based population estimation or pedestrian flow detection.
+There is an opportunity for research into building a peer to peer network of sensors where the data collected by the sensors never leave the device themselves but the analyses are taken to the source of data. 
+This act of "moving the analysis to data" can solve numerous problems of safety of the personal data since there is not central point of failure and it can also scale up indefinitely without overwhelming a central repository of data.
+Through these further research, we could take the field forward by not only following the improvements in the technology of data collection but also push the envelope in terms of developing more ethical and sage research environment while handling large amounts of data.
