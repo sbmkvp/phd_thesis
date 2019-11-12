@@ -1,0 +1,1923 @@
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+<style type="text/css">
+pre { white-space: pre-wrap; }
+.ef0,.f0 { color: #000000; } .eb0,.b0 { background-color: #000000; }
+.ef1,.f1 { color: #AA0000; } .eb1,.b1 { background-color: #AA0000; }
+.ef2,.f2 { color: #00AA00; } .eb2,.b2 { background-color: #00AA00; }
+.ef3,.f3 { color: #AA5500; } .eb3,.b3 { background-color: #AA5500; }
+.ef4,.f4 { color: #0000AA; } .eb4,.b4 { background-color: #0000AA; }
+.ef5,.f5 { color: #AA00AA; } .eb5,.b5 { background-color: #AA00AA; }
+.ef6,.f6 { color: #00AAAA; } .eb6,.b6 { background-color: #00AAAA; }
+.ef7,.f7 { color: #AAAAAA; } .eb7,.b7 { background-color: #AAAAAA; }
+.ef8, .f0 > .bold,.bold > .f0 { color: #555555; font-weight: normal; }
+.ef9, .f1 > .bold,.bold > .f1 { color: #FF5555; font-weight: normal; }
+.ef10,.f2 > .bold,.bold > .f2 { color: #55FF55; font-weight: normal; }
+.ef11,.f3 > .bold,.bold > .f3 { color: #FFFF55; font-weight: normal; }
+.ef12,.f4 > .bold,.bold > .f4 { color: #5555FF; font-weight: normal; }
+.ef13,.f5 > .bold,.bold > .f5 { color: #FF55FF; font-weight: normal; }
+.ef14,.f6 > .bold,.bold > .f6 { color: #55FFFF; font-weight: normal; }
+.ef15,.f7 > .bold,.bold > .f7 { color: #FFFFFF; font-weight: normal; }
+.eb8  { background-color: #555555; }
+.eb9  { background-color: #FF5555; }
+.eb10 { background-color: #55FF55; }
+.eb11 { background-color: #FFFF55; }
+.eb12 { background-color: #5555FF; }
+.eb13 { background-color: #FF55FF; }
+.eb14 { background-color: #55FFFF; }
+.eb15 { background-color: #FFFFFF; }
+.ef16 { color: #000000; } .eb16 { background-color: #000000; }
+.ef17 { color: #00005f; } .eb17 { background-color: #00005f; }
+.ef18 { color: #000087; } .eb18 { background-color: #000087; }
+.ef19 { color: #0000af; } .eb19 { background-color: #0000af; }
+.ef20 { color: #0000d7; } .eb20 { background-color: #0000d7; }
+.ef21 { color: #0000ff; } .eb21 { background-color: #0000ff; }
+.ef22 { color: #005f00; } .eb22 { background-color: #005f00; }
+.ef23 { color: #005f5f; } .eb23 { background-color: #005f5f; }
+.ef24 { color: #005f87; } .eb24 { background-color: #005f87; }
+.ef25 { color: #005faf; } .eb25 { background-color: #005faf; }
+.ef26 { color: #005fd7; } .eb26 { background-color: #005fd7; }
+.ef27 { color: #005fff; } .eb27 { background-color: #005fff; }
+.ef28 { color: #008700; } .eb28 { background-color: #008700; }
+.ef29 { color: #00875f; } .eb29 { background-color: #00875f; }
+.ef30 { color: #008787; } .eb30 { background-color: #008787; }
+.ef31 { color: #0087af; } .eb31 { background-color: #0087af; }
+.ef32 { color: #0087d7; } .eb32 { background-color: #0087d7; }
+.ef33 { color: #0087ff; } .eb33 { background-color: #0087ff; }
+.ef34 { color: #00af00; } .eb34 { background-color: #00af00; }
+.ef35 { color: #00af5f; } .eb35 { background-color: #00af5f; }
+.ef36 { color: #00af87; } .eb36 { background-color: #00af87; }
+.ef37 { color: #00afaf; } .eb37 { background-color: #00afaf; }
+.ef38 { color: #00afd7; } .eb38 { background-color: #00afd7; }
+.ef39 { color: #00afff; } .eb39 { background-color: #00afff; }
+.ef40 { color: #00d700; } .eb40 { background-color: #00d700; }
+.ef41 { color: #00d75f; } .eb41 { background-color: #00d75f; }
+.ef42 { color: #00d787; } .eb42 { background-color: #00d787; }
+.ef43 { color: #00d7af; } .eb43 { background-color: #00d7af; }
+.ef44 { color: #00d7d7; } .eb44 { background-color: #00d7d7; }
+.ef45 { color: #00d7ff; } .eb45 { background-color: #00d7ff; }
+.ef46 { color: #00ff00; } .eb46 { background-color: #00ff00; }
+.ef47 { color: #00ff5f; } .eb47 { background-color: #00ff5f; }
+.ef48 { color: #00ff87; } .eb48 { background-color: #00ff87; }
+.ef49 { color: #00ffaf; } .eb49 { background-color: #00ffaf; }
+.ef50 { color: #00ffd7; } .eb50 { background-color: #00ffd7; }
+.ef51 { color: #00ffff; } .eb51 { background-color: #00ffff; }
+.ef52 { color: #5f0000; } .eb52 { background-color: #5f0000; }
+.ef53 { color: #5f005f; } .eb53 { background-color: #5f005f; }
+.ef54 { color: #5f0087; } .eb54 { background-color: #5f0087; }
+.ef55 { color: #5f00af; } .eb55 { background-color: #5f00af; }
+.ef56 { color: #5f00d7; } .eb56 { background-color: #5f00d7; }
+.ef57 { color: #5f00ff; } .eb57 { background-color: #5f00ff; }
+.ef58 { color: #5f5f00; } .eb58 { background-color: #5f5f00; }
+.ef59 { color: #5f5f5f; } .eb59 { background-color: #5f5f5f; }
+.ef60 { color: #5f5f87; } .eb60 { background-color: #5f5f87; }
+.ef61 { color: #5f5faf; } .eb61 { background-color: #5f5faf; }
+.ef62 { color: #5f5fd7; } .eb62 { background-color: #5f5fd7; }
+.ef63 { color: #5f5fff; } .eb63 { background-color: #5f5fff; }
+.ef64 { color: #5f8700; } .eb64 { background-color: #5f8700; }
+.ef65 { color: #5f875f; } .eb65 { background-color: #5f875f; }
+.ef66 { color: #5f8787; } .eb66 { background-color: #5f8787; }
+.ef67 { color: #5f87af; } .eb67 { background-color: #5f87af; }
+.ef68 { color: #5f87d7; } .eb68 { background-color: #5f87d7; }
+.ef69 { color: #5f87ff; } .eb69 { background-color: #5f87ff; }
+.ef70 { color: #5faf00; } .eb70 { background-color: #5faf00; }
+.ef71 { color: #5faf5f; } .eb71 { background-color: #5faf5f; }
+.ef72 { color: #5faf87; } .eb72 { background-color: #5faf87; }
+.ef73 { color: #5fafaf; } .eb73 { background-color: #5fafaf; }
+.ef74 { color: #5fafd7; } .eb74 { background-color: #5fafd7; }
+.ef75 { color: #5fafff; } .eb75 { background-color: #5fafff; }
+.ef76 { color: #5fd700; } .eb76 { background-color: #5fd700; }
+.ef77 { color: #5fd75f; } .eb77 { background-color: #5fd75f; }
+.ef78 { color: #5fd787; } .eb78 { background-color: #5fd787; }
+.ef79 { color: #5fd7af; } .eb79 { background-color: #5fd7af; }
+.ef80 { color: #5fd7d7; } .eb80 { background-color: #5fd7d7; }
+.ef81 { color: #5fd7ff; } .eb81 { background-color: #5fd7ff; }
+.ef82 { color: #5fff00; } .eb82 { background-color: #5fff00; }
+.ef83 { color: #5fff5f; } .eb83 { background-color: #5fff5f; }
+.ef84 { color: #5fff87; } .eb84 { background-color: #5fff87; }
+.ef85 { color: #5fffaf; } .eb85 { background-color: #5fffaf; }
+.ef86 { color: #5fffd7; } .eb86 { background-color: #5fffd7; }
+.ef87 { color: #5fffff; } .eb87 { background-color: #5fffff; }
+.ef88 { color: #870000; } .eb88 { background-color: #870000; }
+.ef89 { color: #87005f; } .eb89 { background-color: #87005f; }
+.ef90 { color: #870087; } .eb90 { background-color: #870087; }
+.ef91 { color: #8700af; } .eb91 { background-color: #8700af; }
+.ef92 { color: #8700d7; } .eb92 { background-color: #8700d7; }
+.ef93 { color: #8700ff; } .eb93 { background-color: #8700ff; }
+.ef94 { color: #875f00; } .eb94 { background-color: #875f00; }
+.ef95 { color: #875f5f; } .eb95 { background-color: #875f5f; }
+.ef96 { color: #875f87; } .eb96 { background-color: #875f87; }
+.ef97 { color: #875faf; } .eb97 { background-color: #875faf; }
+.ef98 { color: #875fd7; } .eb98 { background-color: #875fd7; }
+.ef99 { color: #875fff; } .eb99 { background-color: #875fff; }
+.ef100 { color: #878700; } .eb100 { background-color: #878700; }
+.ef101 { color: #87875f; } .eb101 { background-color: #87875f; }
+.ef102 { color: #878787; } .eb102 { background-color: #878787; }
+.ef103 { color: #8787af; } .eb103 { background-color: #8787af; }
+.ef104 { color: #8787d7; } .eb104 { background-color: #8787d7; }
+.ef105 { color: #8787ff; } .eb105 { background-color: #8787ff; }
+.ef106 { color: #87af00; } .eb106 { background-color: #87af00; }
+.ef107 { color: #87af5f; } .eb107 { background-color: #87af5f; }
+.ef108 { color: #87af87; } .eb108 { background-color: #87af87; }
+.ef109 { color: #87afaf; } .eb109 { background-color: #87afaf; }
+.ef110 { color: #87afd7; } .eb110 { background-color: #87afd7; }
+.ef111 { color: #87afff; } .eb111 { background-color: #87afff; }
+.ef112 { color: #87d700; } .eb112 { background-color: #87d700; }
+.ef113 { color: #87d75f; } .eb113 { background-color: #87d75f; }
+.ef114 { color: #87d787; } .eb114 { background-color: #87d787; }
+.ef115 { color: #87d7af; } .eb115 { background-color: #87d7af; }
+.ef116 { color: #87d7d7; } .eb116 { background-color: #87d7d7; }
+.ef117 { color: #87d7ff; } .eb117 { background-color: #87d7ff; }
+.ef118 { color: #87ff00; } .eb118 { background-color: #87ff00; }
+.ef119 { color: #87ff5f; } .eb119 { background-color: #87ff5f; }
+.ef120 { color: #87ff87; } .eb120 { background-color: #87ff87; }
+.ef121 { color: #87ffaf; } .eb121 { background-color: #87ffaf; }
+.ef122 { color: #87ffd7; } .eb122 { background-color: #87ffd7; }
+.ef123 { color: #87ffff; } .eb123 { background-color: #87ffff; }
+.ef124 { color: #af0000; } .eb124 { background-color: #af0000; }
+.ef125 { color: #af005f; } .eb125 { background-color: #af005f; }
+.ef126 { color: #af0087; } .eb126 { background-color: #af0087; }
+.ef127 { color: #af00af; } .eb127 { background-color: #af00af; }
+.ef128 { color: #af00d7; } .eb128 { background-color: #af00d7; }
+.ef129 { color: #af00ff; } .eb129 { background-color: #af00ff; }
+.ef130 { color: #af5f00; } .eb130 { background-color: #af5f00; }
+.ef131 { color: #af5f5f; } .eb131 { background-color: #af5f5f; }
+.ef132 { color: #af5f87; } .eb132 { background-color: #af5f87; }
+.ef133 { color: #af5faf; } .eb133 { background-color: #af5faf; }
+.ef134 { color: #af5fd7; } .eb134 { background-color: #af5fd7; }
+.ef135 { color: #af5fff; } .eb135 { background-color: #af5fff; }
+.ef136 { color: #af8700; } .eb136 { background-color: #af8700; }
+.ef137 { color: #af875f; } .eb137 { background-color: #af875f; }
+.ef138 { color: #af8787; } .eb138 { background-color: #af8787; }
+.ef139 { color: #af87af; } .eb139 { background-color: #af87af; }
+.ef140 { color: #af87d7; } .eb140 { background-color: #af87d7; }
+.ef141 { color: #af87ff; } .eb141 { background-color: #af87ff; }
+.ef142 { color: #afaf00; } .eb142 { background-color: #afaf00; }
+.ef143 { color: #afaf5f; } .eb143 { background-color: #afaf5f; }
+.ef144 { color: #afaf87; } .eb144 { background-color: #afaf87; }
+.ef145 { color: #afafaf; } .eb145 { background-color: #afafaf; }
+.ef146 { color: #afafd7; } .eb146 { background-color: #afafd7; }
+.ef147 { color: #afafff; } .eb147 { background-color: #afafff; }
+.ef148 { color: #afd700; } .eb148 { background-color: #afd700; }
+.ef149 { color: #afd75f; } .eb149 { background-color: #afd75f; }
+.ef150 { color: #afd787; } .eb150 { background-color: #afd787; }
+.ef151 { color: #afd7af; } .eb151 { background-color: #afd7af; }
+.ef152 { color: #afd7d7; } .eb152 { background-color: #afd7d7; }
+.ef153 { color: #afd7ff; } .eb153 { background-color: #afd7ff; }
+.ef154 { color: #afff00; } .eb154 { background-color: #afff00; }
+.ef155 { color: #afff5f; } .eb155 { background-color: #afff5f; }
+.ef156 { color: #afff87; } .eb156 { background-color: #afff87; }
+.ef157 { color: #afffaf; } .eb157 { background-color: #afffaf; }
+.ef158 { color: #afffd7; } .eb158 { background-color: #afffd7; }
+.ef159 { color: #afffff; } .eb159 { background-color: #afffff; }
+.ef160 { color: #d70000; } .eb160 { background-color: #d70000; }
+.ef161 { color: #d7005f; } .eb161 { background-color: #d7005f; }
+.ef162 { color: #d70087; } .eb162 { background-color: #d70087; }
+.ef163 { color: #d700af; } .eb163 { background-color: #d700af; }
+.ef164 { color: #d700d7; } .eb164 { background-color: #d700d7; }
+.ef165 { color: #d700ff; } .eb165 { background-color: #d700ff; }
+.ef166 { color: #d75f00; } .eb166 { background-color: #d75f00; }
+.ef167 { color: #d75f5f; } .eb167 { background-color: #d75f5f; }
+.ef168 { color: #d75f87; } .eb168 { background-color: #d75f87; }
+.ef169 { color: #d75faf; } .eb169 { background-color: #d75faf; }
+.ef170 { color: #d75fd7; } .eb170 { background-color: #d75fd7; }
+.ef171 { color: #d75fff; } .eb171 { background-color: #d75fff; }
+.ef172 { color: #d78700; } .eb172 { background-color: #d78700; }
+.ef173 { color: #d7875f; } .eb173 { background-color: #d7875f; }
+.ef174 { color: #d78787; } .eb174 { background-color: #d78787; }
+.ef175 { color: #d787af; } .eb175 { background-color: #d787af; }
+.ef176 { color: #d787d7; } .eb176 { background-color: #d787d7; }
+.ef177 { color: #d787ff; } .eb177 { background-color: #d787ff; }
+.ef178 { color: #d7af00; } .eb178 { background-color: #d7af00; }
+.ef179 { color: #d7af5f; } .eb179 { background-color: #d7af5f; }
+.ef180 { color: #d7af87; } .eb180 { background-color: #d7af87; }
+.ef181 { color: #d7afaf; } .eb181 { background-color: #d7afaf; }
+.ef182 { color: #d7afd7; } .eb182 { background-color: #d7afd7; }
+.ef183 { color: #d7afff; } .eb183 { background-color: #d7afff; }
+.ef184 { color: #d7d700; } .eb184 { background-color: #d7d700; }
+.ef185 { color: #d7d75f; } .eb185 { background-color: #d7d75f; }
+.ef186 { color: #d7d787; } .eb186 { background-color: #d7d787; }
+.ef187 { color: #d7d7af; } .eb187 { background-color: #d7d7af; }
+.ef188 { color: #d7d7d7; } .eb188 { background-color: #d7d7d7; }
+.ef189 { color: #d7d7ff; } .eb189 { background-color: #d7d7ff; }
+.ef190 { color: #d7ff00; } .eb190 { background-color: #d7ff00; }
+.ef191 { color: #d7ff5f; } .eb191 { background-color: #d7ff5f; }
+.ef192 { color: #d7ff87; } .eb192 { background-color: #d7ff87; }
+.ef193 { color: #d7ffaf; } .eb193 { background-color: #d7ffaf; }
+.ef194 { color: #d7ffd7; } .eb194 { background-color: #d7ffd7; }
+.ef195 { color: #d7ffff; } .eb195 { background-color: #d7ffff; }
+.ef196 { color: #ff0000; } .eb196 { background-color: #ff0000; }
+.ef197 { color: #ff005f; } .eb197 { background-color: #ff005f; }
+.ef198 { color: #ff0087; } .eb198 { background-color: #ff0087; }
+.ef199 { color: #ff00af; } .eb199 { background-color: #ff00af; }
+.ef200 { color: #ff00d7; } .eb200 { background-color: #ff00d7; }
+.ef201 { color: #ff00ff; } .eb201 { background-color: #ff00ff; }
+.ef202 { color: #ff5f00; } .eb202 { background-color: #ff5f00; }
+.ef203 { color: #ff5f5f; } .eb203 { background-color: #ff5f5f; }
+.ef204 { color: #ff5f87; } .eb204 { background-color: #ff5f87; }
+.ef205 { color: #ff5faf; } .eb205 { background-color: #ff5faf; }
+.ef206 { color: #ff5fd7; } .eb206 { background-color: #ff5fd7; }
+.ef207 { color: #ff5fff; } .eb207 { background-color: #ff5fff; }
+.ef208 { color: #ff8700; } .eb208 { background-color: #ff8700; }
+.ef209 { color: #ff875f; } .eb209 { background-color: #ff875f; }
+.ef210 { color: #ff8787; } .eb210 { background-color: #ff8787; }
+.ef211 { color: #ff87af; } .eb211 { background-color: #ff87af; }
+.ef212 { color: #ff87d7; } .eb212 { background-color: #ff87d7; }
+.ef213 { color: #ff87ff; } .eb213 { background-color: #ff87ff; }
+.ef214 { color: #ffaf00; } .eb214 { background-color: #ffaf00; }
+.ef215 { color: #ffaf5f; } .eb215 { background-color: #ffaf5f; }
+.ef216 { color: #ffaf87; } .eb216 { background-color: #ffaf87; }
+.ef217 { color: #ffafaf; } .eb217 { background-color: #ffafaf; }
+.ef218 { color: #ffafd7; } .eb218 { background-color: #ffafd7; }
+.ef219 { color: #ffafff; } .eb219 { background-color: #ffafff; }
+.ef220 { color: #ffd700; } .eb220 { background-color: #ffd700; }
+.ef221 { color: #ffd75f; } .eb221 { background-color: #ffd75f; }
+.ef222 { color: #ffd787; } .eb222 { background-color: #ffd787; }
+.ef223 { color: #ffd7af; } .eb223 { background-color: #ffd7af; }
+.ef224 { color: #ffd7d7; } .eb224 { background-color: #ffd7d7; }
+.ef225 { color: #ffd7ff; } .eb225 { background-color: #ffd7ff; }
+.ef226 { color: #ffff00; } .eb226 { background-color: #ffff00; }
+.ef227 { color: #ffff5f; } .eb227 { background-color: #ffff5f; }
+.ef228 { color: #ffff87; } .eb228 { background-color: #ffff87; }
+.ef229 { color: #ffffaf; } .eb229 { background-color: #ffffaf; }
+.ef230 { color: #ffffd7; } .eb230 { background-color: #ffffd7; }
+.ef231 { color: #ffffff; } .eb231 { background-color: #ffffff; }
+.ef232 { color: #080808; } .eb232 { background-color: #080808; }
+.ef233 { color: #121212; } .eb233 { background-color: #121212; }
+.ef234 { color: #1c1c1c; } .eb234 { background-color: #1c1c1c; }
+.ef235 { color: #262626; } .eb235 { background-color: #262626; }
+.ef236 { color: #303030; } .eb236 { background-color: #303030; }
+.ef237 { color: #3a3a3a; } .eb237 { background-color: #3a3a3a; }
+.ef238 { color: #444444; } .eb238 { background-color: #444444; }
+.ef239 { color: #4e4e4e; } .eb239 { background-color: #4e4e4e; }
+.ef240 { color: #585858; } .eb240 { background-color: #585858; }
+.ef241 { color: #626262; } .eb241 { background-color: #626262; }
+.ef242 { color: #6c6c6c; } .eb242 { background-color: #6c6c6c; }
+.ef243 { color: #767676; } .eb243 { background-color: #767676; }
+.ef244 { color: #808080; } .eb244 { background-color: #808080; }
+.ef245 { color: #8a8a8a; } .eb245 { background-color: #8a8a8a; }
+.ef246 { color: #949494; } .eb246 { background-color: #949494; }
+.ef247 { color: #9e9e9e; } .eb247 { background-color: #9e9e9e; }
+.ef248 { color: #a8a8a8; } .eb248 { background-color: #a8a8a8; }
+.ef249 { color: #b2b2b2; } .eb249 { background-color: #b2b2b2; }
+.ef250 { color: #bcbcbc; } .eb250 { background-color: #bcbcbc; }
+.ef251 { color: #c6c6c6; } .eb251 { background-color: #c6c6c6; }
+.ef252 { color: #d0d0d0; } .eb252 { background-color: #d0d0d0; }
+.ef253 { color: #dadada; } .eb253 { background-color: #dadada; }
+.ef254 { color: #e4e4e4; } .eb254 { background-color: #e4e4e4; }
+.ef255 { color: #eeeeee; } .eb255 { background-color: #eeeeee; }
+
+.f9 { color: #000000; }
+.b9 { background-color: #FFFFFF; }
+.f9 > .bold,.bold > .f9, body.f9 > pre > .bold {
+  /* Bold is heavy black on white, or bright white
+     depending on the default background */
+  color: #000000;
+  font-weight: bold;
+}
+.reverse {
+  /* CSS does not support swapping fg and bg colours unfortunately,
+     so just hardcode something that will look OK on all backgrounds. */
+  color: #000000; background-color: #AAAAAA;
+}
+.underline { text-decoration: underline; }
+.line-through { text-decoration: line-through; }
+.blink { text-decoration: blink; }
+
+/* Avoid pixels between adjacent span elements.
+   Note this only works for lines less than 80 chars
+   where we close span elements on the same line.
+span { display: inline-block; }
+*/
+</style>
+</head>
+
+<body class="f9 b9">
+<pre>
+<span class="bold">diff --git a/.gitignore b/.gitignore</span>
+<span class="bold">index a2f7741..6e7439c 100644</span>
+<span class="bold">--- a/.gitignore</span>
+<span class="bold">+++ b/.gitignore</span>
+
+
+<span class="f6">@@ -26,0 +27 @@</span> _minted-thesis/
+<span class="f2">+viva_report</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/README.md b/README.md</span>
+<span class="bold">index c735c93..d002bb7 100644</span>
+<span class="bold">--- a/README.md</span>
+<span class="bold">+++ b/README.md</span>
+
+
+<span class="f6">@@ -3,3 +2,0 @@</span>
+<span class="f1">- 1. Final PDF of the thesis is at https://github.com/sbmkvp/phd-thesis/blob/master/outputs/full-manuscript.pdf
+- 2. Word count is at https://github.com/sbmkvp/phd-thesis/blob/master/word-count.md</span>
+<span class="f1">- 3. Writing plan is at https://github.com/sbmkvp/phd-thesis/blob/master/writing-plan.md</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/00_front.tex b/chapters/00_front.tex</span>
+<span class="bold">index 177151c..7733b49 100644</span>
+<span class="bold">--- a/chapters/00_front.tex</span>
+<span class="bold">+++ b/chapters/00_front.tex</span>
+
+
+<span class="f6">@@ -34,0 +35,16 @@</span>
+<span class="f2">+</span>
+<span class="f2">+%-------------------------------------------------------------------------------</span>
+<span class="f2">+%	Dedication</span>
+<span class="f2">+%-------------------------------------------------------------------------------</span>
+<span class="f2">+</span>
+<span class="f2">+\cleardoublepage</span>
+<span class="f2">+~\vfill</span>
+<span class="f2">+\begin{doublespace}</span>
+<span class="f2">+\noindent\fontsize{12}{12}\selectfont\itshape \nohyphenation</span>
+<span class="f2">+\hspace{4cm}Dedicated to my parents,</span>
+<span class="f2">+</span>
+<span class="f2">+\hspace{3.5cm}S. Kalavathy and K. Soundararaj.</span>
+<span class="f2">+\end{doublespace}</span>
+<span class="f2">+\vfill</span>
+<span class="f2">+\vfill</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -40 +56 @@</span>
+<span class="f1">-\setcounter{tocdepth}{0}</span>
+<span class="f2">+\setcounter{tocdepth}{1}</span>
+
+
+<span class="f6">@@ -44,0 +61,53 @@</span>
+<span class="f2">+%-------------------------------------------------------------------------------</span>
+<span class="f2">+\chapter*{Glossary} \label{front:glossary}</span>
+<span class="f2">+%-------------------------------------------------------------------------------</span>
+<span class="f2">+</span>
+<span class="f2">+\begin{itemize}</span>
+<span class="f2">+  \item \textbf{Active vs Passive Collection} - Active collection is where the data collection process involves the active participation from the study subjects. In passive data collection, no such participation is required. For example, a web form based survey is an active data collection process while a script collecting data on user's data on a website is passive. This shall not be confused with primary and secondary data where the difference is mainly due to who collects the data from the source.
++</span>
+<span class="f2">+  \item \textbf{Anonymisation and Pseudonymisation } - The act of removing personal or identifiable information from the data. For example, removing the names and date of birth of people in a dataset. Anonymisation could be carried out in various ways two most popular approaches are generalisation and perturbation. Pseudonymisation is similar but the personally identifiable data is substituted with artificial identifier. The difference between them is that in anonymisation the personal information is permanently purged and there is no way of getting the information back. De-anonymisation is the reverse process of getting personal identifiable data from anonymised data.
++</span><span class="b1">    </span>
+<span class="f2">+  \item \textbf{Big Data} - Generally defined as data which could not be handled with regularly used tools and techniques. There are more nuanced definitions of big data depending on the dimension, context and industry. These concepts are discussed in detail in Section \ref{section:toolkit}.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Bluetooth} - Short wavelength, low energy, short range wireless technology used for transferring data between electronic devices. They are generally used by mobile devices to connect to peripherals.</span><span class="b1"> </span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{CDRC} - The Consumer Data Research Center is an investment from Economic Social Research Center, UK for working with consumer-related organisations to open up their data resources to trusted researchers thus enabling them to carry out important social and economic research.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Cellular/Mobile Network} - Terrestrial, long range and wireless network which provides connectivity to mobile devices embedded in them. Most commonly used to denote the networks that provides telephony and internet services to mobile devices using radio waves.</span><span class="b1"> </span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Cryptographic Hashing} - This is the process of transforming a variable set of characters or contents of a file into a fixed length string (checksum). The process is usually one way and is not reversible without a rainbow attack using a database of checksums of all possible values. This is generally used for storing user passwords and to verify the integrity/ authenticity of data. In this thesis hashing functions are used for the purpose of anonymisaiton</span><span class="b1"> </span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Data Partner} - Local Data Company - the organisation which developed the Smart Street Sensor project in conjunction with CDRC. The organisation is solely responsible for the design, manufacture, installation and maintenance of the Smart Street Sensors.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Device Fingerprinting} - This is the process of identifying devices through forensic analysis. This commonly used to identify users from data collected by operational websites. This commonly done through identifying unique configurations of the devices such as screen sizes, versions of software installed, etc. In this thesis fingerprinting is used to denote such processes where unique devices are identified from randomised data.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Encryption} - This is the process of converting a information into unintelligible format using an algorithm (cipher) to prevent unauthorised access. The process is two way since the resulting cipher-text can be decrypted to restore information. The most common methods used is a public-key based encryption scheme known as 'Diffie Hellman key exchange'.</span>
+<span class="f2">+</span><span class="b1">    </span>
+<span class="f2">+  \item \textbf{Footfall} - Number of people at a given location at a give time. In this thesis the term is used synonymous to footfall at a high street - which is only the pedestrians walking along the particular sidewalk of the high street and does not include people on the carriage way in vehicles.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{High Street} - The primary business street in a town or a local area where most shops and commercial activity are located. This term is often used to contrast and distinguish from 'Shopping centers' which are large designated areas earmarked for retail activity exclusively.</span>
+<span class="f2">+</span><span class="b1">    </span>
+<span class="f2">+  \item \textbf{Localisation} - Though localisation could mean both GSM localisation and indoor positioning where the location of a device is indirectly derived from other information, in this thesis localisation is used mainly in the context of indoor positioning of mobile devices using techniques other than GPS. The localisation of objects is often relative to each other or to an object with an established position.</span>
+<span class="f2">+</span><span class="b1">    </span>
+<span class="f2">+  \item \textbf{Location, Sensor and Install} - In this thesis and the Smart Street Sensor project, 'location' refers to a physical or geographic location in United Kingdom, 'sensor' denotes the electronic equipment used to collect data and 'install' refers to the time when a particular sensor was operating from a particular location.</span>
+<span class="f2">+</span><span class="b1">    </span>
+<span class="f2">+  \item \textbf{Mobile Device} - A portable computing device such as a smartphone or tablet computer. This also includes wearables and other devices which have computing hardware and can operate independently of another device.</span>
+<span class="f2">+</span><span class="b1">    </span>
+<span class="f2">+  \item \textbf{Personally Identifiable Information} - Any data that could potentially identify a specific individual. Any information that can be used to distinguish one person from another and can be used for de-anonymizing anonymous data can be considered personally identifiable information. In this thesis, the Media Access Control address is considered as sensitive personally identifiable information.</span><span class="b1"> </span>
+<span class="f2">+</span><span class="b1">    </span>
+<span class="f2">+  \item \textbf{Positioning} - Positioning is the measurement of the absolute position (coordinates) of an object with reference to the earth. This is usually achieved through the use of Global Positioning System or similar systems.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Probe Request} - This is a special signal broadcast by Wi-Fi enabled mobile devices to elicit a response (probe response) from Wi-Fi access points which can receive them. The primary purpose of the probe request is to enumerate the available Wi-Fi networks and there can also be secondary purposes such as indoor positioning.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Real-time} - This is highly subjective concept which could be defined as the phenomena which occurs sufficiently immediately. In this thesis real-time is used to describe data which is collected within an hour after the event has occurred.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Sensor Configuration} - The way the sensor is installed at a particular location. This includes the this includes the position of the sensor in terms of height and depth, the material of shopfront etc.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Signal, Noise} - 'Signal' is used to denote the data received from devices which are within study area and 'Noise' to denote the data from devices outside the study area.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Smart Street Sensor Project} - This project is a comprehensive study of live footfall patterns across Great Britain using 1,000 Wi-Fi based sensors located in high streets across 81 towns and cities across the country. Smart Street Sensor is a Raspberry Pi based sensor designed and manufactured by the Data partner which collects data for the project.</span>
+<span class="f2">+</span>
+<span class="f2">+  \item \textbf{Wi-Fi} - A family of medium range radio technologies based on the IEEE 802.11 family of standards which are generally used for wireless local area networking between devices.</span>
+<span class="f2">+</span>
+<span class="f2">+\end{itemize}</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -65 +134 @@</span>
+<span class="f1">-\vspace{0.2cm} \par \noindent \textbf{Exhibition} - Real-time footfall in Bloomsbury. (2017). \textit{Big Data Here - Big Data Week 2016}, London, United Kingdom.</span>
+<span class="f2">+\vspace{0.2cm} \par \noindent \textbf{Exhibition} - Real-time footfall in Bloomsbury. (2017). \textit{big data Here - big data Week 2016}, London, United Kingdom.</span>
+
+
+<span class="f6">@@ -75,14 +143,0 @@</span>
+<span class="f1">-%-------------------------------------------------------------------------------</span>
+<span class="f1">-%	Dedication</span>
+<span class="f1">-%-------------------------------------------------------------------------------</span>
+<span class="f1">-</span>
+<span class="f1">-\cleardoublepage</span>
+<span class="f1">-~\vfill</span>
+<span class="f1">-\begin{doublespace}</span>
+<span class="f1">-\noindent\fontsize{12}{12}\selectfont\itshape \nohyphenation</span>
+<span class="f1">-\hspace{4cm}Dedicated to my parents,</span>
+<span class="f1">-</span>
+<span class="f1">-\hspace{3.5cm}S. Kalavathy and K. Soundararaj.</span>
+<span class="f1">-\end{doublespace}</span>
+<span class="f1">-\vfill</span>
+<span class="f1">-\vfill</span>
+
+
+<span class="f6">@@ -102 +157 @@</span> In attempts to collect, analyse and link these widely available datasets at a ma
+<span class="f1">-This research looks at one such data source - Wi-Fi probe requests gen- erated by mobile devices - in detail, and processes it into granular, long-term footfall information of the retail high streets of the United Kingdom (UK).</span>
+<span class="f2">+This research looks at one such data source - Wi-Fi probe requests generated by mobile devices - in detail, and processes it into granular, long-term information on number of people on the retail high streets of the United Kingdom (UK).</span>
+
+
+<span class="f6">@@ -105,2 +160 @@</span> This research starts with the design and implementation of multiple experiments
+<span class="f1">-The thesis also details the uses of these datasets, along with the massive dataset generated by the \textit{`Smart Street Sensor'} project, to devise novel data cleaning and processing methodologies.</span>
+<span class="f1">-These methodologies resulted in the generation of a high quality dataset which describes the volume of footfall on UK retail high streets with a granularity of 5 minute intervals since August 2015.</span>
+<span class="f2">+The thesis also details the uses of these datasets, along with the massive dataset generated by the \textit{`Smart Street Sensor'} project, to devise novel data cleaning and processing methodologies which result in the generation of a high quality dataset which describes the volume of people on UK retail high streets with a granularity of 5 minute intervals since August 2015 across 1000 locations (approx.) in 115 towns.</span>
+
+
+<span class="f6">@@ -116 +170 @@</span> We live in the age of data deluge where data are generated at a pace that far ex
+<span class="f1">-Putting these vast amounts of data to use within the constraints of available resources and time, is one of the biggest challenges faced by researchers today.</span>
+<span class="f2">+Putting these amounts of data to use within the constraints of available resources and time, is one of the biggest challenges faced by researchers today.</span>
+
+
+<span class="f6">@@ -118 +172 @@</span> The primary impact of this research is in solving this issue.
+<span class="f1">-This research utilised one such vast dataset - Wi-Fi signals generated by millions of mobile phones all around the year and available to anyone with a Wi-Fi receiver - then cleaned and processed them into highly granular and longitudinal information on the volume of footfall at retail high streets across the UK.</span>
+<span class="f2">+This research utilised one such dataset - Wi-Fi signals generated by millions of mobile phones all around the year and available to anyone with a Wi-Fi receiver - then cleaned and processed them into highly granular and longitudinal information on the volume of footfall at retail high streets across the UK.</span>
+
+
+<span class="f6">@@ -128 +182 @@</span> The work on  this `Medium-data toolkit' was presented at the conference \textit{
+<span class="f1">-Moreover the research directly led to the creation and maintenance of the \textit{aggregated footfall} data product disseminated by CDRC\sidenote[][-2cm]{\textit{\url{https://data.cdrc.ac.uk/dataset/local.data.company.ucl.smartstreetsensor.footfall.data.research.aggregated.data}}}, and has served as the data source for multiple research projects within and outside CDRC and UCL.</span>
+<span class="f2">+Moreover the research directly led to the creation and maintenance of the \textit{aggregated footfall} data product disseminated by CDRC\sidenote[][-2cm]{\textit{Local Data Company \&amp; UCL Smart Street Sensor Footfall Data: Research Aggregated data - \url{https://bit.ly/2FNGmo0}}}, and has served as the data source for multiple research projects within and outside CDRC and UCL.</span>
+
+
+<span class="f6">@@ -132 +186 @@</span> From this information comes a variety of insights: retailers can derive insights
+<span class="f1">-Finally, in the past 3 years, the outputs from this research have been disseminated to the broader academic community and industry through a series of paper presentations at conferences such as \textit{GIS Research UK} and \textit{Conference of Complex Systems}, talks at \textit{Data natives}, \textit{Geo+Data London}, and \textit{Smart Urban Policy Futures Workshop}, industry events such as \textit{Oxford Retail Futures Conference}, and public engagement events such as the \textit{Big Data Here} exhibition.</span>
+<span class="f2">+Finally, in the past 3 years, the outputs from this research have been disseminated to the broader academic community and industry through a series of paper presentations at conferences such as \textit{GIS Research UK} and \textit{Conference of Complex Systems}, talks at \textit{Data natives}, \textit{Geo+Data London}, and \textit{Smart Urban Policy Futures Workshop}, industry events such as \textit{Oxford Retail Futures Conference}, and public engagement events such as the \textit{big data Here} exhibition.</span>
+
+
+<span class="f6">@@ -144 +198 @@</span> I would like to thank \textit{Economic and Social Research Council} for funding
+<span class="f1">-Last but not the least, I would like to thank all the contributors to the hundreds of open source and free projects I have used in this research. I am forever indebted to them and hope to repay them by contributing back to the community for the rest of my career.</span>
+<span class="f2">+Last but not the least, I would like to thank the contributors to all the open source and free projects I have used in this research (appendix \ref{appendix:software}). I am forever indebted to them and hope to repay them by contributing back to the community for the rest of my career.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/10_introduction.tex b/chapters/10_introduction.tex</span>
+<span class="bold">index 7e784a1..bb6766a 100644</span>
+<span class="bold">--- a/chapters/10_introduction.tex</span>
+<span class="bold">+++ b/chapters/10_introduction.tex</span>
+
+
+<span class="f6">@@ -2 +2 @@</span>
+<span class="f1">-\chapter{Introduction}</span>
+<span class="f2">+\chapter{Introduction} \label{chapter:introduction}</span>
+
+
+<span class="f6">@@ -9 +9 @@</span> The field was further broadened in the later part of the twentieth century to in
+<span class="f1">-Moreover, with the dawn of the information age around the turn of the millennium, the built environment can now be viewed as the tangible result of information exchange; where cities can be seen as high density clusters of information exchange, rather than as places with a concentration of physical infrastructure such as buildings and roads.</span>
+<span class="f2">+Moreover, with the dawn of the information age around the turn of the millennium, the built environment can now be viewed as the tangible result of information exchange; where cities can be seen as high density clusters of information exchange, in addition to as places with a concentration of physical infrastructure such as buildings and roads.</span>
+
+
+<span class="f6">@@ -21 +21 @@</span> Most of the data collection activity has also become `passive', i.e. collected w
+<span class="f1">-This has vastly increased the capacity of the data collection process, which has led to the emergence of `Big Data' and consequentially, to the need for advanced and automated data-mining techniques to extract value from these vast datasets.</span>
+<span class="f2">+This has vastly increased the capacity of the data collection process, which has led to the emergence of `big data' and consequentially, to the need for advanced and automated data-mining techniques to extract value from these vast datasets.</span>
+
+
+<span class="f6">@@ -24,0 +25,4 @@</span> For example, functional regions of a country has been derived from call detail r
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+\section{Challenges}</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -40,3 +44,3 @@</span> In addition to privacy concerns, this deluge of data introduces significant tech
+<span class="f1">-Both academia and industry have produced extensive `Big Data' research which develops the theory, methods and tools to tackle the challenges posed by such large assemblages of data, in order to derive meaningful insights from them.</span>
+<span class="f1">-This `Big Data' research promises to solve a lot of the technological and logistical challenges incurred in many disciplines, but not without significant additional overheads in terms of cost and resources.</span>
+<span class="f1">-In the case of research projects, blindly jumping on the `Big Data' bandwagon without consideration, has the potential to cause more problems than advantages.</span>
+<span class="f2">+Both academia and industry have produced extensive `big data' research which develops the theory, methods and tools to tackle the challenges posed by such large assemblages of data, in order to derive meaningful insights from them.</span>
+<span class="f2">+This `big data' research promises to solve a lot of the technological and logistical challenges incurred in many disciplines, but not without significant additional overheads in terms of cost and resources.</span>
+<span class="f2">+In the case of research projects, blindly adopting the `big data' methods without consideration, has the potential to cause more problems than advantages.</span>
+
+
+<span class="f6">@@ -44 +48 @@</span> The discipline of Geography, especially geographic information systems and scien
+<span class="f1">-Hence, it is extremely important to be mindful while adopting the contributions from `Big Data' discourse for research so that the solutions are implemented where the actual problems are located.</span>
+<span class="f2">+Hence, it is extremely important to be mindful while adopting the contributions from `big data' discourse for research so that the solutions are implemented where the actual problems are located.</span>
+
+
+<span class="f6">@@ -48 +52,27 @@</span> Moreover, there needs to be an inquiry into a framework for how these considerat
+<span class="f1">-In this context, the research described in this thesis works on the opportunities and pitfalls presented above in the following ways: by first describing the collection of large volumes of passively generated data, then by solving the uncertainties in the data which arises due to their high variability and the mechanisms designed to protect the privacy of the users, and finally, there is an analysis of the data to produce useful information regarding the distribution and dynamics of footfall in the country.</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+\section{Research Question \&amp; Methodology}</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+</span>
+<span class="f2">+The motivation for the research began with the collection of the Wi-Fi probe requests at a national level within the 'Smart Street Sensors' (SSS) project.</span>
+<span class="f2">+The primary objective of the project was to develop a business venture providing quantitative data on footfall to retailers across the country.</span>
+<span class="f2">+This research was initially designed to supplement the above project by exploring the possibility of validating the data collection methodology and understanding the uncertainties and biases present in them.</span><span class="b1"> </span>
+<span class="f2">+It was also designed to explore methods and analyses which provide insights and value to the retailers from the base footfall volumes.</span><span class="b1"> </span>
+<span class="f2">+As discussed in the previous section, the preliminary analysis of the data collected revealed two major problems areas.</span><span class="b1"> </span>
+<span class="f2">+First is the need to improve the accuracy of the footfall estimation by circumventing the MAC randomisation process and the second is the need to protect the privacy of user by developing methods that neither reverse engineer nor collect any personal data.</span>
+<span class="f2">+With these two challenges in mind, the primary question posed for the research is as follows,</span><span class="b1"> </span>
+<span class="f2">+</span>
+<span class="f2">+\begin{displayquote}</span>
+<span class="f2">+  &quot;Can dynamics of footfall inferred from passively collected big dataset without putting the privacy of users at risk?&quot;</span>
+<span class="f2">+\end{displayquote}</span>
+<span class="f2">+</span>
+<span class="f2">+In this context, this thesis works on answering the question while exploiting the  opportunities presented above in the following ways: by first describing the collection of large volumes of passively generated data, then by solving the uncertainties in the data which arises due to their high variability and the mechanisms designed to protect the privacy of the users, and finally, by analysing the data to produce useful information regarding the distribution and dynamics of footfall in the country.</span>
+<span class="f2">+</span>
+<span class="f2">+Contrary to regular methodology, where the research starts from the question, moves to a literature search, data collection, analysis and finally discussion and conclusions, this research starts from the availability of large comprehensive national level dataset.</span>
+<span class="f2">+This research starts from this dataset, studies both the data and literature surrounding it in detail, finds gaps, problems and unanswered questions in the field, the tries to solve or answer them.</span>
+<span class="f2">+In this pursuit of understanding the nature of the data that were available without using personal data of users, the research also devises and conducts series of controlled experiments which provides valuable insight into improving the method that could be used for improving the estimation of people or footfall around the sensors.</span>
+<span class="f2">+The effectiveness of the methodology was also tested using various sets of manually collected data on footfall information at sample locations.</span>
+<span class="f2">+</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+\section{Outline}</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -51,0 +82 @@</span> The literature review resulted in the identification of the best possible data s
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -55,2 +86,3 @@</span> Three sets of initial experiments were conducted and results from the experiment
+<span class="f1">-The chapter also introduces the `Smart Street Sensors'(SSS) project - a national project which collects Wi-Fi data at a large number of retail locations.</span>
+<span class="f1">-The chapter concludes with a detailed evaluation of all the data collected from the experiments and the SSS project, in terms of the bias, noise and uncertainties present in them.</span>
+<span class="f2">+The chapter also introduces the `Smart Street Sensors' project - a national project which collects Wi-Fi data at a large number of retail locations.</span>
+<span class="f2">+The chapter concludes with a detailed evaluation of all the data collected from the experiments and the Smart Street Sensor project, in terms of the bias, noise and uncertainties present in them.</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -61,0 +94 @@</span> In section \ref{section:pipeline}, both the `data toolkit' and methods are combi
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -63,0 +97,3 @@</span> Chapter \ref{chapter:applications} details a variety of applications of the rese
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+\section{Impacts \&amp; Applications}</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+
+
+<span class="f6">@@ -69,0 +106 @@</span> Availability of such datasets can revolutionise academic research in fields such
+<span class="f2">+</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/20_literature.tex b/chapters/20_literature.tex</span>
+<span class="bold">index 39817fc..cb501b1 100644</span>
+<span class="bold">--- a/chapters/20_literature.tex</span>
+<span class="bold">+++ b/chapters/20_literature.tex</span>
+
+
+<span class="f6">@@ -10 +10 @@</span> Alternatively, smaller datasets such as sample surveys and traffic counts are co
+<span class="f1">-This pursuit for identifying a data source which has the best features of both type of datasets started as an inquiry into methods to estimate and interpolate highly granular data from existing regional level aggregate data.</span>
+<span class="f2">+This pursuit for identifying a data source which has the best features of both type of datasets started as an inquiry into methods to estimate and interpolate finer data from existing regional level aggregate data.</span>
+
+
+<span class="f6">@@ -20 +20 @@</span> The aim of this survey was to evaluate the stage at which the research is curren
+<span class="f1">-A comprehensive survey of over 300 publications which discuss this area of research was undertaken covering the major themes and trends in the last 70 years.</span>
+<span class="f2">+A comprehensive survey of over 300 publications which discuss this area of research was undertaken covering the major themes and trends in the last 40 years.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/21__research_themes.tex b/chapters/21__research_themes.tex</span>
+<span class="bold">index 35d5e71..6e469f1 100644</span>
+<span class="bold">--- a/chapters/21__research_themes.tex</span>
+<span class="bold">+++ b/chapters/21__research_themes.tex</span>
+
+
+<span class="f6">@@ -34 +34 @@</span> The focus of the research around this time was primarily on interpolation from t
+<span class="f1">-There have been numerous fairly successful attempts with methodologies where a broad dataset such  as regional level population summaries and modelling or interpolating more granular data from them by augmenting with other sources of data such as street networks \citep{reibel2005}, remote sensing \citep{sutton1997, yuan1997, chen2002} etc.</span>
+<span class="f2">+There have been numerous fairly successful attempts with methodologies where a broad dataset such  as regional level population summaries and modelling or interpolating finer data from them by augmenting with other sources of data such as street networks \citep{reibel2005}, remote sensing \citep{sutton1997, yuan1997, chen2002} etc.</span>
+
+
+<span class="f6">@@ -42 +42 @@</span> There were efforts in using device level sensors such as global positioning syst
+<span class="f1">-There have been studies on looking at people distribution as granular as queue lengths as discussed by \citep{wang2013} to city level dynamic population mapping where the limitations of traditional datasets generated through censuses and surveys \cite{deville2014}.</span>
+<span class="f2">+In terms of scale, there have been studies on looking at distribution of people at a highly granular level such as queue lengths \cite[-5.5cm]{wang2013} as well as broader level such as cities \cite{deville2014}.</span>
+
+
+<span class="f6">@@ -46 +46 @@</span> Social media data such as twitter \citep{lansley2016a} and other consumer data s
+<span class="f1">-Recently, with increased concerns and legislation on privacy, there have been studies which go back to the effort of interpolating granular data from broader datasets but using more data and processor intensive technologies such as agent based modelling, deep learning, small area estimation \citep{crols2019, shibata2019, rao2015} etc..</span>
+<span class="f2">+Recently, with increased concerns and legislation on privacy, there have been studies which go back to the effort of interpolating finer data from broader datasets but using more data and processor intensive technologies such as agent based modelling, deep learning, small area estimation \citep{crols2019, shibata2019, rao2015} etc..</span>
+
+
+<span class="f6">@@ -53 +53 @@</span> Though there have been a lot of work done in most of the directions in this rese
+<span class="f1">-Study of movement of people is one of the major areas of research which have significantly benefited from the decentralised collection of data at a granular level \cite{castells2000}.</span>
+<span class="f2">+Study of movement of people is one of the major areas of research which have significantly benefited from the decentralised collection of data at a granular level \cite[-1cm]{castells2000}.</span>
+
+
+<span class="f6">@@ -94 +94 @@</span> This is currently an active field of research and there is immense opportunity f
+<span class="f1">-Visualising the temporal dynamics of data collected on human activities through decentralised processes poses significant challenges when approached with traditional cartographic concepts \cite{maceachren2001, hallisey2005}.</span>
+<span class="f2">+Visualising the temporal dynamics of data collected on human activities through decentralised processes poses significant challenges when approached with traditional cartographic concepts \cite[-4cm]{maceachren2001, hallisey2005}.</span>
+
+
+<span class="f6">@@ -111 +111 @@</span> With the population getting more and more connected \citep{castells2010}, the na
+<span class="f1">-This flood of hard data \cite{nature2008} was accompanied not only by optimism in its potential \citep{thomas2001} but also by the questions raised on the challenges in handling the diverse, large scale, non standardised data it produces and the usefulness or representativeness of the resulting analysis \citep{miller2010, arribas-bel2014a}.</span>
+<span class="f2">+This flood of hard data \cite[-1cm]{nature2008} was accompanied not only by optimism in its potential \citep{thomas2001} but also by the questions raised on the challenges in handling the diverse, large scale, non standardised data it produces and the usefulness or representativeness of the resulting analysis \citep{miller2010, arribas-bel2014a}.</span>
+
+
+<span class="f6">@@ -121 +121 @@</span> There is immense value in uniquely identifying and profiling information on peop
+<span class="f1">-Strictly protecting personal information while ensuring the information is usable for research by maintaining the uniqueness in the data is the major concern which was addressed by devising frameworks for secure practices in confidentially collecting and using the location data \citep{duckham2006, tang2006, lane2014}.  Some efforts sought to accomplish this task through cryptographic hashing algorithms (Pang, 2007) while others aimed to thwart identification and tracking at the device level by techniques such as MAC randomisation \citep{gruteser2005, greenstein2008}.</span>
+<span class="f2">+Strictly protecting personal information while ensuring the information is usable for research by maintaining the uniqueness in the data is the major concern which was addressed by devising frameworks for secure practices in confidentially collecting and using the location data \citep{duckham2006, tang2006, lane2014}.  Some efforts sought to accomplish this task through cryptographic hashing algorithms \citep{pang2007} while others aimed to thwart identification and tracking at the device level by techniques such as MAC randomisation \citep{gruteser2005, greenstein2008}.</span>
+
+
+<span class="f6">@@ -132 +132 @@</span> There is opportunity in this area for research in applying the cryptographic sol
+<span class="f1">-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}</span>
+<span class="f2">+  \caption{The evolution of research since 1980 categorised based on their major theme.}</span>
+
+
+<span class="f6">@@ -137 +137 @@</span> Figure \ref{figure:literature:themes:timeline} shows the volume of research done
+<span class="f1">-We can observe that there are distinct trends in the research over time, which evolved around the development of technology in the last two decades.</span>
+<span class="f2">+We can observe that following distinct trends exist in the research, which evolved around the development of technology in the last two decades.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/22__technologies.tex b/chapters/22__technologies.tex</span>
+<span class="bold">index e38a823..2a66af4 100644</span>
+<span class="bold">--- a/chapters/22__technologies.tex</span>
+<span class="bold">+++ b/chapters/22__technologies.tex</span>
+
+
+<span class="f6">@@ -4,0 +5,8 @@</span>
+<span class="f2">+\begin{marginfigure}</span>
+<span class="f2">+  \forcerectofloat</span>
+<span class="f2">+  \includegraphics[trim={1.1cm 1cm 1cm 1cm},clip]{images/literature-technology.png}</span>
+<span class="f2">+  \caption{Distribution of research across various techniques and technologies}</span>
+<span class="f2">+  \label{figure:literature:timeline}</span>
+<span class="f2">+\end{marginfigure}</span>
+<span class="f2">+\marginnote{\noindent\fontsize{7}{7}\textit{Measured in the number of papers published}}</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -6 +14 @@</span> When we look at the literature from the technology perspective, we observe that
+<span class="f1">-Figure \ref{figure:literature:tech:timeline} shows the distribution of the research in terms of the main technique/ technology used over the past 50 years.</span>
+<span class="f2">+Figure \ref{figure:literature:timeline} shows the distribution of the research in terms of the main technique/ technology used over the past 40 years.</span>
+
+
+<span class="f6">@@ -13,6 +21,5 @@</span> A detailed account of these studies is given below,
+<span class="f1">-\begin{marginfigure}[1cm]</span>
+<span class="f1">-  \includegraphics[trim={1.1cm 1cm 1cm 1cm},clip]{images/literature-technology.png}</span>
+<span class="f1">-  \caption{Distribution of research across various techniques and technologies}</span>
+<span class="f1">-  \label{figure:literature:timeline}</span>
+<span class="f1">-\end{marginfigure}</span>
+<span class="f1">-\marginnote{\noindent\fontsize{7}{7}\textit{Measured in the number of papers published}}</span>
+<span class="f2">+\begin{figure*}</span>
+<span class="f2">+  \includegraphics{images/literature-tech-timeline.png}</span>
+<span class="f2">+  \caption{The evolution of research since 1980 in terms of the the technology used in the research.}</span>
+<span class="f2">+  \label{figure:literature:tech:timeline}</span>
+<span class="f2">+\end{figure*}</span>
+
+
+<span class="f6">@@ -43,7 +49,0 @@</span> This gives us the need to identify and use techniques which are more general in
+<span class="f1">-\begin{figure*}</span>
+<span class="f1">-  \includegraphics{images/literature-tech-timeline.png}</span>
+<span class="f1">-  \caption{Outline of the `Medium data toolkit' devised to collect, process, visualise and manage the Wi-Fi probe requests data}</span>
+<span class="f1">-  \label{figure:literature:tech:timeline}</span>
+<span class="f1">-\end{figure*}</span>
+<span class="f1">-</span>
+<span class="f1">-</span>
+
+
+<span class="f6">@@ -54 +54 @@</span> This gives us the need to identify and use techniques which are more general in
+<span class="f1">-The rise of mobile phones as ubiquitous personal devices for the broader population has provided us with a viable alternative for collecting data with greater granularity at large scales.</span>
+<span class="f2">+The rise of mobile phones as ubiquitous personal devices for the broader population has provided us with a viable alternative for collecting data with finer granularity at large scales.</span>
+
+
+<span class="f6">@@ -64,2 +64,2 @@</span> Even though this approach has been acknowledged to have inherent biases such as
+<span class="f1">-Visual exploration of use of such data using interactive interfaces to evaluate quality of service and scenario testing has been tested for the optimisation of public transport \citep{sbodio2014}.</span>
+<span class="f1">-Such network data with the active and passive information collected from them can be used to create trajectories of people \cite{schlaich2010}, detect their daily routine \citep{sevtsuk2010} and classify those routes in terms of function \citep{becker2011a}.</span>
+<span class="f2">+Visual exploration of use of such data using interactive interfaces to evaluate quality of service and scenario testing has been tested for the optimisation of public transport \cite[-4cm]{sbodio2014}.</span>
+<span class="f2">+Such network data with the active and passive information collected from them can be used to create trajectories of people \cite{schlaich2010}, detect their daily routine \cite[2cm]{sevtsuk2010} and classify those routes in terms of function \citep{becker2011a}.</span>
+
+
+<span class="f6">@@ -73 +73 @@</span> This social networks and their spatio-temporal structure can also be used for cl
+<span class="f1">-The data collected from the cellular network when examined at granular levels such as inter-personal communication and economic activity can be used to create estimations of micro area-level population density \citep{pulselli2008, ng2017} and also the characteristics \citep{girardin2009} and the nature of the activity \citep{phithakkitnukoon2010}.</span>
+<span class="f2">+The data collected from the cellular network when examined at granular levels such as inter-personal communication and economic activity can be used to create estimations of micro area-level population density \cite[-4cm]{pulselli2008, ng2017} and also the characteristics \cite[1cm]{girardin2009} and the nature of the activity \citep{phithakkitnukoon2010}.</span>
+
+
+<span class="f6">@@ -76 +76 @@</span> The spatial patterns thus uncovered can then be applied to urban planning \citep
+<span class="f1">-For example, population influxes measured from changes in mobile network usage can be used to model spread of diseases \citep{buckee2015}.</span>
+<span class="f2">+For example, population influxes measured from changes in mobile network usage can be used to model spread of diseases \cite{buckee2015}.</span>
+
+
+<span class="f6">@@ -100 +100 @@</span> Apart from GPS and Wi-Fi, there have been efforts in exploring other possibiliti
+<span class="f1">-There have also been successful implementations of frameworks to predict movement of people by combining Wi-Fi and Bluetooth \citep{vu2011}.</span>
+<span class="f2">+There have also been successful implementations of frameworks to predict movement of people by combining Wi-Fi and Bluetooth \cite{vu2011}.</span>
+
+
+<span class="f6">@@ -118 +118 @@</span> There have been successful efforts in extracting behaviours and patterns from su
+<span class="f1">-In traffic and transportation, GPS trajectory from mobile devices is used to estimate \citep{calabrese2011} and expand \citep{jing2011} OD matrices, detect the mode of travel \citep{gong2012, rossi2015} and calibrate existing spatial interaction models \citep{yue2012}</span>
+<span class="f2">+In traffic and transportation, GPS trajectory from mobile devices is used to estimate \citep{calabrese2011} and expand \citep{jing2011} origin-destination matrices, detect the mode of travel \citep{gong2012, rossi2015} and calibrate existing spatial interaction models \citep{yue2012}</span>
+
+
+<span class="f6">@@ -123 +123 @@</span> Patterns \citep{jiang2012} and structures in routines \citep{eagle2009} can be e
+<span class="f1">-It can also utilised in classification of the population at a particular location at a given time \citep{pappalardo2015}.</span>
+<span class="f2">+It can also utilised in classification of the population at a particular location at a given time \cite[-1cm]{pappalardo2015}.</span>
+
+
+<span class="f6">@@ -139 +139 @@</span> It is a distributed server-client based system where the client connects to acce
+<span class="f1">-Every device in the network has a unique hardware specific MAC address, which is transmitted between the device and AP before the connection is made.</span>
+<span class="f2">+Every mobile device in the network has a unique hardware specific MAC address, which is transmitted between the device and AP before the connection is made.</span>
+
+
+<span class="f6">@@ -144 +144 @@</span> With this background we can see that Wi-Fi provides a fair middle ground between
+<span class="f1">-Since the network infrastructure is distributed and deployed for Internet it offers near complete coverage, is very resilient,  and can encapsulate and reinforce civic space in cities \cite{torrens2008}.</span>
+<span class="f2">+Since the network infrastructure is distributed and deployed for Internet it offers more coverage than most of the technologies discussed except or cellular network. It is also very resilient and can encapsulate and reinforce civic space in cities \cite[-2cm]{torrens2008}.</span>
+
+
+<span class="f6">@@ -146 +146 @@</span> Since the network infrastructure is distributed and deployed for Internet it off
+<span class="f1">-Though Wi-Fi is a location less technology, there are reliable methods to triangulate the location of the device by the signal strength and the known locations of APs \citep{he2003, moore2004, lamarca2005, dinesh2017, lin2018}.</span>
+<span class="f2">+Though Wi-Fi is a location less technology, there are reliable methods to trilaterate the location of the device by the signal strength and the locations of APs known through either targeted surveys or crowdsourced volunteer effort \citep{he2003, moore2004, lamarca2005, dinesh2017, lin2018}.</span>
+
+
+<span class="f6">@@ -148 +148 @@</span> This can overcome the usual shortcoming of GPS, which struggles for precision an
+<span class="f1">-Utilising this, we can easily and quickly estimate trajectories of the mobile devices just using the Wi-Fi communication the device has with multiple known APs \citep{xu2013}.</span>
+<span class="f2">+Utilising this, we can easily and quickly estimate trajectories of the mobile devices just using the Wi-Fi communication the device has with multiple known APs \cite[-4cm]{xu2013}.</span>
+
+
+<span class="f6">@@ -152 +152 @@</span> It can also be used in transportation planning and management to estimate travel
+<span class="f1">-Being a general network protocol designed to be used by mobile devices, Wi-Fi devices relay a range of public signals known as probe request frames on regular intervals throughout its operation, for the purpose of connecting and maintaining a reliable and secure connection for the mobile device \citep{freud2015}.</span>
+<span class="f2">+Being a general network protocol designed to be used by mobile devices, Wi-Fi devices relay a range of public signals known as probe request frames on regular intervals throughout its operation, for the purpose of connecting and maintaining a reliable and secure connection for the mobile device \cite{freud2015}.</span>
+
+
+<span class="f6">@@ -156,2 +156,2 @@</span> These device/user fingerprinting techniques are demonstrated by \citep{franklin2
+<span class="f1">-Using the semantic information present in these probe requests it is possible to understand the nature of these users at a large scale \citep{di2016}.</span>
+<span class="f1">-Using the received signal strengths from pre placed devices we can monitor the presence and movement of entities that are not even carrying a Wi-Fi enabled device \citep{elgohary2013}.</span>
+<span class="f2">+Using the semantic information present in these probe requests, such as names of previously connected APs, it is possible to understand the nature of these users at a large scale \citep{di2016}.</span>
+<span class="f2">+Using the received signal strengths from pre placed devices we can monitor the presence and movement of entities that are not even carrying a Wi-Fi enabled device \cite{elgohary2013}.</span>
+
+
+<span class="f6">@@ -162 +162 @@</span> Since MAC randomisation is not a perfect solution \citep{mathieucunche2016} ther
+<span class="f1">-The methods used are decomposition of OUIs where detailed device model information is estimated by analysing an already known dataset of OUIs \citep{martin2016}; Scrambler attack where a small part of the physical layer specification for Wi-Fi is used \citep{bloessl2015}; and finally, the timing attack where the packet sequence information present in the probe request frame is used \citep{matte2016, cheng2016}.</span>
+<span class="f2">+The methods used are decomposition of OUIs where detailed device model information is estimated by analysing an already known dataset of OUIs \cite{martin2016}; Scrambler attack where a small part of the physical layer specification for Wi-Fi is used \citep{bloessl2015}; and finally, the timing attack where the packet sequence information present in the probe request frame is used \citep{matte2016, cheng2016}.</span>
+
+
+<span class="f6">@@ -167 +166,0 @@</span> Similar to GPS data this can be used as an additional control layer for interpol
+<span class="f1">-A comparison of various approaches was done through experiments on a telecom operator dataset, where it was showed that using network-driven mobile phone location data is more advantageous compared to the widely used event-driven ones\cite[-3cm]{pinelli2015}.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/23__research_gaps.tex b/chapters/23__research_gaps.tex</span>
+<span class="bold">index 3d7063d..98aa65c 100644</span>
+<span class="bold">--- a/chapters/23__research_gaps.tex</span>
+<span class="bold">+++ b/chapters/23__research_gaps.tex</span>
+
+
+<span class="f6">@@ -13 +13 @@</span> Table \ref{table:literature:technologies} summarises the above discussion to eva
+<span class="f1">-        Coverage &amp; Local &amp; City &amp; All &amp; Local &amp; All\\</span>
+<span class="f2">+        Coverage* &amp; Local &amp; City &amp; All &amp; Local &amp; All\\</span>
+
+
+<span class="f6">@@ -15 +15 @@</span> Table \ref{table:literature:technologies} summarises the above discussion to eva
+<span class="f1">-        Certainty &amp; Very Low &amp; High &amp; Medium &amp; High &amp; Medium \\</span>
+<span class="f2">+        Certainty* &amp; Very Low &amp; High &amp; Medium &amp; High &amp; Medium \\</span>
+
+
+<span class="f6">@@ -19 +19 @@</span> Table \ref{table:literature:technologies} summarises the above discussion to eva
+<span class="f1">-        Intrusiveness &amp; Low &amp; Medium &amp; High &amp; High &amp; Medium \\</span>
+<span class="f2">+        Intrusiveness* &amp; Low &amp; Medium &amp; High &amp; High &amp; Medium \\</span>
+
+
+<span class="f6">@@ -21 +21 @@</span> Table \ref{table:literature:technologies} summarises the above discussion to eva
+<span class="f1">-        Granularity &amp; Very Low &amp; Very High &amp; Medium &amp; High &amp; High \\</span>
+<span class="f2">+        Granularity* &amp; Very Low &amp; Very High &amp; Medium &amp; High &amp; High \\</span>
+
+
+<span class="f6">@@ -23 +23 @@</span> Table \ref{table:literature:technologies} summarises the above discussion to eva
+<span class="f1">-        Ease of Collection &amp; Medium &amp; Low &amp; Medium &amp; Low &amp; High \\</span>
+<span class="f2">+        Ease of Collection* &amp; Medium &amp; Low &amp; Medium &amp; Low &amp; High \\</span>
+
+
+<span class="f6">@@ -25,3 +25 @@</span> Table \ref{table:literature:technologies} summarises the above discussion to eva
+<span class="f1">-        Scalability &amp; Medium &amp; Low &amp; High &amp; Medium &amp; High \\</span>
+<span class="f1">-        \addlinespace[0.2cm]</span>
+<span class="f1">-        Privacy Risk &amp; Low &amp; Medium &amp; High &amp; High &amp; Medium \\</span>
+<span class="f2">+        Scalability* &amp; Medium &amp; Low &amp; High &amp; Medium &amp; High \\</span>
+
+
+<span class="f6">@@ -34 +32,3 @@</span> Table \ref{table:literature:technologies} summarises the above discussion to eva
+<span class="f1">-\marginnote[-3.75cm]{\textit{*independence from secondary data collected by a third party.}}</span>
+<span class="f2">+\marginnote[-3.75cm]{\textit{* coverage - the density and extent of the current infrastructure. Certainty - the lack of uncertainty in the data. Independence -How much the technique depends on secondary data. Intrusiveness - the potential for infringement of users' privacy. Granularity - the smallest spatial and temporal at which data could be collected. Ease of Collection - how efficient it is collect data in terms of time and resources. Scalability - the potential for the technology to improve coverage.}}</span>
+<span class="f2">+</span>
+<span class="f2">+We can observer that Wi-Fi offers the best possible technology in terms of flexibility and scalability for data collection through mobile devices at an individual level while posing some risk to privacy of participants and involves uncertainty regarding the field of measurement.</span>
+
+
+<span class="f6">@@ -36 +36,10 @@</span> Table \ref{table:literature:technologies} summarises the above discussion to eva
+<span class="f1">-We can observer that Wi-Fi offers the best possible technology in terms of flexibility and scalability for data collection through mobile devices at an individual level while posing some risk to privacy of participants and involves uncertainty regarding the field of measurement. </span>
+<span class="f2">+\citep{pinelli2015} looks at a comparison of various approaches of collecting and analysing mobile phone location data.</span>
+<span class="f2">+The research identifies two major approaches in collecting device location data - Event-driven and Network-driven.</span>
+<span class="f2">+The event-driven approach is centered around the mobile devices generating data</span><span class="b1"> </span>
+<span class="f2">+through their day to day activities.</span>
+<span class="f2">+The major sources of event-driven data are Call Detail Records(CDR) and internet use.</span>
+<span class="f2">+Network-driven approach is centered around the service provision infrastructure such as cellphone towers, Wi-Fi base stations etc.</span>
+<span class="f2">+The methods used to collect network-driven data are periodic update - where the device sends an update stating the base station it is connected to, handover - where the device information is recorded as they are moving between base stations and location update - where the location of the device is recorded based on the base stations it is connected to.</span><span class="b1"> </span>
+<span class="f2">+The research used a set of anonymised mobile phone location data from a Belgian telecom operator for the city of Mons from which various event-driven and network driven scenarios were simulated.</span><span class="b1"> </span>
+<span class="f2">+The authors compared these simulated scenarios for application-independent and application-dependent cases such as spatial dispersal, classes of users, count estimation and flow estimation to understand their relative advantages and disadvantages.</span>
+<span class="f2">+Through these comparisons it was shown that using network-driven mobile phone location data is more advantageous compared to the widely used event-driven ones.</span>
+
+
+<span class="f6">@@ -39 +48 @@</span> From the literature search we can summarise that there is a considerable opportu
+<span class="f1">-The potential for research gaps broadly fall under the following areas,</span>
+<span class="f2">+The potential for research gaps are discussed in detail in the following sections.</span>
+
+
+<span class="f6">@@ -47 +56 @@</span> The potential for research gaps broadly fall under the following areas,
+<span class="f1">-Previous research in this area of study has been limited to either national/ regional level studies using centrally collected night time population data such as censuses or to area level studies conducted with mobile devices based technologies.</span>
+<span class="f2">+Previous research in this area of study has been limited to either national/ regional level studies using centrally collected residential population data such as censuses or to area level studies conducted with mobile devices based technologies.</span>
+
+
+<span class="f6">@@ -49 +58,4 @@</span> Though there were some efforts in collecting and using mobile phone data at nati
+<span class="f1">-The explosion of consumer data both publicly available and privately held presents previously unseen opportunity and also limited by the privacy concerns that arise with them.</span>
+<span class="f2">+</span>
+<span class="f2">+For example, \citep{qin2013} demonstrate that it is possible to detect and quantify human presence at locations using probe requests with a detection rate of 86\%.</span><span class="b1"> </span>
+<span class="f2">+Along with the evaluation of the various algorithms for channel switching the research also successfully classifies these detected human presence into distinct activities in a non-intrusive way.</span><span class="b1"> </span>
+<span class="f2">+Though this work predates both the MAC address randomisation and wide spread use of mobile experienced these days, the explosion of consumer data both publicly available and privately held presents previously unseen opportunity and also limited by the privacy concerns that arise with them.</span>
+
+
+<span class="f6">@@ -74,2 +86,5 @@</span> As we see later, even the estimation of ambient population is limited by these d
+<span class="f1">-Though there are prior research in this area, most are conducted from security perspective evaluating the robustness of the randomisation/obfuscation procedure.</span>
+<span class="f1">-These research focus around de-anonymising the obfuscated data to recreate the personal information from them thus demonstrating vulnerabilities and risks for the users. </span>
+<span class="f2">+</span>
+<span class="f2">+\citep{vanhoef2016} presents several novel methods of abusing the features of the Wi-Fi standards to track mobile devices even when the MAC addresses were randomised. This research shows the possibility of using the information elements present in the probe requests along with the sequence numbers to fingerprint the mobile device which sent the request with an accuracy of the 50\% within a 20 minute interval with a possibility of improvement with known scrambler 'seeds' - the randomisation factor used by popular commercial devices. Though this sounds promising for short intervals, since this research, manufacturers have stopped including non-mandatory information elements which can affect the accuracy significantly. The research also features two other methods to reverse engineer the original MAC addresses from the randomised ones - first where known hotspots were spoofed to trick the mobile devices in revealing their real addresses and the second where a different protocol requests were used. Both these methods cannot be used extensively since the former is not ethically sound and the latter is not widely used by all mobile devices.</span><span class="b1"> 
+</span><span class="f2">+</span>
+<span class="f2">+Since the above study and the following ones were conducted from security perspective - evaluating the robustness of the randomisation/ obfuscation procedure,</span>
+<span class="f2">+they focus on de-anonymising the obfuscated data to recreate the personal information from them while demonstrating vulnerabilities in the standard and associated risks for the users.</span><span class="b1"> </span>
+
+
+<span class="f6">@@ -93 +108,3 @@</span> Thought research have been done on this area using social media data, a longitud
+<span class="f1">-The near real-time aspect of such research also provides us opportunities in fields of disaster management, smart cities etc. </span>
+<span class="f2">+\citep{kontokosta2016} discuss the use of Wi-Fi data for a 'real-time' census of the city with a case study of New York City's Lower Manhattan neighborhood.</span>
+<span class="f2">+The research collects around 20 million Wi-Fi data points during 2015 and presents a model to create real-time, on-the-fly population estimates with fine granularity.</span>
+<span class="f2">+The research demonstrates the feasibility of the pursuit along with the potential significance of such localised population estimates for use within the domains of city operations and policy, strategic long-term planning processes, emergency response etc.</span>
+
+
+<span class="f6">@@ -111,0 +129,5 @@</span> Even when the problem of the identifying unique fingerprints of users in the dat
+<span class="f2">+</span>
+<span class="f2">+\citep{musa2011} use the Wi-Fi probe requests collected in a 12-hour trial on a busy road to describe a passive tracking system for mobile devices.</span>
+<span class="f2">+The research proposes a trajectory estimation method based on Viterbi's algorithm which estimates the most-likely spatial path taken from the information on when and where they have been detected.</span><span class="b1"> </span>
+<span class="f2">+Although the research extends this trial into a 9-month deployment and demonstrates trajectory estimates with high accuracy, the problem still remains where we need to extract trajectories of users without actually being able to identify them.</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -129 +151 @@</span> Though there are extensive research in using ambient population and people's mov
+<span class="f1">-With access to granular and long-term data sets, we can hope to look into the how the places have changed over time and how the external factors such as policy and economy has affected them.</span>
+<span class="f2">+With access to highly granular and long-term data sets, we can hope to look into the how the places have changed over time and how the external factors such as policy and economy has affected them.</span>
+
+
+<span class="f6">@@ -138 +160,7 @@</span> There are opportunities to ask questions such as,
+<span class="f1">-\marginnote{\textit{\textbf{Opportunity 5:} Using long term data to detect the nature and change of form and function of a place. } }</span>
+<span class="f2">+\marginnote[-3cm]{\textit{\textbf{Opportunity 5:} Using long term data to detect the nature and change of form and function of a place. } }</span>
+<span class="b1">+</span>
+<span class="b1">+</span>
+<span class="b1">+</span>
+<span class="b1">+</span>
+<span class="b1">+</span>
+<span class="b1">+</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/30_data_collection.tex b/chapters/30_data_collection.tex</span>
+<span class="bold">index f89e871..5127127 100644</span>
+<span class="bold">--- a/chapters/30_data_collection.tex</span>
+<span class="bold">+++ b/chapters/30_data_collection.tex</span>
+
+
+<span class="f6">@@ -5 +5 @@</span>
+<span class="f1">-From the literature review in Chapter \ref{chapter:literature}, we observed that  of all the technologies discussed, Wi-Fi seems to be the most promising one.</span>
+<span class="f2">+From the literature review in Chapter \ref{chapter:literature}, we observed that  of all the technologies discussed, Wi-Fi seems to be the most promising one for our purposes.</span>
+
+
+<span class="f6">@@ -25 +25 @@</span> We also introduce the `Smart Street Sensor' project - a national scale effort fo
+<span class="f1">-Finally we summarise the data collection procedure with a detailed look at the each set of uncertainty in these datasets and draw conclusions for further lines of research into alleviating the uncertainty and noise so that the datasets can be used to estimate human activity with confidence.</span>
+<span class="f2">+Finally we summarise the data collection procedure with a detailed look at the uncertainties in these datasets and draw conclusions for further lines of research into alleviating the uncertainty and noise so that the datasets can be used to estimate human activity with confidence.</span>
+
+
+<span class="f6">@@ -39 +39 @@</span> Though the end goal of internet connectivity is the same, Wi-Fi greatly differs
+<span class="f1">-The first difference is the range of the network: unlike mobile infrastructure where a single tower can serve mobile phones for miles, Wi-Fi is designed to be and extension of the wired networking, thus creating short range network with a range of 20 meters.</span>
+<span class="f2">+The first difference is the range of the network: unlike mobile infrastructure where a single tower can serve mobile phones for miles, Wi-Fi is designed to be an extension of the wired networking, thus creating short range network with a range of 20 meters.</span>
+
+
+<span class="f6">@@ -52 +52 @@</span> There have been numerous iterations and versions of the IEEE 802.11 standards bu
+<span class="f1">-These frames have the information that is being exchanged along with the meta data about information and information on the device that is sending them.</span>
+<span class="f2">+These frames have the information that is being exchanged along with the meta data and information on the device that is sending them.</span>
+
+
+<span class="f6">@@ -57,0 +58,7 @@</span> The structure of a probe request is shown in Figure \ref{figure:collection:probe
+<span class="f2">+\begin{figure*}</span>
+<span class="f2">+  \includegraphics[width=0.9\textwidth,trim={0 -30 0 -10},clip]{images/probe-request-structure.png}</span>
+<span class="f2">+  \caption{Structure of a probe request frame. }</span>
+<span class="f2">+  \label{figure:collection:proberequest}</span>
+<span class="f2">+\end{figure*}</span>
+<span class="f2">+\marginnote[0.75cm]{\textit{Source: IEEE 802.11 specification}. DA - Destination Address. SA - Sender Address. BSSID - Broadcast or multicast address. FH - Frequency hopping. OS - Optional. CF - Contention free. DS - Direct Sequnce. }</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -60 +67 @@</span> There are additional meta data such as the sequence number of the frame, and con
+<span class="f1">-There is also a dearth of variable information which can be used to transfer data.</span>
+<span class="f2">+There are also a number of variable information which can be used to transfer data.</span>
+
+
+<span class="f6">@@ -64,0 +72,4 @@</span> The significant information present in a probe request is detailed in Table \ref
+<span class="f2">+Essentially the above information is sent over and over by the mobile device which expects a reply from nearby APs so that it can keep a list of networks it can connect to.</span>
+<span class="f2">+This process is usually carried out even when the Wi-Fi is switched off in the operating system so that the connection times are faster once it is switched on.</span>
+<span class="f2">+Moreover operating systems use the replies they get for these probe requests and triangulate the device location with respect to the APs with location information on AP's collected through surveys or crowdsourcing, thus acting as a quick and easy localisation solution which along with the above makes this probing process almost non-stop.</span><span class="b1"> </span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -74 +84,0 @@</span> The significant information present in a probe request is detailed in Table \ref
+<span class="f1">-        \addlinespace[0.2cm]</span>
+
+
+<span class="f6">@@ -76,3 +86 @@</span> The significant information present in a probe request is detailed in Table \ref
+<span class="f1">-        \addlinespace[0.2cm]</span>
+<span class="f1">-        Signal Strength (RSSI) &amp; The strength of the received signal\\</span>
+<span class="f1">-        \addlinespace[0.2cm]</span>
+<span class="f2">+        Received Signal Strength (dBm) &amp; The strength of the received signal\\</span>
+
+
+<span class="f6">@@ -80 +87,0 @@</span> The significant information present in a probe request is detailed in Table \ref
+<span class="f1">-        \addlinespace[0.2cm]</span>
+
+
+<span class="f6">@@ -82 +88,0 @@</span> The significant information present in a probe request is detailed in Table \ref
+<span class="f1">-        \addlinespace[0.2cm]</span>
+
+
+<span class="f6">@@ -84,3 +90 @@</span> The significant information present in a probe request is detailed in Table \ref
+<span class="f1">-        \addlinespace[0.2cm]</span>
+<span class="f1">-        Known SSIDs &amp; Networks that are already known to the device\\</span>
+<span class="f1">-        \addlinespace[0.1cm]</span>
+<span class="f2">+        Known Networks &amp; Name of networks that are already known to the device\\</span>
+
+
+<span class="f6">@@ -94,10 +97,0 @@</span> The significant information present in a probe request is detailed in Table \ref
+<span class="f1">-Essentially the above information is sent over and over by the mobile device which expects a reply from nearby APs so that it can keep a list of networks it can connect to.</span>
+<span class="f1">-This process is usually carried out even when the Wi-Fi is switched off in the operating system so that the connection times are faster once it is switched on.</span>
+<span class="f1">-Moreover operating systems use the replies they get for these probe requests and triangulate the device location with respect to the APs with known location information thus acting as a quick and easy localisation solution which along with the above makes this probing process almost non-stop. </span>
+<span class="f1">-</span>
+<span class="f1">-\begin{figure*}</span>
+<span class="f1">-  \includegraphics[width=0.9\textwidth,trim={0 -30 0 -10},clip]{images/probe-request-structure.png}</span>
+<span class="f1">-  \caption{Structure of a probe request frame. }</span>
+<span class="f1">-  \label{figure:collection:proberequest}</span>
+<span class="f1">-\end{figure*}</span>
+<span class="f1">-\marginnote[0.75cm]{\textit{Source: IEEE 802.11 specification}}</span>
+
+
+<span class="f6">@@ -108 +102 @@</span> Moreover operating systems use the replies they get for these probe requests and
+<span class="f1">-Media Access Control (MAC) address is a 12bit unique identifier assigned to a device on a network.</span>
+<span class="f2">+Media Access Control (MAC) address is a 6 byte unique identifier assigned to a device on a network.</span>
+
+
+<span class="f6">@@ -111 +105 @@</span> Although the IP address of a mobile device might change regularly, the MAC addre
+<span class="f1">-The MAC address has two parts: the first 6bits are known as the Organisationally Unique Identifier (OUI) and gives us information about the manufacturer of the network card.</span>
+<span class="f2">+The MAC address has two parts: the first 2 bytes are known as the Organisationally Unique Identifier (OUI) and gives us information about the manufacturer of the network card.</span>
+
+
+<span class="f6">@@ -113 +107 @@</span> Organisations need to register with IEEE to be assigned an OUI which they can us
+<span class="f1">-the second 6bits are unique to device itself.</span>
+<span class="f2">+the second 2 bytes are unique to device itself.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/31__initial_experiments.tex b/chapters/31__initial_experiments.tex</span>
+<span class="bold">index 9047a8f..5155b9d 100644</span>
+<span class="bold">--- a/chapters/31__initial_experiments.tex</span>
+<span class="bold">+++ b/chapters/31__initial_experiments.tex</span>
+
+
+<span class="f6">@@ -26 +26 @@</span> First, we put the Wi-Fi module of the laptop in `Monitor mode' where it behaves
+<span class="f1">-Then we invoke the command line interface of the Wireshark programme tshark to collect the Wi-Fi probe requests received by the laptop in Character Separated File (CSV) format. </span>
+<span class="f2">+Then we invoke the command line interface of the Wireshark programme tshark to collect the Wi-Fi probe requests received by the laptop in Character Separated File (CSV) format in the file system.</span><span class="b1"> </span>
+
+
+<span class="f6">@@ -62 +62 @@</span> The fields marked with \textit{-e} are the ones which were collected and they co
+<span class="f1">-The name of the manufacturer/ vendor of the Wi-Fi module  is extracted from the \textit{wlan.sa\_resolved} field into a separate column and the original field is hashed using the SHA256 algorithm implemented in R.</span>
+<span class="f2">+The name of the manufacturer/ vendor of the Wi-Fi module  is extracted from the \textit{wlan.sa\_resolved} field into a separate column and the original field is hashed using the SHA256 algorithm \cite{gueron2011} implemented in R.</span>
+
+
+<span class="f6">@@ -103 +103 @@</span> This is where the signal strength shows good promise.
+<span class="f1">-Looking at the Table \ref{table:collection:proberequests} we can see that two of these vendors show significantly low average signal strength - Google and Fn-LinkT, which can easily correspond to the two devices present in the room.</span>
+<span class="f2">+Looking at the Table \ref{table:collection:proberequests} we can see that two of these vendors show significantly high average signal strength - Google and Fn-LinkT, which can easily correspond to the two devices present in the room.</span>
+
+
+<span class="f6">@@ -262 +262 @@</span> Figure \ref{figure:collection:ucl:signal} also shows the results of k-means clus
+<span class="f1">-\marginnote[-1.75cm]{\textit{Class intervals calculated using k-means clustering with the number of clusters defined as 4.} }</span>
+<span class="f2">+\marginnote[-1.75cm]{\textit{x-axis is measure in dBm as a proxy for distance. The class intervals calculated using k-means clustering with the number of clusters defined as 4.} }</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/32__pilot_study.tex b/chapters/32__pilot_study.tex</span>
+<span class="bold">index 444d076..53839e6 100644</span>
+<span class="bold">--- a/chapters/32__pilot_study.tex</span>
+<span class="bold">+++ b/chapters/32__pilot_study.tex</span>
+
+
+<span class="f6">@@ -50 +50 @@</span> The information collected from each probe request at these locations are,
+<span class="f1">-The manual counting at these locations were done using a custom application \citet{bala2018}. The application was built for recording pedestrian footfall with precision and accuracy which was not possible when counted manually. The app records the precise time stamp of every footfall with the precision of micro seconds which can be aggregated later at different time intervals. The code for the app is detailed in Section \ref{appendix:clicker}.</span>
+<span class="f2">+The manual counting at these locations were done using a custom application \citet{bala2018}. The application was built for recording pedestrian footfall with precision and accuracy which was not possible when counted without the application. The app records the precise time stamp of every footfall with the precision of micro seconds which can be aggregated later at different time intervals. The code for the app is detailed in Section \ref{appendix:clicker}.</span>
+
+
+<span class="f6">@@ -100 +100 @@</span> Id &amp; Location &amp; Type &amp; Installation notes &amp; Probes\textsuperscript{*} &amp; Footfall
+<span class="f1">-\marginnote[-1.5cm]{\textit{* Total probe requests in \(\times10^{6}\)(per minute)  ** Total footfall (per minute)}}</span>
+<span class="f2">+\marginnote[-1.5cm]{\textit{* Total probe requests in \(\times10^{6}\)(per minute)  ** Total footfall counted manually (per minute)}}</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/33__smart_street_sensor.tex b/chapters/33__smart_street_sensor.tex</span>
+<span class="bold">index 8c967ce..614d52f 100644</span>
+<span class="bold">--- a/chapters/33__smart_street_sensor.tex</span>
+<span class="bold">+++ b/chapters/33__smart_street_sensor.tex</span>
+
+
+<span class="f6">@@ -63 +63 @@</span> We must also note that the locations are retail and any insight from the data ne
+<span class="f1">-A custom footfall counting technology using Wi-Fi sensors (Figure \ref{figure:collection:sss:hardware}) was also designed and developed by LDC, and the sensors were installed the identified locations.</span>
+<span class="f2">+A custom footfall counting technology using Wi-Fi sensors (Figure \ref{figure:collection:sss:hardware}) was also designed and developed by LDC, and the sensors were installed at the identified locations.</span>
+
+
+<span class="f6">@@ -73 +73 @@</span> There are also a small percentage (3\%) of the devices which are installed withi
+<span class="f1">-Each device collects data independently and uploads the collected data to a central Azure container at regular intervals of 5 minutes through a dedicated 3G mobile data connection.</span>
+<span class="f2">+Each device collects data independently and uploads the collected data to a central microsoft cloud facility (Azure) container at regular intervals of 5 minutes through a dedicated 3G mobile data connection.</span>
+
+
+<span class="f6">@@ -84 +84 @@</span> We have collected around 2TB of data comprising of around 73 billion probe reque
+<span class="f1">-Due to the scale and the commercial nature of the project, the sensors collect fewer data than the previous experiments.</span>
+<span class="f2">+Due to the scale and the commercial nature of the project, the sensors collect fewer data per probe than the previous experiments.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/34__discussion.tex b/chapters/34__discussion.tex</span>
+<span class="bold">index 973f0ec..b6fc31a 100644</span>
+<span class="bold">--- a/chapters/34__discussion.tex</span>
+<span class="bold">+++ b/chapters/34__discussion.tex</span>
+
+
+<span class="f6">@@ -7 +7 @@</span> The pilot study extended this further by collecting data for a longer time in re
+<span class="f1">-The Smart Street Sensor project is the most comprehensive study which collects very small focussed set of data at a national level for very long periods of time.</span>
+<span class="f2">+The Smart Street Sensor project is the most comprehensive study which collects very small focussed set of data in a probe requestat a national level for very long periods of time.</span>
+
+
+<span class="f6">@@ -127 +127 @@</span> Though we can simply aggregate these probe requests based on the unique informat
+<span class="f1">-We to consider this uncertainty in detail while making any simple assumptions on the relationship between number of probe requests and the number of mobile devices that generated them.</span>
+<span class="f2">+We need to consider this uncertainty in detail while making any simple assumptions on the relationship between number of probe requests and the number of mobile devices that generated them.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/40_data_processing.tex b/chapters/40_data_processing.tex</span>
+<span class="bold">index 77048bf..c995971 100644</span>
+<span class="bold">--- a/chapters/40_data_processing.tex</span>
+<span class="bold">+++ b/chapters/40_data_processing.tex</span>
+
+
+<span class="f6">@@ -12,2 +12,2 @@</span> A brief review was conducted on the topic of 'big data and big data tools' which
+<span class="f1">-Using this framework, the datasets were evaluated in each of their 5 dimensions to understand their nature and the challenges posed in these dimensions.</span>
+<span class="f1">-We find that the Wi-Fi based datasets are 'medium data' which can benefit from customised toolkits which increases the efficiency.</span>
+<span class="f2">+Using this framework, the datasets were evaluated in each of their dimensions to understand their nature and the challenges posed in these dimensions.</span>
+<span class="f2">+We find that the Wi-Fi based datasets are 'medium data' (as opposed to 'big data') which can benefit from customised toolkits which increases the efficiency.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/41__data_toolkit.tex b/chapters/41__data_toolkit.tex</span>
+<span class="bold">index bc1084a..f7f7a9c 100644</span>
+<span class="bold">--- a/chapters/41__data_toolkit.tex</span>
+<span class="bold">+++ b/chapters/41__data_toolkit.tex</span>
+
+
+<span class="f6">@@ -20 +20 @@</span> Though we discussed the methods conceptually, we left out the rationale behind c
+<span class="f1">-We start by discussing the concept of `Big Data' in general and look at previous literature to understand its definition, nature and the challenges they pose.</span>
+<span class="f2">+We start by discussing the concept of `big data' in general and look at previous literature to understand its definition, nature and the challenges they pose.</span>
+
+
+<span class="f6">@@ -29 +29 @@</span> Finally we put together a toolkit to suit our datasets built from simple small U
+<span class="f1">-\subsection{What is `Big Data'?}</span>
+<span class="f2">+\subsection{What is `big data'?}</span>
+
+
+<span class="f6">@@ -52,3 +52,3 @@</span> This approach of looking at 'Big data' is too subjective and falls short of givi
+<span class="f1">-One of the most quoted definitions pertains to the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite{laney2001}.</span>
+<span class="f1">-This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation - the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.</span>
+<span class="f1">-There have also been other alternative dimensions proposed such as Cardinality, continuity and complexity \cite{suthaharan2014}.</span>
+<span class="f2">+One of the most quoted definitions pertains to the scale of the data in the dimension of volume - size of the data, velocity - speed of the data and variety  - the complexity of the data \cite[-4cm]{laney2001}.</span>
+<span class="f2">+This has also been extended to include more dimensions such as, veracity - the reliability or truthfulness of the data, visualisation \cite[-2.5cm]{li2016}- the complexity in visual interpretation and presentation of the data, and others such as visibility validity, variability, volatility and value.</span>
+<span class="f2">+There have also been other alternative dimensions proposed such as cardinality, continuity and complexity \cite{suthaharan2014}.</span>
+
+
+<span class="f6">@@ -62 +62 @@</span> Challenges in each one of these processing activity arises due to the data being
+<span class="f1">-The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis \cite{li2016}. </span>
+<span class="f2">+The data being big in volume, velocity and variety poses challenges in data acquisition, aggregation, cleaning and analysis.</span><span class="b1"> </span>
+
+
+<span class="f6">@@ -127 +127,2 @@</span> It is important to note that this can be reduced many folds by using compression
+<span class="f1">-      Study &amp; Maximum* &amp; Minimum* &amp; Average* &amp; Total** \\</span>
+<span class="f2">+      Study &amp; Maximum &amp; Minimum &amp; Average &amp; Total* \\</span>
+<span class="f2">+            &amp; (GB per year) &amp; (GB per year) &amp; (GB per year) &amp; (TB per year) \\</span>
+
+
+<span class="f6">@@ -139 +140 @@</span> It is important to note that this can be reduced many folds by using compression
+<span class="f1">-\marginnote{\textit{* Measured/ Estimated for each location in gigabytes per year. ** Measured/ Estimated for 920 locations in terabytes per year} }</span>
+<span class="f2">+\marginnote{\textit{* Estimated for 920 locations} }</span>
+
+
+<span class="f6">@@ -184 +185,2 @@</span> Table \ref{table:toolkit:velocity} compares the datasets we collected on Wi-Fi p
+<span class="f1">-      Study &amp; Maximum* &amp; Minimum* &amp; Average* &amp; Total** \\</span>
+<span class="f2">+      Study &amp; Maximum &amp; Minimum &amp; Average &amp; Total* \\</span>
+<span class="f2">+            &amp; (per 5min) &amp; (per 5min) &amp; (per 5min) &amp; (Mn per 5min)\\</span>
+
+
+<span class="f6">@@ -196 +198 @@</span> Table \ref{table:toolkit:velocity} compares the datasets we collected on Wi-Fi p
+<span class="f1">-\marginnote{\textit{* Measured/ Estimated for each location in number of requests per 5 minutes. ** Measured/ Estimated for 920 locations in Millions of requests per 5 minutes} }</span>
+<span class="f2">+\marginnote{\textit{* Estimated for 920 locations} }</span>
+
+
+<span class="f6">@@ -218 +220 @@</span> The first set of variety present in the Wi-Fi probes data set arises from the 'i
+<span class="f1">-The structure of a probe request is discussed in detail in the data collection chapter and is summarised in Figure ?.</span>
+<span class="f2">+The structure of a probe request is discussed in detail in the data collection chapter and is summarised in Figure \ref{figure:collection:proberequest}.</span>
+
+
+<span class="f6">@@ -250 +252 @@</span> Since the sensors are part of retail establishments they can be switched on and
+<span class="f1">-Figure \ref{figure:toolkit:veracity:gaps} demonstrates the veracity of the data in terms of missing data for a sample of locations in London.</span>
+<span class="f2">+Figure \ref{figure:toolkit:veracity:gaps} demonstrates the veracity of the data in terms of missing data for a sample of 5 locations in London.</span>
+
+
+<span class="f6">@@ -257 +259 @@</span> It is often not clear if the change in the data is due to actual changes at the
+<span class="f1">-For example, Opening of a mobile shop next door to the sensor can increase the estimated footfall without any change in actual footfall at the location.</span>
+<span class="f2">+For example, opening of a mobile shop next door to the sensor can increase the estimated footfall without any change in actual footfall at the location.</span>
+
+
+<span class="f6">@@ -359 +361 @@</span> Designing and implementing of such system is time consuming, cumbersome and usua
+<span class="f1">-On the other end of this spectrum, we have end-to-end solutions such as Blix, Walkbase, Ecuclid, Retail Next, Pygmalios, etc. where the data is collected through multiple sensors and sources and syndicated into a clean footfall information by a third party service provider.</span>
+<span class="f2">+On the other end of this spectrum, we have end-to-end solutions such as Blix, Walkbase, Euclid, Retail Next, Pygmalios, etc. where the data is collected through multiple sensors and sources and syndicated into a clean footfall information by a third party service provider.</span>
+
+
+<span class="f6">@@ -399 +401 @@</span> The relational databases are optimised to deal with relational data and usually
+<span class="f1">-In general they can handle large number of rows and are designed to scale vertically.</span>
+<span class="f2">+In general they can handle large number of rows and are designed to scale vertically through addition of more resources to the DBMS such as CPU and Memory.</span>
+
+
+<span class="f6">@@ -402,2 +404,2 @@</span> The document based databases are optimised to deal with unstructured data and ca
+<span class="f1">-In general they can handle large number of columns and are designed to be distributed and scaled horizontally.</span>
+<span class="f1">-Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-1cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.</span>
+<span class="f2">+In general they can handle large number of columns and are designed to be distributed and scaled horizontally by adding more instances of the databases which balance the load and redundancy between them.</span>
+<span class="f2">+Being distributed, most document based databases try to pick a focus and compromise on others as specified in CAP theorem \sidenote[][-2cm]{Brewer's theorem or CAP theorem states that it is impossible to simultaneously guarantee consistency, availability and partition tolerance in a distributed data store.}.</span>
+
+
+<span class="f6">@@ -405,0 +408,11 @@</span> There a numerous databases systems which prioritise different things and the rig
+<span class="f2">+Since the publication of the paper on `Google file system' by Google \cite[-2cm]{sanjay2003}.</span>
+<span class="f2">+There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.</span>
+<span class="f2">+These systems are designed to be distributed and optimised for high throughput for queries on them.</span>
+<span class="f2">+Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.</span>
+<span class="f2">+There are numerous cloud based, third-party solutions built with these file systems making them easy to use.</span>
+<span class="f2">+There are also numerous tools, libraries and frameworks which emulate the features of database systems on these distributed file systems making them easier to use further.</span>
+<span class="f2">+The primary advantage of these systems is the sheer scalability they provide when it comes to data volume.</span>
+<span class="f2">+The primary disadvantage is the associated overheads in terms of cost and time incurred in learning, designing and implementing them.</span>
+<span class="f2">+Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.</span>
+<span class="f2">+Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -449,10 +461,0 @@</span> There a numerous databases systems which prioritise different things and the rig
+<span class="f1">-Since the publication of the paper on `Google file system' by Google \cite[-2cm]{sanjay2003}.</span>
+<span class="f1">-There have been significant effort in designing and building 'big data' file storage systems which can large data in the range of petabytes.</span>
+<span class="f1">-These systems are designed to be distributed and optimised for high throughput for queries on them.</span>
+<span class="f1">-Hadoop Distributed File System (HDFS) is one such file system which is also the most widely adopted.</span>
+<span class="f1">-There are numerous cloud based, third-party solutions built with these file systems making them easy to use.</span>
+<span class="f1">-There are also numerous tools, libraries and frameworks which emulate the features of database systems on these distributed file systems making them easier to use further.</span>
+<span class="f1">-The primary advantage of these systems is the sheer scalability they provide when it comes to data volume.</span>
+<span class="f1">-The primary disadvantage is the associated overheads in terms of cost and time incurred in learning, designing and implementing them.</span>
+<span class="f1">-Unless the project is sufficiently large, the advantages gained usually do not justify the overheads introduced.</span>
+<span class="f1">-Table \ref{table:toolkit:storage} summarises the above discussion along with relevant examples.</span>
+
+
+<span class="f6">@@ -471 +474 @@</span> We chose PostgreSQL because of the PostGIS extension which gives us flexibility
+<span class="f1">-\begin{marginfigure}</span>
+<span class="f2">+\begin{marginfigure}[-5cm]</span>
+
+
+<span class="f6">@@ -481 +484 @@</span> Hence we require tools which are capable of dealing with the veracity of the dat
+<span class="f1">-The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS packages and process it.</span>
+<span class="f2">+The traditional approach to deal with such dataset is to load it into a general purpose analysis tool such as R or a GIS package and process it.</span>
+
+
+<span class="f6">@@ -492 +495 @@</span> On the other end we have big data analysis tools which are built for dealing wit
+<span class="f1">-Since the publication of the paper on MapReduce, there have been immense developments in the Big data analysis landscape.</span>
+<span class="f2">+Since the publication of the paper on MapReduce \cite{dean2008}, there have been immense developments in the Big data analysis landscape.</span>
+
+
+<span class="f6">@@ -522 +525 @@</span> This is where we come across the possibility of using standard Unix tools along
+<span class="f1">-In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite{adam2014}.</span>
+<span class="f2">+In some cases, a data processing pipeline made using command line Unix tools have been demonstrated to be 230 times faster than using big data toolkits \cite[-1.5cm]{adam2014}.</span>
+
+
+<span class="f6">@@ -525,10 +528 @@</span> They are developed in line with the Unix philosophy which focuses on modular and
+<span class="f1">-The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite{mcilroy1978},</span>
+<span class="f1">-</span>
+<span class="f1">-\begin{enumerate}[rightmargin=1cm]</span>
+<span class="f1">-  \setlength{\itemindent}{2em}</span>
+<span class="f1">-  \itemsep-0.25em</span>
+<span class="f1">-	\item Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new &quot;features&quot;.</span>
+<span class="f1">-	\item Expect the output of every program to become the input to another, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don't insist on interactive input.</span>
+<span class="f1">-	\item Design and build software, even operating systems, to be tried early, ideally within weeks. Don't hesitate to throw away the clumsy parts and rebuild them.</span>
+<span class="f1">-	\item Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.</span>
+<span class="f1">-\end{enumerate}</span>
+<span class="f2">+The core tenants of the Unix philosophy has been summarised by Doug McIlroy as below,\cite[-2cm]{mcilroy1978},</span>
+
+
+<span class="f6">@@ -563,0 +558,10 @@</span> The core tenants of the Unix philosophy has been summarised by Doug McIlroy as b
+<span class="f2">+</span>
+<span class="f2">+\begin{enumerate}[rightmargin=1cm]</span>
+<span class="f2">+  \setlength{\itemindent}{2em}</span>
+<span class="f2">+  \itemsep-0.25em</span>
+<span class="f2">+</span>	<span class="f2">\item Make each program do one thing well. To do a new job, build afresh rather than complicate old programs by adding new &quot;features&quot;.</span>
+<span class="f2">+</span>	<span class="f2">\item Expect the output of every program to become the input to another, as yet unknown, program. Don't clutter output with extraneous information. Avoid stringently columnar or binary input formats. Don't insist on interactive input.</span>
+<span class="f2">+</span>	<span class="f2">\item Design and build software, even operating systems, to be tried early, ideally within weeks. Don't hesitate to throw away the clumsy parts and rebuild them.</span>
+<span class="f2">+</span>	<span class="f2">\item Use tools in preference to unskilled help to lighten a programming task, even if you have to detour to build the tools and expect to throw some of them out after you've finished using them.</span>
+<span class="f2">+\end{enumerate}</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -586 +590 @@</span> Finally the modular structure also gives us the advantage of using the best tool
+<span class="f1">-All of the gives us an extremely minimal and efficient toolkit to process the raw Wi-Fi probes data into counts in a scalable way.</span>
+<span class="f2">+All of this gives us an extremely minimal and efficient toolkit to process the raw Wi-Fi probes data into counts in a scalable way.</span>
+
+
+<span class="f6">@@ -625,0 +630,4 @@</span> Every dimension of big data poses unique set of challenges and we need make righ
+<span class="f2">+We then closely examined the Wi-Fi probes data we collected with this framework and found that the data, though posed significant challenges with traditional data processing techniques, do not exhibit `big data' properties in all its dimensions.</span><span class="b1"> </span>
+<span class="f2">+Only veracity of the data was found to have any meaningful big data properties, while volume and velocity was found to be 'medium' at best.</span><span class="b1"> </span>
+<span class="f2">+The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.</span>
+<span class="f2">+Thus we arrived at the requirements for a bespoke `medium data toolkit' which is able to deal with these challenges.</span>
+
+
+<span class="f6">@@ -632,5 +639,0 @@</span> Every dimension of big data poses unique set of challenges and we need make righ
+<span class="f1">-We then closely examined the Wi-Fi probes data we collected with this framework and found that the data, though posed significant challenges with traditional data processing techniques, do not exhibit `big data' properties in all its dimensions. </span>
+<span class="f1">-Only veracity of the data was found to have any meaningful big data properties, while volume and velocity was found to be 'medium' at best. </span>
+<span class="f1">-The datasets lacked any variety and posed minimal challenge in the visualisation dimension because of it high temporal granularity.</span>
+<span class="f1">-Thus we arrived at the requirements for a bespoke `medium data toolkit' which is able to deal with these challenges.</span>
+<span class="f1">-</span>
+
+
+<span class="f6">@@ -641 +644 @@</span> To process the raw data we chose to devise a processing pipeline using an assort
+<span class="f1">-We also demonstrated that this processing pipeline can be 400 times faster than the using a monolithic pipeline even with a small sample of locations.</span>
+<span class="f2">+We also demonstrated that this processing pipeline can be 400 times faster (20 minutes to 3seconds) than the using a monolithic pipeline even with a small sample of locations.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/42__data_cleaning.tex b/chapters/42__data_cleaning.tex</span>
+<span class="bold">index 1d45d3a..e3e3a51 100644</span>
+<span class="bold">--- a/chapters/42__data_cleaning.tex</span>
+<span class="bold">+++ b/chapters/42__data_cleaning.tex</span>
+
+
+<span class="f6">@@ -12,6 +12,6 @@</span> The next step was to explore the extent of the noise generated by looking at bot
+<span class="f1">-\begin{marginfigure}[-7cm]</span>
+<span class="f1">-  \includegraphics[trim={10 10 10 10},clip]{images/processing-error-signal.png}</span>
+<span class="f1">-  \caption{The share of noise present in the data from outside the field of measurement in the initial experiment.}</span>
+<span class="f1">-  \label{figure:processing:error:signal}</span>
+<span class="f1">-\end{marginfigure}</span>
+<span class="f1">-</span>
+<span class="f2">+% \begin{marginfigure}[-7cm]</span>
+<span class="f2">+%   \includegraphics[trim={10 10 10 10},clip]{images/processing-error-signal.png}</span>
+<span class="f2">+%   \caption{The share of noise present in the data from outside the field of measurement in the initial experiment.}</span>
+<span class="f2">+%   \label{figure:processing:error:signal}</span>
+<span class="f2">+% \end{marginfigure}</span>
+<span class="f2">+%</span>
+
+
+<span class="f6">@@ -28 +28 @@</span> It was observed that about 53\% of the total probe requests collected were from
+<span class="f1">-As such the errors could be enormously reduced by simply filtering out the noise as shown in Figure \ref{figure:processing:error:signal}.</span>
+<span class="f2">+As such the errors could be enormously reduced by simply filtering out the noise %as shown in Figure \ref{figure:processing:error:signal}.</span>
+
+
+<span class="f6">@@ -83 +83 @@</span> That is, in configurations where a specific source of background noise was at a
+<span class="f1">-For example, imagine a sensor in the middle of room such as in the initial experiment in this thesis, with devices in and outside the room.</span>
+<span class="f2">+For example, imagine a sensor in the middle of a room such as in the initial experiment in this thesis, with devices in and outside the room.</span>
+
+
+<span class="f6">@@ -87 +87 @@</span> Both of these changes can be identified by the ‘breaks’ in the distribution
+<span class="f1">-Identification of these breaks in the data can be carried out using traditional one-dimensional clustering algorithms such as ‘jenks natural breaks’, ‘k-means’, ‘quantile’ and ‘hierarchical clustering’, etc.</span>
+<span class="f2">+Identification of these breaks in the data should be carried out using traditional one-dimensional clustering algorithms such as ‘jenks natural breaks’, ‘k-means’, ‘quantile’ and ‘hierarchical clustering’, etc.</span>
+
+
+<span class="f6">@@ -173 +173 @@</span> On a project with a large scope, such as the Smart Street Sensor project, since
+<span class="f1">-The three methods – signal strength filtering, sequence number clustering, and manual calibration - together provide a unified methodology for converting the Wi-Fi probe requests into footfall.</span>
+<span class="f2">+The three methods – signal strength filtering, sequence number clustering, and manual calibration - together provide a complete methodology for converting the Wi-Fi probe requests into footfall.</span>
+
+
+<span class="f6">@@ -204,6 +204,6 @@</span> It also demonstrated the need for filtering the data before aggregating them int
+<span class="f1">-     Quantile				        	&amp; 0.002 	&amp;  27 \% \\</span>
+<span class="f1">-     K-Means			 	        	&amp; 0.007 	&amp; -23 \% \\</span>
+<span class="f1">-     Hierarchical Clustering	&amp; 172.520	&amp;  -9 \% \\</span>
+<span class="f1">-     Bagged Clustering 		  	&amp; 0.135 	&amp; -30 \% \\</span>
+<span class="f1">-     Fisher 				        	&amp; 3.034 	&amp; -30 \% \\</span>
+<span class="f1">-     Jenks Natural Break 	   	&amp; 556.279	&amp; -30 \% \\</span>
+<span class="f2">+     Quantile				        	&amp; 0.002 	&amp; 27 \% \\</span>
+<span class="f2">+     K-Means			 	        	&amp; 0.007 	&amp; 23 \% \\</span>
+<span class="f2">+     Hierarchical Clustering	&amp; 172.520	&amp;  9 \% \\</span>
+<span class="f2">+     Bagged Clustering 		  	&amp; 0.135 	&amp; 30 \% \\</span>
+<span class="f2">+     Fisher 				        	&amp; 3.034 	&amp; 30 \% \\</span>
+<span class="f2">+     Jenks Natural Break 	   	&amp; 556.279	&amp; 30 \% \\</span>
+
+
+<span class="f6">@@ -223,2 +223,2 @@</span> The results are shown in Table \ref{table:processing:oxst:classification}.
+<span class="f1">-It was found that out of all algorithms, hierarchical clustering and jenks natural break provided the least amount of errors.</span>
+<span class="f1">-However, these two algorithms were designed to identify class intervals in much smaller datasets and were extremely resource intensive for practical use with a larger dataset.</span>
+<span class="f2">+It was found that out of all algorithms, hierarchical clustering provided the least amount of errors.</span>
+<span class="f2">+However, this and jenks natural break were designed to identify class intervals in much smaller datasets and were extremely resource intensive for practical use with a larger dataset.</span>
+
+
+<span class="f6">@@ -234 +234 @@</span> These concerns needed to be addressed with a larger survey with multiple locatio
+<span class="f1">-  \caption{Finding the optimum time threshold $\alpha$ and sequence threshold $\alpha$ through trial and error.}</span>
+<span class="f2">+  \caption{Finding the optimum time threshold (s) $\alpha$ and sequence threshold $\beta$ through trial and error.}</span>
+
+
+<span class="f6">@@ -263,0 +264,3 @@</span> A comparison of minute by minute counts resulting from different filtering proce
+<span class="f2">+To summarise, the data from the initial experiments suggest that both filtering using signal strength and the clustering using sequence numbers worked well on complex, real world data and resulted in fairly accurate pedestrian counts with a MAPE of 20\%.</span>
+<span class="f2">+It was also found that ‘k-means’ and ‘quantile’ are the best algorithms for clustering signal strengths, and the optimum thresholds for time and sequence numbers for the clustering algorithm were around 16 and 60 respectively.</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -269,3 +271,0 @@</span> A comparison of minute by minute counts resulting from different filtering proce
+<span class="f1">-</span>
+<span class="f1">-To summarise, the data from the initial experiments suggest that both filtering using signal strength and the clustering using sequence numbers worked well on complex, real world data and resulted in fairly accurate pedestrian counts with a MAPE of 20\%.</span>
+<span class="f1">-It was also found that ‘k-means’ and ‘quantile’ are the best algorithms for clustering signal strengths, and the optimum thresholds for time and sequence numbers for the clustering algorithm were around 16 and 60 respectively.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/43__data_architecture.tex b/chapters/43__data_architecture.tex</span>
+<span class="bold">index b36a07c..9b150d5 100644</span>
+<span class="bold">--- a/chapters/43__data_architecture.tex</span>
+<span class="bold">+++ b/chapters/43__data_architecture.tex</span>
+
+
+<span class="f6">@@ -42 +42 @@</span> First the probe requests were separated into global and local based on the OUI p
+<span class="f1">-The global probe requests were then aggregated into ambient population estimation employing the following steps,</span>
+<span class="f2">+The non-randomised, global probe requests were then aggregated into ambient population estimation employing the following steps,</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/50_applications.tex b/chapters/50_applications.tex</span>
+<span class="bold">index 8a3a958..e810685 100644</span>
+<span class="bold">--- a/chapters/50_applications.tex</span>
+<span class="bold">+++ b/chapters/50_applications.tex</span>
+
+
+<span class="f6">@@ -3,0 +4,2 @@</span>
+<span class="f2">+</span>
+<span class="f2">+\vspace{-0.5cm}</span>
+
+
+<span class="f6">@@ -11 +13 @@</span> Finally the chapter briefly describes a way to calculate the flow of pedestrians
+<span class="f1">-\section{United Kingdom Footfall Index}</span>
+<span class="f2">+\section{Footfall Indices}</span>
+
+
+<span class="f6">@@ -12,0 +15,2 @@</span> Finally the chapter briefly describes a way to calculate the flow of pedestrians
+<span class="f2">+\subsection{UK Footfall Index}</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -29 +33 @@</span> In addition to showing larger trends, this footfall index also showed sudden sho
+<span class="f1">-One such as example was the storm in February 2018 which corresponded with some of the lowest footfall experience across the UK.</span>
+<span class="f2">+One such as example was the storm in February 2018 named - &quot;Beast from the East&quot;, which resulted in a week of unusually low footfall experience across the UK.</span>
+
+
+<span class="f6">@@ -41,3 +45 @@</span> It can be observed that April 2019 has been slower than last year in most towns
+<span class="f1">-This kind of granular insights into trends in footfall could be valuable for local authorities who can measure and monitor the health of their retail areas closely.</span>
+<span class="f1">-</span>
+<span class="f1">-The difference in even smaller intra-day patterns in cities could be derived from footfall data which could show the nature of their economies</span>
+<span class="f2">+This kind of granular insights into trends in footfall could be valuable for local authorities who can measure and monitor the health of their retail areas closely. The difference in even smaller intra-day patterns in cities could be derived from footfall data which could show the nature of their economies</span>
+
+
+<span class="f6">@@ -46,0 +49 @@</span> Figure \ref{figure:applications:cities:profiles} shows an average daily footfall
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -52 +55 @@</span> It can be observed that all three locations have completely different patterns o
+<span class="f1">-Leicester Square was mostly a night time destination where the footfall peaks around evening while Regent street is a mostly office location with three distinct peaks corresponding to morning commute, evening commute and lunch.</span>
+<span class="f2">+Leicester Square was mostly a evening destination where the footfall peaks around evening while Regent street is a mostly office location with three distinct peaks corresponding to morning commute, evening commute and lunch.</span>
+
+
+<span class="f6">@@ -121 +124 @@</span> This coincided with the cold wave in UK named ‘Beast from the East’, which b
+<span class="f1">-The other identifiable events are bank holiday weekends which result in higher than normal footfall, and the holiday shopping season when footfall is at its highest. </span>
+<span class="f2">+The other identifiable events are bank holiday weekends which result in higher than normal footfall, and the Christmas shopping season when footfall is at its highest.</span><span class="b1"> </span>
+
+
+<span class="f6">@@ -141 +144 @@</span> This not only shows the usefulness of the data in understanding the effect event
+<span class="f1">-  \includegraphics[trim={0 0 0 0},clip]{images/applications-football-sample.png}</span>
+<span class="f2">+  \includegraphics[trim={0 24 0 70},clip]{images/applications-football-sample.png}</span>
+
+
+<span class="f6">@@ -157,2 +160,2 @@</span> This research specifically removes any personally identifiable information becau
+<span class="f1">-However, this problem can be solved by examining the movement of people in the Smart Street Sensors network at a fine spatial and temporal resolution using a novel methodology in the field of Big Data which uses mathematical models from information theory: Transfer Entropy (TE). </span>
+<span class="f1">-Using an area in central London, this section serves as a case study to demonstrate the usefulness of TE as a measure of the flow of pedestrians\sidenote{Work undertaken was in collaboration with Roberto Murcio and Karlo Lugomer. </span>
+<span class="f2">+However, this problem can be solved by examining the movement of people in the Smart Street Sensors network at a fine spatial and temporal resolution using a novel methodology in the field of big data which uses mathematical models from information theory: Transfer Entropy (TE).</span><span class="b1"> </span>
+<span class="f2">+Using an area in central London, this section serves as a case study to demonstrate the usefulness of TE as a measure of the flow of pedestrians\sidenote[][-3cm]{Work undertaken was in collaboration with Roberto Murcio and Karlo Lugomer.</span><span class="b1"> </span>
+
+
+<span class="f6">@@ -160,0 +164,7 @@</span> The methodology was formulated by Murcio; this author worked on the implementati
+<span class="f2">+\begin{figure*}</span>
+<span class="f2">+  \includegraphics[trim={0 0 0 0},clip]{images/applications-transfer-entropy.png}</span>
+<span class="f2">+  \caption{Illustration of transfer entropies between set of locations along Edgware Road, London.}</span>
+<span class="f2">+  \label{figure:applications:transent}</span>
+<span class="f2">+\end{figure*}</span>
+<span class="f2">+</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -177,6 +186,0 @@</span> This measure is applied directly to our people's movement problem and $X$ = loca
+<span class="f1">-\begin{figure*}</span>
+<span class="f1">-  \includegraphics[trim={0 0 0 0},clip]{images/applications-transfer-entropy.png}</span>
+<span class="f1">-  \caption{Illustration of transfer entropies between set of locations along Edgware Road, London.}</span>
+<span class="f1">-  \label{figure:applications:transent}</span>
+<span class="f1">-\end{figure*}</span>
+<span class="f1">-</span>
+
+
+<span class="f6">@@ -187,2 +191,2 @@</span> The numbers at each line represent the $TE$ measured between each pair of sensor
+<span class="f1">-The largest $TE$ value found was between 117 and 115.</span>
+<span class="f1">-The asymmetry of the TE is clear here, as the value in the opposite direction (115 to 117) is considerably lower.</span>
+<span class="f2">+The largest $TE$ values found were from 114,115 and 117 to 116.</span>
+<span class="f2">+The asymmetry of the TE is clear here, as the values in the opposite direction ( from 116 to 114,115 and 117) are considerably lower.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/60_conclusions.tex b/chapters/60_conclusions.tex</span>
+<span class="bold">index 5915aaa..42dd29e 100644</span>
+<span class="bold">--- a/chapters/60_conclusions.tex</span>
+<span class="bold">+++ b/chapters/60_conclusions.tex</span>
+
+
+<span class="f6">@@ -10,0 +11,4 @@</span> This thesis identifies Wi-Fi probe requests as a source of data from which infor
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+\section{Summary of Findings}</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -39,0 +44 @@</span> Using all these methods for filtering, cleaning and adjusting Wi-Fi data, this t
+<span class="f2">+Finally this research also provides a gallery of examples showing the possible use of such granular and continuous data on footfall on a national level.</span>
+
+
+<span class="f6">@@ -41,2 +46,7 @@</span> Using all these methods for filtering, cleaning and adjusting Wi-Fi data, this t
+<span class="f1">-Finally this thesis provides a gallery of examples showing the possible use of such granular and continuous data on footfall on a national level.</span>
+<span class="f1">-The data were used to devise a 'footfall index' at various levels - national, city, area and micro site locations showing how the retail related footfall have been distributed in the UK and how this distribution has been changing over time in high granularity both spatially and temporally.</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+\section{Research Question}</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+Looking back at our research question - &quot;Can dynamics of footfall inferred from passively collected big dataset without putting the privacy of users at risk?&quot;,</span>
+<span class="f2">+we have demonstrated that the task is indeed feasible, using Wi-Fi probe requests. Even when the identity of the devices were masked using randomisation techniques we have demonstrated that aggregation and estimation could be done without compromising the privacy of the users.</span>
+<span class="f2">+In addition to this, we have also demonstrated the usefulness and application of such footfall estimate with various examples.</span>
+<span class="f2">+The footfall estimates derived from the method were used to devise a 'footfall index' at various levels - national, city, area and micro site locations showing how the retail related footfall have been distributed in the UK and how this distribution has been changing over time in high granularity both spatially and temporally.</span>
+
+
+<span class="f6">@@ -46,0 +57,20 @@</span> Finally, it was also demonstrated that such detailed and continuous footfall vol
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+\section{Further Work}</span>
+<span class="f2">+%------------------------------------------------------------------------------%</span>
+<span class="f2">+</span>
+<span class="f2">+As we discussed in the literature review, the research on collecting and using data on population distribution and dynamics have closely followed the advances and changes in the consumer technology.</span><span class="b1"> </span>
+<span class="f2">+Every new technology adopted for mainstream use spurred new wave of research in using those technology.</span>
+<span class="f2">+It is also noted that every new technology not only brought many advantages over the previous ones but also introduced unique challenges.</span>
+<span class="f2">+In this context, the larges opportunity in furthering the research exists in identifying, evaluating and adopting new technologies.</span>
+<span class="f2">+There is a significant opportunities in applying these new technologies for old challenges and device methods to make them suitable to answer the questions raised by research.</span>
+<span class="f2">+Few such technologies are detailed below,</span>
+<span class="f2">+</span>
+<span class="f2">+\begin{itemize}</span>
+<span class="f2">+  \item \textbf{5G} is the new generation of technology which aims to bring even higher speeds of data transfer to mobile devices through cellular networks. This may lead to the gradual decline and phasing out of Wi-Fi technology. Though this cellular based technology doesn't provide the similar detail and flexibility offered by Wi-Fi it has the potential to offer much more comprehensive picture of the world if it gets  widely adopted.</span>
+<span class="f2">+  \item \textbf{Bluetooth Low energy (BLE)} is the upcoming short-range, wireless personal area network technology. With emphasis on being the technology used by the Internet of Things (IOT) devices, this technology has the potential to displace Wi-Fi as the choice of short-range communications. The explosion of wearables and smart devices at home, the amount of data that could be available form this technology could be staggering in the next decade.</span>
+<span class="f2">+  \item \textbf{Ultra wide band radar} is another short-range technology which has been developed for motion and object detection. Being primarily used to design sensors for proximity and motion detection, this has the potential to become a standard for vehicles. Moreover, with the recent uptick in self driving car research and development, the cost of these devices has gone significantly down thus providing amazing opportunities in creating comprehensive sensor networks similar to Smart Street Sensor project.</span>
+<span class="f2">+\end{itemize}</span>
+<span class="f2">+</span>
+<span class="f2">+In spite of being developed since 1980s, machine learning techniques have received extraordinary interest in the last decade.</span>
+<span class="f2">+This interest, along with advancements in the Big data tools and technologies has set up the stage for research by applying supervised and unsupervised machine learning techniques on large scale datasets collected through the above mentioned technologies.</span>
+<span class="f2">+There is a significant opportunity for applying unsupervised learning techniques such as anomaly detection and neural networks in passively collected digital data to improve data cleaning, interpolation, population estimations and time series based predictions etc.</span>
+
+
+<span class="f6">@@ -47,0 +78,5 @@</span> Finally, it was also demonstrated that such detailed and continuous footfall vol
+<span class="f2">+Research ethics, safety and privacy are going to be the next big areas of concern for advanced machine learning based techniques and big data analysis in the next decade.</span>
+<span class="f2">+The era of uninhibited large scale production, collection and consumption of personal data through connected devices over internet without oversight is almost over.</span>
+<span class="f2">+People are increasingly concerned with protecting their privacy and are opposed to the exploitation of their personal data.</span>
+<span class="f2">+This concern has been addressed by legislation such as GDPR and technologies such as cryptography and randomisation.</span>
+<span class="f2">+All these developments provide us with various opportunities in further research.</span>
+
+
+<span class="f6">@@ -48,0 +84,7 @@</span> Finally, it was also demonstrated that such detailed and continuous footfall vol
+<span class="f2">+Firstly there is opportunity study the above mentioned technologies form a privacy point of view to evaluate the advantages and risks presented by them and advance the research in terms of both mitigation the risks while maintaining some kind of usefulness.</span>
+<span class="f2">+These inquiries can not only be done in terms of techniques but also on the lines of legal compliance of such techniques.</span><span class="b1"> </span>
+<span class="f2">+There is also opportunity for researching on the uncertainties and limits of datasets when subject to robust privacy control methods.</span>
+<span class="f2">+Secondly the immense research, innovation and advancements made in peer to peer technologies in solving the various trust problems could be applied in the field of sensor based population estimation or pedestrian flow detection.</span>
+<span class="f2">+There is an opportunity for research into building a peer to peer network of sensors where the data collected by the sensors never leave the device themselves but the analyses are taken to the source of data.</span><span class="b1"> </span>
+<span class="f2">+This act of &quot;moving the analysis to data&quot; can solve numerous problems of safety of the personal data since there is not central point of failure and it can also scale up indefinitely without overwhelming a central repository of data.</span>
+<span class="f2">+Through these further research, we could take the field forward by not only following the improvements in the technology of data collection but also push the envelope in terms of developing more ethical and sage research environment while handling large amounts of data.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/chapters/70_appendix.tex b/chapters/70_appendix.tex</span>
+<span class="bold">index 6249136..14e695b 100644</span>
+<span class="bold">--- a/chapters/70_appendix.tex</span>
+<span class="bold">+++ b/chapters/70_appendix.tex</span>
+
+
+<span class="f6">@@ -2,0 +3,4 @@</span>
+<span class="f2">+\vspace*{\fill}</span>
+<span class="f2">+</span>
+<span class="f2">+\textit{Note : All code used in this thesis has been made available online via github - \url{https://github.com/sbmkvp/phd-thesis}.}</span>
+<span class="f2">+</span>
+
+
+<span class="f6">@@ -137 +140,0 @@</span> This bash script lists all the files in a given folder, parses them into JSON da
+<span class="f1">-</span>
+
+
+<span class="f6">@@ -144,0 +148,5 @@</span> This is a sample probe request captured using tshark and saved in the JSON forma
+<span class="f2">+\pagebreak</span>
+<span class="f2">+</span>
+<span class="f2">+%==============================================================================%</span>
+<span class="f2">+\section{Open-source Software Used}\label{appendix:software}</span>
+<span class="f2">+%==============================================================================%</span>
+
+
+<span class="f6">@@ -145,0 +154,83 @@</span> This is a sample probe request captured using tshark and saved in the JSON forma
+<span class="f2">+This section provides a non-exhaustive list of the key open-source/free software that have been used in this research.</span>
+<span class="f2">+</span>
+<span class="f2">+\begin{itemize}</span>
+<span class="f2">+\item \textbf{R} - programming language for statistical computing</span>
+<span class="f2">+    \begin{itemize}</span>
+<span class="f2">+      \item \textbf{tidyverse} - An opinionated collection of R packages designed for data science.</span><span class="b1"> </span>
+<span class="f2">+      \item \textbf{imputeTS} - Package for imputation missing values in univariate time series.</span>
+<span class="f2">+      \item \textbf{tmap} - A flexible, layer-based, and easy to use package to create thematic maps.</span>
+<span class="f2">+      \item \textbf{lubridate} - Package for working with date-times and time-spans</span>
+<span class="f2">+      \item \textbf{ggplot2} - A system for declaratively creating graphics, based on The Grammar of Graphics.</span>
+<span class="f2">+      \item \textbf{classInt} -  Package for choosing univariate class intervals for mapping or other graphics purposes.</span>
+<span class="f2">+      \item \textbf{Cairo} - 2D graphics library with support for multiple output devices.</span>
+<span class="f2">+      \item \textbf{fmsb} - Package with methods and functions for demographic analysis.</span>
+<span class="f2">+      \item \textbf{digest} - Package for the creation of hash digests of arbitrary R objects.</span>
+<span class="f2">+      \item \textbf{ggrepel} - Package that provides geoms for ggplot2 to repel overlapping text labels.</span>
+<span class="f2">+      \item \textbf{ggridges} - Package for creating ridge plots.</span>
+<span class="f2">+      \item \textbf{maptools} - Package for manipulating geographic data.</span>
+<span class="f2">+      \item \textbf{tidyquant} - Package that brings financial analysis and charting to tidyverse.</span>
+<span class="f2">+      \item \textbf{treemapify} - Package for creating tree-maps.</span>
+<span class="f2">+      \item \textbf{spatial features} - Package for manipulating geographic data within tidyverse.</span>
+<span class="f2">+      \item \textbf{RJSONIO} - Package for manipulating JSON objects.</span>
+<span class="f2">+      \item \textbf{rgdal} - Wrapper for the Geospatial Data Abstraction Library.</span>
+<span class="f2">+      \item \textbf{rgeos} - Wrapper for the Geometry Engine - Open Source.</span>
+<span class="f2">+      \item \textbf{viridis} - Package providing pretty color scales for visualisations.</span><span class="b1"> </span>
+<span class="f2">+      \item \textbf{xtable} - Package for coercing data to LaTeX and HTML tables.</span>
+<span class="f2">+      \item \textbf{scales} - Package for providing graphical scales mapping data to aesthetics.</span>
+<span class="f2">+      \item \textbf{showtext} - Package for managing fonts.</span><span class="b1"> </span>
+<span class="f2">+      \item \textbf{reshape2} - Package for transforming data between long and wide format.</span>
+<span class="f2">+      \item \textbf{rmarkdown} - Package for integrating markdown with R assisting reproducible research.</span>
+<span class="f2">+    \end{itemize}</span>
+<span class="f2">+  \item \textbf{Python} - An interpreted, high-level, general-purpose programming language.</span>
+<span class="f2">+  \item \textbf{PHP} - A general-purpose programming language originally designed for server-side web development.</span>
+<span class="f2">+  \item \textbf{JavaScript} - A high-level, interpreted scripting language for client-side web development.</span>
+<span class="f2">+    \begin{itemize}</span>
+<span class="f2">+      \item \textbf{node.js} - JavaScript based runtime built on chrome's V8 engine.</span>
+<span class="f2">+      \item \textbf{socket.io} - web sockets implementation for real-time, bidirectional and event-based communication.</span>
+<span class="f2">+      \item \textbf{moment.js} - JavaScript library for dealing with date-time and time-spans.</span>
+<span class="f2">+      \item \textbf{pm2} - Process management library for working with node.js applications.</span>
+<span class="f2">+      \item \textbf{express} - A fast, unopinionated, minimalist web framework for Node.js</span>
+<span class="f2">+      \item \textbf{Data Driven Documents} - A JavaScript library for visualizing data with HTML, SVG, and CSS.</span>
+<span class="f2">+      \item \textbf{jQuery} - A JavaScript library designed to simplify HTML DOM manipulation.</span>
+<span class="f2">+      \item \textbf{Bootstrap} - A framework for building responsive, mobile first websites.</span>
+<span class="f2">+      \item \textbf{highcharts} - A JavaScript library for drawing interactive charts from data.</span>
+<span class="f2">+    \end{itemize}</span>
+<span class="f2">+  \item \textbf{GNU/Linux} - An operating system and an extensive collection of open source and free computer software.</span>
+<span class="f2">+    \begin{itemize}</span>
+<span class="f2">+      \item \textbf{Arch Linux} - A lightweight and flexible Linux distribution.</span>
+<span class="f2">+      \item \textbf{CentOS} - A community supported computing platform compatible with Red Hat Enterprise Linux.</span>
+<span class="f2">+      \item \textbf{Debian} - A Linux distribution focussing on stability.</span><span class="b1"> </span>
+<span class="f2">+      \item \textbf{Ubuntu} - A Debian based Linux distribution focussing on ease of use.</span>
+<span class="f2">+      \item \textbf{Alpine Linux} - Ultra minimalistic Linux distribution focussing on resource efficiency.</span>
+<span class="f2">+    \end{itemize}</span>
+<span class="f2">+  \item \textbf{git} - A simple distributed version control system.</span>
+<span class="f2">+  \item \textbf{imagemagik} - Suite for displaying, converting and editing images.</span>
+<span class="f2">+  \item \textbf{ffmpeg} - Suite for converting and editing video files.</span>
+<span class="f2">+  \item \textbf{fzf} - A general-purpose command-line fuzzy finder.</span>
+<span class="f2">+  \item \textbf{ripgrep} - Rust based grep implementation for searching the content of files.</span>
+<span class="f2">+  \item \textbf{MySQL} - A relational database management system focussing on speed and ease of use.</span>
+<span class="f2">+  \item \textbf{Postgres} - A relational database management system emphasizing extensibility and technical standards compliance.</span>
+<span class="f2">+  \item \textbf{PostGIS} - Extension providing spatial objects for the PostgreSQL database.</span>
+<span class="f2">+  \item \textbf{QGIS} - Geographic Information System for creating, editing, visualising, analysing and publishing geospatial information.</span>
+<span class="f2">+  \item \textbf{gdal} - Geographic Data abstraction library.</span>
+<span class="f2">+  \item \textbf{geos} - Geometry Engine Open Source.</span>
+<span class="f2">+  \item \textbf{igraph} - R and Python library for dealing with networks / Graphs.</span>
+<span class="f2">+  \item \textbf{OpenStreetMap} - A collaborative project to create a free editable map of the world.</span>
+<span class="f2">+  \item \textbf{Leaflet} - A JavaScript library for mobile-friendly interactive maps.</span>
+<span class="f2">+  \item \textbf{Android } - Open source mobile operating system based on Linux.</span>
+<span class="f2">+  \item \textbf{vim} - Vim is a highly configurable, modal text editor built with focus on efficient.</span>
+<span class="f2">+  \item \textbf{Latex} - A high quality professional typesetting system.</span>
+<span class="f2">+  \item \textbf{jq} - A command line based JSON processor.</span>
+<span class="f2">+  \item \textbf{Apache} - A feature rich web server.</span>
+<span class="f2">+  \item \textbf{nginx} - A asynchronous, event-driven web server focussing on resource efficiency.</span>
+<span class="f2">+  \item \textbf{OpenJDK} - An open source implementation of the Java Platform.</span>
+<span class="f2">+  \item \textbf{Wireshark} - A free and open-source packet analyzer</span>
+<span class="f2">+  \item \textbf{OpenSSH} - A connectivity tool for remote login with the SSH protocol.</span>
+<span class="f2">+  \item \textbf{OpenSSL} - A full-featured toolkit for the Transport Layer Security and Secure Sockets Layer protocols.</span>
+<span class="f2">+  \item \textbf{GNUPG} - A complete and free implementation of the OpenPGP standard.</span>
+<span class="f2">+  \item \textbf{gnu-parallel} - A shell tool for executing jobs in parallel using one or more computers.</span>
+<span class="f2">+  \item \textbf{Libreoffice} - A free and open-source office suite built by The Document Foundation.</span>
+<span class="f2">+  \item \textbf{RaspberryPi} - A series of low-cost, flexible single-board computers.</span>
+<span class="f2">+  \item \textbf{Docker} - A platform for doing OS level virtualisation for delivering software.</span>
+<span class="f2">+  \item \textbf{termux} - A terminal emulator and Linux environment for Android.</span>
+<span class="f2">+\end{itemize}</span>
+
+
+<span class="f6">@@ -148 +239 @@</span> This is a sample probe request captured using tshark and saved in the JSON forma
+<span class="f1">-\chapter{Research Article}</span>
+<span class="f2">+% \chapter{Research Article}</span>
+
+
+<span class="f6">@@ -150 +241 @@</span> This is a sample probe request captured using tshark and saved in the JSON forma
+<span class="f1">-\includepdf[pages=1-15]{documents/ijgis-paper.pdf}</span>
+<span class="f2">+% \includepdf[pages=1-15]{documents/ijgis-paper.pdf}</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/reading/abstracts.txt b/reading/abstracts.txt</span>
+<span class="bold">new file mode 100644</span>
+<span class="bold">index 0000000..db953b8</span>
+<span class="bold">--- /dev/null</span>
+<span class="bold">+++ b/reading/abstracts.txt</span>
+
+
+<span class="f6">@@ -0,0 +1,36 @@</span>
+<span class="f2">+Vanhoef</span>
+<span class="f2">+</span>
+<span class="f2">+We present several novel techniques to track (unassociated) mobile devices by abusing features of the Wi-Fi standard. This shows that using random MAC addresses, on its own, does not guarantee privacy.</span><span class="b1"> </span>
+<span class="f2">+First, we show that information elements in probe requests can be used to fingerprint devices. We then combine these fingerprints with incremental sequence numbers, to create a tracking algorithm that does not rely on unique identi- fiers such as MAC addresses. Based on real-world datasets, we demonstrate that our algorithm can correctly track as much as 50% of devices for at least 20 minutes. We also show that commodity Wi-Fi devices use predictable scram- bler seeds. These can be used to improve the performance of our tracking algorithm. Finally, we present two attacks that reveal the real MAC address of a device, even if MAC ad- dress randomization is used. In the first one, we create fake hotspots to induce clients to connect using their real MAC address. The second technique relies on the new 802.11u standard, commonly referred to as Hotspot 2.0, where we show that Linux and Windows send Access Network Query Protocol (ANQP) requests using their real MAC address.</span><span class="b1"> </span>
+<span class="f2">+</span>
+<span class="f2">+</span>
+<span class="f2">+Matte</span>
+<span class="f2">+MAC address randomization is a common privacy protec- tion measure deployed in major operating systems today. It is used to prevent user-tracking with probe requests that are transmitted during IEEE 802.11 network scans. We present an attack to defeat MAC address randomization through observation of the timings of the network scans with an off- the-shelf Wi-Fi interface. This attack relies on a signature based on inter-frame arrival times of probe requests, which is used to group together frames coming from the same de- vice although they use distinct MAC addresses. We propose several distance metrics based on timing and use them to- gether with an incremental learning algorithm in order to group frames. We show that these signatures are consistent over time and can be used as a pseudo-identifier to track devices. Our framework is able to correctly group frames using different MAC addresses but belonging to the same device in up to 75% of the cases. These results show that the timing of 802.11 probe frames can be abused to track individual devices and that address randomization alone is not always enough to protect users against tracking.</span><span class="b1"> 
+</span><span class="f2">+</span>
+<span class="f2">+Martin</span>
+<span class="f2">+Media Access Control (MAC) address ran- domization is a privacy technique whereby mobile de- vices rotate through random hardware addresses in or- der to prevent observers from singling out their traffic or physical location from other nearby devices. Adop- tion of this technology, however, has been sporadic and varied across device manufacturers. In this paper, we present the first wide-scale study of MAC address ran- domization in the wild, including a detailed breakdown of different randomization techniques by operating sys- tem, manufacturer, and model of device.</span><span class="b1"> </span>
+<span class="f2">+We then identify multiple flaws in these implementa- tions which can be exploited to defeat randomization as performed by existing devices. First, we show that devices commonly make improper use of randomization by sending wireless frames with the true, global address when they should be using a randomized address. We move on to extend the passive identification techniques of Vanhoef et al. to effectively defeat randomization in ∼96% of Android phones. Finally, we identify a previ- ously unknown flaw in the way wireless chipsets handle low-level control frames which applies to 100% of de- vices we tested. This flaw permits an active attack that can be used under certain circumstances to track any existing wireless device.</span><span class="b1"> </span>
+<span class="f2">+</span>
+<span class="f2">+Cunche</span>
+<span class="f2">+Wi-Fi has imposed itself as one of the key radio technology in portable devices such as smartphones, tablets, and other wearable devices. Because they periodically scan for nearby access points, Wi-Fi devices act as portable radio beacons emitting short messages, called probe requests. The latter contain a unique identifier: the MAC address of the Wi-Fi interface. It can be used to passively track individuals. Owners of such devices are thus exposed to passive tracking in the physical world.</span><span class="b1"> </span>
+<span class="f2">+MAC address randomization has been proposed as a way to prevent passive tracking, and is being progressively adopted by the industry. However, the MAC address is not the only piece of information that can be used for tracking. For instance, it has been recently shown that exploiting the content of frames as well as their timing could still lead to tracking despite MAC address randomization.</span><span class="b1"> </span>
+<span class="f2">+</span>
+<span class="f2">+</span>
+<span class="f2">+</span>
+<span class="f2">+Xu</span>
+<span class="f2">+This paper presents a new simple mobile tracking system based on IEEE802.11 wireless signal detection, which can be used for analyzing the movement of pedestrian traffic. Wi-Fi packets emitted by Wi-Fi enabled smartphones are received at a monitoring station and these packets contain date, time, MAC address, and other information. The packets are received at a number of stations, distributed throughout the monitoring zone, which can measure the received signal strength. Based on the location of stations and data collected at the stations, the movement of pedestrian traffic can be analyzed. This information can be used to improve the services, such as better bus schedule time and better pavement design. In addition, this paper presents a signal strength based localisation method.</span>
+<span class="f2">+</span>
+<span class="f2">+</span>
+<span class="f2">+Musa</span>
+<span class="f2">+Smartphones with Wi-Fi enabled periodically transmit Wi-Fi messages, even when not associated to a network. In one 12-hour trial on a busy road (average daily traffic count 37,000 according to the state DOT), 7,000 unique devices were detected by a single road-side monitoring station, or about 1 device for every 5 vehicles.</span>
+<span class="f2">+In this paper, we describe a system for passively tracking unmodified smartphones, based on such Wi-Fi detections. This system uses only common, off-the-shelf access point hardware to both collect and deliver detections. Thus, in ad- dition to high detection rates, it potentially offers very low equipment and installation cost.</span>
+<span class="f2">+However, the long range and sparse nature of our oppor- tunistically collected Wi-Fi transmissions presents a signif- icant localization challenge. We propose a trajectory es- timation method based on Viterbi’s algorithm which takes second-by-second detections of a moving device as input, and produces the most likely spatio-temporal path taken. In addition, we present several methods that prompt passing de- vices to send additional messages, increasing detection rates an use signal-strength for improved accuracy.</span>
+<span class="f2">+Based on our experimental evaluation from one 9-month deployment and several single-day deployments, passive Wi- Fi tracking detects a large fraction of passing smartphones, and produces high-accuracy trajectory estimates.</span>
+<span class="f2">+</span>
+<span class="f2">+Kontokosta</span>
+<span class="f2">+New streams of data are being generated by a range of in-situ instrumentation, mobile sensing, and social media that can be integrated and analyzed to better understand urban activity and mobility patterns. While several studies have focused on understanding flows of people throughout a city, these data can also be used to create a more spatially and temporally granular picture of local population, and to forecast localized population given some exogenous environmental or physical conditions. Effectively modeling population dynamics at high spatial and temporal resolutions would have significant implications for city operations and policy, strategic long-term planning processes, emergency response and management, and public health.</span>
+<span class="f2">+This paper develops a real-time census of the city using Wi-Fi data to explore urban phenology as a function of localized population dynamics. Using Wi-Fi probe and connection data accounting for more than 20,000,000 data points for the year 2015 from New York City's Lower Manhattan neighborhood – combined with correlative data from the U.S. Census American Community Survey, the Longitudinal Employer-Household Dynamics survey, and New York City administrative records – we present a model to create real-time population estimates classi- fied by residents, workers, and visitors/tourists in a given neighborhood and localized to a block or geolocation proximate to a Wi-Fi access point. The results indicate that the approach has merit: we estimate intra-day, hourly worker and resident population counts within 5% of survey validation data. Our building-level test case demon- strates similar accuracy, estimating worker population to within 1% of the reported building occupancy.</span>
+<span class="f2">+</span>
+<span class="f2">+</span>
+<span class="f2">+Qin</span>
+<span class="f2">+With the explosive growth and wide-spread use of smartphones with Wi-Fi enabled, people are used to accessing the internet through Wi-Fi network interfaces of smartphones. Smartphones periodically transmit Wi-Fi messages, even when not connected to a network. In this paper, we describe the Mo-Fi system which monitors and aggregates large numbers of continuous Wi-Fi message transmissions from nearby smartphones in the area of interest using nonintrusive Wi-Fi sniffer sensors. In this paper, we propose an optimized Wi-Fi channel detection and selection method to switch the best channels automatically to aggregate the Wi-Fi messages based on channel data transmission weights and human presence activity classification method based on the features of human dwell duration sequences in order to evaluate the user engagement index. By deploying in the real-world office environment, we found that the performance of Wi-Fi messages aggregation of CAOCA and CACFA algorithms is over 3.8 times higher than the worst channel of FCA algorithms and about 76% of the best channel of FCA algorithms, and the human presence detection rate reached 87.4%.</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/references.bib b/references.bib</span>
+<span class="bold">index d29ae1d..8e5045f 100644</span>
+<span class="bold">--- a/references.bib</span>
+<span class="bold">+++ b/references.bib</span>
+
+
+<span class="f6">@@ -2222 +2222 @@</span>
+<span class="f1">-  author = {Gonz{\'{a}}lez, Marta C. and Hidalgo, Cesar A C{\'{e}}sar A. and Barab{\'{a}}si, Albert-L{\'{a}}szl{\'{o}} and Gonzalez, Marta C and Hidalgo, Cesar A C{\'{e}}sar A. and Barabasi, Albert-Laszlo},</span>
+<span class="f2">+  author = {Gonz{\'{a}}lez, Marta C. and Hidalgo, C{\'{e}}sar A. and Barab{\'{a}}si, Albert-L{\'{a}}szl{\'{o}}},</span>
+
+
+<span class="f6">@@ -3200 +3199,0 @@</span>
+<span class="f1">-  pages = {1-3534}, </span>
+
+
+<span class="f6">@@ -3753 +3752 @@</span>
+<span class="f1">-  author={mikeazo and poncho},</span>
+<span class="f2">+  author={Mikeazo and Poncho},</span>
+
+
+<span class="f6">@@ -3806,0 +3806,18 @@</span>
+<span class="f2">+</span>
+<span class="f2">+@inproceedings{gueron2011,</span>
+<span class="f2">+ author = {Gueron, Shay and Johnson, Simon and Walker, Jesse},</span>
+<span class="f2">+ title = {SHA-512/256},</span>
+<span class="f2">+ booktitle = {Proceedings of the 2011 Eighth International Conference on Information Technology: New Generations},</span>
+<span class="f2">+ series = {ITNG '11},</span>
+<span class="f2">+ year = {2011},</span>
+<span class="f2">+ isbn = {978-0-7695-4367-3},</span>
+<span class="f2">+ pages = {354--358},</span>
+<span class="f2">+ numpages = {5},</span>
+<span class="f2">+ url = {http://dx.doi.org/10.1109/ITNG.2011.69},</span>
+<span class="f2">+ doi = {10.1109/ITNG.2011.69},</span>
+<span class="f2">+ acmid = {2006621},</span>
+<span class="f2">+ publisher = {IEEE Computer Society},</span>
+<span class="f2">+ address = {Washington, DC, USA},</span>
+<span class="f2">+ keywords = {hash algorithms, SHA-512},</span>
+<span class="f2">+}</span><span class="b1"> </span>
+<span class="f2">+</span>
+
+
+
+
+
+
+
+
+
+
+<span class="bold">diff --git a/template.tex b/template.tex</span>
+<span class="bold">index 04b0a76..d6f9905 100644</span>
+<span class="bold">--- a/template.tex</span>
+<span class="bold">+++ b/template.tex</span>
+
+
+<span class="f6">@@ -17,0 +18,2 @@</span>
+<span class="f2">+\usepackage{glossaries}</span>
+<span class="f2">+\usepackage{csquotes}</span>
+
+
+
+
+
+<span class="bold">diff --git a/thesis.tex b/thesis.tex</span>
+<span class="bold">index 53ed5ae..fa98e0e 100644</span>
+<span class="bold">--- a/thesis.tex</span>
+<span class="bold">+++ b/thesis.tex</span>
+
+
+<span class="f6">@@ -7 +7 @@</span>
+<span class="f1">-\title{Estimating Footfall From Passive WiFi Signals}</span>
+<span class="f2">+\title{Estimating Footfall From Passive Wi-Fi Signals}</span>
+
+
+
+
+
+<span class="bold">diff --git a/tufte-common.def b/tufte-common.def</span>
+<span class="bold">index 52e0718..0470803 100644</span>
+<span class="bold">--- a/tufte-common.def</span>
+<span class="bold">+++ b/tufte-common.def</span>
+
+
+<span class="f6">@@ -1600 +1600 @@</span>
+<span class="f1">-    {\vspace{1.5\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)</span>
+<span class="f2">+    {\vspace{1\baselineskip}\begin{fullwidth}\LARGE\rmfamily\itshape} % above (global formatting of entry)</span>
+
+
+<span class="f6">@@ -1608 +1608 @@</span>
+<span class="f1">-    {\hspace*{2em}\contentslabel{2em}} % before w/label (label = ``2.6'')</span>
+<span class="f2">+    {\hspace*{4em}\contentslabel{2em}} % before w/label (label = ``2.6'')</span>
+</pre>
+</body>
+</html>
