@@ -21,7 +21,6 @@ data/
 *.ind
 .RData
 .Rhistory
-thesis.pdf
 .~lock.*
 _minted-thesis/
 viva_report
